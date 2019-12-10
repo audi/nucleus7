@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# ==============================================================================
+# Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.
+#
+# This Source Code Form is subject to the terms of the Mozilla
+# Public License, v. 2.0. If a copy of the MPL was not distributed
+# with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# ==============================================================================
+#
+# pylint: disable=anomalous-backslash-in-string
+# backslashes are needed to show the command since it is multi line
+
+"""
+Create interactive plots of project dna for different project types
+
+Example
+-------
+.. code-block:: bash
+
+    $ nc7-visualise_project_dna path/to/project/dir \
+    $ --type train \
+    $ --verbosity 0
+
+"""
+# pylint: enable=anomalous-backslash-in-string
+import argparse
+import os
+from typing import Optional
+
+import matplotlib.pyplot as plt
+
+from nucleus7.builders import runs_builder
+from nucleus7.core import project_dirs
+from nucleus7.utils import cli_utils
+
+
+def construct_parser():
+    """
+    Construct the parser
+    """
+    parser = argparse.ArgumentParser(description="Visualise project dna")
+
+    parser.add_argument('project_dir', type=str,
+                        help='project directory')
+    parser.add_argument("-t", '--type', required=True,
+                        type=str, choices=["train", "infer", "kpi", "data"],
+                        help='type of the project')
+    parser.add_argument('-r', '--run_name', type=str, required=False,
+                        help='name of data extraction run')
+    parser.add_argument("-v", '--verbosity', required=False,
+                        type=int, choices=[0, 1], default=0,
+                        help='verbosity of the plot')
+    parser.add_argument("-a", '--additional_configs_path', required=False,
+                        type=str,
+                        help='additional directory with configs for inference')
+    parser.add_argument('-b', '--batch_size', required=False,
+                        type=int, default=1,
+                        help='batch_size for inference; defaults to 1; '
+                             'is needed only to pass checks')
+
+    parser.add_argument(
+        "-l", "--logLevel", dest="logLevel",
+        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+        help="Set logging level")
+    return parser
+
+
+def main():
+    """
+    Visualize the project dna from the CLI
+    """
+    plt.ion()
+    (project_dir, project_type, additional_configs, verbosity,
+     batch_size, run_name) = _parse_args()
+    os.chdir(project_dir)
+    coordinator = _build_coordinator(
+        project_dir, project_type, additional_configs, batch_size, run_name)
+    coordinator.visualize_project_dna(
+        verbosity=verbosity, save_as_artifact=False)
+
+    plt.show()
+    while True:
+        try:
+            plt.pause(.001)
+        except KeyboardInterrupt:
+            plt.close("all")
+
+
+def _parse_args():
+    parser = construct_parser()
+    args = cli_utils.parse_config(parser)
+    project_dir = args.pop("project_dir")
+    project_dir = os.path.realpath(project_dir)
+    project_type = args.pop("type")
+    verbosity = args.pop("verbosity")
+    batch_size = args.pop("batch_size")
+    additional_configs_path = args.pop("additional_configs_path")
+    run_name = args.pop("run_name")
+    if project_type not in ["infer", "kpi"] and additional_configs_path:
+        raise ValueError(
+            "additional_configs_path allowed only for type == infer or kpi")
+    if run_name and project_type == "train":
+        raise ValueError(
+            "run_name is available only for extract_data project type!")
+    if project_type == "data" and not run_name:
+        raise ValueError("provide run_name to build data extraction dna!")
+    return (project_dir, project_type, additional_configs_path, verbosity,
+            batch_size, run_name)
+
+
+def _build_coordinator(project_dir: str, project_type: str,
+                       additional_configs: Optional[str] = None,
+                       batch_size: int = 1, run_name: Optional[str] = None):
+    if project_type == "train":
+        coordinator_configs = project_dirs.read_train_configs_from_directories(
+            project_dir, False)
+        # pylint: disable=missing-kwoa
+        # all keywords are inside of config_main
+        coordinator = runs_builder.build_train(
+            project_dir=project_dir, continue_training=True,
+            **coordinator_configs)
+    elif project_type == "infer":
+        coordinator_configs = (
+            project_dirs.read_inference_configs_from_directories(
+                project_dir, run_name=run_name, verify_unused_configs=False,
+                additional_dir_with_configs=additional_configs))
+        # pylint: disable=missing-kwoa
+        # all keywords are inside of config_main
+        coordinator = runs_builder.build_infer(
+            project_dir=project_dir, batch_size=batch_size,
+            **coordinator_configs)
+    elif project_type == "kpi":
+        coordinator_configs = (
+            project_dirs.read_kpi_configs_from_directories(
+                project_dir, run_name=run_name, verify_unused_configs=False,
+                additional_dir_with_configs=additional_configs))
+        # pylint: disable=missing-kwoa
+        # all keywords are inside of config_main
+        coordinator = runs_builder.build_kpi_evaluate(
+            project_dir=project_dir, batch_size=batch_size,
+            **coordinator_configs)
+    else:
+        coordinator_configs = (
+            project_dirs.read_data_extraction_configs_from_directories(
+                project_dir, run_name=run_name, verify_unused_configs=False,
+                additional_dir_with_configs=additional_configs))
+        # pylint: disable=missing-kwoa
+        # all keywords are inside of config_main
+        coordinator = runs_builder.build_extract_data(
+            project_dir=project_dir, batch_size=batch_size,
+            **coordinator_configs)
+    return coordinator
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# ==============================================================================
+# Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.
+#
+# This Source Code Form is subject to the terms of the Mozilla
+# Public License, v. 2.0. If a copy of the MPL was not distributed
+# with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# ==============================================================================
+#
+# pylint: disable=anomalous-backslash-in-string
+# backslashes are needed to show the command since it is multi line
+
+"""
+Main script for the training of neural networks
+
+Example
+-------
+.. code-block:: bash
+
+    $ nc7-train path/to/project/dir \
+    $ [--continue_training]
+
+"""
+# pylint: enable=anomalous-backslash-in-string
+
+import argparse
+import copy
+import os
+
+import matplotlib
+matplotlib.use('Agg')
+
+# pylint: disable=wrong-import-position
+# matplotlib should be imported before to set the backend
+from nucleus7.builders.runs_builder import build_train
+from nucleus7.core.project_dirs import read_train_configs_from_directories
+from nucleus7.utils import cli_utils
+from nucleus7.utils import run_utils
+# pylint: enable=wrong-import-position
+
+
+def construct_parser():
+    """
+    Construct the parser
+    """
+    description = (
+        "Main script to start training.\n\n"
+        "Same script can be used to run local and distributed training. "
+        "You need to specify TF_CONFIG environment in the right way "
+        "(see tensorflow help).\n\n"
+        "Project directory should have training/configs/ folder inside with "
+        "following tree:\n"
+        "    * (optional) configs_main.json - main config which may contain \n"
+        "all other configurations\n"
+        "    * datasets.json - datasets configuration\n"
+        "    * model.json - model configuration\n"
+        "    * model_handler.json - model handler configuration\n"
+        "    * trainer.json - trainer configuration\n"
+        "    * (optional) augmenter.json - augmentations configuration\n"
+        "    * plugins/{plugin1..n}.json - files with arbitrary "
+        "names with plugins\n"
+        "    * (optional) callbacks/{callback1..n}.json - files with "
+        "arbitrary names with callbacks\n"
+        "    * (optional) callbacks_eval/{callback1..n}.json - files "
+        "with arbitrary names with callbacks used only for evaluation\n"
+        "    * (optional) callbacks_train/{callback1..n}.json - files "
+        "with arbitrary names with callbacks used only for training\n"
+        "    * kpis/{kpi_plugin_or_accumulators1..n}.json - files "
+        "with arbitrary names with kpi plugins or accumulators\n"
+        "    * losses/{loss1..n}.json - files "
+        "with arbitrary names with losses\n"
+        "    * metrics/{metrics1..n}.json - files "
+        "with arbitrary names with metrics\n"
+        "    * postprocessors/{postprocessor1..n}.json - files "
+        "with arbitrary names with postprocessors\n"
+        "    * (optional) summaries/{summary1..n}.json - files "
+        "with arbitrary names with summaries\n"
+        "    * (optional) project_global_config.json - optional file with \n"
+        "global project configuration"
+    )
+
+    parser = argparse.ArgumentParser(
+        description=description, formatter_class=argparse.RawTextHelpFormatter)
+
+    parser.add_argument('project_dir', type=str,
+                        help='project directory with right structured '
+                             'training_configs subfolder')
+    parser.add_argument('--continue', dest='continue',
+                        action='store_true',
+                        help="use to continue training; this will load last "
+                             "checkpoint with all parameters and continue "
+                             "training if training was already done or will "
+                             "just start it; configs, and summaries will "
+                             "create new folders with {continue-i} subfolder. "
+                             "It is possible to continue multiple times")
+    parser.add_argument(
+        "-l", "--logLevel", dest="logLevel",
+        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+        help="Set logging level")
+    return parser
+
+
+def parse_config_main():
+    """parses the arguments and returns the main configuration dict
+    if config_main is defined, but other configs are also defined, the values
+    from config_main will be overwritten
+    """
+    parser = construct_parser()
+    args = cli_utils.parse_config(parser)
+    project_dir = args.pop('project_dir')
+    project_dir = os.path.realpath(project_dir)
+    os.chdir(project_dir)
+    if os.path.exists("training_configs"):
+        msg = ("This training project structure is deprecated!"
+               "Please move training_configs folder to training/configs")
+        raise FileExistsError(msg)
+
+    config_main = read_train_configs_from_directories(
+        project_dir, verify_unused_configs=True)
+
+    continue_training = args.pop('continue', False)
+    config_main['project_dir'] = project_dir
+    config_main['continue_training'] = continue_training
+    return config_main
+
+
+def main():
+    """
+    Run the training from the CLI
+    """
+    config_main = parse_config_main()
+    config_main = copy.deepcopy(config_main)
+    trainer = build_train(**config_main)
+    if run_utils.is_chief() or run_utils.is_evaluator_run():
+        trainer.visualize_project_dna(verbosity=0)
+    trainer.run()
+
+
+if __name__ == '__main__':
+    main()

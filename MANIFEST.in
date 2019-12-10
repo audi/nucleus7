@@ -1,0 +1,8 @@
+include README.md
+include LICENSE.txt
+include nucleus7/VERSION
+include tutorials/notebooks/build_and_train.ipynb
+include tutorials/notebooks/inference.ipynb
+recursive-include tests *
+global-exclude *.py[co]
+global-exclude __pycache__

@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# ==============================================================================
+# Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.
+#
+# This Source Code Form is subject to the terms of the Mozilla
+# Public License, v. 2.0. If a copy of the MPL was not distributed
+# with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# ==============================================================================
+#
+# pylint: disable=anomalous-backslash-in-string
+# backslashes are needed to show the command since it is multi line
+
+"""
+Script to create a default .json for a given nucleotide
+
+Example
+-------
+.. code-block:: bash
+
+    $ nc7-create_nucleotide_sample_config \
+    $ class.name.of.nucleotide \
+    $ ['--output_file_path /path/to/output/json]
+
+If --output_file_path is not set, it will print the json content to the shell
+
+Raises
+------
+KeyError
+    if nucleotide was not registered
+
+"""
+# pylint: enable=anomalous-backslash-in-string
+
+import argparse
+import json
+import os
+
+from nucleus7.utils import io_utils
+from nucleus7.utils import nucleotide_utils
+
+
+def construct_parser():
+    """
+    Construct the parser
+    """
+    parser = argparse.ArgumentParser(
+        description='create nucleotide default json')
+
+    parser.add_argument('-n', '--class_name', type=str,
+                        help='constructor name of nucleotide', required=True)
+    parser.add_argument('-o', '--output_directory', type=str,
+                        help='Output directory path for json', default=None,
+                        required=False)
+    return parser
+
+
+def parse_args():
+    """
+    Parse arguments
+    """
+    parser = construct_parser()
+    args = parser.parse_args()
+    print(io_utils.print_gflags(args))
+    return args.class_name, args.output_directory
+
+
+def main():
+    """
+    Create nucleotide sample config from the CLI
+    """
+    class_name, output_file = parse_args()
+    json_dict = nucleotide_utils.get_sample_config_for_nucleotide(
+        class_name=class_name)
+    json_str = json.dumps(json_dict)
+    json_str = 'FIX TODOS IN FILE BEFORE YOU CONTINUE\n' + json_str
+    if output_file is None:
+        print(json_str)
+    else:
+        fn_out = class_name.replace('.', '_') + '_SAMPLE_CONFIG.json'
+        fp_out = os.path.join(output_file, fn_out)
+        with open(fp_out, 'w') as file:
+            file.write(json_str)
+        print('json created for class {} at {}'.format(
+            class_name, fp_out))
+
+    print('\n\n####################################################')
+    print('############        Instructions       #############')
+    print('Please make sure you fix the TODOs in the json.')
+    print('Please delete unused lines, as those currently might\n'
+          'overwrite global default values. This will be fixed \n'
+          'in a future version')
+    print('####################################################')
+
+
+if __name__ == '__main__':
+    main()

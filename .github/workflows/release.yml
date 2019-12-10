@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'nucleus7/VERSION'
+
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.6
+          architecture: x64
+      - name: Install requirements
+        run: |
+          pip install "tensorflow<1.15"
+          pip install -r requirements.txt
+          pip install -r requirements_docs.txt
+      - name: Create docs html
+        run: |
+          cd docs_source
+          make html
+      - name: Commit changes back to repo
+        run: |
+          PACKAGE_VERSION=`cat nucleus7/VERSION`
+          echo "Found version ${PACKAGE_VERSION}"
+          git config --global user.name 'aev-oss-techniscal-user'
+          git config --global user.email 'aev-oss-techniscal-user@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.AEV_OSS_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git checkout "${GITHUB_REF:11}"
+          git add docs
+          git commit -am "autamated docs build for version ${PACKAGE_VERSION}"
+          git push origin
+      - name: Create release tag
+        run: |
+          PACKAGE_VERSION=`cat nucleus7/VERSION`
+          git tag v$PACKAGE_VERSION
+          git push origin v$PACKAGE_VERSION
+          echo "Tag v$PACKAGE_VERSION generated"

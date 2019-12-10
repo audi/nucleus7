@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# ==============================================================================
+# Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.
+#
+# This Source Code Form is subject to the terms of the Mozilla
+# Public License, v. 2.0. If a copy of the MPL was not distributed
+# with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# ==============================================================================
+#
+# pylint: disable=anomalous-backslash-in-string
+# backslashes are needed to show the command since it is multi line
+
+"""
+Script to print information about nucleotide inputs, outputs, keys etc.
+
+Example
+-------
+.. code-block:: bash
+
+    $ python3 -u nc7-get_nucleotide_info class.name.of.nucleotide
+
+Raises
+------
+KeyError if nucleotide was not registered
+
+"""
+# pylint: enable=anomalous-backslash-in-string
+
+import argparse
+
+from nucleus7.utils import io_utils
+from nucleus7.utils import nucleotide_utils
+
+
+def construct_parser():
+    """
+    Construct the parser
+    """
+    parser = argparse.ArgumentParser(description='check nucleotide script')
+
+    parser.add_argument('class_name', type=str,
+                        help='constructor name of nucleotide')
+    return parser
+
+
+def parse_args():
+    """
+    Parse arguments
+    """
+    parser = construct_parser()
+    args = parser.parse_args()
+    print(io_utils.print_gflags(args))
+    return args.class_name
+
+
+def main():
+    """
+    Run the nucleotide check from the CLI
+    """
+    class_name = parse_args()
+    nucleotide_info = nucleotide_utils.get_nucleotide_info(
+        class_name=class_name)
+    print("INFO for {}".format(class_name))
+    print(nucleotide_utils.format_nucleotide_info(nucleotide_info))
+
+
+if __name__ == '__main__':
+    main()

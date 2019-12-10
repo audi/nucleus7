@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# ==============================================================================
+# Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.
+#
+# This Source Code Form is subject to the terms of the Mozilla
+# Public License, v. 2.0. If a copy of the MPL was not distributed
+# with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+# ==============================================================================
+#
+# pylint: disable=anomalous-backslash-in-string
+# backslashes are needed to show the command since it is multi line
+
+"""Script to create file_list for datasets
+
+The file list will be created also inside of dataset itself without this script
+
+Example
+-------
+.. code-block:: bash
+
+    $ python3 nc7-create_dataset_file_list \
+    $ --save_dir path/to/save/dir \
+    $ -f path/to/main/file_list_config.json
+
+"""
+# pylint: enable=anomalous-backslash-in-string
+
+import argparse
+import json
+import logging
+import os
+
+from nucleus7.builders import file_list_builder
+from nucleus7.utils import cli_utils
+from nucleus7.utils import io_utils
+
+
+def construct_parser():
+    """
+    Construct the parser
+    """
+    parser = argparse.ArgumentParser(description='training script')
+
+    parser.add_argument('-s', '--save_dir', required=True, type=str,
+                        help='directory to save the file_list')
+
+    parser.add_argument('-f', '--config_file_list', required=True, type=str,
+                        help='json file name with configuration of file list')
+
+    parser.add_argument(
+        "-l", "--logLevel", dest="logLevel",
+        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+        help="Set logging level")
+    return parser
+
+
+def parse_args():
+    """
+    Parse arguments
+    """
+    parser = construct_parser()
+    args = cli_utils.parse_config(parser)
+    save_dir = args['save_dir']
+    config_file_list = args['config_file_list']
+    return config_file_list, save_dir
+
+
+def main():
+    """
+    Create file list from the CLI
+    """
+    config_file_list, save_dir = parse_args()
+    io_utils.maybe_mkdir(save_dir)
+    logger = logging.getLogger(__name__)
+    logger.info('Create file list and save them')
+    _create_and_save_file_list(config_file_list, save_dir)
+    logger.info('Done!!!')
+
+
+def _create_and_save_file_list(file_list_config, save_dir):
+    file_list = file_list_builder.build(file_list_config)
+    file_list_name = file_list.name
+    save_path = os.path.join(save_dir, file_list_name + '_file_names.json')
+    with open(save_path, "w", encoding='utf8') as file:
+        json.dump(file_list.get(), file, indent=4, sort_keys=True)
+
+
+if __name__ == '__main__':
+    main()
