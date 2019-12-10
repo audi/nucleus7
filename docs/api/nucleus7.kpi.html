@@ -1,0 +1,1039 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.kpi package &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nucleus7.model package" href="nucleus7.model.html" />
+    <link rel="prev" title="nucleus7.data package" href="nucleus7.data.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nucleus7.kpi package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi.accumulator">nucleus7.kpi.accumulator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi.cacher">nucleus7.kpi.cacher module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi.kpi_callback">nucleus7.kpi.kpi_callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi.kpi_evaluator">nucleus7.kpi.kpi_evaluator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi.kpi_plugin">nucleus7.kpi.kpi_plugin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi.saver">nucleus7.kpi.saver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.kpi">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>nucleus7.kpi package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/nucleus7.kpi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleus7-kpi-package">
+<h1>nucleus7.kpi package<a class="headerlink" href="#nucleus7-kpi-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nucleus7.kpi.accumulator">
+<span id="nucleus7-kpi-accumulator-module"></span><h2>nucleus7.kpi.accumulator module<a class="headerlink" href="#module-nucleus7.kpi.accumulator" title="Permalink to this headline">¶</a></h2>
+<p>Accumulator for KPI plugin values</p>
+<dl class="class">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.accumulator.</code><code class="sig-name descname">KPIAccumulator</code><span class="sig-paren">(</span><em class="sig-param">buffer_processor: Optional[nucleus7.core.buffer.BufferProcessor] = None</em>, <em class="sig-param">clear_buffer_after_evaluate: bool = True</em>, <em class="sig-param">**kpi_plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/accumulator.html#KPIAccumulator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.kpi.kpi_plugin.KPIPlugin" title="nucleus7.kpi.kpi_plugin.KPIPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.kpi_plugin.KPIPlugin</span></code></a></p>
+<p>Special case of KPIPlugin, which is used to accumulate the intermediate
+KPI values and then to combine them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer_processor</strong> – buffer processor to use</p></li>
+<li><p><strong>clear_buffer_after_evaluate</strong> – flag if the buffer should be cleared after it was processed</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.buffer">
+<em class="property">property </em><code class="sig-name descname">buffer</code><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: buffer
+:rtype: buffer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.clear_state">
+<code class="sig-name descname">clear_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/accumulator.html#KPIAccumulator.clear_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.clear_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear state of plugin</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.evaluate_on_sample">
+<code class="sig-name descname">evaluate_on_sample</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">evaluate=None</em>, <em class="sig-param">prefix: Optional[str] = None</em>, <em class="sig-param">**sample_inputs</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/kpi/accumulator.html#KPIAccumulator.evaluate_on_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.evaluate_on_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method of accumulator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evaluate</strong> – flag if the evaluation should be executed after accumulation</p></li>
+<li><p><strong>prefix</strong> – prefix to use inside of cachers and savers</p></li>
+<li><p><strong>sample_inputs</strong> – sample inputs to kpi</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>evaluated kpi; if evaluate == False, then it will return None</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.finalize">
+<code class="sig-name descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/accumulator.html#KPIAccumulator.finalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.finalize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Final evaluation. It will evaluate the kpi on the accumulated buffer
+in case if self.is_last_sample was set to True and last sample was
+not evaluated</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['prefix', 'sample_mask', 'evaluate']</em><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.last_kpi">
+<em class="property">property </em><code class="sig-name descname">last_kpi</code><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.last_kpi" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: last evaluated kpi
+:rtype: last_kpi</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.accumulator.KPIAccumulator.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'kpi_accumulator'</em><a class="headerlink" href="#nucleus7.kpi.accumulator.KPIAccumulator.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.kpi.cacher">
+<span id="nucleus7-kpi-cacher-module"></span><h2>nucleus7.kpi.cacher module<a class="headerlink" href="#module-nucleus7.kpi.cacher" title="Permalink to this headline">¶</a></h2>
+<p>Interface to use to cache the KPI values</p>
+<dl class="class">
+<dt id="nucleus7.kpi.cacher.KPICacher">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.cacher.</code><code class="sig-name descname">KPICacher</code><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPICacher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPICacher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>Interface to use to cache KPI values</p>
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPICacher.cache">
+<em class="property">abstract </em><code class="sig-name descname">cache</code><span class="sig-paren">(</span><em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPICacher.cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPICacher.cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – values to cache</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPICacher.cache_target">
+<em class="property">property </em><code class="sig-name descname">cache_target</code><a class="headerlink" href="#nucleus7.kpi.cacher.KPICacher.cache_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache target like cache directory or server address etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPICacher.calculate_hash">
+<em class="property">abstract </em><code class="sig-name descname">calculate_hash</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">cache_prefix: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPICacher.calculate_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPICacher.calculate_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate hash value for inputs and cache prefix and assign
+the hash value to self._current_hash</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – inputs to for kpi calculation</p></li>
+<li><p><strong>cache_prefix</strong> – additional prefix to use for hash value calculation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPICacher.current_hash">
+<em class="property">property </em><code class="sig-name descname">current_hash</code><a class="headerlink" href="#nucleus7.kpi.cacher.KPICacher.current_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>last calculated cache</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPICacher.restore">
+<em class="property">abstract </em><code class="sig-name descname">restore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPICacher.restore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPICacher.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore values from cache using self.current_hash</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>restored value of KPIs from cache</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>kpi_restored</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.kpi.cacher.KPIMD5Cacher">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.cacher.</code><code class="sig-name descname">KPIMD5Cacher</code><span class="sig-paren">(</span><em class="sig-param">name: str = 'md5_cacher'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPIMD5Cacher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPIMD5Cacher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.kpi.cacher.KPICacher" title="nucleus7.kpi.cacher.KPICacher"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.cacher.KPICacher</span></code></a></p>
+<p>KPI Cacher uses md5 hash on the json representation of inputs together with
+cache prefix. If some value inside of inputs cannot be represented inside
+of json, then method <cite>value.tostring()</cite> is used if it exists, otherwise
+simple <cite>str(value)</cite> is used. To change only this behavior, override
+<cite>_default_decoder_fn</cite> method.</p>
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPIMD5Cacher.cache">
+<code class="sig-name descname">cache</code><span class="sig-paren">(</span><em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPIMD5Cacher.cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPIMD5Cacher.cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – values to cache</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPIMD5Cacher.calculate_hash">
+<code class="sig-name descname">calculate_hash</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">cache_prefix: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPIMD5Cacher.calculate_hash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPIMD5Cacher.calculate_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate hash value for inputs and cache prefix and assign
+the hash value to self._current_hash</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – inputs to for kpi calculation</p></li>
+<li><p><strong>cache_prefix</strong> – additional prefix to use for hash value calculation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.cacher.KPIMD5Cacher.restore">
+<code class="sig-name descname">restore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/cacher.html#KPIMD5Cacher.restore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.cacher.KPIMD5Cacher.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore values from cache using self.current_hash</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>restored value of KPIs from cache</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>kpi_restored</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.kpi.kpi_callback">
+<span id="nucleus7-kpi-kpi-callback-module"></span><h2>nucleus7.kpi.kpi_callback module<a class="headerlink" href="#module-nucleus7.kpi.kpi_callback" title="Permalink to this headline">¶</a></h2>
+<p>Classes and methods to convert KPIEvaluator to a CoordinatorCallback</p>
+<dl class="class">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.kpi_callback.</code><code class="sig-name descname">KPIEvaluatorCallback</code><span class="sig-paren">(</span><em class="sig-param">evaluator: nucleus7.kpi.kpi_evaluator.KPIEvaluator</em>, <em class="sig-param">inbound_nodes: list</em>, <em class="sig-param">incoming_keys_mapping: dict</em>, <em class="sig-param">num_epochs_to_clean_state: int = 1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_callback.html#KPIEvaluatorCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.coordinator.html#nucleus7.coordinator.callback.CoordinatorCallback" title="nucleus7.coordinator.callback.CoordinatorCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.callback.CoordinatorCallback</span></code></a></p>
+<p>Callback with <code class="xref py py-obj docutils literal notranslate"><span class="pre">KPIEvaluator</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evaluator</strong> – evaluator to use</p></li>
+<li><p><strong>num_epochs_to_clean_state</strong> – number of epochs between state of the evaluator will be cleaned</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.all_nucleotides">
+<em class="property">property </em><code class="sig-name descname">all_nucleotides</code><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.all_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>All nucleotides inside of the evaluator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>all nucleotides inside of the evaluator</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>all_nucleotides</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.build_dna">
+<code class="sig-name descname">build_dna</code><span class="sig-paren">(</span><em class="sig-param">incoming_nucleotides</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_callback.html#KPIEvaluatorCallback.build_dna"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.build_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper to build the dna of evaluator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>incoming_nucleotides</strong> – incoming nucleotides to evaluator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.dynamic_generated_keys">
+<code class="sig-name descname">dynamic_generated_keys</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.dynamic_generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.dynamic_incoming_keys">
+<code class="sig-name descname">dynamic_incoming_keys</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.dynamic_incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['sample_mask']</em><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.log_dir">
+<em class="property">property </em><code class="sig-name descname">log_dir</code><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.log_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log directory for callback</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to log directory</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>log_dir</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_callback.html#KPIEvaluatorCallback.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.summary_step">
+<em class="property">property </em><code class="sig-name descname">summary_step</code><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.summary_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current summary step</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>summary step</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>summary_step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.summary_writer">
+<em class="property">property </em><code class="sig-name descname">summary_writer</code><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.summary_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary writer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>summary writer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>summary_writer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.use_genes_as_inputs">
+<em class="property">property </em><code class="sig-name descname">use_genes_as_inputs</code><a class="headerlink" href="#nucleus7.kpi.kpi_callback.KPIEvaluatorCallback.use_genes_as_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: * <em>Flag to identify if the nucleotide takes genes, e.g. dict with</em>
+* <em>other nucleotides as keys and dict of particular values as values</em>
+* <em>or on just dict with incoming_keys and corresponding values.</em>
+* <em>Is used to simulate the GeneHandler behavior.</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.kpi.kpi_callback.convert_evaluator_to_callback">
+<code class="sig-prename descclassname">nucleus7.kpi.kpi_callback.</code><code class="sig-name descname">convert_evaluator_to_callback</code><span class="sig-paren">(</span><em class="sig-param">evaluator: nucleus7.kpi.kpi_evaluator.KPIEvaluator</em>, <em class="sig-param">num_epochs_to_clean_state: int = 1</em><span class="sig-paren">)</span> &#x2192; nucleus7.kpi.kpi_callback.KPIEvaluatorCallback<a class="reference internal" href="../_modules/nucleus7/kpi/kpi_callback.html#convert_evaluator_to_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_callback.convert_evaluator_to_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert kpi evaluator to <code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordinatorCallback</span></code></p>
+<p>If this callback is used inside of training / evaluation, it will add
+TfSummarySaver to savers of the evaluator and will save the kpis to
+main summary writer using KPI accumulators save method. All other savers
+/ cachers will be used as usual</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evaluator</strong> – evaluator to transform</p></li>
+<li><p><strong>num_epochs_to_clean_state</strong> – defines after how many epochs state of evaluator should be cleared</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>callback transformed from evaluator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>evaluator_as_callback</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.kpi.kpi_evaluator">
+<span id="nucleus7-kpi-kpi-evaluator-module"></span><h2>nucleus7.kpi.kpi_evaluator module<a class="headerlink" href="#module-nucleus7.kpi.kpi_evaluator" title="Permalink to this headline">¶</a></h2>
+<p>Interface for kpi evaluator</p>
+<dl class="class">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.kpi_evaluator.</code><code class="sig-name descname">KPIEvaluator</code><span class="sig-paren">(</span><em class="sig-param">plugins: Union[List[nucleus7.kpi.kpi_plugin.KPIPlugin], Dict[str, nucleus7.kpi.kpi_plugin.KPIPlugin], nucleus7.kpi.kpi_plugin.KPIPlugin, None] = None, accumulators: Union[List[nucleus7.kpi.accumulator.KPIAccumulator], Dict[str, nucleus7.kpi.accumulator.KPIAccumulator], nucleus7.kpi.accumulator.KPIAccumulator, None] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_evaluator.html#KPIEvaluator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.gene_handler.GeneHandler" title="nucleus7.core.gene_handler.GeneHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.gene_handler.GeneHandler</span></code></a></p>
+<p>Class for evaluation of KPI metrics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugins</strong> – kpi plugins</p></li>
+<li><p><strong>accumulators</strong> – kpi accumulators</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.add_saver">
+<code class="sig-name descname">add_saver</code><span class="sig-paren">(</span><em class="sig-param">saver: nucleus7.kpi.saver.KPISaver</em>, <em class="sig-param">kpi_gene_name='accumulators'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_evaluator.html#KPIEvaluator.add_saver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.add_saver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add saver to all kpi nucleotides from kpi_gene_name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>saver</strong> – saver to add</p></li>
+<li><p><strong>kpi_gene_name</strong> – gene name to add to, like accumulators or plugins</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.8)"><strong>AssertionError</strong></a> – if kpi_gene_name not in [plugins, accumulators]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.cache_target">
+<em class="property">property </em><code class="sig-name descname">cache_target</code><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.cache_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache target like cache directory or server address etc.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.clear_state">
+<code class="sig-name descname">clear_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_evaluator.html#KPIEvaluator.clear_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.clear_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear states of all nucleotides</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.gene_name_and_nucleotide_super_cls">
+<code class="sig-name descname">gene_name_and_nucleotide_super_cls</code><em class="property"> = {'accumulators': &lt;class 'nucleus7.kpi.accumulator.KPIAccumulator'&gt;, 'plugins': &lt;class 'nucleus7.kpi.kpi_plugin.KPIPlugin'&gt;}</em><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.gene_name_and_nucleotide_super_cls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.is_last_iteration">
+<em class="property">property </em><code class="sig-name descname">is_last_iteration</code><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.is_last_iteration" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: flag if it is last iteration
+:rtype: is_last_iteration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.is_last_sample">
+<em class="property">property </em><code class="sig-name descname">is_last_sample</code><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.is_last_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: if the sample to proceed is the last one
+:rtype: is_last_sample</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.last_kpi">
+<em class="property">property </em><code class="sig-name descname">last_kpi</code><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.last_kpi" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: last evaluated kpi
+:rtype: last_evaluated_kpi</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the kpi evaluator</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.nucleotide_type_dependency_map">
+<code class="sig-name descname">nucleotide_type_dependency_map</code><em class="property"> = {&lt;class 'nucleus7.kpi.kpi_plugin.KPIPlugin'&gt;: [&lt;class 'nucleus7.kpi.kpi_plugin.KPIPlugin'&gt;], &lt;class 'nucleus7.kpi.accumulator.KPIAccumulator'&gt;: [&lt;class 'nucleus7.kpi.kpi_plugin.KPIPlugin'&gt;, &lt;class 'nucleus7.kpi.accumulator.KPIAccumulator'&gt;]}</em><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.nucleotide_type_dependency_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.process_accumulators">
+<code class="sig-name descname">process_accumulators</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/kpi/kpi_evaluator.html#KPIEvaluator.process_accumulators"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.process_accumulators" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process all kpi accumulators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs to kpi accumulators</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>results from kpi accumulators</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>accumulators_results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.process_plugins">
+<code class="sig-name descname">process_plugins</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/kpi/kpi_evaluator.html#KPIEvaluator.process_plugins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.process_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process all kpi plugins</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs to kpi plugins</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>results from kpi plugins</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>plugins_results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_evaluator.KPIEvaluator.save_target">
+<em class="property">property </em><code class="sig-name descname">save_target</code><a class="headerlink" href="#nucleus7.kpi.kpi_evaluator.KPIEvaluator.save_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save target like directory or server address etc.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.kpi.kpi_plugin">
+<span id="nucleus7-kpi-kpi-plugin-module"></span><h2>nucleus7.kpi.kpi_plugin module<a class="headerlink" href="#module-nucleus7.kpi.kpi_plugin" title="Permalink to this headline">¶</a></h2>
+<p>Interface for plugins for KPI evaluation</p>
+<dl class="class">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.kpi_plugin.</code><code class="sig-name descname">KPIPlugin</code><span class="sig-paren">(</span><em class="sig-param">cachers: Optional[List[nucleus7.kpi.cacher.KPICacher]] = None</em>, <em class="sig-param">savers: Optional[List[nucleus7.kpi.saver.KPISaver]] = None</em>, <em class="sig-param">not_batch_keys: Optional[List[str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.Nucleotide" title="nucleus7.core.nucleotide.Nucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.Nucleotide</span></code></a></p>
+<p>Plugin to be used for KPI calculation. Can cache and save results using
+cachers and savers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cachers</strong> – list of cachers or single instance to use to check if KPI values were
+already calculated and if so, use cached ones</p></li>
+<li><p><strong>savers</strong> – list of savers or single instance to sve the kpi results once they were
+calculated</p></li>
+<li><p><strong>not_batch_keys</strong> – list of keys that will not be masked using sample_mask</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.cache">
+<code class="sig-name descname">cache</code><span class="sig-paren">(</span><em class="sig-param">kpi_values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache kpi values using all cachers and previously calculated hashes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kpi_values</strong> – kpi values to cache</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.cache_target">
+<em class="property">property </em><code class="sig-name descname">cache_target</code><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.cache_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache target is used inside of cachers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>cache_target from plugin</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>cache_target</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.calculate_hashes">
+<code class="sig-name descname">calculate_hashes</code><span class="sig-paren">(</span><em class="sig-param">inputs</em>, <em class="sig-param">cache_prefix: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.calculate_hashes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.calculate_hashes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate hash values using all the cachers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – inputs to calculate the hash</p></li>
+<li><p><strong>cache_prefix</strong> – additional prefix for hash</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.clear_state">
+<code class="sig-name descname">clear_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.clear_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.clear_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear state of plugin</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.evaluate_on_batch">
+<code class="sig-name descname">evaluate_on_batch</code><span class="sig-paren">(</span><em class="sig-param">method_to_evaluate: Callable</em>, <em class="sig-param">sample_mask=None</em>, <em class="sig-param">**inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.evaluate_on_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.evaluate_on_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call KPIEvaluator on the batch of data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method_to_evaluate</strong> – method to call on the sample inputs</p></li>
+<li><p><strong>sample_mask</strong> – optional batch indicator which samples should be evaluated on</p></li>
+<li><p><strong>inputs</strong> – batch inputs to kpi evaluator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>calculated kpi</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.evaluate_on_sample">
+<code class="sig-name descname">evaluate_on_sample</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">prefix: Optional[str] = None</em>, <em class="sig-param">**sample_inputs</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.evaluate_on_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.evaluate_on_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform evaluation on single sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prefix</strong> – prefix to use inside of cachers and savers</p></li>
+<li><p><strong>sample_inputs</strong> – sample inputs to kpi</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>evaluated kpi</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.exclude_args_from_log">
+<code class="sig-name descname">exclude_args_from_log</code><em class="property"> = ['cachers', 'savers']</em><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.exclude_args_from_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['prefix', 'sample_mask']</em><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.is_last_iteration">
+<em class="property">property </em><code class="sig-name descname">is_last_iteration</code><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.is_last_iteration" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: flag if it is last iteration
+:rtype: is_last_iteration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.is_last_sample">
+<em class="property">property </em><code class="sig-name descname">is_last_sample</code><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.is_last_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: if the sample to proceed is the last one
+:rtype: is_last_sample</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.maybe_restore_from_cache">
+<code class="sig-name descname">maybe_restore_from_cache</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.maybe_restore_from_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.maybe_restore_from_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore kpi from cache if it was found by at least one cacher</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>kpi restored from cacher</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>restored_kpi</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.process">
+<em class="property">abstract </em><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method for KPIPlugin and must be overridden in particular
+implementations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – dict with inputs, where each value corresponds not to a batch, but
+to value of singe sample</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>calculated kpi values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpis</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'kpi_plugin'</em><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">kpi_values</em>, <em class="sig-param">prefix: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/kpi_plugin.html#KPIPlugin.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save kpi values using all the savers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kpi_values</strong> – kpi values to save</p></li>
+<li><p><strong>prefix</strong> – additional prefix for kpi</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.kpi_plugin.KPIPlugin.save_target">
+<em class="property">property </em><code class="sig-name descname">save_target</code><a class="headerlink" href="#nucleus7.kpi.kpi_plugin.KPIPlugin.save_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save target is used inside of savers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>save_target from plugin</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>save_target</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.kpi.saver">
+<span id="nucleus7-kpi-saver-module"></span><h2>nucleus7.kpi.saver module<a class="headerlink" href="#module-nucleus7.kpi.saver" title="Permalink to this headline">¶</a></h2>
+<p>Interfaces to save KPI values</p>
+<dl class="class">
+<dt id="nucleus7.kpi.saver.KPIJsonSaver">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.saver.</code><code class="sig-name descname">KPIJsonSaver</code><span class="sig-paren">(</span><em class="sig-param">add_prefix_to_name=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#KPIJsonSaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.KPIJsonSaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.kpi.saver.KPISaver" title="nucleus7.kpi.saver.KPISaver"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.saver.KPISaver</span></code></a></p>
+<p>Saves KPIs to json. First filters them if they are json serializable</p>
+<dl class="method">
+<dt id="nucleus7.kpi.saver.KPIJsonSaver.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#KPIJsonSaver.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.KPIJsonSaver.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to save the values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the KPI to save</p></li>
+<li><p><strong>values</strong> – kpi values to save</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.kpi.saver.KPISaver">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.saver.</code><code class="sig-name descname">KPISaver</code><span class="sig-paren">(</span><em class="sig-param">add_prefix_to_name=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#KPISaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.KPISaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>Interface to save the KPIs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>add_prefix_to_name</strong> – if the prefix of KPI should be added to the saved name</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.kpi.saver.KPISaver.save">
+<em class="property">abstract </em><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">values: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#KPISaver.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.KPISaver.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to save the values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the KPI to save</p></li>
+<li><p><strong>values</strong> – kpi values to save</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.saver.KPISaver.save_target">
+<em class="property">property </em><code class="sig-name descname">save_target</code><a class="headerlink" href="#nucleus7.kpi.saver.KPISaver.save_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save target like directory or server address etc.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.kpi.saver.MlflowKPILogger">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.saver.</code><code class="sig-name descname">MlflowKPILogger</code><span class="sig-paren">(</span><em class="sig-param">add_prefix_to_name=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#MlflowKPILogger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.MlflowKPILogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.kpi.saver.KPISaver" title="nucleus7.kpi.saver.KPISaver"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.saver.KPISaver</span></code></a></p>
+<p>Logs KPI values to mlflow. First filters them if they are json serializable</p>
+<dl class="method">
+<dt id="nucleus7.kpi.saver.MlflowKPILogger.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">values: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#MlflowKPILogger.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.MlflowKPILogger.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to save the values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the KPI to save</p></li>
+<li><p><strong>values</strong> – kpi values to save</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.kpi.saver.TfSummaryKPISaver">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.kpi.saver.</code><code class="sig-name descname">TfSummaryKPISaver</code><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#TfSummaryKPISaver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.TfSummaryKPISaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.kpi.saver.KPISaver" title="nucleus7.kpi.saver.KPISaver"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.saver.KPISaver</span></code></a></p>
+<p>Save KPI values to tensorflow summary</p>
+<dl class="method">
+<dt id="nucleus7.kpi.saver.TfSummaryKPISaver.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">values: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/kpi/saver.html#TfSummaryKPISaver.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.kpi.saver.TfSummaryKPISaver.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to save the values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the KPI to save</p></li>
+<li><p><strong>values</strong> – kpi values to save</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.saver.TfSummaryKPISaver.summary_step">
+<em class="property">property </em><code class="sig-name descname">summary_step</code><a class="headerlink" href="#nucleus7.kpi.saver.TfSummaryKPISaver.summary_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary step to store the kpi values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.kpi.saver.TfSummaryKPISaver.summary_writer">
+<em class="property">property </em><code class="sig-name descname">summary_writer</code><a class="headerlink" href="#nucleus7.kpi.saver.TfSummaryKPISaver.summary_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary writer to store kpi values</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.kpi">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nucleus7.kpi" title="Permalink to this headline">¶</a></h2>
+<p>KPI module</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nucleus7.model.html" class="btn btn-neutral float-right" title="nucleus7.model package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nucleus7.data.html" class="btn btn-neutral float-left" title="nucleus7.data package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

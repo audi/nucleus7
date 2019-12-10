@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.project_serializer &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.project_serializer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.project_serializer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interfaces for config serialization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">config_logger</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">file_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">mlflow_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">project_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">run_utils</span>
+
+<span class="n">_EXCLUDE_CONFIG_FIELDS</span> <span class="o">=</span> <span class="p">[</span><span class="n">config_logger</span><span class="o">.</span><span class="n">GET_MODE_CONFIG_NAME</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Serializer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.Serializer">[docs]</a><span class="k">class</span> <span class="nc">Serializer</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Abstract serializer</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    save_dir</span>
+<span class="sd">        directory to store the serialized config</span>
+<span class="sd">    name</span>
+<span class="sd">        name of the serializer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="c1"># this is a small interface</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<div class="viewcode-block" id="Serializer.serialize"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.Serializer.serialize">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Serialize the configs</span>
+<span class="sd">        &quot;&quot;&quot;</span></div></div>
+
+
+<div class="viewcode-block" id="ConfigSerializer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.ConfigSerializer">[docs]</a><span class="k">class</span> <span class="nc">ConfigSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for main config logger</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ConfigSerializer.get_configs_to_log"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.ConfigSerializer.get_configs_to_log">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_configs_to_log</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get actual configs used to construct the objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">config_logger</span><span class="o">.</span><span class="n">get_logged_configs</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ConfigSerializer.serialize_to_file"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.ConfigSerializer.serialize_to_file">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">serialize_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configs_to_log</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Abstract method to serialize the configs_to_log to the file</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        configs_to_log</span>
+<span class="sd">            configs to log obtained from config_logger</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="ConfigSerializer.serialize"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.ConfigSerializer.serialize">[docs]</a>    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Serialize the configs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">configs_to_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_configs_to_log</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">serialize_to_file</span><span class="p">(</span><span class="n">configs_to_log</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="RunConfigSerializer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.RunConfigSerializer">[docs]</a><span class="k">class</span> <span class="nc">RunConfigSerializer</span><span class="p">(</span><span class="n">ConfigSerializer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serialize run configuration</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    save_dir</span>
+<span class="sd">        directory to store the serialized config</span>
+<span class="sd">    name</span>
+<span class="sd">        name of the serializer</span>
+<span class="sd">    single_config_names</span>
+<span class="sd">        list of config names, where only single config is allowed; in that case,</span>
+<span class="sd">        only first item of the config list will be used</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    NOT_SERIALIZABLE</span>
+<span class="sd">        name that will be used if a config value is not json serializable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">NOT_SERIALIZABLE</span> <span class="o">=</span> <span class="s2">&quot;NOT_SERIALIZABLE&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">single_config_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">RunConfigSerializer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">single_config_names</span> <span class="o">=</span> <span class="n">single_config_names</span> <span class="ow">or</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="RunConfigSerializer.serialize_to_file"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.RunConfigSerializer.serialize_to_file">[docs]</a>    <span class="k">def</span> <span class="nf">serialize_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configs_to_log</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No save_dir provided to config serializer!&quot;</span>
+                           <span class="s2">&quot;Set the project if you want to save the configs&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">save_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_save_file_name</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Save run config to </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">save_file_name</span><span class="p">)</span>
+        <span class="n">configs_to_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_configs_to_log</span><span class="p">(</span><span class="n">configs_to_log</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">):</span>
+            <span class="n">configs_to_log_loaded</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">)</span>
+            <span class="n">configs_to_log</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">update_config_with_other_config</span><span class="p">(</span>
+                <span class="n">configs_to_log_loaded</span><span class="p">,</span> <span class="n">configs_to_log</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">configs_to_log</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">o</span><span class="p">:</span> <span class="n">RunConfigSerializer</span><span class="o">.</span><span class="n">NOT_SERIALIZABLE</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RunConfigSerializer.format_configs_to_log"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.RunConfigSerializer.format_configs_to_log">[docs]</a>    <span class="k">def</span> <span class="nf">format_configs_to_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configs_to_log</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                              <span class="n">replace_list_with_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Format the configs from raw logged format to following</span>
+
+<span class="sd">        `{{name_scope}_config(s): {mode: [list of configs]}}` in case</span>
+<span class="sd">        if _get_mode function was defined inside of the config and</span>
+<span class="sd">        `{{name_scope}_config(s): [list of configs]}` otherwise.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        configs_to_log</span>
+<span class="sd">            configs to log in format</span>
+<span class="sd">            `{name_scope: {object_name: [list_of_configs]}}`</span>
+<span class="sd">        replace_list_with_names</span>
+<span class="sd">            if the list configs must be replaced with dict of type</span>
+<span class="sd">            {name: config}</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        configs_to_log_formatted</span>
+<span class="sd">            formatted configs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">configs_to_log_formatted</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">configs_to_log</span> <span class="o">=</span> <span class="n">_replace_namedtuples_with_dict</span><span class="p">(</span><span class="n">configs_to_log</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name_scope</span><span class="p">,</span> <span class="n">name_scope_configs</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">configs_to_log</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">name_scope_configs_all</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">each_obj_configs</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span>
+                    <span class="n">name_scope_configs</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="n">name_scope_configs_all</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">each_obj_configs</span><span class="p">)</span>
+
+            <span class="n">name_scope_configs_with_mode</span> <span class="o">=</span> <span class="n">_add_mode_to_configs</span><span class="p">(</span>
+                <span class="n">name_scope_configs_all</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each_mode</span><span class="p">,</span> <span class="n">each_mode_configs</span> <span class="ow">in</span> <span class="p">(</span>
+                    <span class="n">name_scope_configs_with_mode</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+                <span class="n">each_mode_configs</span> <span class="o">=</span> <span class="n">_filter_configs</span><span class="p">(</span><span class="n">each_mode_configs</span><span class="p">)</span>
+                <span class="n">each_mode_configs</span> <span class="o">=</span> <span class="n">_collapse_single_configs</span><span class="p">(</span>
+                    <span class="n">each_mode_configs</span><span class="p">,</span> <span class="n">name_scope</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_config_names</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">replace_list_with_names</span><span class="p">:</span>
+                    <span class="n">each_mode_configs</span> <span class="o">=</span> <span class="n">_format_list_configs_to_dict_with_name</span><span class="p">(</span>
+                        <span class="n">each_mode_configs</span><span class="p">)</span>
+                <span class="n">name_scope_configs_with_mode</span><span class="p">[</span><span class="n">each_mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_mode_configs</span>
+            <span class="n">name_scope_configs_formatted</span> <span class="o">=</span> <span class="n">_collapse_modes</span><span class="p">(</span>
+                <span class="n">name_scope_configs_with_mode</span><span class="p">)</span>
+
+            <span class="n">name_scope_with_suffix</span> <span class="o">=</span> <span class="n">_add_suffix_to_config_name_space</span><span class="p">(</span>
+                <span class="n">name_scope</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">single_config_names</span><span class="p">)</span>
+            <span class="n">configs_to_log_formatted</span><span class="p">[</span><span class="n">name_scope_with_suffix</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">name_scope_configs_formatted</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">configs_to_log_formatted</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_save_file_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;_config_</span><span class="si">{}</span><span class="s2">.json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">get_incremented_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file_name</span></div>
+
+
+<div class="viewcode-block" id="MlflowConfigSerializer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.MlflowConfigSerializer">[docs]</a><span class="k">class</span> <span class="nc">MlflowConfigSerializer</span><span class="p">(</span><span class="n">RunConfigSerializer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log the configs to a mlflow. Will be executed in case chief (also local)</span>
+<span class="sd">    and evaluator run</span>
+
+<span class="sd">    For it all the configs will be flatten with : separator and then each</span>
+<span class="sd">    parameter and value will be added to the mlflow.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MlflowConfigSerializer.serialize_to_file"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.MlflowConfigSerializer.serialize_to_file">[docs]</a>    <span class="k">def</span> <span class="nf">serialize_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">configs_to_log</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Will write all the parameters in flattened view to mlflow. Nested</span>
+<span class="sd">        Parameters will be flattened with mlflow_utils.PARAMETER_SEPARATOR</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        configs_to_log</span>
+<span class="sd">            configs to log obtained from config_logger</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">is_chief</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">is_evaluator_run</span><span class="p">():</span>
+            <span class="k">return</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Save run config to mlflow&quot;</span><span class="p">)</span>
+        <span class="n">configs_to_log</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_configs_to_log</span><span class="p">(</span><span class="n">configs_to_log</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">configs_to_log_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+            <span class="n">configs_to_log</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="n">mlflow_utils</span><span class="o">.</span><span class="n">PARAMETER_SEPARATOR</span><span class="p">)</span>
+        <span class="n">cluster_spec</span> <span class="o">=</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">get_cluster_spec</span><span class="p">()</span>
+        <span class="n">mlflow_utils</span><span class="o">.</span><span class="n">log_config_parameter_to_mlflow</span><span class="p">(</span>
+            <span class="s2">&quot;CLUSTER_SPEC&quot;</span><span class="p">,</span> <span class="n">cluster_spec</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_param_name</span><span class="p">,</span> <span class="n">each_param_value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span>
+                <span class="n">configs_to_log_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">mlflow_utils</span><span class="o">.</span><span class="n">log_config_parameter_to_mlflow</span><span class="p">(</span>
+                <span class="n">each_param_name</span><span class="p">,</span> <span class="n">each_param_value</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ArtifactsSerializer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.ArtifactsSerializer">[docs]</a><span class="k">class</span> <span class="nc">ArtifactsSerializer</span><span class="p">(</span><span class="n">Serializer</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for artifacts</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    artifact</span>
+<span class="sd">        artifact to serialize</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="c1"># this is a small interface</span>
+    <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="c1"># this class is also an abstract class</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">artifact</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ArtifactsSerializer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">save_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">artifact</span> <span class="o">=</span> <span class="n">artifact</span></div>
+
+
+<div class="viewcode-block" id="JSONArtifactsSerializer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.JSONArtifactsSerializer">[docs]</a><span class="k">class</span> <span class="nc">JSONArtifactsSerializer</span><span class="p">(</span><span class="n">ArtifactsSerializer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serialize the artifact to json</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="c1"># this is a small interface</span>
+<div class="viewcode-block" id="JSONArtifactsSerializer.serialize"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.JSONArtifactsSerializer.serialize">[docs]</a>    <span class="k">def</span> <span class="nf">serialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No save_dir provided to config serializer!&quot;</span>
+                           <span class="s2">&quot;Set the project if you want to save the configs&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="n">save_file_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_save_file_name</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_file_name</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">artifact</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                      <span class="n">default</span><span class="o">=</span><span class="k">lambda</span> <span class="n">o</span><span class="p">:</span> <span class="n">RunConfigSerializer</span><span class="o">.</span><span class="n">NOT_SERIALIZABLE</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_save_file_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="n">file_name</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">get_incremented_path</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file_name</span></div>
+
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># this is a type constant, not a class</span>
+<span class="n">_SERIALIZER_TYPE</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Serializer</span><span class="p">],</span> <span class="n">Serializer</span><span class="p">]</span>
+<span class="n">_CONFIG_SERIALIZER_TYPE</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ConfigSerializer</span><span class="p">],</span> <span class="n">ConfigSerializer</span><span class="p">]</span>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+<div class="viewcode-block" id="serialize_run_configs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.serialize_run_configs">[docs]</a><span class="k">def</span> <span class="nf">serialize_run_configs</span><span class="p">(</span>
+        <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">save_dir_attr_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">single_config_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">serializers_to_use</span><span class="p">:</span> <span class="n">_CONFIG_SERIALIZER_TYPE</span> <span class="o">=</span> <span class="n">RunConfigSerializer</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serialize the run configs using serializers_to_use</span>
+<span class="sd">    inside of the save_dir from object.{save_dir_attr_name} or to the</span>
+<span class="sd">    artifacts directory of the active run</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the run</span>
+<span class="sd">    save_dir_attr_name</span>
+<span class="sd">        name of the attribute inside of the object with save directory inside;</span>
+<span class="sd">        if not provided and nucleus7 active project exists, will use artifacts</span>
+<span class="sd">        directory from the project as save directory</span>
+<span class="sd">    single_config_names</span>
+<span class="sd">        list of config names, where only single config is allowed; in that case,</span>
+<span class="sd">        only first item of the config list will be used</span>
+<span class="sd">    serializers_to_use</span>
+<span class="sd">        single serializer class or multiple serializer classes to use</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wrapper</span>
+<span class="sd">        wrapped method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">save_dir</span> <span class="o">=</span> <span class="n">_get_serializer_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir_attr_name</span><span class="p">)</span>
+            <span class="n">serialize_all_serializers</span><span class="p">(</span><span class="n">run_name</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">serializers_to_use</span><span class="p">,</span>
+                                      <span class="n">single_config_names</span><span class="o">=</span><span class="n">single_config_names</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapped</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="serialize_all_serializers"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_serializer.serialize_all_serializers">[docs]</a><span class="k">def</span> <span class="nf">serialize_all_serializers</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                              <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                              <span class="n">serializers_to_use</span><span class="p">:</span> <span class="n">_SERIALIZER_TYPE</span><span class="p">,</span>
+                              <span class="o">**</span><span class="n">serializer_kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serialize all serializers</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        name for serializer (same name for all)</span>
+<span class="sd">    save_dir</span>
+<span class="sd">        directory for serializer (same directory for all)</span>
+<span class="sd">    serializers_to_use</span>
+<span class="sd">        classes of serializers to use</span>
+<span class="sd">    **serializer_kwargs</span>
+<span class="sd">        kwargs to pass to serializer constructor</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">serializers_to_use</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">serializers</span> <span class="o">=</span> <span class="p">[</span><span class="n">serializers_to_use</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">serializers</span> <span class="o">=</span> <span class="n">serializers_to_use</span>
+    <span class="k">for</span> <span class="n">each_serializer_cls</span> <span class="ow">in</span> <span class="n">serializers</span><span class="p">:</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="n">each_serializer_cls</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+                                         <span class="o">**</span><span class="n">serializer_kwargs</span><span class="p">)</span>
+        <span class="n">serializer</span><span class="o">.</span><span class="n">serialize</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">_format_list_configs_to_dict_with_name</span><span class="p">(</span><span class="n">configs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Format the list of configs to the dict with keys as name from the config</span>
+<span class="sd">    or the class name from the config</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    configs</span>
+<span class="sd">        list of configs or a dict of configs</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result</span>
+<span class="sd">        configs formatted</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">configs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">configs</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">no_name_ind</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">each_config</span> <span class="ow">in</span> <span class="n">configs</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">each_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">each_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;class_name&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">class_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">class_name</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">no_name_ind</span><span class="p">)</span>
+            <span class="n">no_name_ind</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="n">existing_config</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">existing_config</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="n">existing_config</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_config</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">existing_config</span><span class="p">)</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_config</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_config</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">_get_serializer_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir_attr_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                             <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">save_dir</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">save_dir_attr_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">save_dir</span> <span class="o">=</span> <span class="n">object_utils</span><span class="o">.</span><span class="n">recursive_getattr</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">save_dir_attr_name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">project</span><span class="o">.</span><span class="n">get_active_project</span><span class="p">():</span>
+            <span class="n">save_dir</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_active_artifacts_directory</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">save_dir</span>
+
+
+<span class="k">def</span> <span class="nf">_replace_namedtuples_with_dict</span><span class="p">(</span><span class="n">nested</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="s2">&quot;_asdict&quot;</span><span class="p">):</span>
+        <span class="n">nested</span> <span class="o">=</span> <span class="n">nested</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">new_nested</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">nested</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">new_nested</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_replace_namedtuples_with_dict</span><span class="p">(</span><span class="n">each_value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+        <span class="n">new_nested</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="n">nested</span><span class="p">:</span>
+            <span class="n">new_nested</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_replace_namedtuples_with_dict</span><span class="p">(</span><span class="n">each_item</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">new_nested</span> <span class="o">=</span> <span class="n">nested</span>
+    <span class="k">return</span> <span class="n">new_nested</span>
+
+
+<span class="k">def</span> <span class="nf">_add_mode_to_configs</span><span class="p">(</span><span class="n">list_of_configs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">obj_configs_with_mode</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">single_config</span> <span class="ow">in</span> <span class="n">list_of_configs</span><span class="p">:</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">_get_mode_from_config</span><span class="p">(</span><span class="n">single_config</span><span class="p">)</span>
+        <span class="n">obj_configs_with_mode</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">obj_configs_with_mode</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">single_config</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj_configs_with_mode</span>
+
+
+<span class="k">def</span> <span class="nf">_filter_configs</span><span class="p">(</span><span class="n">list_of_configs</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="n">configs_filtered</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">single_config</span> <span class="ow">in</span> <span class="n">list_of_configs</span><span class="p">:</span>
+        <span class="n">single_config_filtered</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">single_config</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                  <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_EXCLUDE_CONFIG_FIELDS</span><span class="p">}</span>
+        <span class="n">configs_filtered</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">single_config_filtered</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">configs_filtered</span>
+
+
+<span class="k">def</span> <span class="nf">_collapse_modes</span><span class="p">(</span><span class="n">configs_with_mode</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">each_mode</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">each_mode</span> <span class="ow">in</span> <span class="n">configs_with_mode</span><span class="o">.</span><span class="n">keys</span><span class="p">()]):</span>
+        <span class="k">return</span> <span class="n">configs_with_mode</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+    <span class="n">infer_mode</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">each_mode</span> <span class="o">==</span> <span class="n">infer_mode</span> <span class="k">for</span> <span class="n">each_mode</span> <span class="ow">in</span> <span class="n">configs_with_mode</span><span class="o">.</span><span class="n">keys</span><span class="p">()]):</span>
+        <span class="k">return</span> <span class="n">configs_with_mode</span><span class="p">[</span><span class="n">infer_mode</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">configs_with_mode</span>
+
+
+<span class="k">def</span> <span class="nf">_add_suffix_to_config_name_space</span><span class="p">(</span><span class="n">name_scope</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                     <span class="n">single_config_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">suffix</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;config&quot;</span> <span class="k">if</span> <span class="n">name_scope</span> <span class="ow">in</span> <span class="n">single_config_names</span> <span class="k">else</span> <span class="s2">&quot;configs&quot;</span><span class="p">)</span>
+    <span class="n">name_scope_with_suffix</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">name_scope</span><span class="p">,</span> <span class="n">suffix</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">name_scope_with_suffix</span>
+
+
+<span class="k">def</span> <span class="nf">_collapse_single_configs</span><span class="p">(</span>
+        <span class="n">list_of_configs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">name_scope</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">single_config_names</span><span class="p">:</span> <span class="nb">list</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">name_scope</span> <span class="ow">in</span> <span class="n">single_config_names</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_configs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Found more than one config for name scope &quot;</span>
+                   <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name_scope</span><span class="p">,</span> <span class="n">list_of_configs</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">list_of_configs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">list_of_configs</span>
+
+
+<span class="k">def</span> <span class="nf">_get_mode_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">config_logger</span><span class="o">.</span><span class="n">GET_MODE_CONFIG_NAME</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">get_mode_fn</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">config_logger</span><span class="o">.</span><span class="n">GET_MODE_CONFIG_NAME</span><span class="p">]</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="n">get_mode_fn</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">mode</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

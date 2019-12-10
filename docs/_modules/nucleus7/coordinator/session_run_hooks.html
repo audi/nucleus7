@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator.session_run_hooks &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator.session_run_hooks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.coordinator.session_run_hooks</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Session Run Hooks used inside of tensorflow sessions</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">tensorflow.contrib.estimator.python.estimator</span> <span class="kn">import</span> <span class="n">early_stopping</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">tensorflow.python.estimator</span> <span class="kn">import</span> <span class="n">early_stopping</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.callback</span> <span class="kn">import</span> <span class="n">CoordinatorCallback</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.callbacks_handler</span> <span class="kn">import</span> <span class="n">CallbacksHandler</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.configs</span> <span class="kn">import</span> <span class="n">RunIterationInfo</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">CollectionNames</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">model_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_collections_utils</span>
+
+
+<div class="viewcode-block" id="SummarySaverHook"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.SummarySaverHook">[docs]</a><span class="k">class</span> <span class="nc">SummarySaverHook</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SummarySaverHook</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save summaries in slightly different format as original one and to</span>
+<span class="sd">    different folder. x axis of summaries represents global step</span>
+<span class="sd">    and allows to shift evaluation so that last step of evaluation in one</span>
+<span class="sd">    epoch is aligned with last step from training.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    save_steps</span>
+<span class="sd">        number of steps between summary saves</span>
+<span class="sd">    save_secs</span>
+<span class="sd">        number of seconds between summary saves</span>
+<span class="sd">    output_dir</span>
+<span class="sd">        summary directories</span>
+<span class="sd">    get_graph_fn</span>
+<span class="sd">        function to get the graph, which is stored to summaries</span>
+<span class="sd">    step_offset</span>
+<span class="sd">        offset of the step on x axis of summaries</span>
+<span class="sd">    flush_after_n_summaries</span>
+<span class="sd">        number of iteration till summary writer will be flushed to the disk;</span>
+<span class="sd">        setting it too high may cause increase in memory load</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-many-instance-attributes</span>
+    <span class="c1"># not possible to have less arguments without more complexity</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">save_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">save_secs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">get_graph_fn</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">step_offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">flush_after_n_summaries</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=super-init-not-called</span>
+        <span class="c1"># SummaryWriterHook is used more as an interface</span>
+        <span class="c1"># pylint: disable=too-many-arguments</span>
+        <span class="c1"># not possible to have less arguments without more complexity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_writer</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_graph_fn</span> <span class="o">=</span> <span class="n">get_graph_fn</span> <span class="ow">or</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_output_dir</span> <span class="o">=</span> <span class="n">output_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_scaffold</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_op</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SecondOrStepTimer</span><span class="p">(</span><span class="n">every_secs</span><span class="o">=</span><span class="n">save_secs</span><span class="p">,</span>
+                                                 <span class="n">every_steps</span><span class="o">=</span><span class="n">save_steps</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset_init</span> <span class="o">=</span> <span class="n">step_offset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset</span> <span class="o">=</span> <span class="n">step_offset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_flush_after_n_summaries</span> <span class="o">=</span> <span class="n">flush_after_n_summaries</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_saved_summaries</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="SummarySaverHook.begin"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.SummarySaverHook.begin">[docs]</a>    <span class="k">def</span> <span class="nf">begin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add graph to summary writer and create directory for summaries it it</span>
+<span class="sd">        does not exist</span>
+
+<span class="sd">        overridden from :obj:`tf.train.SummarySaverHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">GraphKeys</span><span class="o">.</span><span class="n">SUMMARIES</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+        <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_output_dir</span><span class="p">)</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_graph_fn</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_writer</span><span class="o">.</span><span class="n">add_graph</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SummarySaverHook.after_run"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.SummarySaverHook.after_run">[docs]</a>    <span class="k">def</span> <span class="nf">after_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_context</span><span class="p">,</span> <span class="n">run_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save summaries to event files</span>
+
+<span class="sd">        overridden from :obj:`tf.train.SummarySaverHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">run_context</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_writer</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="n">global_step</span> <span class="o">=</span> <span class="n">run_values</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;global_step&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next_step</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_summary</span><span class="p">:</span>
+            <span class="n">global_step</span> <span class="o">=</span> <span class="n">run_context</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_global_step_tensor</span><span class="p">)</span>
+
+        <span class="n">save_step</span> <span class="o">=</span> <span class="p">(</span><span class="n">global_step</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_summary</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_timer</span><span class="o">.</span><span class="n">update_last_triggered_step</span><span class="p">(</span><span class="n">save_step</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s2">&quot;summary&quot;</span> <span class="ow">in</span> <span class="n">run_values</span><span class="o">.</span><span class="n">results</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">summary</span> <span class="ow">in</span> <span class="n">run_values</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;summary&quot;</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_summary_writer</span><span class="o">.</span><span class="n">add_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">,</span> <span class="n">save_step</span><span class="p">)</span>
+
+        <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="c1"># is from tensorflow SaverHook</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_next_step</span> <span class="o">=</span> <span class="n">save_step</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset_init</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_step_offset_init</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_saved_summaries</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flush_after_n_summaries</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Flush summary writer&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_summary_writer</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_num_saved_summaries</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_saved_summaries</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+
+<div class="viewcode-block" id="MetricUpdateHook"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.MetricUpdateHook">[docs]</a><span class="k">class</span> <span class="nc">MetricUpdateHook</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunHook</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetch all metrics together with their update ops, so they</span>
+<span class="sd">    are evaluated inside of Evaluator.</span>
+
+<span class="sd">    Normally, Evaluator does not use metrics for training, so this hook is</span>
+<span class="sd">    needed for it</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="MetricUpdateHook.before_run"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.MetricUpdateHook.before_run">[docs]</a>    <span class="k">def</span> <span class="nf">before_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_context</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunContext</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add metrics to fetches, so they are returned at the end of training</span>
+<span class="sd">        iteration</span>
+
+<span class="sd">        overridden from :obj:`tf.train.SessionRunHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">metrics</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+                <span class="n">CollectionNames</span><span class="o">.</span><span class="n">METRIC</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunArgs</span><span class="p">(</span><span class="n">fetches</span><span class="o">=</span><span class="n">metrics</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunArgs</span><span class="p">(</span><span class="n">fetches</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CustomNucleotideInitializerHook"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.CustomNucleotideInitializerHook">[docs]</a><span class="k">class</span> <span class="nc">CustomNucleotideInitializerHook</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunHook</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This session run hook will call initialization of nucleotides which have</span>
+<span class="sd">    `CustomSessionHandlerMixin` interface or have `initialize_session`</span>
+<span class="sd">    implemented</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nucleotides</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">],</span>
+                                          <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Nucleotide</span><span class="p">]]):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotides</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">nucleotides</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">each_nucleotide</span>
+                           <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="n">nucleotides</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nucleotides</span> <span class="o">=</span> <span class="n">nucleotides</span>
+
+<div class="viewcode-block" id="CustomNucleotideInitializerHook.after_create_session"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.CustomNucleotideInitializerHook.after_create_session">[docs]</a>    <span class="k">def</span> <span class="nf">after_create_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">coord</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nucleotides</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">each_nucleotide</span><span class="p">,</span> <span class="s2">&quot;initialize_session&quot;</span><span class="p">):</span>
+                <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+                    <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">initialize_session</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">after_create_session</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">coord</span><span class="p">)</span></div></div>
+
+
+<span class="c1"># pylint: disable=no-member,protected-access,too-few-public-methods</span>
+<span class="c1"># This class exists and can be accessed only as a private</span>
+<div class="viewcode-block" id="EarlyStoppingInitHook"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.EarlyStoppingInitHook">[docs]</a><span class="k">class</span> <span class="nc">EarlyStoppingInitHook</span><span class="p">(</span><span class="n">early_stopping</span><span class="o">.</span><span class="n">_CheckForStoppingHook</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper across private _CheckForStoppingHook</span>
+<span class="sd">    &quot;&quot;&quot;</span></div>
+<span class="c1"># pylint: enable=no-member,protected-access,too-few-public-methods</span>
+
+
+<span class="k">class</span> <span class="nc">_CallBackSessionRunHook</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunHook</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Execute :obj:`CoordinatorCallback` or :obj:`CallbacksHandler` as</span>
+<span class="sd">    :obj:`tf.train.SessionRunHook` for use inside of trainer session</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    callback_or_handler</span>
+<span class="sd">        callback or callback handler call inside of the session hook</span>
+<span class="sd">    summary_dir</span>
+<span class="sd">        directory of summary writer</span>
+<span class="sd">    max_number_of_iterations_per_epoch</span>
+<span class="sd">        max number of iterations for all modes; needed to recalculate iteration</span>
+<span class="sd">        number from global_step.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">callback_or_handler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">CoordinatorCallback</span><span class="p">,</span>
+                                            <span class="n">CallbacksHandler</span><span class="p">],</span>
+                 <span class="n">summary_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">max_number_of_iterations_per_epoch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span> <span class="o">=</span> <span class="n">callback_or_handler</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_dir</span> <span class="o">=</span> <span class="n">summary_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_step_tensor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_run_start</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_number_of_iterations_per_epoch</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">max_number_of_iterations_per_epoch</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">begin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        overridden from :obj:`tf.train.SessionRunHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+        <span class="n">summary_writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">FileWriterCache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_summary_dir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">summary_writer</span> <span class="o">=</span> <span class="n">summary_writer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_step_tensor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_or_create_global_step</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">before_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_context</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        overridden from :obj:`tf.train.SessionRunHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">on_iteration_start</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_run_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span>
+        <span class="n">inputs_preprocessed</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">INPUTS_PREPROCESSED</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span>
+            <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">predictions_raw</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">PREDICTIONS_RAW</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span>
+            <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">PREDICTIONS</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span>
+            <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">LOSSES</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span>
+            <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">METRIC</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">graph</span><span class="p">,</span>
+            <span class="n">raise_error</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">data_all</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="n">data_all</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs_preprocessed</span>
+        <span class="n">data_all</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+        <span class="n">data_all</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions_raw</span><span class="p">)</span>
+        <span class="n">data_all</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+        <span class="n">data_all</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+        <span class="n">data2callback</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">filter_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">data_all</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Callback </span><span class="si">%s</span><span class="s1"> has following inputs: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">data2callback</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">requests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data2callback</span><span class="p">,</span>
+                    <span class="s2">&quot;global_step&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_step_tensor</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunArgs</span><span class="p">(</span><span class="n">requests</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">after_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">run_context</span><span class="p">,</span> <span class="n">run_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        overridden from :obj:`tf.train.SessionRunHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">execution_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_run_start</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">run_values</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">global_step</span> <span class="o">=</span> <span class="n">run_context</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_global_step_tensor</span><span class="p">)</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">mode</span>
+        <span class="n">number_iterations_per_epoch</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">number_iterations_per_epoch</span><span class="p">)</span>
+        <span class="n">iteration_number</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">iteration_info</span><span class="o">.</span><span class="n">iteration_number</span><span class="p">)</span>
+
+        <span class="n">epoch_number</span><span class="p">,</span> <span class="n">iteration_number</span><span class="p">,</span> <span class="n">summary_step</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">model_utils</span><span class="o">.</span><span class="n">get_iteration_stat_from_global_step</span><span class="p">(</span>
+                <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+                <span class="n">global_step</span><span class="o">=</span><span class="n">global_step</span><span class="p">,</span>
+                <span class="n">previous_iteration_number</span><span class="o">=</span><span class="n">iteration_number</span><span class="p">,</span>
+                <span class="n">number_iterations_per_epoch</span><span class="o">=</span><span class="n">number_iterations_per_epoch</span><span class="p">,</span>
+                <span class="n">max_number_of_iterations_per_epoch</span><span class="o">=</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_max_number_of_iterations_per_epoch</span>
+            <span class="p">))</span>
+        <span class="n">is_last_iteration</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">iteration_number</span> <span class="o">%</span> <span class="n">number_iterations_per_epoch</span>
+        <span class="n">iteration_info</span> <span class="o">=</span> <span class="n">RunIterationInfo</span><span class="p">(</span>
+            <span class="n">epoch_number</span><span class="o">=</span><span class="n">epoch_number</span><span class="p">,</span>
+            <span class="n">iteration_number</span><span class="o">=</span><span class="n">iteration_number</span><span class="p">,</span>
+            <span class="n">execution_time</span><span class="o">=</span><span class="n">execution_time</span><span class="p">,</span>
+            <span class="n">is_last_iteration</span><span class="o">=</span><span class="n">is_last_iteration</span><span class="p">,</span>
+            <span class="n">session_run_context</span><span class="o">=</span><span class="n">run_context</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">iteration_info</span> <span class="o">=</span> <span class="n">iteration_info</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">summary_step</span> <span class="o">=</span> <span class="n">summary_step</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        overridden from :obj:`tf.train.SessionRunHook`. See its documentation</span>
+<span class="sd">        for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_callback_or_handler</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="n">session</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="convert_callback_to_session_hook"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.convert_callback_to_session_hook">[docs]</a><span class="k">def</span> <span class="nf">convert_callback_to_session_hook</span><span class="p">(</span>
+        <span class="n">callback</span><span class="p">:</span> <span class="n">CoordinatorCallback</span><span class="p">,</span>
+        <span class="n">summary_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">max_number_of_iterations_per_epoch</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunHook</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert callback to :obj:`tf.train.SessionRunHook`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    callback</span>
+<span class="sd">        callback to transform</span>
+<span class="sd">    summary_dir</span>
+<span class="sd">        directory of summary writer</span>
+<span class="sd">    max_number_of_iterations_per_epoch</span>
+<span class="sd">        max number of iterations for all modes; needed to recalculate iteration</span>
+<span class="sd">        number from global_step.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    callback_as_hook</span>
+<span class="sd">        callback as session_run_hook</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">callback</span><span class="o">.</span><span class="n">mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;Set the mode for callback </span><span class="si">{}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">callback</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">summary_dir</span> <span class="o">=</span> <span class="n">_get_and_maybe_create_summary_dir_for_mode</span><span class="p">(</span>
+        <span class="n">summary_dir</span><span class="p">,</span> <span class="n">callback</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+    <span class="n">callback_as_hook</span> <span class="o">=</span> <span class="n">_CallBackSessionRunHook</span><span class="p">(</span>
+        <span class="n">callback_or_handler</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span> <span class="n">summary_dir</span><span class="o">=</span><span class="n">summary_dir</span><span class="p">,</span>
+        <span class="n">max_number_of_iterations_per_epoch</span><span class="o">=</span><span class="n">max_number_of_iterations_per_epoch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">callback_as_hook</span></div>
+
+
+<div class="viewcode-block" id="convert_callbacks_handler_to_session_hook"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.session_run_hooks.convert_callbacks_handler_to_session_hook">[docs]</a><span class="k">def</span> <span class="nf">convert_callbacks_handler_to_session_hook</span><span class="p">(</span>
+        <span class="n">callbacks_handler</span><span class="p">:</span> <span class="n">CallbacksHandler</span><span class="p">,</span>
+        <span class="n">summary_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">max_number_of_iterations_per_epoch</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">SessionRunHook</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert callbacks handler to session run hook</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    callbacks_handler</span>
+<span class="sd">        callbacks handler to convert</span>
+<span class="sd">    summary_dir</span>
+<span class="sd">        directory to save the summaries</span>
+<span class="sd">    max_number_of_iterations_per_epoch</span>
+<span class="sd">        max number of iterations per epoch, use to calculate the step from</span>
+<span class="sd">        global_step</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    callback_as_hook</span>
+<span class="sd">        session run hook</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">callbacks_handler</span><span class="o">.</span><span class="n">mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;Set the mode for callbacks handler!&quot;</span>
+    <span class="p">)</span>
+    <span class="n">summary_dir</span> <span class="o">=</span> <span class="n">_get_and_maybe_create_summary_dir_for_mode</span><span class="p">(</span>
+        <span class="n">summary_dir</span><span class="p">,</span> <span class="n">callbacks_handler</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+    <span class="n">callback_as_hook</span> <span class="o">=</span> <span class="n">_CallBackSessionRunHook</span><span class="p">(</span>
+        <span class="n">callback_or_handler</span><span class="o">=</span><span class="n">callbacks_handler</span><span class="p">,</span> <span class="n">summary_dir</span><span class="o">=</span><span class="n">summary_dir</span><span class="p">,</span>
+        <span class="n">max_number_of_iterations_per_epoch</span><span class="o">=</span><span class="n">max_number_of_iterations_per_epoch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">callback_as_hook</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_and_maybe_create_summary_dir_for_mode</span><span class="p">(</span>
+        <span class="n">summary_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">summary_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">summary_dir</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+    <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">summary_dir</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">summary_dir</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

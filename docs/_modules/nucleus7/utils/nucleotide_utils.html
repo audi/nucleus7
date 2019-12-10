@@ -1,0 +1,841 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.nucleotide_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.nucleotide_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.nucleotide_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils to work with nucleotides</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">config_logger</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">register</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.fields</span> <span class="kn">import</span> <span class="n">NucleotideKeyFields</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">numpydoc_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+<span class="n">NucleotideInfo</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;NucleotideInfo&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="s2">&quot;nucleotide&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">,</span> <span class="s2">&quot;base_classes&quot;</span><span class="p">,</span> <span class="s2">&quot;constructor_parameters&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;incoming_keys_description&quot;</span><span class="p">,</span> <span class="s2">&quot;generated_keys_description&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;dynamic_incoming_keys&quot;</span><span class="p">,</span> <span class="s2">&quot;dynamic_generated_keys&quot;</span><span class="p">))</span>
+
+<span class="n">ALL_OTHERS_KEY</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+
+<span class="n">_NESTED_KEY_SEPARATOR</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span>
+
+
+<div class="viewcode-block" id="get_nucleotide_signature"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.get_nucleotide_signature">[docs]</a><span class="k">def</span> <span class="nf">get_nucleotide_signature</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return signature of nucleotide.</span>
+
+<span class="sd">    Arguments are taken from `self.incoming_keys` and returns from</span>
+<span class="sd">    `self.generated_keys`. If docstring exists to main method (predict or</span>
+<span class="sd">    process), then it is parsed to get descriptions of nodes. Docstring in</span>
+<span class="sd">    that case should be structured in numpydoc format.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nucleotide</span>
+<span class="sd">        nucleotide</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    arguments</span>
+<span class="sd">        dictionary with input names as keys and its help as value</span>
+<span class="sd">    return values</span>
+<span class="sd">        dictionary with return value names as keys and its help as value</span>
+
+<span class="sd">    Warnings</span>
+<span class="sd">    --------</span>
+<span class="sd">    if there are no return values inside of return section of docstring or</span>
+<span class="sd">    inside of parameters section</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="s1">&#39;incoming_keys&#39;</span><span class="p">):</span>
+        <span class="n">arguments</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;no description&#39;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys_all</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">arguments</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="s1">&#39;generated_keys&#39;</span><span class="p">):</span>
+        <span class="n">returns</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="s1">&#39;no description&#39;</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">generated_keys_all</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">returns</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="n">nucleotide</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">:</span>
+        <span class="n">class_input_and_return_keys</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">numpydoc_utils</span><span class="o">.</span><span class="n">get_dict_from_doc_with_lists</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span>
+                                                        <span class="s1">&#39;Attributes&#39;</span><span class="p">))</span>
+        <span class="n">class_input_and_return_keys</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">class_input_and_return_keys</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;incoming_keys&#39;</span><span class="p">,</span> <span class="s1">&#39;generated_keys&#39;</span><span class="p">]}</span>
+        <span class="n">class_input_keys</span> <span class="o">=</span> <span class="n">class_input_and_return_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;incoming_keys&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">class_return_keys</span> <span class="o">=</span> <span class="n">class_input_and_return_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;generated_keys&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">arguments</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">class_input_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+                     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">arguments</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">returns</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">class_return_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">returns</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="c1"># pylint: disable=protected-access</span>
+    <span class="c1"># now there is no other way to access _process_method_name; will be changed</span>
+    <span class="c1"># in the future, when _process_method_name will be obsolete</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">_process_method_name</span><span class="p">):</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">_process_method_name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># pylint: enable=protected-access</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">method</span><span class="o">.</span><span class="vm">__doc__</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">returns</span>
+
+    <span class="n">arguments_</span> <span class="o">=</span> <span class="n">numpydoc_utils</span><span class="o">.</span><span class="n">get_dict_from_doc</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s1">&#39;Parameters&#39;</span><span class="p">)</span>
+    <span class="n">arguments</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">arguments_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">arguments</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">returns_</span> <span class="o">=</span> <span class="n">numpydoc_utils</span><span class="o">.</span><span class="n">get_dict_from_doc</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="s1">&#39;Returns&#39;</span><span class="p">)</span>
+    <span class="n">returns</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">returns_</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">returns</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">return</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">returns</span></div>
+
+
+<div class="viewcode-block" id="get_nucleotide_info"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.get_nucleotide_info">[docs]</a><span class="k">def</span> <span class="nf">get_nucleotide_info</span><span class="p">(</span>
+        <span class="o">*</span><span class="p">,</span> <span class="n">class_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">nucleotide_cls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">type</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">nucleotide</span><span class="p">:</span> <span class="n">Optional</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NucleotideInfo</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print statistics like incoming and generated keys and class</span>
+<span class="sd">    inheritance pattern</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    class_name</span>
+<span class="sd">        complete name of the nucleotide included the package where it is</span>
+<span class="sd">    nucleotide_cls</span>
+<span class="sd">        nucleotide class</span>
+<span class="sd">    nucleotide</span>
+<span class="sd">        nucleotide itself</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nucleotide_info</span>
+<span class="sd">        nucleotide information</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if both class_name and nucleotide_cls are provided</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">wrong_args_msg</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;Either nucleotide, nucleotide class or class name should be &quot;</span>
+        <span class="s2">&quot;provided, not many of them!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">class_name</span> <span class="ow">and</span> <span class="n">nucleotide_cls</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">wrong_args_msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">nucleotide</span> <span class="ow">and</span> <span class="p">(</span><span class="n">class_name</span> <span class="ow">or</span> <span class="n">nucleotide_cls</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">wrong_args_msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">class_name</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">nucleotide_cls</span> <span class="o">=</span> <span class="n">_register_and_retrieve_nucleotide</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">nucleotide</span><span class="p">:</span>
+        <span class="n">nucleotide_cls</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="o">.</span><span class="vm">__class__</span>
+
+    <span class="p">(</span><span class="n">incoming_keys_description</span><span class="p">,</span> <span class="n">generated_keys_description</span>
+     <span class="p">)</span> <span class="o">=</span> <span class="n">get_nucleotide_signature</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">nucleotide_cls</span><span class="o">.</span><span class="n">incoming_keys_optional</span><span class="p">:</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">incoming_keys_description</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span>
+        <span class="n">incoming_keys_description</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (optional)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_key</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">description</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">nucleotide_cls</span><span class="o">.</span><span class="n">generated_keys_optional</span><span class="p">:</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">generated_keys_description</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span>
+        <span class="n">generated_keys_description</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> (optional)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_key</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">description</span><span class="p">)</span>
+
+    <span class="n">base_classes</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span>
+    <span class="n">constructor_parameters</span> <span class="o">=</span> <span class="n">numpydoc_utils</span><span class="o">.</span><span class="n">get_docs_of_method</span><span class="p">(</span>
+        <span class="n">nucleotide_cls</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">numpydoc_utils</span><span class="o">.</span><span class="n">doc_from_method</span><span class="p">(</span>
+        <span class="n">nucleotide_cls</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Summary&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;No description found&quot;</span><span class="p">])</span>
+
+    <span class="n">nucleotide_info</span> <span class="o">=</span> <span class="n">NucleotideInfo</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="o">=</span><span class="n">nucleotide_cls</span><span class="p">,</span>
+        <span class="n">class_name</span><span class="o">=</span><span class="n">class_name</span><span class="p">,</span>
+        <span class="n">base_classes</span><span class="o">=</span><span class="n">base_classes</span><span class="p">,</span>
+        <span class="n">constructor_parameters</span><span class="o">=</span><span class="n">constructor_parameters</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="n">description</span><span class="p">,</span>
+        <span class="n">incoming_keys_description</span><span class="o">=</span><span class="n">incoming_keys_description</span><span class="p">,</span>
+        <span class="n">generated_keys_description</span><span class="o">=</span><span class="n">generated_keys_description</span><span class="p">,</span>
+        <span class="n">dynamic_generated_keys</span><span class="o">=</span><span class="n">nucleotide_cls</span><span class="o">.</span><span class="n">dynamic_generated_keys</span><span class="p">,</span>
+        <span class="n">dynamic_incoming_keys</span><span class="o">=</span><span class="n">nucleotide_cls</span><span class="o">.</span><span class="n">dynamic_incoming_keys</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">nucleotide</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">nucleotide_info</span> <span class="o">=</span> <span class="n">_add_logged_args_to_nucleotide_info</span><span class="p">(</span>
+            <span class="n">nucleotide</span><span class="p">,</span> <span class="n">nucleotide_info</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">nucleotide_info</span></div>
+
+
+<div class="viewcode-block" id="get_class_name_and_register_package"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.get_class_name_and_register_package">[docs]</a><span class="nd">@deprecated</span><span class="o">.</span><span class="n">replace_deprecated_parameter</span><span class="p">(</span><span class="s2">&quot;factory_name&quot;</span><span class="p">,</span> <span class="s2">&quot;class_name&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">get_class_name_and_register_package</span><span class="p">(</span><span class="n">class_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return only class name from full name and register components from its</span>
+<span class="sd">    package</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    class_name</span>
+<span class="sd">        full path to object class including package which should be inside</span>
+<span class="sd">        PYTHONPATH</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    class_name</span>
+<span class="sd">        class name without package to retrieve the class from register</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">class_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">class_name</span> <span class="o">=</span> <span class="n">class_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">package</span><span class="p">:</span>
+        <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">class_name</span></div>
+
+
+<div class="viewcode-block" id="collapse_inputs"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.collapse_inputs">[docs]</a><span class="k">def</span> <span class="nf">collapse_inputs</span><span class="p">(</span><span class="n">list_of_inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collapse the list of dicts to one dict</span>
+<span class="sd">    If one key appears in multiple dicts, then the value in resulted dict</span>
+<span class="sd">    with this key will be the list of values from same key of inputs</span>
+<span class="sd">    otherwise input dicts are just combined</span>
+
+<span class="sd">    &gt;&gt;&gt; collapse_inputs([{&#39;a&#39;: 1, &#39;b&#39;: 2}, {&#39;a&#39;: 3, &#39;c&#39;: 4}])</span>
+<span class="sd">    {&#39;a&#39;: [1, 3], &#39;b&#39;: 2, &#39;c&#39;: 4}</span>
+<span class="sd">    &gt;&gt;&gt; collapse_inputs([{&#39;alist&#39;: [[1], 2], &#39;dict&#39;: {&#39;a&#39;: 10}},</span>
+<span class="sd">                          {&#39;alist&#39;: [3], &#39;dict&#39;: {&#39;c&#39;: 4}}])</span>
+<span class="sd">    {&#39;alist&#39;: [[1], 2, 3], &#39;dict&#39;: {&#39;a&#39;: 10, &#39;c&#39;: 4}}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list_of_inputs</span>
+<span class="sd">        list of dicts with values to collapse</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    collapsed_dict</span>
+<span class="sd">        collapsed version of the dict</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if provided combination of the types for same key in the collapsed</span>
+<span class="sd">        dicts is not possible, e.g. it is not possible to collapse dict with</span>
+<span class="sd">        list or value</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if there is a collision of the keys in collapsing of the dicts</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_collapse_dicts</span><span class="p">(</span><span class="n">list_of_dicts</span><span class="p">):</span>
+        <span class="n">collapsed_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_dict</span> <span class="ow">in</span> <span class="n">list_of_dicts</span><span class="p">:</span>
+            <span class="n">intersection</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">each_dict</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">collapsed_dict</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">intersection</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Following keys intersect during collapse: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="n">intersection</span><span class="p">))</span>
+            <span class="n">collapsed_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">each_dict</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">collapsed_dict</span>
+
+    <span class="k">def</span> <span class="nf">_collapse_lists</span><span class="p">(</span><span class="n">list_of_lists</span><span class="p">):</span>
+        <span class="n">collapsed_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_list</span> <span class="ow">in</span> <span class="n">list_of_lists</span><span class="p">:</span>
+            <span class="n">collapsed_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">each_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">collapsed_list</span>
+
+    <span class="k">def</span> <span class="nf">_collapse_other</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">list_of_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_collapse_list_of_values</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">):</span>
+        <span class="n">value_types</span> <span class="o">=</span> <span class="p">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">list_of_values</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">value_types</span> <span class="o">==</span> <span class="p">{</span><span class="nb">list</span><span class="p">}:</span>
+            <span class="k">return</span> <span class="n">_collapse_lists</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value_types</span> <span class="o">==</span> <span class="p">{</span><span class="nb">dict</span><span class="p">}:</span>
+            <span class="k">return</span> <span class="n">_collapse_dicts</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value_types</span> <span class="o">==</span> <span class="p">{</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">}:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Provided combination of input types cannot be collapsed! &quot;</span>
+                   <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value_types</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_collapse_other</span><span class="p">(</span><span class="n">list_of_values</span><span class="p">)</span>
+
+    <span class="n">result_keys</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_key</span> <span class="k">for</span> <span class="n">each_list</span> <span class="ow">in</span> <span class="n">list_of_inputs</span>
+                   <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">each_list</span><span class="p">}</span>
+
+    <span class="n">collapsed</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_result_key</span> <span class="ow">in</span> <span class="n">result_keys</span><span class="p">:</span>
+        <span class="n">key_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_list</span><span class="p">[</span><span class="n">each_result_key</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_list</span> <span class="ow">in</span> <span class="n">list_of_inputs</span>
+                      <span class="k">if</span> <span class="n">each_result_key</span> <span class="ow">in</span> <span class="n">each_list</span><span class="p">]</span>
+        <span class="n">key_values</span> <span class="o">=</span> <span class="n">_collapse_list_of_values</span><span class="p">(</span><span class="n">key_values</span><span class="p">)</span>
+        <span class="n">collapsed</span><span class="p">[</span><span class="n">each_result_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_values</span>
+
+    <span class="k">return</span> <span class="n">collapsed</span></div>
+
+
+<div class="viewcode-block" id="remap_and_collapse_nucleotide_inputs"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.remap_and_collapse_nucleotide_inputs">[docs]</a><span class="k">def</span> <span class="nf">remap_and_collapse_nucleotide_inputs</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">nucleotide_names</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">nucleotide_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remap and collapse nucleotide inputs according to the mapping</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputs</span>
+<span class="sd">        dict of inputs to the nucleotide, where highest level is the nucleotide</span>
+<span class="sd">        names mapping to corresponding data,</span>
+<span class="sd">        e.g. {nucleotide1: {key1: 1}, nucleotide2: {key2: 2}}</span>
+<span class="sd">    nucleotide_names</span>
+<span class="sd">        nucleotide names from inputs to use; if not specified, all the inputs</span>
+<span class="sd">        will be used</span>
+<span class="sd">    nucleotide_keys_mapping</span>
+<span class="sd">        mapping for keys for each nucleotide from nucleotide_names to remap,</span>
+<span class="sd">        e.g. {nucleotide1: {key1: new_key1}, nucleotide2: {key2: new_key2}}</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    remapped_and_collapsed_inputs</span>
+<span class="sd">        collapsed version of the remapped inputs</span>
+
+<span class="sd">    See</span>
+<span class="sd">    ---</span>
+<span class="sd">    :obj:`collapse_inputs`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nucleotide_keys_mapping</span> <span class="o">=</span> <span class="n">nucleotide_keys_mapping</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">nucleotide_names</span> <span class="o">=</span> <span class="p">(</span><span class="n">nucleotide_names</span> <span class="k">if</span> <span class="n">nucleotide_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                        <span class="k">else</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="n">inputs_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">inputs</span><span class="p">[</span><span class="n">each_name</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_name</span> <span class="ow">in</span> <span class="n">nucleotide_names</span><span class="p">]</span>
+    <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">inputs_list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">incoming_keys_mapping_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_name</span> <span class="ow">in</span> <span class="n">nucleotide_names</span><span class="p">:</span>
+        <span class="n">single_nucleotide_mapping</span> <span class="o">=</span> <span class="n">nucleotide_keys_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">each_name</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ALL_OTHERS_KEY</span> <span class="ow">in</span> <span class="n">nucleotide_keys_mapping</span>
+                <span class="ow">and</span> <span class="n">ALL_OTHERS_KEY</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">single_nucleotide_mapping</span><span class="p">):</span>
+            <span class="n">single_nucleotide_mapping</span><span class="p">[</span><span class="n">ALL_OTHERS_KEY</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">nucleotide_keys_mapping</span><span class="p">[</span><span class="n">ALL_OTHERS_KEY</span><span class="p">])</span>
+        <span class="n">incoming_keys_mapping_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">single_nucleotide_mapping</span><span class="p">)</span>
+    <span class="n">remapped_and_collapsed_results</span> <span class="o">=</span> <span class="n">remap_and_collapse_inputs</span><span class="p">(</span>
+        <span class="n">inputs_list</span><span class="p">,</span> <span class="n">incoming_keys_mapping_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">remapped_and_collapsed_results</span></div>
+
+
+<div class="viewcode-block" id="remap_and_collapse_inputs"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.remap_and_collapse_inputs">[docs]</a><span class="k">def</span> <span class="nf">remap_and_collapse_inputs</span><span class="p">(</span><span class="n">list_of_inputs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                              <span class="n">list_of_mappings</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remaps the inputs according to mapping and collapse them</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list_of_inputs</span>
+<span class="sd">        list of dicts with values to collapse; can be nested</span>
+<span class="sd">    list_of_mappings</span>
+<span class="sd">        list of dicts with corresponding mappings; each mapping can be</span>
+<span class="sd">        flat version of nested mapping with separator &#39;:&#39;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    remapped_and_collapsed_inputs</span>
+<span class="sd">        collapsed version of the remapped inputs</span>
+
+<span class="sd">    See</span>
+<span class="sd">    ---</span>
+<span class="sd">    :obj:`collapse_inputs`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">list_of_inputs_remapped</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_input</span><span class="p">,</span> <span class="n">each_mapping</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">list_of_inputs</span><span class="p">,</span> <span class="n">list_of_mappings</span><span class="p">):</span>
+        <span class="n">inp_remapped</span> <span class="o">=</span> <span class="n">remap_single_input</span><span class="p">(</span><span class="n">each_input</span><span class="p">,</span> <span class="n">each_mapping</span><span class="p">)</span>
+        <span class="n">list_of_inputs_remapped</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inp_remapped</span><span class="p">)</span>
+
+    <span class="n">inputs_collapsed</span> <span class="o">=</span> <span class="n">collapse_inputs</span><span class="p">(</span><span class="n">list_of_inputs_remapped</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inputs_collapsed</span></div>
+
+
+<div class="viewcode-block" id="remap_single_input"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.remap_single_input">[docs]</a><span class="k">def</span> <span class="nf">remap_single_input</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remap single input keys according to mapping</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputs</span>
+<span class="sd">        dict with inputs, where keys should be remapped</span>
+<span class="sd">    mapping</span>
+<span class="sd">        mapping of old keys to new keys; if some key was not present, it will</span>
+<span class="sd">        be passed as is; if new key is &quot;_&quot;, it will be ignored in remapped</span>
+<span class="sd">        result</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    remapped_inputs</span>
+<span class="sd">        inputs with remapped keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inputs_remapped_flat</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="n">mapping</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">inputs_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="n">_NESTED_KEY_SEPARATOR</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">old_name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">inputs_flat</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">remapped_new_names</span> <span class="o">=</span> <span class="n">_get_new_key_for_nested_input_and_map</span><span class="p">(</span>
+            <span class="n">old_name</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_new_name</span> <span class="ow">in</span> <span class="n">remapped_new_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">each_new_name</span> <span class="o">==</span> <span class="n">NucleotideKeyFields</span><span class="o">.</span><span class="n">IGNORE_KEY</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">inputs_remapped_flat</span><span class="p">[</span><span class="n">each_new_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">inputs_remapped</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+            <span class="n">inputs_remapped_flat</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="n">_NESTED_KEY_SEPARATOR</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">inputs_remapped</span></div>
+
+
+<div class="viewcode-block" id="get_sample_config_for_nucleotide"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.get_sample_config_for_nucleotide">[docs]</a><span class="k">def</span> <span class="nf">get_sample_config_for_nucleotide</span><span class="p">(</span><span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a default json for the class</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    class_name</span>
+<span class="sd">        complete name of the nucleotide included the package where it is</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    json_dict</span>
+<span class="sd">        dict containing a default the same structure as the json config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nucleotide_name</span><span class="p">,</span> <span class="n">nucleotide_cls</span> <span class="o">=</span> <span class="n">_register_and_retrieve_nucleotide</span><span class="p">(</span>
+        <span class="n">class_name</span><span class="p">)</span>
+    <span class="n">incoming_keys</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_nucleotide_signature</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span>
+    <span class="n">incoming_keys_mapping</span> <span class="o">=</span> <span class="n">_make_incoming_keys_sample_mapping</span><span class="p">(</span><span class="n">incoming_keys</span><span class="p">)</span>
+    <span class="n">node_msg</span> <span class="o">=</span> <span class="s1">&#39;TODO_SET_CORRECT_INBOUND_NODES&#39;</span>
+    <span class="n">inbound_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">node_msg</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">incoming_keys</span><span class="p">]</span>
+
+    <span class="n">args_to_skip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inbound_nodes&#39;</span><span class="p">,</span> <span class="s1">&#39;incoming_keys_mapping&#39;</span><span class="p">]</span>
+
+    <span class="p">(</span><span class="n">nucleotide_args</span><span class="p">,</span> <span class="n">nucleotide_kwargs</span><span class="p">,</span> <span class="n">nucleotide_defaults</span>
+     <span class="p">)</span> <span class="o">=</span> <span class="n">object_utils</span><span class="o">.</span><span class="n">get_full_method_signature</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span>
+
+    <span class="n">out_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">argument</span> <span class="ow">in</span> <span class="n">nucleotide_args</span> <span class="o">+</span> <span class="n">nucleotide_kwargs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">argument</span> <span class="ow">in</span> <span class="n">args_to_skip</span> <span class="ow">or</span> <span class="n">argument</span> <span class="ow">in</span> <span class="n">nucleotide_defaults</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">out_dict</span><span class="p">[</span><span class="n">argument</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;TODO_SET_CORRECT_VALUE&#39;</span>
+
+    <span class="n">out_dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nucleotide_defaults</span><span class="p">)</span>
+    <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;incoming_keys_mapping&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">incoming_keys_mapping</span>
+    <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;inbound_nodes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inbound_nodes</span>
+    <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;class_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_name</span>
+    <span class="n">out_dict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nucleotide_name</span>
+    <span class="k">return</span> <span class="n">out_dict</span></div>
+
+
+<div class="viewcode-block" id="format_nucleotide_info"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.nucleotide_utils.format_nucleotide_info">[docs]</a><span class="k">def</span> <span class="nf">format_nucleotide_info</span><span class="p">(</span><span class="n">nucleotide_info</span><span class="p">:</span> <span class="n">NucleotideInfo</span><span class="p">,</span>
+                           <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">indent</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print nucleotide statistics</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nucleotide_info</span>
+<span class="sd">        nucleotide info</span>
+<span class="sd">    width</span>
+<span class="sd">        max width of the text</span>
+<span class="sd">    indent</span>
+<span class="sd">        indent to use for dict data</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nucleotide_info_as_text</span>
+<span class="sd">        formatted string with nucleotide info</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">incoming_keys_description</span> <span class="o">=</span> <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">incoming_keys_description</span>
+    <span class="n">generated_keys_description</span> <span class="o">=</span> <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">generated_keys_description</span>
+    <span class="n">base_class_names</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&lt;class &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">base_classes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">formatted_info</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="s1">&#39;Inheritance schema:</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot; &lt;=</span><span class="se">\n\t</span><span class="s2">^&lt;= &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_class_names</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Description: &quot;</span><span class="p">,</span>
+        <span class="s1">&#39;</span><span class="se">\n\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nucleotide_info</span><span class="o">.</span><span class="n">description</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Parameters: &quot;</span><span class="p">,</span>
+        <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">nucleotide_info</span><span class="o">.</span><span class="n">constructor_parameters</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+                       <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
+    <span class="p">])</span>
+    <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">2</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">incoming_keys_description</span><span class="p">:</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;Nucleotide has no static incoming keys</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+            <span class="s2">&quot;Static incoming keys:&quot;</span><span class="p">,</span>
+            <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">incoming_keys_description</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+                           <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
+        <span class="p">])</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">dynamic_incoming_keys</span><span class="p">:</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;Nucleotide has dynamic incoming keys</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">generated_keys_description</span><span class="p">:</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;Nucleotide has no static generated keys</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+            <span class="s2">&quot;Generated keys:&quot;</span><span class="p">,</span>
+            <span class="n">pprint</span><span class="o">.</span><span class="n">pformat</span><span class="p">(</span><span class="n">generated_keys_description</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+                           <span class="n">indent</span><span class="o">=</span><span class="n">indent</span><span class="p">)</span>
+        <span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">dynamic_generated_keys</span><span class="p">:</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">formatted_info</span> <span class="o">+=</span> <span class="s2">&quot;Nucleotide has dynamic generated keys&quot;</span>
+    <span class="k">return</span> <span class="n">formatted_info</span></div>
+
+
+<span class="k">def</span> <span class="nf">_register_and_retrieve_nucleotide</span><span class="p">(</span><span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">]:</span>
+    <span class="n">nucleotide_name</span> <span class="o">=</span> <span class="n">get_class_name_and_register_package</span><span class="p">(</span>
+        <span class="n">class_name</span><span class="o">=</span><span class="n">class_name</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nucleotide_cls</span> <span class="o">=</span> <span class="n">register</span><span class="o">.</span><span class="n">retrieve_from_register</span><span class="p">(</span><span class="n">nucleotide_name</span><span class="p">)</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">+=</span> <span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2"> does not inherit from nucleotide&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">class_name</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nucleotide_name</span><span class="p">,</span> <span class="n">nucleotide_cls</span>
+
+
+<span class="k">def</span> <span class="nf">_make_incoming_keys_sample_mapping</span><span class="p">(</span><span class="n">incoming_keys</span><span class="p">):</span>
+    <span class="n">sub_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">incoming_key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">incoming_keys</span><span class="p">):</span>
+        <span class="n">sub_dict</span><span class="p">[</span><span class="s1">&#39;TODO_SET_INPUT_PLUGIN_NAME_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;TODO_SET_INPUT_PLUGIN_OUTPUT_KEY_NAME_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">index</span><span class="p">):</span> <span class="n">incoming_key</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">sub_dict</span>
+
+
+<span class="k">def</span> <span class="nf">_add_logged_args_to_nucleotide_info</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="p">,</span> <span class="n">nucleotide_info</span><span class="p">:</span> <span class="n">NucleotideInfo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NucleotideInfo</span><span class="p">:</span>
+    <span class="n">nucleotide_logged_args</span> <span class="o">=</span> <span class="n">_get_logged_nucleotide_args</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">nucleotide_logged_args</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nucleotide_info</span>
+
+    <span class="k">def</span> <span class="nf">_add_value_to_description</span><span class="p">(</span><span class="n">param_description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">used_value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">used_value_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">used_value</span><span class="p">)</span>
+        <span class="n">description_with_value</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;USED_VALUE: </span><span class="si">{value}</span><span class="s2">; DESCRIPTION: </span><span class="si">{description}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">value</span><span class="o">=</span><span class="n">used_value_str</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="n">param_description</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">description_with_value</span>
+
+    <span class="n">new_constructor_parameters</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_param_name</span><span class="p">:</span> <span class="n">_add_value_to_description</span><span class="p">(</span>
+            <span class="n">each_param_description</span><span class="p">,</span>
+            <span class="n">nucleotide_logged_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">each_param_name</span><span class="p">,</span>
+                                       <span class="s2">&quot;value excluded from log&quot;</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">each_param_name</span><span class="p">,</span> <span class="n">each_param_description</span> <span class="ow">in</span>
+        <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">constructor_parameters</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="n">nucleotide_info</span> <span class="o">=</span> <span class="n">nucleotide_info</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span>
+        <span class="n">constructor_parameters</span><span class="o">=</span><span class="n">new_constructor_parameters</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nucleotide_info</span>
+
+
+<span class="k">def</span> <span class="nf">_get_logged_nucleotide_args</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">):</span>
+    <span class="n">logged_configs</span> <span class="o">=</span> <span class="n">config_logger</span><span class="o">.</span><span class="n">get_logged_configs</span><span class="p">()</span>
+    <span class="n">nucleotide_log_name_scope</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="p">,</span> <span class="s2">&quot;_log_name_scope&quot;</span><span class="p">,</span> <span class="n">nucleotide</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">nucleotide_logged_args</span> <span class="o">=</span> <span class="n">logged_configs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">nucleotide_log_name_scope</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">nucleotide_logged_args</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">nucleotide_logged_args</span> <span class="o">=</span> <span class="n">nucleotide_logged_args</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">nucleotide_logged_args</span>
+
+
+<span class="k">def</span> <span class="nf">_get_new_key_for_nested_input_and_map</span><span class="p">(</span><span class="n">flat_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">flat_key_split</span> <span class="o">=</span> <span class="n">flat_key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">_NESTED_KEY_SEPARATOR</span><span class="p">)</span>
+    <span class="n">flat_key_levels</span> <span class="o">=</span> <span class="p">{</span><span class="n">_NESTED_KEY_SEPARATOR</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">flat_key_split</span><span class="p">[:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat_key_split</span><span class="p">))}</span>
+
+    <span class="n">new_names</span> <span class="o">=</span> <span class="n">_apply_explicit_key_mappings</span><span class="p">(</span><span class="n">flat_key</span><span class="p">,</span> <span class="n">flat_key_levels</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">new_names</span><span class="p">:</span>
+        <span class="n">new_name_from_other_key</span> <span class="o">=</span> <span class="n">_apply_all_other_key_mappings</span><span class="p">(</span>
+            <span class="n">flat_key</span><span class="p">,</span> <span class="n">mapping</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_name_from_other_key</span><span class="p">:</span>
+            <span class="n">new_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">new_name_from_other_key</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">flat_key</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">new_names</span>
+
+
+<span class="k">def</span> <span class="nf">_apply_explicit_key_mappings</span><span class="p">(</span><span class="n">flat_key</span><span class="p">,</span> <span class="n">flat_key_levels</span><span class="p">,</span> <span class="n">mapping</span><span class="p">):</span>
+    <span class="n">new_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_old_key</span><span class="p">,</span> <span class="n">each_new_key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">each_old_key</span> <span class="ow">in</span> <span class="n">flat_key_levels</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">each_new_key</span> <span class="o">==</span> <span class="n">NucleotideKeyFields</span><span class="o">.</span><span class="n">IGNORE_KEY</span><span class="p">:</span>
+                <span class="n">new_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">NucleotideKeyFields</span><span class="o">.</span><span class="n">IGNORE_KEY</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="n">new_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flat_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">each_old_key</span><span class="p">,</span> <span class="n">each_new_key</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">new_names</span>
+
+
+<span class="k">def</span> <span class="nf">_apply_all_other_key_mappings</span><span class="p">(</span><span class="n">flat_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mapping</span><span class="p">:</span> <span class="nb">dict</span>
+                                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">flat_key_split</span> <span class="o">=</span> <span class="n">flat_key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">_NESTED_KEY_SEPARATOR</span><span class="p">)</span>
+    <span class="n">flat_key_levels_with_other_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">_NESTED_KEY_SEPARATOR</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">flat_key_split</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">ALL_OTHERS_KEY</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flat_key_split</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">indices_from_other_mapping</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_old_key</span><span class="p">,</span> <span class="n">each_new_key</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">each_old_key</span> <span class="ow">in</span> <span class="n">flat_key_levels_with_other_keys</span><span class="p">:</span>
+            <span class="n">indices_from_other_mapping</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">flat_key_levels_with_other_keys</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">each_old_key</span><span class="p">),</span>
+                 <span class="n">each_old_key</span><span class="p">,</span> <span class="n">each_new_key</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">indices_from_other_mapping</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">old_key</span><span class="p">,</span> <span class="n">new_key</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">indices_from_other_mapping</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">new_key</span> <span class="o">==</span> <span class="n">NucleotideKeyFields</span><span class="o">.</span><span class="n">IGNORE_KEY</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NucleotideKeyFields</span><span class="o">.</span><span class="n">IGNORE_KEY</span>
+
+    <span class="k">if</span> <span class="n">old_key</span> <span class="o">==</span> <span class="n">ALL_OTHERS_KEY</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_NESTED_KEY_SEPARATOR</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">new_key</span><span class="p">,</span> <span class="n">flat_key</span><span class="p">])</span>
+
+    <span class="n">old_key_without_other</span> <span class="o">=</span> <span class="n">old_key</span><span class="p">[:</span><span class="o">-</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ALL_OTHERS_KEY</span><span class="p">)</span>
+                                       <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">_NESTED_KEY_SEPARATOR</span><span class="p">))]</span>
+    <span class="k">return</span> <span class="n">flat_key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old_key_without_other</span><span class="p">,</span> <span class="n">new_key</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,2507 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core package &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nucleus7.data package" href="nucleus7.data.html" />
+    <link rel="prev" title="nucleus7.coordinator package" href="nucleus7.coordinator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nucleus7.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.base">nucleus7.core.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.buffer">nucleus7.core.buffer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.config_logger">nucleus7.core.config_logger module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.dna_helix">nucleus7.core.dna_helix module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.fields">nucleus7.core.fields module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.gene_handler">nucleus7.core.gene_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.nucleotide">nucleus7.core.nucleotide module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.project">nucleus7.core.project module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.project_artifacts">nucleus7.core.project_artifacts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.project_dirs">nucleus7.core.project_dirs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.project_global_config">nucleus7.core.project_global_config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.project_serializer">nucleus7.core.project_serializer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core.register">nucleus7.core.register module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>nucleus7.core package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/nucleus7.core.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleus7-core-package">
+<h1>nucleus7.core package<a class="headerlink" href="#nucleus7-core-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nucleus7.core.base">
+<span id="nucleus7-core-base-module"></span><h2>nucleus7.core.base module<a class="headerlink" href="#module-nucleus7.core.base" title="Permalink to this headline">¶</a></h2>
+<p>Base class and meta class for registering and logging</p>
+<dl class="class">
+<dt id="nucleus7.core.base.BaseClass">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.base.</code><code class="sig-name descname">BaseClass</code><a class="reference internal" href="../_modules/nucleus7/core/base.html#BaseClass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.base.BaseClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Base class to inherit from for nucleus7 objects</p>
+<p>Includes built property and build method which can rename / modify
+parameters depending on defaults property</p>
+<dl class="method">
+<dt id="nucleus7.core.base.BaseClass.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/base.html#BaseClass.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.base.BaseClass.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object by updating the parameters with defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self object for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.base.BaseClass.built">
+<em class="property">property </em><code class="sig-name descname">built</code><a class="headerlink" href="#nucleus7.core.base.BaseClass.built" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag if object was built</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if object was built, False otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>built</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.base.BaseClass.defaults">
+<em class="property">property </em><code class="sig-name descname">defaults</code><a class="headerlink" href="#nucleus7.core.base.BaseClass.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define default values for nucleotide parameters as a dict mapping from
+attribute name to its default value. Attribute name (key in returned
+dict) must be the same as attribute name in constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>default_parameters</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.base.MetaLogAndRegister">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.base.</code><code class="sig-name descname">MetaLogAndRegister</code><span class="sig-paren">(</span><em class="sig-param">class_name</em>, <em class="sig-param">bases</em>, <em class="sig-param">attributes_dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/base.html#MetaLogAndRegister"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.base.MetaLogAndRegister" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a></p>
+<p>Meta class which will register new classes and also add their constructor
+parameters to the _ConfigLogger</p>
+<p>Following attributes can be set inside of the class to control the register
+and config logging:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>register_name_scope - name scope for register; if not set, original
+class name will be used (will be searched also inside of bases)</p></li>
+<li><p>register_name - name of the class inside of register; if not set,
+class name will be used (will be searched only in the class)</p></li>
+<li><p>log_name_scope - name scope for config logger; defaults to
+register_name_scope (will be searched also inside of bases)</p></li>
+<li><p>exclude_args_from_log - list of the constructor arguments that must be
+not logged (will be searched also inside of bases)</p></li>
+<li><p>exclude_from_register - flag if this class must be excluded from
+register, e.g. for interfaces and base classes
+(will be searched only in the class)</p></li>
+<li><p>exclude_from_log - flag if this class must be excluded from
+constructor log, e.g. for intermediate classes, defaults to
+exclude_from_register (will be searched only in the class)</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.buffer">
+<span id="nucleus7-core-buffer-module"></span><h2>nucleus7.core.buffer module<a class="headerlink" href="#module-nucleus7.core.buffer" title="Permalink to this headline">¶</a></h2>
+<p>Buffer specific interfaces</p>
+<dl class="class">
+<dt id="nucleus7.core.buffer.AdditiveBuffer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.buffer.</code><code class="sig-name descname">AdditiveBuffer</code><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#AdditiveBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.AdditiveBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.buffer.SamplesBuffer" title="nucleus7.core.buffer.SamplesBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.buffer.SamplesBuffer</span></code></a></p>
+<p>Buffer which adds new values to current buffer values using numpy add</p>
+<dl class="method">
+<dt id="nucleus7.core.buffer.AdditiveBuffer.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">**sample_inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#AdditiveBuffer.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.AdditiveBuffer.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add sample to buffer</p>
+<p>If the key with sample data was not present inside of buffer, it will
+be padded with None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_inputs</strong> – possibly nested samples of data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.AdditiveBuffer.add_value">
+<code class="sig-name descname">add_value</code><span class="sig-paren">(</span><em class="sig-param">buffer_value</em>, <em class="sig-param">sample_value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#AdditiveBuffer.add_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.AdditiveBuffer.add_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to add value to buffer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer_value</strong> – current buffer value</p></li>
+<li><p><strong>sample_value</strong> – sample value to add to buffer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>new buffer value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>new_value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.AdditiveBuffer.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#AdditiveBuffer.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.AdditiveBuffer.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear buffer</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.buffer.AverageBuffer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.buffer.</code><code class="sig-name descname">AverageBuffer</code><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#AverageBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.AverageBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.buffer.AdditiveBuffer" title="nucleus7.core.buffer.AdditiveBuffer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.buffer.AdditiveBuffer</span></code></a></p>
+<p>Buffer which averages all values added to it</p>
+<dl class="method">
+<dt id="nucleus7.core.buffer.AverageBuffer.add_value">
+<code class="sig-name descname">add_value</code><span class="sig-paren">(</span><em class="sig-param">buffer_value</em>, <em class="sig-param">sample_value</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#AverageBuffer.add_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.AverageBuffer.add_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to add value to buffer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer_value</strong> – current buffer value</p></li>
+<li><p><strong>sample_value</strong> – sample value to add to buffer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>new buffer value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>new_value</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.buffer.BufferProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.buffer.</code><code class="sig-name descname">BufferProcessor</code><span class="sig-paren">(</span><em class="sig-param">process_buffer_fn: Optional[Callable[...</em>, <em class="sig-param">dict]] = None</em>, <em class="sig-param">buffer=None</em>, <em class="sig-param">not_batch_keys: Optional[list] = None</em>, <em class="sig-param">clear_buffer_after_evaluate: bool = True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#BufferProcessor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Processor which uses buffer to store the samples from batches of inputs
+and then processes the buffer when it was triggered using evaluate flag</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>process_buffer_fn</strong> – callable which will be called on the buffer where it is triggered;
+should take kwargs as inputs and produce result as a dict</p></li>
+<li><p><strong>buffer</strong> – buffer to use; defaults to SamplesBuffer</p></li>
+<li><p><strong>not_batch_keys</strong> – keys that should be treated as not batched, e.g. they will be copied as
+is to all other sample inputs</p></li>
+<li><p><strong>clear_buffer_after_evaluate</strong> – flag if the buffer should be cleared after it was processed</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.core.buffer.BufferProcessor.buffer">
+<em class="property">property </em><code class="sig-name descname">buffer</code><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor.buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: current buffer
+:rtype: buffer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.BufferProcessor.combine_samples_to_batch">
+<code class="sig-name descname">combine_samples_to_batch</code><span class="sig-paren">(</span><em class="sig-param">list_of_sample_results: List[Optional[dict]]</em><span class="sig-paren">)</span> &#x2192; Optional[dict]<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#BufferProcessor.combine_samples_to_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor.combine_samples_to_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine sample data to batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_sample_results</strong> – list of sample results</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>batch result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>batch_result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.BufferProcessor.extra_incoming_keys">
+<em class="property">property </em><code class="sig-name descname">extra_incoming_keys</code><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor.extra_incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra keys that will be needed to use it inside of Nucleotide</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>extra incoming keys to nucleotide to use this processor</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>extra_keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.BufferProcessor.process_batch">
+<code class="sig-name descname">process_batch</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; Optional[dict]<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#BufferProcessor.process_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor.process_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to process the batch of inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>processed results</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.BufferProcessor.process_single_sample">
+<code class="sig-name descname">process_single_sample</code><span class="sig-paren">(</span><em class="sig-param">evaluate=None</em>, <em class="sig-param">accumulate: bool = True</em>, <em class="sig-param">**sample_inputs</em><span class="sig-paren">)</span> &#x2192; Optional[dict]<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#BufferProcessor.process_single_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor.process_single_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process single sample by accumulating it and process the accumulator
+if evaluate=True</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>evaluate</strong> – flag if the evaluation should be executed after accumulation</p></li>
+<li><p><strong>accumulate</strong> – if buffer accumulation should be executed</p></li>
+<li><p><strong>sample_inputs</strong> – sample inputs to kpi</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None if not evaluate and result of process_buffer_fn on the buffer
+otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.BufferProcessor.split_batch_to_samples">
+<code class="sig-name descname">split_batch_to_samples</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#BufferProcessor.split_batch_to_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.BufferProcessor.split_batch_to_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split batch inputs to sample inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – batch inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of sample inputs</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list_of_sample_inputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.buffer.SamplesBuffer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.buffer.</code><code class="sig-name descname">SamplesBuffer</code><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Buffer with samples</p>
+<dl class="method">
+<dt id="nucleus7.core.buffer.SamplesBuffer.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">**sample_inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add sample to buffer</p>
+<p>If the key with sample data was not present inside of buffer, it will
+be padded with None</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_inputs</strong> – possibly nested samples of data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.SamplesBuffer.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear buffer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.SamplesBuffer.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>nested dict with buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>buffer_dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.SamplesBuffer.get_flat">
+<code class="sig-name descname">get_flat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer.get_flat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer.get_flat" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>flat buffer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>buffer_flat</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.SamplesBuffer.is_empty">
+<code class="sig-name descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer.is_empty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if buffer is empty and False otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>is_empty</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.buffer.SamplesBuffer.keys">
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="../_modules/nucleus7/core/buffer.html#SamplesBuffer.keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.buffer.SamplesBuffer.keys" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>main keys in sorted order of the buffer items</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.config_logger">
+<span id="nucleus7-core-config-logger-module"></span><h2>nucleus7.core.config_logger module<a class="headerlink" href="#module-nucleus7.core.config_logger" title="Permalink to this headline">¶</a></h2>
+<p>Methods to log the used nucleotide configurations, e.g. used constructor
+arguments</p>
+<dl class="function">
+<dt id="nucleus7.core.config_logger.add_constructor_parameters_to_log">
+<code class="sig-prename descclassname">nucleus7.core.config_logger.</code><code class="sig-name descname">add_constructor_parameters_to_log</code><span class="sig-paren">(</span><em class="sig-param">instance: object</em>, <em class="sig-param">name_scope: str</em>, <em class="sig-param">parameters_args: tuple</em>, <em class="sig-param">parameters_kwargs: dict</em>, <em class="sig-param">exclude_args=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/config_logger.html#add_constructor_parameters_to_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.config_logger.add_constructor_parameters_to_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the constructor parameters of the instance to the log with name
+scope</p>
+<p>Parameters will be logged in the config_logger under name scope and
+under instance name, e.g. {“name_scope”: {“instance.name”: …}}</p>
+<p>It will also collect the default values from class __init__ method and
+add unused to the config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> – instance</p></li>
+<li><p><strong>name_scope</strong> – log name scope</p></li>
+<li><p><strong>parameters_args</strong> – args passed to the constructor</p></li>
+<li><p><strong>parameters_kwargs</strong> – kwargs passed to the constructor</p></li>
+<li><p><strong>exclude_args</strong> – arguments from constructor which shouldn’t be logged, e.g. some
+other instances which were used in the construction, but were
+logged already</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.config_logger.get_logged_configs">
+<code class="sig-prename descclassname">nucleus7.core.config_logger.</code><code class="sig-name descname">get_logged_configs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/config_logger.html#get_logged_configs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.config_logger.get_logged_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the logged configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>logged configs with name_scopes as first order key</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>logged_configs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.config_logger.reset_logged_configs">
+<code class="sig-prename descclassname">nucleus7.core.config_logger.</code><code class="sig-name descname">reset_logged_configs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/config_logger.html#reset_logged_configs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.config_logger.reset_logged_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the config logger</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.dna_helix">
+<span id="nucleus7-core-dna-helix-module"></span><h2>nucleus7.core.dna_helix module<a class="headerlink" href="#module-nucleus7.core.dna_helix" title="Permalink to this headline">¶</a></h2>
+<p>Main interface for DNA Helix</p>
+<dl class="class">
+<dt id="nucleus7.core.dna_helix.DNAConnection">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.dna_helix.</code><code class="sig-name descname">DNAConnection</code><span class="sig-paren">(</span><em class="sig-param">incoming</em>, <em class="sig-param">outgoing</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.core.dna_helix.DNAConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAConnection.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.core.dna_helix.DNAConnection.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAConnection.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">incoming</em>, <em class="sig-param">outgoing</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.core.dna_helix.DNAConnection.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of DNAConnection(incoming, outgoing)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAConnection.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.core.dna_helix.DNAConnection.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAConnection.incoming">
+<em class="property">property </em><code class="sig-name descname">incoming</code><a class="headerlink" href="#nucleus7.core.dna_helix.DNAConnection.incoming" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAConnection.outgoing">
+<em class="property">property </em><code class="sig-name descname">outgoing</code><a class="headerlink" href="#nucleus7.core.dna_helix.DNAConnection.outgoing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.dna_helix.DNAHelix">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.dna_helix.</code><code class="sig-name descname">DNAHelix</code><span class="sig-paren">(</span><em class="sig-param">nucleotides: List[nucleus7.core.nucleotide.Nucleotide], incoming_nucleotides: Optional[List[nucleus7.core.nucleotide.Nucleotide]] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/dna_helix.html#DNAHelix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>Main class for DNA Helix, which creates the graph and sorts it in
+topological order out of nucleotides. It also performs the graph checks
+so that generated nucleotide graph has no cycles and all the required
+incoming keys for all the nucleotides have inputs,</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nucleotides</strong> – list of nucleotides to build the helix</p></li>
+<li><p><strong>incoming_nucleotides</strong> – list nucleotides which serve as inputs to generated dna</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.as_dict">
+<code class="sig-name descname">as_dict</code><span class="sig-paren">(</span><em class="sig-param">with_incoming_nucleotides=True</em><span class="sig-paren">)</span> &#x2192; Dict[str, nucleus7.core.dna_helix.DNAConnection]<a class="reference internal" href="../_modules/nucleus7/core/dna_helix.html#DNAHelix.as_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.as_dict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>with_incoming_nucleotides</strong> – if incoming nucleotides must be included</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dna helix as dict in structure
+<cite>{nucleotide_name: (set(incoming nucleotide names),
+set(outgoing nucleotide names))}</cite></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dna_as_dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/dna_helix.html#DNAHelix.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the DNA</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if not all nucleotides are connected</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if nucleotides cannot be sorted in topological order, e.g. cycles
+    exist</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.check_class_topology">
+<code class="sig-name descname">check_class_topology</code><span class="sig-paren">(</span><em class="sig-param">nucleotide_type_dependency_map: Dict[nucleus7.core.nucleotide.Nucleotide, List[nucleus7.core.nucleotide.Nucleotide]]</em><span class="sig-paren">)</span> &#x2192; bool<a class="reference internal" href="../_modules/nucleus7/core/dna_helix.html#DNAHelix.check_class_topology"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.check_class_topology" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check class dependency of nucleotides</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nucleotide_type_dependency_map</strong> – map describing allowed inbound node classes respect to the node,
+e.g. {<code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelPlugin</span></code>: [<code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelPlugin</span></code>]}</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if check passed else raises <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>status</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if some node has not allowed dependency</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">with_incoming_nucleotides: bool = True</em><span class="sig-paren">)</span> &#x2192; networkx.classes.digraph.DiGraph<a class="reference internal" href="../_modules/nucleus7/core/dna_helix.html#DNAHelix.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>with_incoming_nucleotides</strong> – if the incoming_nucleotides should be included in the resulted graph</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>graph representation of dna_helix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dna_graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.incoming_nucleotides">
+<em class="property">property </em><code class="sig-name descname">incoming_nucleotides</code><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.incoming_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: incoming nucleotide to DNA
+:rtype: incoming_nucleotides</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.names_topological_order">
+<em class="property">property </em><code class="sig-name descname">names_topological_order</code><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.names_topological_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nucleotide names in the topological sorted order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>sorted nucleotide names</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>sorted_names</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.nucleotides">
+<em class="property">property </em><code class="sig-name descname">nucleotides</code><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: nucleotides of the dna
+:rtype: nucleotides</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.topological_order">
+<em class="property">property </em><code class="sig-name descname">topological_order</code><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.topological_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nucleotides in the topological sorted order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>sorted nucleotides</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>sorted_nucleotides</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.dna_helix.DNAHelix.visualize">
+<code class="sig-name descname">visualize</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">verbosity=0</em>, <em class="sig-param">save_path: Optional[str] = None</em>, <em class="sig-param">**draw_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/dna_helix.html#DNAHelix.visualize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.dna_helix.DNAHelix.visualize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the DNA</p>
+<p>Draw interactive dna helix</p>
+<p>All nucleotides bodies are clickable; also the font is automatic
+rescalable to fit it to the circles / wedges.</p>
+<p>By single click on nucleotide, the nucleotide description pops up on the
+right side of image.</p>
+<p>By double click on nucleotide, new figure is opened and subgraph with
+all connections of this nucleotide is drawn in same fashion with
+verbosity=2.</p>
+<p>If save_path was provided, then figure will be saved to that path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verbosity</strong> – how verbose should be visualization</p></li>
+<li><p><strong>save_path</strong> – path to save the image</p></li>
+<li><p><strong>**draw_kwargs</strong> – additional kwargs to be passed to
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">nucleus7.utils.vis_utilsdraw_dna_helix</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.fields">
+<span id="nucleus7-core-fields-module"></span><h2>nucleus7.core.fields module<a class="headerlink" href="#module-nucleus7.core.fields" title="Permalink to this headline">¶</a></h2>
+<p>Main fields used in core module</p>
+<dl class="class">
+<dt id="nucleus7.core.fields.NucleotideKeyFields">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.fields.</code><code class="sig-name descname">NucleotideKeyFields</code><a class="reference internal" href="../_modules/nucleus7/core/fields.html#NucleotideKeyFields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.fields.NucleotideKeyFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names of the model scopes</p>
+<dl class="attribute">
+<dt id="nucleus7.core.fields.NucleotideKeyFields.IGNORE_KEY">
+<code class="sig-name descname">IGNORE_KEY</code><em class="property"> = '_'</em><a class="headerlink" href="#nucleus7.core.fields.NucleotideKeyFields.IGNORE_KEY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.gene_handler">
+<span id="nucleus7-core-gene-handler-module"></span><h2>nucleus7.core.gene_handler module<a class="headerlink" href="#module-nucleus7.core.gene_handler" title="Permalink to this headline">¶</a></h2>
+<p>Interface for gene handler</p>
+<dl class="class">
+<dt id="nucleus7.core.gene_handler.GeneHandler">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.gene_handler.</code><code class="sig-name descname">GeneHandler</code><span class="sig-paren">(</span><em class="sig-param">**genes: Union[Sequence[nucleus7.core.nucleotide.Nucleotide], Dict[str, nucleus7.core.nucleotide.Nucleotide], nucleus7.core.nucleotide.Nucleotide]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>This class is needed to handle the execution of multiple genes (collections
+of nucleotides)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**genes</strong> – dict with mapping of gene name, e.g. callbacks, plugins etc. to the
+collection of nucleotides inside of that gene (dict, list or single
+nucleotide)</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.core.gene_handler.GeneHandler.nucleotide_type_dependency_map">
+<code class="sig-name descname">nucleotide_type_dependency_map</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.nucleotide_type_dependency_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>describes possible node class dependency inside of model graph, e.g.
+nucleotide_class_1 can have only input nodes of type
+nucleotide_class_2 and nucleotide_class_3</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.gene_handler.GeneHandler.gene_name_and_nucleotide_super_cls">
+<code class="sig-name descname">gene_name_and_nucleotide_super_cls</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.gene_name_and_nucleotide_super_cls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.gene_handler.GeneHandler._sorted_nucleotide_names">
+<code class="sig-name descname">_sorted_nucleotide_names</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler._sorted_nucleotide_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>dict with keys as model part, like ‘plugin’, ‘loss’ and values is list
+of names in topological sorted order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.gene_handler.GeneHandler._all_nucleotides">
+<code class="sig-name descname">_all_nucleotides</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler._all_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>mapping {name : nucleotide} for all nucleotides in model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.all_nucleotides">
+<em class="property">property </em><code class="sig-name descname">all_nucleotides</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.all_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>All nucleotides without belonging gene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>all nucleotides inside of the handler</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>all_nucleotides</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.assert_all_nucleotides_have_same_mode">
+<code class="sig-name descname">assert_all_nucleotides_have_same_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.assert_all_nucleotides_have_same_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.assert_all_nucleotides_have_same_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert that all nucleotides in all genes have same mode as self._mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if any nucleotide inside of any gene has different mode compared
+    to self.mode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the gene handler, e.g. make the genes to have form of
+{gene_name}: [list of nucleotides for that gene]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.8)"><strong>AssertionError</strong></a> – if there are nucleotides with repeated names inside of all genes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.build_dna">
+<code class="sig-name descname">build_dna</code><span class="sig-paren">(</span><em class="sig-param">incoming_nucleotides: Union[Sequence[nucleus7.core.nucleotide.Nucleotide], Dict[str, nucleus7.core.nucleotide.Nucleotide], nucleus7.core.nucleotide.Nucleotide, None] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.build_dna"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.build_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct graph of the model genes and perform the topological sort of
+all nucleotides.</p>
+<p>Also multiple checks are made:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><dl class="simple">
+<dt>Class dependency of nucleotides, e.g. nucleotide_class_1 node can</dt><dd><p>depend only on <cite>nucleotide_class_2 node or on incoming genes;
+this dependency map is declared in
+:obj:`GeneHandler._nucleotide_type_dependency_map</cite>.
+If the check failed, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a> will be raised</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Node connectivity according to node inputs and inbounded node</dt><dd><p>outputs according to provided mapping inside of
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">Nucleotide.incoming_keys_mapping</span></code>, e.g. if node has
+inputs <cite>[‘input’, ‘input2’]</cite> and inbound node has outputs
+<cite>[‘output’, ‘output2’]</cite> then to pass this check, mapping should
+be {‘output’: ‘input’, ‘output2’: ‘input2’}. If check is
+failed, <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a> will be raised</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>incoming_nucleotides</strong> – incoming genes to this handler, e.g. collections of nucleotides</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if not all nucleotides are connected</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if some nucleotide has not allowed dependency</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.defaults">
+<em class="property">property </em><code class="sig-name descname">defaults</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define default values for nucleotide parameters as a dict mapping from
+attribute name to its default value. Attribute name (key in returned
+dict) must be the same as attribute name in constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>default_parameters</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.dna_helix">
+<em class="property">property </em><code class="sig-name descname">dna_helix</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.dna_helix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get DNA helix in format
+{node: {‘in’: set(input nodes), ‘out’: set(output nodes)}}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dna helix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dna_helix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.flatten_results">
+<em class="property">static </em><code class="sig-name descname">flatten_results</code><span class="sig-paren">(</span><em class="sig-param">nested_results: dict</em>, <em class="sig-param">keys_mapping: Optional[Dict] = None</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.flatten_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.flatten_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remap results got from gene handler according to mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nested_results</strong> – results</p></li>
+<li><p><strong>keys_mapping</strong> – mapping of type {nucleotide_name: {result_key: remapped:key}}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>flattened results from nucleotides</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>flatten_results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">gene_name_and_nucleotide_super_cls</code><em class="property"> = {'gene': &lt;class 'nucleus7.core.nucleotide.Nucleotide'&gt;}</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.get_flat_generated_keys_optional">
+<code class="sig-name descname">get_flat_generated_keys_optional</code><span class="sig-paren">(</span><em class="sig-param">keys_mapping: Optional[Dict] = None</em><span class="sig-paren">)</span> &#x2192; List[str]<a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.get_flat_generated_keys_optional"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.get_flat_generated_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flatten optional generated keys from all nucleotides and remap
+them according to keys_mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>keys_mapping</strong> – mapping of type {nucleotide_name: {result_key: remapped:key}}</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>flat optional generated keys</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>flat_generated_keys_optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.get_flat_generated_keys_required">
+<code class="sig-name descname">get_flat_generated_keys_required</code><span class="sig-paren">(</span><em class="sig-param">keys_mapping: Optional[Dict] = None</em><span class="sig-paren">)</span> &#x2192; List[str]<a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.get_flat_generated_keys_required"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.get_flat_generated_keys_required" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flatten required generated keys from all nucleotides and remap
+them according to keys_mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>keys_mapping</strong> – mapping of type {nucleotide_name: {result_key: remapped:key}}</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>flat required generated keys</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>flat_generated_keys_required</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.get_property_from_all_genes">
+<code class="sig-name descname">get_property_from_all_genes</code><span class="sig-paren">(</span><em class="sig-param">property_name: str</em><span class="sig-paren">)</span> &#x2192; Dict[str, List[str]]<a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.get_property_from_all_genes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.get_property_from_all_genes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of property with name for all nucleotides</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>property_name</strong> – name of the property</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>mapping of nucleotide name to its property value</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>property_from_all_genes</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if any nucleotide inside of any gene has different property value
+    compared to self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.inbound_nodes">
+<em class="property">property </em><code class="sig-name descname">inbound_nodes</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.inbound_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all inbound nodes for all genes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>inbound nodes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>inbound_nodes_for_handler</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.is_training">
+<em class="property">property </em><code class="sig-name descname">is_training</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.is_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>If mode == train, e.g. training mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if mode == train, else otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>is_training_flag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.mode">
+<em class="property">property </em><code class="sig-name descname">mode</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mode of the handler, e.g. train, eval etc</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>mode</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>mode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">nucleotide_type_dependency_map</code><em class="property"> = {&lt;class 'nucleus7.core.nucleotide.Nucleotide'&gt;: [&lt;class 'nucleus7.core.nucleotide.Nucleotide'&gt;]}</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.process_gene">
+<code class="sig-name descname">process_gene</code><span class="sig-paren">(</span><em class="sig-param">gene_name: str, *, gene_inputs: Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray, Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray]]]] = None, nucleotide_inputs_preprocessing_fn: Callable[Tuple[nucleus7.core.nucleotide.Nucleotide, Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray, Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray]]]]], Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray, Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray]]]]] = None, **additional_call_kwargs</em><span class="sig-paren">)</span> &#x2192; Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray, Dict[str, Union[tensorflow.python.framework.ops.Tensor, numpy.ndarray]]]]<a class="reference internal" href="../_modules/nucleus7/core/gene_handler.html#GeneHandler.process_gene"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.process_gene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make forward pass for different types of genes (sequence of
+nucleotides), like plugins, loss, metric, callbacks etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gene_name</strong> – name of process, like ‘plugin’, ‘loss’, ‘callback’ etc.</p></li>
+<li><p><strong>gene_inputs</strong> – inputs to these gene from other genes, e.g. nucleotides;
+must have a flatten for, e.g. ‘nucleotide1//out1//out11’ = ‘value’</p></li>
+<li><p><strong>nucleotide_inputs_preprocessing_fn</strong> – function that will be called on the selected and filtered nucleotide
+inputs before nucleotide call</p></li>
+<li><p><strong>additional_call_kwargs</strong> – kwargs that will be additionally passed to the nucleotide call</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with outputs for each gene nucleotide with keys as nucleotide
+names</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>gene_outputs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.gene_handler.GeneHandler.sorted_nucleotide_names">
+<em class="property">property </em><code class="sig-name descname">sorted_nucleotide_names</code><a class="headerlink" href="#nucleus7.core.gene_handler.GeneHandler.sorted_nucleotide_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nucleotide names in the topological sorted order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>sorted nucleotide names</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>sorted_nucleotide_names</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.nucleotide">
+<span id="nucleus7-core-nucleotide-module"></span><h2>nucleus7.core.nucleotide module<a class="headerlink" href="#module-nucleus7.core.nucleotide" title="Permalink to this headline">¶</a></h2>
+<p>Interface for main building block - Nucleotide</p>
+<dl class="class">
+<dt id="nucleus7.core.nucleotide.Nucleotide">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.nucleotide.</code><code class="sig-name descname">Nucleotide</code><span class="sig-paren">(</span><em class="sig-param">inbound_nodes: Union[list</em>, <em class="sig-param">dict</em>, <em class="sig-param">str</em>, <em class="sig-param">None] = None</em>, <em class="sig-param">name: Optional[str] = None</em>, <em class="sig-param">incoming_keys_mapping: Optional[dict] = None</em>, <em class="sig-param">data_format: Optional[dict] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/nucleotide.html#Nucleotide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>Class for nucleus nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of the plugin; if not specified, will use class name</p></li>
+<li><p><strong>inbound_nodes</strong> – name of the input node</p></li>
+<li><p><strong>incoming_keys_mapping</strong> – list of mappings from inbound node output names to node inputs. They
+should ensure connections of corresponding nodes, e.g.
+if node has inputs <cite>[‘input’, ‘input2’]</cite> and inbound node has outputs
+<cite>[‘output’, ‘output2’]</cite> then to pass this check, mapping should
+be <cite>{‘inbound_node’: {‘output’: ‘input’, ‘output2’: ‘input2’}}</cite>
+see corresponding implementation of node.
+The mappings should ensure connections of corresponding nodes</p></li>
+<li><p><strong>data_format</strong> – mapping between data type and data format</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of arguments for <cite>self.__call__</cite> (predict / process) method; used
+for graph connections checks; optional keys should have ‘_’ as prefix</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of keys inside of return dict after <cite>self.__call__</cite> method; used
+for graph connections checks; optional keys should have ‘_’ as prefix</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.dynamic_incoming_keys">
+<code class="sig-name descname">dynamic_incoming_keys</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.dynamic_incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>if the nucleotide has dynamic incoming keys</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.dynamic_generated_keys">
+<code class="sig-name descname">dynamic_generated_keys</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.dynamic_generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>if the nucleotide has dynamic incoming keys</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide._process_method_name">
+<code class="sig-name descname">_process_method_name</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide._process_method_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of main method call, like ‘predict’ for <code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelPlugin</span></code> and
+‘process’ for <code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelLoss</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.Nucleotide.defaults">
+<em class="property">property </em><code class="sig-name descname">defaults</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define default values for nucleotide parameters as a dict mapping from
+attribute name to its default value. Attribute name (key in returned
+dict) must be the same as attribute name in constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>default_parameters</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">dynamic_generated_keys</code><em class="property"> = False</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">dynamic_incoming_keys</code><em class="property"> = False</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.Nucleotide.filter_inputs">
+<code class="sig-name descname">filter_inputs</code><span class="sig-paren">(</span><em class="sig-param">inputs: dict</em><span class="sig-paren">)</span> &#x2192; Optional[dict]<a class="reference internal" href="../_modules/nucleus7/core/nucleotide.html#Nucleotide.filter_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.filter_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter all inputs to the nucleotide according to its inbound_nodes and
+incoming keys mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>filtered inputs</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inputs_filtered</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = []</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.generated_keys_all">
+<code class="sig-name descname">generated_keys_all</code><em class="property"> = []</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.generated_keys_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.generated_keys_optional">
+<code class="sig-name descname">generated_keys_optional</code><em class="property"> = []</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.generated_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.generated_keys_required">
+<code class="sig-name descname">generated_keys_required</code><em class="property"> = []</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.generated_keys_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = []</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.incoming_keys_all">
+<code class="sig-name descname">incoming_keys_all</code><em class="property"> = []</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.incoming_keys_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = []</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.Nucleotide.incoming_keys_required">
+<code class="sig-name descname">incoming_keys_required</code><em class="property"> = []</em><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.incoming_keys_required" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.Nucleotide.is_training">
+<em class="property">property </em><code class="sig-name descname">is_training</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.is_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>If mode == train, e.g. training mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if mode == train, else otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>is_training_flag</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.Nucleotide.mode">
+<em class="property">property </em><code class="sig-name descname">mode</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mode of nucleotide, e.g. train, eval, infer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>mode</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>mode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.Nucleotide.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the nucleotide or the class name, if no name was provided to
+constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.Nucleotide.use_genes_as_inputs">
+<em class="property">property </em><code class="sig-name descname">use_genes_as_inputs</code><a class="headerlink" href="#nucleus7.core.nucleotide.Nucleotide.use_genes_as_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: * <em>Flag to identify if the nucleotide takes genes, e.g. dict with</em>
+* <em>other nucleotides as keys and dict of particular values as values</em>
+* <em>or on just dict with incoming_keys and corresponding values.</em>
+* <em>Is used to simulate the GeneHandler behavior.</em></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.nucleotide.TfNucleotide">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.nucleotide.</code><code class="sig-name descname">TfNucleotide</code><span class="sig-paren">(</span><em class="sig-param">trainable: bool = True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/nucleotide.html#TfNucleotide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.nucleotide.Nucleotide" title="nucleus7.core.nucleotide.Nucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.Nucleotide</span></code></a>, <a class="reference internal" href="nucleus7.utils.html#nucleus7.utils.model_utils.KerasLayersMixin" title="nucleus7.utils.model_utils.KerasLayersMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.utils.model_utils.KerasLayersMixin</span></code></a>, <a class="reference internal" href="nucleus7.utils.html#nucleus7.utils.model_utils.DefaultPlaceholderMixin" title="nucleus7.utils.model_utils.DefaultPlaceholderMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.utils.model_utils.DefaultPlaceholderMixin</span></code></a>, <a class="reference internal" href="nucleus7.utils.html#nucleus7.utils.model_utils.CustomSessionHandlerMixin" title="nucleus7.utils.model_utils.CustomSessionHandlerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.utils.model_utils.CustomSessionHandlerMixin</span></code></a></p>
+<p>Class for tensorflow nucleotides</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trainable</strong> – if the nucleotide is trainable; if set to False, all variables from this
+nucleotide will be removed from <cite>tf.GraphKeys.TRAINABLE_VARIABLES</cite>
+collection so will not be used for training / updating,
+but gradient will still flow;</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.TfNucleotide.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/nucleotide.html#TfNucleotide.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object by updating the parameters with defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self object for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.nucleotide.TfNucleotide.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.TfNucleotide.reset_tf_graph">
+<code class="sig-name descname">reset_tf_graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/nucleotide.html#TfNucleotide.reset_tf_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide.reset_tf_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset tf graph for nucleutide, e.g. remove all the variables and tensors
+from the graph</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.TfNucleotide.trainable_variables">
+<em class="property">property </em><code class="sig-name descname">trainable_variables</code><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide.trainable_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>All trainable variables in plugin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>trainable variables inside of plugin</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>trainable_variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.TfNucleotide.variable_scope">
+<em class="property">property </em><code class="sig-name descname">variable_scope</code><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide.variable_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: variable_scope used in nucleotide
+:rtype: variable_scope</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.nucleotide.TfNucleotide.variables">
+<em class="property">property </em><code class="sig-name descname">variables</code><a class="headerlink" href="#nucleus7.core.nucleotide.TfNucleotide.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: tf variables of nucleotide
+:rtype: variables</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.project">
+<span id="nucleus7-core-project-module"></span><h2>nucleus7.core.project module<a class="headerlink" href="#module-nucleus7.core.project" title="Permalink to this headline">¶</a></h2>
+<p>nucleus7 Project</p>
+<dl class="class">
+<dt id="nucleus7.core.project.Project">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project.</code><code class="sig-name descname">Project</code><span class="sig-paren">(</span><em class="sig-param">project_type: str</em>, <em class="sig-param">project_dir: str</em>, <em class="sig-param">continue_last: bool = False</em>, <em class="sig-param">run_name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project.html#Project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project.Project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>nucleus7 Project</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_type</strong> – type of the project, train or inference</p></li>
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>continue_last</strong> – if the project must be continued, e.g. same directories should be reused</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.core.project.Project.entry_point">
+<em class="property">property </em><code class="sig-name descname">entry_point</code><a class="headerlink" href="#nucleus7.core.project.Project.entry_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: entry point for project
+:rtype: entry_point</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project.create_or_get_active_project">
+<code class="sig-prename descclassname">nucleus7.core.project.</code><code class="sig-name descname">create_or_get_active_project</code><span class="sig-paren">(</span><em class="sig-param">project_type: str</em>, <em class="sig-param">project_dir: str</em>, <em class="sig-param">continue_last: bool = False</em>, <em class="sig-param">run_name: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.core.project.Project<a class="reference internal" href="../_modules/nucleus7/core/project.html#create_or_get_active_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project.create_or_get_active_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new project or get active one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_type</strong> – type of the project, train or inference</p></li>
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>continue_last</strong> – if the project must be continued, e.g. same directories should be reused</p></li>
+<li><p><strong>run_name</strong> – run name for the data_extraction project</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>active project</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ActiveProject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project.get_active_artifacts_directory">
+<code class="sig-prename descclassname">nucleus7.core.project.</code><code class="sig-name descname">get_active_artifacts_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project.html#get_active_artifacts_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project.get_active_artifacts_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get artifacts directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>artifacts directory</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>artifacts_directory</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if no project was created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project.get_active_project">
+<code class="sig-prename descclassname">nucleus7.core.project.</code><code class="sig-name descname">get_active_project</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[nucleus7.core.project.Project]<a class="reference internal" href="../_modules/nucleus7/core/project.html#get_active_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project.get_active_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get active project</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>active project if exists</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>active_project</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project.get_active_project_dirs">
+<code class="sig-prename descclassname">nucleus7.core.project.</code><code class="sig-name descname">get_active_project_dirs</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; NamedTuple<a class="reference internal" href="../_modules/nucleus7/core/project.html#get_active_project_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project.get_active_project_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get activation project directories</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>project directories</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>project_dirs</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if no project was created</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project.reset_project">
+<code class="sig-prename descclassname">nucleus7.core.project.</code><code class="sig-name descname">reset_project</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project.html#reset_project"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project.reset_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset project</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.project_artifacts">
+<span id="nucleus7-core-project-artifacts-module"></span><h2>nucleus7.core.project_artifacts module<a class="headerlink" href="#module-nucleus7.core.project_artifacts" title="Permalink to this headline">¶</a></h2>
+<p>Project artifacts</p>
+<dl class="function">
+<dt id="nucleus7.core.project_artifacts.add_project_artifact">
+<code class="sig-prename descclassname">nucleus7.core.project_artifacts.</code><code class="sig-name descname">add_project_artifact</code><span class="sig-paren">(</span><em class="sig-param">artifact_name: str, artifact_attr_name: str, add_mode_to_name: bool = True, add_name_to_artifact_name: bool = True, serializers_to_use: Union[List[nucleus7.core.project_serializer.ArtifactsSerializer], nucleus7.core.project_serializer.ArtifactsSerializer] = &lt;class 'nucleus7.core.project_serializer.JSONArtifactsSerializer'&gt;</em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/nucleus7/core/project_artifacts.html#add_project_artifact"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_artifacts.add_project_artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add artifacts to log</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>artifact_name</strong> – name of the artifact</p></li>
+<li><p><strong>artifact_attr_name</strong> – artifact attribute name from self</p></li>
+<li><p><strong>add_mode_to_name</strong> – if the mode must be added to the attribute name before serialization</p></li>
+<li><p><strong>serializers_to_use</strong> – one or list of serializers to use</p></li>
+<li><p><strong>add_name_to_artifact_name</strong> – if the name of the object must be added to the artifact name as a prefix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>wrapped method</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>wrapper</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_artifacts.get_artifacts">
+<code class="sig-prename descclassname">nucleus7.core.project_artifacts.</code><code class="sig-name descname">get_artifacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[List[nucleus7.core.project_artifacts.ProjectArtifact]]<a class="reference internal" href="../_modules/nucleus7/core/project_artifacts.html#get_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_artifacts.get_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all logged artifacts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>artifacts with fields [name, mode_fn, artifact, serializers] each</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ProjectArtifacts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_artifacts.reset_artifacts">
+<code class="sig-prename descclassname">nucleus7.core.project_artifacts.</code><code class="sig-name descname">reset_artifacts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_artifacts.html#reset_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_artifacts.reset_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset artifacts</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_artifacts.serialize_project_artifacts">
+<code class="sig-prename descclassname">nucleus7.core.project_artifacts.</code><code class="sig-name descname">serialize_project_artifacts</code><span class="sig-paren">(</span><em class="sig-param">function: Callable</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_artifacts.html#serialize_project_artifacts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_artifacts.serialize_project_artifacts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize project artifacts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> – function to decorate</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>wrapped method</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>wrapper</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.project_dirs">
+<span id="nucleus7-core-project-dirs-module"></span><h2>nucleus7.core.project_dirs module<a class="headerlink" href="#module-nucleus7.core.project_dirs" title="Permalink to this headline">¶</a></h2>
+<p>Project directory structure</p>
+<p>nucleus7 project has following structure:</p>
+<p>project_dir:</p>
+<blockquote>
+<div><ul>
+<li><p>training:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>configs - configuration for the training (must be specified to start
+the training)</p></li>
+<li><p>artifacts - artifacts of the training, e.g. dna, file_lists etc.</p></li>
+<li><p>callbacks - callbacks can write here</p></li>
+<li><p>summaries - tensorflow summaries</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>inference:</p>
+<blockquote>
+<div><ul>
+<li><p>configs - global configuration for the inference; values from
+run-{}/configs ca override it</p></li>
+<li><p>run-{}:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>configs - configs for this run - if not specified, configs from
+inference/configs will be used</p></li>
+<li><p>artifacts - artifacts of the inference, e.g. dna, file_lists etc.</p></li>
+<li><p>results - results of the inference, e.g. callbacks write here</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>saved_models - saved models in SavedModels format</p></li>
+<li><p>checkpoints - checkpoints like meta graph and the weights</p></li>
+<li><p>(optional, if no mlflow URI was specified) mlruns - mlflow tracking uri</p></li>
+</ul>
+</div></blockquote>
+<dl class="class">
+<dt id="nucleus7.core.project_dirs.ProjectDirs">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">ProjectDirs</code><a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#ProjectDirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.ProjectDirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class holding the sub directory structure for different project types</p>
+<dl class="attribute">
+<dt id="nucleus7.core.project_dirs.ProjectDirs.TRAINER">
+<code class="sig-name descname">TRAINER</code><a class="headerlink" href="#nucleus7.core.project_dirs.ProjectDirs.TRAINER" title="Permalink to this definition">¶</a></dt>
+<dd><p>trainer directory structure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.project_dirs.ProjectDirs.INFERER">
+<code class="sig-name descname">INFERER</code><a class="headerlink" href="#nucleus7.core.project_dirs.ProjectDirs.INFERER" title="Permalink to this definition">¶</a></dt>
+<dd><p>inferer directory structure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.project_dirs.ProjectDirs.KPI">
+<code class="sig-name descname">KPI</code><a class="headerlink" href="#nucleus7.core.project_dirs.ProjectDirs.KPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>kpi directory structure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.core.project_dirs.ProjectDirs.DATA_EXTRACT">
+<code class="sig-name descname">DATA_EXTRACT</code><a class="headerlink" href="#nucleus7.core.project_dirs.ProjectDirs.DATA_EXTRACT" title="Permalink to this definition">¶</a></dt>
+<dd><p>data extraction directory structure</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">DATA_EXTRACT</code><em class="property"> = DataExtractDirs(configs='data_extraction/configs', artifacts='data_extraction/NEW_RUN/artifacts', callbacks='data_extraction/NEW_RUN/extracted')</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">INFERER</code><em class="property"> = InferenceDirs(configs='inference/configs', artifacts='inference/NEW_RUN/artifacts', callbacks='inference/NEW_RUN/results', checkpoints='checkpoints', saved_models='saved_models')</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">KPI</code><em class="property"> = KPIDirs(configs='kpi_evaluation/configs', artifacts='kpi_evaluation/NEW_RUN/artifacts', callbacks='kpi_evaluation/NEW_RUN/results')</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">TRAINER</code><em class="property"> = TrainerDirs(configs='training/configs', artifacts='training/artifacts', callbacks='training/callbacks', summaries='training/summaries', checkpoints='checkpoints', saved_models='saved_models')</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.create_data_extraction_project_dirs">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">create_data_extraction_project_dirs</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">run_name: str</em>, <em class="sig-param">continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.core.project_dirs.DataExtractDirs<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#create_data_extraction_project_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.create_data_extraction_project_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create project directories inside of run_name directory. If this directory
+does not exist, it will be created otherwise it should be empty or contain
+only configs folder.</p>
+<p>Generates following project structure inside of project_dir:</p>
+<ul>
+<li><p>data_extraction:</p>
+<blockquote>
+<div><ul>
+<li><p>configs - global configuration for the data extraction; values from
+{run_name}/configs can override it</p></li>
+<li><p>{run_name}}:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>artifacts - artifacts of the kpi calculation, e.g. dna,
+file_lists etc.</p></li>
+<li><p>extracted - extracted data of the kpi calculation, e.g. callbacks
+write here</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – path to project directory</p></li>
+<li><p><strong>run_name</strong> – name of the data extraction run</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>kpi calculation directories</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data_extraction_dirs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.create_inference_project_dirs">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">create_inference_project_dirs</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">continue_last: bool = False</em>, <em class="sig-param">run_name: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.core.project_dirs.InferenceDirs<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#create_inference_project_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.create_inference_project_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create project directories for inference if needed and check if inference
+project already exists</p>
+<p>Generates following project structure inside of project_dir:</p>
+<ul>
+<li><p>inference:</p>
+<blockquote>
+<div><ul>
+<li><p>configs - global configuration for the inference; values from
+run-{}/configs ca override it</p></li>
+<li><p>run-{}:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>artifacts - artifacts of the inference, e.g. dna, file_lists etc.</p></li>
+<li><p>results - results of the inference, e.g. callbacks write here</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<dl>
+<dt>run folder will be selected as following:</dt><dd><ul>
+<li><p>if there are no run- subfolders inside of the inference folder
+(or inference folder does not exist), it will create a run-1 folder</p></li>
+<li><p>if there is a run-N folder:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>if it is empty, it will be used</p></li>
+<li><p>if there are any other files and folders inside without _ prefix,
+a new run-{N+1} folder will be created</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – path to project directory</p></li>
+<li><p><strong>run_name</strong> – name of the run; if not specified, then incremented run-N folder is
+used; if specified, must contain at most config folder</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>inference directories</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inference_dirs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.create_kpi_project_dirs">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">create_kpi_project_dirs</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">continue_last: bool = False</em>, <em class="sig-param">run_name: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.core.project_dirs.KPIDirs<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#create_kpi_project_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.create_kpi_project_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create project directories for kpi calculation if needed and check if
+kpi project already exists</p>
+<p>Generates following project structure inside of project_dir:</p>
+<ul>
+<li><p>kpi_evaluation:</p>
+<blockquote>
+<div><ul>
+<li><p>configs - global configuration for the kpi calculation; values from
+run-{}/configs can override it</p></li>
+<li><p>run-{}:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>artifacts - artifacts of the kpi calculation, e.g. dna,
+file_lists etc.</p></li>
+<li><p>results - results of the kpi calculation, e.g. callbacks and kpi
+evaluator write here</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<dl>
+<dt>run folder will be selected as following:</dt><dd><ul>
+<li><p>if there are no run- subfolders inside of the kpi_evaluation folder
+(or kpi_evaluation folder does not exist), it will create a
+run-1 folder</p></li>
+<li><p>if there is a run-N folder:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>if it is empty, it will be used</p></li>
+<li><p>if there are any other files and folders inside without _ prefix,
+a new run-{N+1} folder will be created</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – path to project directory</p></li>
+<li><p><strong>run_name</strong> – name of the run; if not specified, then incremented run-N folder is
+used; if specified, must contain at most config folder</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>kpi calculation directories</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi_dirs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.create_trainer_project_dirs">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">create_trainer_project_dirs</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">continue_training: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.core.project_dirs.TrainerDirs<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#create_trainer_project_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.create_trainer_project_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create project directories for training if needed and check if training
+project already exists</p>
+<p>Create following directories under project_dir:</p>
+<ul>
+<li><p>training:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>artifacts - artifacts of the training, e.g. dna, file_lists etc.</p></li>
+<li><p>callbacks/{train/eval} - callbacks can write here</p></li>
+<li><p>summaries/{train/eval} - tensorflow summaries</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>saved_models - saved models in timestamp
+subfolders and inference_graph.meta together with
+input_output_names.json</p></li>
+<li><p>checkpoints - checkpoints like meta graph and the weights</p></li>
+<li><p>(optional, if no mlflow URI was specified) mlruns - mlflow tracking uri</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – path to project directory</p></li>
+<li><p><strong>continue_training</strong> – if the training should be continued in same project folder; if no
+project directories exist, it will have no effect, otherwise if this set
+to False, no training will be started</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trainer directories</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>training_dirs</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileExistsError" title="(in Python v3.8)"><strong>FileExistsError</strong></a> – if this run was already used and exist inside of nucleus7_project.json
+    file under runs key</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileExistsError" title="(in Python v3.8)"><strong>FileExistsError</strong></a> – if project_dir has other content as</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.read_data_extraction_configs_from_directories">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">read_data_extraction_configs_from_directories</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">run_name: str</em>, <em class="sig-param">verify_unused_configs: bool = False</em>, <em class="sig-param">additional_dir_with_configs: Optional[str] = None</em>, <em class="sig-param">continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#read_data_extraction_configs_from_directories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.read_data_extraction_configs_from_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the data extraction configuration from project data_extraction
+directory and the run subdirectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_name</strong> – name of the data extraction run</p></li>
+<li><p><strong>verify_unused_configs</strong> – if there are other then single_config_fnames json files or directories
+other than multiple_config_fnames inside of project_dir and its name
+starts not with ‘_’, error will be raised</p></li>
+<li><p><strong>additional_dir_with_configs</strong> – path to additional configs to use</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>read configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data_extraction_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.8)"><strong>FileNotFoundError</strong></a> – if there are no configs folder inside of data_extraction subfolder or
+    inside of data_extraction/run-{valid new N} or folder exist but are
+    empty</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.read_inference_configs_from_directories">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">read_inference_configs_from_directories</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">run_name: Optional[str] = None</em>, <em class="sig-param">verify_unused_configs: bool = False</em>, <em class="sig-param">additional_dir_with_configs: Optional[str] = None</em>, <em class="sig-param">continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#read_inference_configs_from_directories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.read_inference_configs_from_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the inference configuration from project inference directory and the
+run subdirectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_name</strong> – name of the run; if not specified, then incremented run-N folder is
+used; if specified, must contain at most config folder</p></li>
+<li><p><strong>verify_unused_configs</strong> – if there are other then single_config_fnames json files or directories
+other than multiple_config_fnames inside of project_dir and its name
+starts not with ‘_’, error will be raised</p></li>
+<li><p><strong>additional_dir_with_configs</strong> – path to additional configs to use</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>read configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inference_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.8)"><strong>FileNotFoundError</strong></a> – if there are no configs folder inside of inference subfolder or inside
+    of inference/run-{valid new N} or folder exist but are empty</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.read_kpi_configs_from_directories">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">read_kpi_configs_from_directories</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">run_name: Optional[str] = None</em>, <em class="sig-param">verify_unused_configs: bool = False</em>, <em class="sig-param">additional_dir_with_configs: Optional[str] = None</em>, <em class="sig-param">continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#read_kpi_configs_from_directories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.read_kpi_configs_from_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the kpi configuration from project kpi_evaluation directory and the
+run subdirectory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_name</strong> – name of the run; if not specified, then incremented run-N folder is
+used; if specified, must contain at most config folder</p></li>
+<li><p><strong>verify_unused_configs</strong> – if there are other then single_config_fnames json files or directories
+other than multiple_config_fnames inside of project_dir and its name
+starts not with ‘_’, error will be raised</p></li>
+<li><p><strong>additional_dir_with_configs</strong> – path to additional configs to use</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>read configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.8)"><strong>FileNotFoundError</strong></a> – if there are no configs folder inside of kpi_evaluation subfolder or
+    inside of kpi_evaluation/run-{valid new N} or folder exist but are
+    empty</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_dirs.read_train_configs_from_directories">
+<code class="sig-prename descclassname">nucleus7.core.project_dirs.</code><code class="sig-name descname">read_train_configs_from_directories</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">verify_unused_configs: bool = False</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_dirs.html#read_train_configs_from_directories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_dirs.read_train_configs_from_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the training configuration from project directory and its configuration
+subdirectory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>verify_unused_configs</strong> – if there are other then single_config_fnames json files or directories
+other than multiple_config_fnames inside of project_dir and its name
+starts not with ‘_’, error will be raised</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>read configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>train_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileExistsError" title="(in Python v3.8)"><strong>FileExistsError</strong></a> – if verify_unused_config = True and
+    if there are other then single_config_fnames json files or directories
+    other than multiple_config_fnames inside of project_dir and its name
+    starts not with ‘_’, error will be raised</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.project_global_config">
+<span id="nucleus7-core-project-global-config-module"></span><h2>nucleus7.core.project_global_config module<a class="headerlink" href="#module-nucleus7.core.project_global_config" title="Permalink to this headline">¶</a></h2>
+<p>methods for global project configuration</p>
+<p>to add a global configuration use:
+<code class="xref py py-func docutils literal notranslate"><span class="pre">nc7.add_global_project_config()</span></code> or
+<a class="reference internal" href="#nucleus7.core.project_global_config.add_global_project_config_from_file" title="nucleus7.core.project_global_config.add_global_project_config_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_global_project_config_from_file()</span></code></a></p>
+<p>To query it use <a class="reference internal" href="#nucleus7.core.project_global_config.query_nucleotide_global_config" title="nucleus7.core.project_global_config.query_nucleotide_global_config"><code class="xref py py-func docutils literal notranslate"><span class="pre">query_nucleotide_global_config()</span></code></a>,
+<a class="reference internal" href="#nucleus7.core.project_global_config.query_global_parameter" title="nucleus7.core.project_global_config.query_global_parameter"><code class="xref py py-func docutils literal notranslate"><span class="pre">query_global_parameter()</span></code></a> and to update parameters of nucleotide with
+defaults use <a class="reference internal" href="#nucleus7.core.project_global_config.add_defaults_to_nucleotide" title="nucleus7.core.project_global_config.add_defaults_to_nucleotide"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_defaults_to_nucleotide()</span></code></a></p>
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.add_defaults_to_nucleotide">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">add_defaults_to_nucleotide</code><span class="sig-paren">(</span><em class="sig-param">nucleotide_cls</em>, <em class="sig-param">nucleotide_params: dict</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#add_defaults_to_nucleotide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.add_defaults_to_nucleotide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the default nucleotide parameters from global project config and
+returns its updated configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nucleotide_cls</strong> – class of nucleotide</p></li>
+<li><p><strong>nucleotide_params</strong> – parameters of that nucleotide</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parameters of nucleotide with defaults from global config</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>nucleotide_params_with_defaults</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.add_global_project_config">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">add_global_project_config</code><span class="sig-paren">(</span><em class="sig-param">config: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#add_global_project_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.add_global_project_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add global project configuration</p>
+<p>It allows to specify some global configuration with keys as arguments and
+pass it to all of nucleotides if this parameter exist in its constructor
+and it was not explicitly specified in nucleotide config.</p>
+<p>It is also possible to specify the parameters type-wise and class-wise and
+also as complete global, e.g.</p>
+<p><cite>{
+‘param1’: ‘value1’,
+‘ModelPlugin’: {‘activation’: ‘elu’, ‘param2’: ‘value2’}
+‘Plugin1’: {‘param1’: ‘value12’, ‘activation’: ‘relu’}
+}</cite></p>
+<p>In that case, ModelPlugin will be initialized with activation = elu and
+param1 = value1 and Plugin1 will be initialized with activation = relu and
+param1 = value12 and param2 = value2. E.g. it will create inheritance map
+for each nucleotide and will resolve it in hierarchy order, e.g. lower
+hierarchy (Nucleotide) will be overriden by higher
+(Nucleotide -&gt; ModelPlugin -&gt; Plugin1 -&gt; Plugin1Child -&gt; …)</p>
+<p>Parameters can be set to all of nucleus7 interfaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – global configuration</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.8)"><strong>AssertionError</strong></a> – when config is not a dict or it has a name or a class_name as keys</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.add_global_project_config_from_file">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">add_global_project_config_from_file</code><span class="sig-paren">(</span><em class="sig-param">fname: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#add_global_project_config_from_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.add_global_project_config_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add project configuration from json file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> – file name of project configuration .json file</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#nucleus7.core.project_global_config.add_global_project_config" title="nucleus7.core.project_global_config.add_global_project_config"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_global_project_config()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.add_global_project_config_from_project_dir">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">add_global_project_config_from_project_dir</code><span class="sig-paren">(</span><em class="sig-param">config_dir: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#add_global_project_config_from_project_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.add_global_project_config_from_project_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add project configuration from file ‘project_global_config.json’ file if
+it exists inside of configs directory directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config_dir</strong> – directory to search for the config</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.clear_project_global_config">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">clear_project_global_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#clear_project_global_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.clear_project_global_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear global project configuration</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.query_global_parameter">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">query_global_parameter</code><span class="sig-paren">(</span><em class="sig-param">item: Union[str, list]</em><span class="sig-paren">)</span> &#x2192; Union[list, dict]<a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#query_global_parameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.query_global_parameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get item from  global project config</p>
+<p>Can be also a multi level item with separator ‘/’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>item</strong> – item to get</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>values of item from config or a list of them if list of items was
+specified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_global_config.query_nucleotide_global_config">
+<code class="sig-prename descclassname">nucleus7.core.project_global_config.</code><code class="sig-name descname">query_nucleotide_global_config</code><span class="sig-paren">(</span><em class="sig-param">nucleotide_cls: type</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_global_config.html#query_nucleotide_global_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_global_config.query_nucleotide_global_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query parameters of nucleotide constructor from global project config and
+resolve them in hierarchy order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>nucleotide_cls</strong> – class of nucleotide</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with keys mapping constructor parameters to parameters found
+in global config; if no parameters were found, then returns None;
+returns only found parameters and if they were specified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>nucleotide_params_in_project</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.project_serializer">
+<span id="nucleus7-core-project-serializer-module"></span><h2>nucleus7.core.project_serializer module<a class="headerlink" href="#module-nucleus7.core.project_serializer" title="Permalink to this headline">¶</a></h2>
+<p>Interfaces for config serialization</p>
+<dl class="class">
+<dt id="nucleus7.core.project_serializer.ArtifactsSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">ArtifactsSerializer</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">save_dir: str</em>, <em class="sig-param">artifact</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#ArtifactsSerializer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.ArtifactsSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.project_serializer.Serializer" title="nucleus7.core.project_serializer.Serializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.project_serializer.Serializer</span></code></a></p>
+<p>Serializer for artifacts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>artifact</strong> – artifact to serialize</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.project_serializer.ConfigSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">ConfigSerializer</code><span class="sig-paren">(</span><em class="sig-param">save_dir: str</em>, <em class="sig-param">name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#ConfigSerializer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.ConfigSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.project_serializer.Serializer" title="nucleus7.core.project_serializer.Serializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.project_serializer.Serializer</span></code></a></p>
+<p>Serializer for main config logger</p>
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.ConfigSerializer.get_configs_to_log">
+<em class="property">static </em><code class="sig-name descname">get_configs_to_log</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#ConfigSerializer.get_configs_to_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.ConfigSerializer.get_configs_to_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get actual configs used to construct the objects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.ConfigSerializer.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#ConfigSerializer.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.ConfigSerializer.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the configs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.ConfigSerializer.serialize_to_file">
+<em class="property">abstract </em><code class="sig-name descname">serialize_to_file</code><span class="sig-paren">(</span><em class="sig-param">configs_to_log: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#ConfigSerializer.serialize_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.ConfigSerializer.serialize_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to serialize the configs_to_log to the file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>configs_to_log</strong> – configs to log obtained from config_logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.project_serializer.JSONArtifactsSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">JSONArtifactsSerializer</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">save_dir: str</em>, <em class="sig-param">artifact</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#JSONArtifactsSerializer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.JSONArtifactsSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.project_serializer.ArtifactsSerializer" title="nucleus7.core.project_serializer.ArtifactsSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.project_serializer.ArtifactsSerializer</span></code></a></p>
+<p>Serialize the artifact to json</p>
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.JSONArtifactsSerializer.serialize">
+<code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#JSONArtifactsSerializer.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.JSONArtifactsSerializer.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the configs</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.project_serializer.MlflowConfigSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">MlflowConfigSerializer</code><span class="sig-paren">(</span><em class="sig-param">save_dir: str</em>, <em class="sig-param">name: Optional[str] = None</em>, <em class="sig-param">single_config_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#MlflowConfigSerializer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.MlflowConfigSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.project_serializer.RunConfigSerializer" title="nucleus7.core.project_serializer.RunConfigSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.project_serializer.RunConfigSerializer</span></code></a></p>
+<p>Log the configs to a mlflow. Will be executed in case chief (also local)
+and evaluator run</p>
+<p>For it all the configs will be flatten with : separator and then each
+parameter and value will be added to the mlflow.</p>
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.MlflowConfigSerializer.serialize_to_file">
+<code class="sig-name descname">serialize_to_file</code><span class="sig-paren">(</span><em class="sig-param">configs_to_log</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#MlflowConfigSerializer.serialize_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.MlflowConfigSerializer.serialize_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will write all the parameters in flattened view to mlflow. Nested
+Parameters will be flattened with mlflow_utils.PARAMETER_SEPARATOR</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>configs_to_log</strong> – configs to log obtained from config_logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.project_serializer.RunConfigSerializer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">RunConfigSerializer</code><span class="sig-paren">(</span><em class="sig-param">save_dir: str</em>, <em class="sig-param">name: Optional[str] = None</em>, <em class="sig-param">single_config_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#RunConfigSerializer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.RunConfigSerializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.core.project_serializer.ConfigSerializer" title="nucleus7.core.project_serializer.ConfigSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.project_serializer.ConfigSerializer</span></code></a></p>
+<p>Serialize run configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_dir</strong> – directory to store the serialized config</p></li>
+<li><p><strong>name</strong> – name of the serializer</p></li>
+<li><p><strong>single_config_names</strong> – list of config names, where only single config is allowed; in that case,
+only first item of the config list will be used</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.core.project_serializer.RunConfigSerializer.NOT_SERIALIZABLE">
+<code class="sig-name descname">NOT_SERIALIZABLE</code><a class="headerlink" href="#nucleus7.core.project_serializer.RunConfigSerializer.NOT_SERIALIZABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>name that will be used if a config value is not json serializable</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">NOT_SERIALIZABLE</code><em class="property"> = 'NOT_SERIALIZABLE'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.RunConfigSerializer.format_configs_to_log">
+<code class="sig-name descname">format_configs_to_log</code><span class="sig-paren">(</span><em class="sig-param">configs_to_log: dict</em>, <em class="sig-param">replace_list_with_names: bool = False</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#RunConfigSerializer.format_configs_to_log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.RunConfigSerializer.format_configs_to_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format the configs from raw logged format to following</p>
+<p><cite>{{name_scope}_config(s): {mode: [list of configs]}}</cite> in case
+if _get_mode function was defined inside of the config and
+<cite>{{name_scope}_config(s): [list of configs]}</cite> otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>configs_to_log</strong> – configs to log in format
+<cite>{name_scope: {object_name: [list_of_configs]}}</cite></p></li>
+<li><p><strong>replace_list_with_names</strong> – if the list configs must be replaced with dict of type
+{name: config}</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>formatted configs</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>configs_to_log_formatted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.RunConfigSerializer.serialize_to_file">
+<code class="sig-name descname">serialize_to_file</code><span class="sig-paren">(</span><em class="sig-param">configs_to_log: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#RunConfigSerializer.serialize_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.RunConfigSerializer.serialize_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method to serialize the configs_to_log to the file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>configs_to_log</strong> – configs to log obtained from config_logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.core.project_serializer.Serializer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">Serializer</code><span class="sig-paren">(</span><em class="sig-param">save_dir: str</em>, <em class="sig-param">name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#Serializer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.Serializer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Abstract serializer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_dir</strong> – directory to store the serialized config</p></li>
+<li><p><strong>name</strong> – name of the serializer</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.core.project_serializer.Serializer.serialize">
+<em class="property">abstract </em><code class="sig-name descname">serialize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#Serializer.serialize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.Serializer.serialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the configs</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_serializer.serialize_all_serializers">
+<code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">serialize_all_serializers</code><span class="sig-paren">(</span><em class="sig-param">name: str, save_dir: str, serializers_to_use: Union[List[nucleus7.core.project_serializer.Serializer], nucleus7.core.project_serializer.Serializer], **serializer_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#serialize_all_serializers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.serialize_all_serializers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize all serializers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name for serializer (same name for all)</p></li>
+<li><p><strong>save_dir</strong> – directory for serializer (same directory for all)</p></li>
+<li><p><strong>serializers_to_use</strong> – classes of serializers to use</p></li>
+<li><p><strong>**serializer_kwargs</strong> – kwargs to pass to serializer constructor</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.project_serializer.serialize_run_configs">
+<code class="sig-prename descclassname">nucleus7.core.project_serializer.</code><code class="sig-name descname">serialize_run_configs</code><span class="sig-paren">(</span><em class="sig-param">run_name: str, save_dir_attr_name: Optional[str] = None, single_config_names: Optional[list] = None, serializers_to_use: Union[List[nucleus7.core.project_serializer.ConfigSerializer], nucleus7.core.project_serializer.ConfigSerializer] = &lt;class 'nucleus7.core.project_serializer.RunConfigSerializer'&gt;</em><span class="sig-paren">)</span> &#x2192; Callable<a class="reference internal" href="../_modules/nucleus7/core/project_serializer.html#serialize_run_configs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.project_serializer.serialize_run_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize the run configs using serializers_to_use
+inside of the save_dir from object.{save_dir_attr_name} or to the
+artifacts directory of the active run</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>run_name</strong> – name of the run</p></li>
+<li><p><strong>save_dir_attr_name</strong> – name of the attribute inside of the object with save directory inside;
+if not provided and nucleus7 active project exists, will use artifacts
+directory from the project as save directory</p></li>
+<li><p><strong>single_config_names</strong> – list of config names, where only single config is allowed; in that case,
+only first item of the config list will be used</p></li>
+<li><p><strong>serializers_to_use</strong> – single serializer class or multiple serializer classes to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>wrapped method</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>wrapper</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core.register">
+<span id="nucleus7-core-register-module"></span><h2>nucleus7.core.register module<a class="headerlink" href="#module-nucleus7.core.register" title="Permalink to this headline">¶</a></h2>
+<p>Register class and API</p>
+<dl class="function">
+<dt id="nucleus7.core.register.get_register">
+<code class="sig-prename descclassname">nucleus7.core.register.</code><code class="sig-name descname">get_register</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/core/register.html#get_register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.register.get_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get register</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>register with name scopes and registered classes inside</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>register</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.register.register">
+<code class="sig-prename descclassname">nucleus7.core.register.</code><code class="sig-name descname">register</code><span class="sig-paren">(</span><em class="sig-param">name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/register.html#register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.register.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.register.register_to_name_scope">
+<code class="sig-prename descclassname">nucleus7.core.register.</code><code class="sig-name descname">register_to_name_scope</code><span class="sig-paren">(</span><em class="sig-param">name_scope: str</em>, <em class="sig-param">cls: type</em>, <em class="sig-param">name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/register.html#register_to_name_scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.register.register_to_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register nucleotide class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name_scope</strong> – name scope to register to</p></li>
+<li><p><strong>name</strong> – register name</p></li>
+<li><p><strong>cls</strong> – class to register</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if class name already in use</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.register.remove_from_name_scope">
+<code class="sig-prename descclassname">nucleus7.core.register.</code><code class="sig-name descname">remove_from_name_scope</code><span class="sig-paren">(</span><em class="sig-param">name_scope: str, cls_or_name: Union[str, type]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/register.html#remove_from_name_scope"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.register.remove_from_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove registered cls from name scope</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name_scope</strong> – name scope</p></li>
+<li><p><strong>cls_or_name</strong> – class to remove or registered name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.register.reset_register">
+<code class="sig-prename descclassname">nucleus7.core.register.</code><code class="sig-name descname">reset_register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/core/register.html#reset_register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.register.reset_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset register</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.core.register.retrieve_from_register">
+<code class="sig-prename descclassname">nucleus7.core.register.</code><code class="sig-name descname">retrieve_from_register</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">base_cls: Optional = None</em><span class="sig-paren">)</span> &#x2192; type<a class="reference internal" href="../_modules/nucleus7/core/register.html#retrieve_from_register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.core.register.retrieve_from_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve object by name from register</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – name of registered class</p></li>
+<li><p><strong>base_cls</strong> – super class</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.8)"><strong>KeyError</strong></a> – if no class was registered with that name</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if super_cls is provided and retrieved class does not inherit from it</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>class from register</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>cls</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nucleus7.core" title="Permalink to this headline">¶</a></h2>
+<p>Core module</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nucleus7.data.html" class="btn btn-neutral float-right" title="nucleus7.data package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nucleus7.coordinator.html" class="btn btn-neutral float-left" title="nucleus7.coordinator package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

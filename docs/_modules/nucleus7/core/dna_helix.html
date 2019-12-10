@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.dna_helix &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.dna_helix</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.dna_helix</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Main interface for DNA Helix</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">graph_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+<span class="n">DNAConnection</span> <span class="o">=</span> <span class="n">NamedTuple</span><span class="p">(</span>
+    <span class="s2">&quot;DNAConnection&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;incoming&#39;</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;outgoing&#39;</span><span class="p">,</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">])])</span>
+
+
+<div class="viewcode-block" id="DNAHelix"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.dna_helix.DNAHelix">[docs]</a><span class="k">class</span> <span class="nc">DNAHelix</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main class for DNA Helix, which creates the graph and sorts it in</span>
+<span class="sd">    topological order out of nucleotides. It also performs the graph checks</span>
+<span class="sd">    so that generated nucleotide graph has no cycles and all the required</span>
+<span class="sd">    incoming keys for all the nucleotides have inputs,</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nucleotides</span>
+<span class="sd">        list of nucleotides to build the helix</span>
+<span class="sd">    incoming_nucleotides</span>
+<span class="sd">        list nucleotides which serve as inputs to generated dna</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">nucleotides</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">],</span>
+            <span class="n">incoming_nucleotides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DNAHelix</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nucleotides</span> <span class="o">=</span> <span class="n">nucleotides</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span> <span class="o">=</span> <span class="n">incoming_nucleotides</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_topological_order</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Optional[List[Nucleotide]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">nucleotides</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nucleotides</span>
+<span class="sd">            nucleotides of the dna</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nucleotides</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">incoming_nucleotides</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        incoming_nucleotides</span>
+<span class="sd">            incoming nucleotide to DNA</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">names_topological_order</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Nucleotide names in the topological sorted order</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sorted_names</span>
+<span class="sd">            sorted nucleotide names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topological_order</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">nucleotide</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topological_order</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">topological_order</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Nucleotides in the topological sorted order</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sorted_nucleotides</span>
+<span class="sd">            sorted nucleotides</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topological_order</span>
+
+<div class="viewcode-block" id="DNAHelix.get"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.dna_helix.DNAHelix.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_incoming_nucleotides</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        with_incoming_nucleotides</span>
+<span class="sd">            if the incoming_nucleotides should be included in the resulted graph</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dna_graph</span>
+<span class="sd">            graph representation of dna_helix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">with_incoming_nucleotides</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nucleotides</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DNAHelix.build"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.dna_helix.DNAHelix.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build the DNA</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            self</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if not all nucleotides are connected</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if nucleotides cannot be sorted in topological order, e.g. cycles</span>
+<span class="sd">            exist</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DNAHelix</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">graph_utils</span><span class="o">.</span><span class="n">construct_graph_from_nucleotides</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_nucleotides</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span><span class="p">)</span>
+        <span class="n">topological_order</span> <span class="o">=</span> <span class="n">graph_utils</span><span class="o">.</span><span class="n">topological_sort_of_nucleotides</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_topological_order</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">each_nucleotide</span> <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="n">topological_order</span>
+            <span class="k">if</span> <span class="n">each_nucleotide</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span><span class="p">]</span>
+        <span class="n">graph_utils</span><span class="o">.</span><span class="n">check_graph_connections</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">incoming_nucleotides</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DNAHelix.check_class_topology"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.dna_helix.DNAHelix.check_class_topology">[docs]</a>    <span class="k">def</span> <span class="nf">check_class_topology</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">nucleotide_type_dependency_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check class dependency of nucleotides</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nucleotide_type_dependency_map</span>
+<span class="sd">            map describing allowed inbound node classes respect to the node,</span>
+<span class="sd">            e.g. {:obj:`ModelPlugin`: [:obj:`ModelPlugin`]}</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        status</span>
+<span class="sd">            True if check passed else raises :obj:`ValueError`</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if some node has not allowed dependency</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">graph_utils</span><span class="o">.</span><span class="n">check_class_topology</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="p">,</span>
+            <span class="n">dependency_map</span><span class="o">=</span><span class="n">nucleotide_type_dependency_map</span><span class="p">,</span>
+            <span class="n">incoming_nucleotides</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DNAHelix.as_dict"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.dna_helix.DNAHelix.as_dict">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">as_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">with_incoming_nucleotides</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DNAConnection</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        with_incoming_nucleotides</span>
+<span class="sd">            if incoming nucleotides must be included</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dna_as_dict</span>
+<span class="sd">            dna helix as dict in structure</span>
+<span class="sd">            `{nucleotide_name: (set(incoming nucleotide names),</span>
+<span class="sd">            set(outgoing nucleotide names))}`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dna_as_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">with_incoming_nucleotides</span>
+                    <span class="ow">and</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">incoming_nucleotides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">each_nucleotide</span><span class="p">)</span>
+            <span class="n">outgoing_nucleotides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">each_nucleotide</span><span class="p">)</span>
+            <span class="n">incoming_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_incoming</span><span class="o">.</span><span class="n">name</span>
+                              <span class="k">for</span> <span class="n">each_incoming</span> <span class="ow">in</span> <span class="n">incoming_nucleotides</span><span class="p">}</span>
+            <span class="n">outgoing_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_outgoing</span><span class="o">.</span><span class="n">name</span>
+                              <span class="k">for</span> <span class="n">each_outgoing</span> <span class="ow">in</span> <span class="n">outgoing_nucleotides</span><span class="p">}</span>
+            <span class="n">dna_as_dict</span><span class="p">[</span><span class="n">each_nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">DNAConnection</span><span class="p">(</span>
+                <span class="n">incoming</span><span class="o">=</span><span class="n">incoming_names</span><span class="p">,</span> <span class="n">outgoing</span><span class="o">=</span><span class="n">outgoing_names</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">dna_as_dict</span></div>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="s1">&#39;DNAHelix&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;DNAHelix&#39;</span><span class="p">:</span>
+        <span class="n">object_utils</span><span class="o">.</span><span class="n">assert_object_is_built</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="n">all_nucleotides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nucleotides</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">nucleotides</span>
+        <span class="n">all_incoming_nucleotides</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">incoming_nucleotides</span>
+                                    <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">incoming_nucleotides</span><span class="p">)</span>
+        <span class="n">all_incoming_nucleotides_filtered</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">each_nucleotide</span> <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="n">all_incoming_nucleotides</span>
+            <span class="k">if</span> <span class="n">each_nucleotide</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_nucleotides</span><span class="p">]</span>
+
+        <span class="n">merged_dna</span> <span class="o">=</span> <span class="n">DNAHelix</span><span class="p">(</span>
+            <span class="n">nucleotides</span><span class="o">=</span><span class="n">all_nucleotides</span><span class="p">,</span>
+            <span class="n">incoming_nucleotides</span><span class="o">=</span><span class="n">all_incoming_nucleotides_filtered</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">merged_dna</span>
+
+<div class="viewcode-block" id="DNAHelix.visualize"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.dna_helix.DNAHelix.visualize">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                  <span class="n">save_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="o">**</span><span class="n">draw_kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Visualize the DNA</span>
+
+<span class="sd">        Draw interactive dna helix</span>
+
+<span class="sd">        All nucleotides bodies are clickable; also the font is automatic</span>
+<span class="sd">        rescalable to fit it to the circles / wedges.</span>
+
+<span class="sd">        By single click on nucleotide, the nucleotide description pops up on the</span>
+<span class="sd">        right side of image.</span>
+
+<span class="sd">        By double click on nucleotide, new figure is opened and subgraph with</span>
+<span class="sd">        all connections of this nucleotide is drawn in same fashion with</span>
+<span class="sd">        verbosity=2.</span>
+
+<span class="sd">        If save_path was provided, then figure will be saved to that path.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        verbosity</span>
+<span class="sd">            how verbose should be visualization</span>
+<span class="sd">        save_path</span>
+<span class="sd">            path to save the image</span>
+<span class="sd">        **draw_kwargs</span>
+<span class="sd">            additional kwargs to be passed to</span>
+<span class="sd">            :obj:`nucleus7.utils.vis_utilsdraw_dna_helix`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># is needed here, otherwise will cause circular imports</span>
+        <span class="c1"># TODO(oleksandr.vorobiov@audi.de): refactor to solve it</span>
+        <span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">vis_utils</span>  <span class="c1"># pylint: disable=cyclic-import</span>
+
+        <span class="n">subplot</span> <span class="o">=</span> <span class="n">vis_utils</span><span class="o">.</span><span class="n">draw_dna_helix</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">,</span> <span class="o">**</span><span class="n">draw_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">save_path</span><span class="p">:</span>
+            <span class="n">figure</span> <span class="o">=</span> <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span>
+            <span class="n">figure</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_incoming_nucleotide_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">incoming_nucleotides_names</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">name</span>
+            <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_incoming_nucleotides</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">incoming_nucleotides_names</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.model package &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nucleus7.optimization package" href="nucleus7.optimization.html" />
+    <link rel="prev" title="nucleus7.kpi package" href="nucleus7.kpi.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nucleus7.model package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.configs">nucleus7.model.configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.fields">nucleus7.model.fields module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.loss">nucleus7.model.loss module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.metric">nucleus7.model.metric module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.model">nucleus7.model.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.model_handler">nucleus7.model.model_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.plugin">nucleus7.model.plugin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.postprocessor">nucleus7.model.postprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model.summary">nucleus7.model.summary module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.model">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>nucleus7.model package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/nucleus7.model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleus7-model-package">
+<h1>nucleus7.model package<a class="headerlink" href="#nucleus7-model-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nucleus7.model.configs">
+<span id="nucleus7-model-configs-module"></span><h2>nucleus7.model.configs module<a class="headerlink" href="#module-nucleus7.model.configs" title="Permalink to this headline">¶</a></h2>
+<p>Configs for model</p>
+<dl class="class">
+<dt id="nucleus7.model.configs.MixedPrecisionConfig">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.configs.</code><code class="sig-name descname">MixedPrecisionConfig</code><a class="reference internal" href="../_modules/nucleus7/model/configs.html#MixedPrecisionConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.configs.MixedPrecisionConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.model.configs.MixedPrecisionConfig" title="nucleus7.model.configs.MixedPrecisionConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.configs.MixedPrecisionConfig</span></code></a></p>
+<p>Configuration for mixed precision during training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use</strong> (<em>boolean</em><em>, </em><em>default: False</em>) – if the mixed precision training should be used; in that case, all
+tensors are casted and stored to float16 and variables are stored in
+float32, but are casted to float16 for forward pass; also losses
+are scaled with mixed_precision_loss_scale_factor and then gradients
+are downscaled with same factor; exported model will have
+original precision</p></li>
+<li><p><strong>loss_scale_factor</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a><em>, </em><em>default: 128.0</em>) – factor to scale loss and gradients in case of mixed precision training</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.model.configs.ModelResults">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.configs.</code><code class="sig-name descname">ModelResults</code><span class="sig-paren">(</span><em class="sig-param">inputs_preprocessed</em>, <em class="sig-param">predictions_raw</em>, <em class="sig-param">predictions</em>, <em class="sig-param">losses</em>, <em class="sig-param">summary</em>, <em class="sig-param">metrics</em>, <em class="sig-param">grads_and_vars</em>, <em class="sig-param">regularization_grads_and_vars</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.model.configs.ModelResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.model.configs.ModelResults.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">inputs_preprocessed</em>, <em class="sig-param">predictions_raw</em>, <em class="sig-param">predictions</em>, <em class="sig-param">losses</em>, <em class="sig-param">summary</em>, <em class="sig-param">metrics</em>, <em class="sig-param">grads_and_vars</em>, <em class="sig-param">regularization_grads_and_vars</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.model.configs.ModelResults.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of ModelResults(inputs_preprocessed, predictions_raw, predictions, losses, summary, metrics, grads_and_vars, regularization_grads_and_vars)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.model.configs.ModelResults.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.grads_and_vars">
+<em class="property">property </em><code class="sig-name descname">grads_and_vars</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.grads_and_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.inputs_preprocessed">
+<em class="property">property </em><code class="sig-name descname">inputs_preprocessed</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.inputs_preprocessed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.losses">
+<em class="property">property </em><code class="sig-name descname">losses</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.metrics">
+<em class="property">property </em><code class="sig-name descname">metrics</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.predictions">
+<em class="property">property </em><code class="sig-name descname">predictions</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.predictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.predictions_raw">
+<em class="property">property </em><code class="sig-name descname">predictions_raw</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.predictions_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.regularization_grads_and_vars">
+<em class="property">property </em><code class="sig-name descname">regularization_grads_and_vars</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.regularization_grads_and_vars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 7</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.configs.ModelResults.summary">
+<em class="property">property </em><code class="sig-name descname">summary</code><a class="headerlink" href="#nucleus7.model.configs.ModelResults.summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.fields">
+<span id="nucleus7-model-fields-module"></span><h2>nucleus7.model.fields module<a class="headerlink" href="#module-nucleus7.model.fields" title="Permalink to this headline">¶</a></h2>
+<p>Model fields</p>
+<dl class="class">
+<dt id="nucleus7.model.fields.CollectionNames">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.fields.</code><code class="sig-name descname">CollectionNames</code><a class="reference internal" href="../_modules/nucleus7/model/fields.html#CollectionNames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.fields.CollectionNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names of the model scopes</p>
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.INPUTS">
+<code class="sig-name descname">INPUTS</code><em class="property"> = 'nc7_inputs'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.INPUTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.INPUTS_PREPROCESSED">
+<code class="sig-name descname">INPUTS_PREPROCESSED</code><em class="property"> = 'nc7_inputs_preprocessed'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.INPUTS_PREPROCESSED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.LOSSES">
+<code class="sig-name descname">LOSSES</code><em class="property"> = 'nc7_losses'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.LOSSES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.METRIC">
+<code class="sig-name descname">METRIC</code><em class="property"> = 'nc7_metric'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.METRIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.PREDICTIONS">
+<code class="sig-name descname">PREDICTIONS</code><em class="property"> = 'nc7_predictions'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.PREDICTIONS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.PREDICTIONS_RAW">
+<code class="sig-name descname">PREDICTIONS_RAW</code><em class="property"> = 'nc7_predictions_raw'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.PREDICTIONS_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.CollectionNames.SUMMARY">
+<code class="sig-name descname">SUMMARY</code><em class="property"> = 'nc7_summary'</em><a class="headerlink" href="#nucleus7.model.fields.CollectionNames.SUMMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.model.fields.ScopeNames">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.fields.</code><code class="sig-name descname">ScopeNames</code><a class="reference internal" href="../_modules/nucleus7/model/fields.html#ScopeNames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.fields.ScopeNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Names of the model scopes</p>
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.DATASET">
+<code class="sig-name descname">DATASET</code><em class="property"> = 'dataset'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.DATASET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.GRADIENTS">
+<code class="sig-name descname">GRADIENTS</code><em class="property"> = 'gradients'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.GRADIENTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.LOSSES">
+<code class="sig-name descname">LOSSES</code><em class="property"> = 'losses'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.LOSSES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.METRIC">
+<code class="sig-name descname">METRIC</code><em class="property"> = 'metric'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.METRIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.MODEL">
+<code class="sig-name descname">MODEL</code><em class="property"> = 'model'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.MODEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.POSTPROCESSING">
+<code class="sig-name descname">POSTPROCESSING</code><em class="property"> = 'postprocessing'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.POSTPROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.PREDICTIONS_RAW">
+<code class="sig-name descname">PREDICTIONS_RAW</code><em class="property"> = 'predictions_raw'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.PREDICTIONS_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.PREPROCESSING">
+<code class="sig-name descname">PREPROCESSING</code><em class="property"> = 'preprocessing'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.PREPROCESSING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.SUMMARY">
+<code class="sig-name descname">SUMMARY</code><em class="property"> = 'summary'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.SUMMARY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.fields.ScopeNames.TRAIN_OP">
+<code class="sig-name descname">TRAIN_OP</code><em class="property"> = 'train_op'</em><a class="headerlink" href="#nucleus7.model.fields.ScopeNames.TRAIN_OP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.loss">
+<span id="nucleus7-model-loss-module"></span><h2>nucleus7.model.loss module<a class="headerlink" href="#module-nucleus7.model.loss" title="Permalink to this headline">¶</a></h2>
+<p>Interface for model loss</p>
+<dl class="class">
+<dt id="nucleus7.model.loss.ModelLoss">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.loss.</code><code class="sig-name descname">ModelLoss</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">loss_weights: Optional[dict] = None</em>, <em class="sig-param">exclude_from_total_loss: bool = False</em>, <em class="sig-param">keys_to_exclude_from_sample_mask: Optional[List[str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/loss.html#ModelLoss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.loss.ModelLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide" title="nucleus7.core.nucleotide.TfNucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.TfNucleotide</span></code></a></p>
+<p>Model loss interface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loss_weights</strong> – defines the coefficients of loss terms in total_loss
+<cite>total_loss += sum({loss_weights[k]*l for k, l in loss.items()})</cite></p></li>
+<li><p><strong>exclude_from_total_loss</strong> – if this loss should be excluded from total loss; can be used to scale or
+use it further in other losses</p></li>
+<li><p><strong>keys_to_exclude_from_sample_mask</strong> – list of keys that will not be masked using sample_mask</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.model.loss.ModelLoss.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.model.loss.ModelLoss.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.loss.ModelLoss.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.model.loss.ModelLoss.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.loss.ModelLoss.generated_keys_optional">
+<code class="sig-name descname">generated_keys_optional</code><em class="property"> = ['total_loss']</em><a class="headerlink" href="#nucleus7.model.loss.ModelLoss.generated_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.loss.ModelLoss.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['sample_mask']</em><a class="headerlink" href="#nucleus7.model.loss.ModelLoss.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.loss.ModelLoss.process">
+<em class="property">abstract </em><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/model/loss.html#ModelLoss.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.loss.ModelLoss.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the loss given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>loss values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'model_loss'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.metric">
+<span id="nucleus7-model-metric-module"></span><h2>nucleus7.model.metric module<a class="headerlink" href="#module-nucleus7.model.metric" title="Permalink to this headline">¶</a></h2>
+<p>Interface for model metric</p>
+<dl class="class">
+<dt id="nucleus7.model.metric.ModelMetric">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.metric.</code><code class="sig-name descname">ModelMetric</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">keys_to_exclude_from_sample_mask: Optional[List[str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/metric.html#ModelMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.metric.ModelMetric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.model.summary.ModelSummary" title="nucleus7.model.summary.ModelSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.summary.ModelSummary</span></code></a></p>
+<p>Model Metric interface</p>
+<p>Will write summaries for all results, which start with prefixes like
+<cite>image_</cite>, <cite>scalar_</cite>, …</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>keys_to_exclude_from_sample_mask</strong> – list of keys that will not be masked using sample_mask</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.model.metric.ModelMetric.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.model.metric.ModelMetric.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.metric.ModelMetric.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.model.metric.ModelMetric.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.metric.ModelMetric.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['sample_mask']</em><a class="headerlink" href="#nucleus7.model.metric.ModelMetric.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.metric.ModelMetric.process">
+<em class="property">abstract </em><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/model/metric.html#ModelMetric.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.metric.ModelMetric.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate metrics given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with all tensors (and ground truth tensors) as values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>metrics</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'model_metric'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.model">
+<span id="nucleus7-model-model-module"></span><h2>nucleus7.model.model module<a class="headerlink" href="#module-nucleus7.model.model" title="Permalink to this headline">¶</a></h2>
+<p>Interface for model - handler for the collections of tensorflow model related
+nucleotides</p>
+<dl class="class">
+<dt id="nucleus7.model.model.Model">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.model.</code><code class="sig-name descname">Model</code><span class="sig-paren">(</span><em class="sig-param">plugins: List[nucleus7.model.plugin.ModelPlugin], losses: List[nucleus7.model.loss.ModelLoss], *, postprocessors: Optional[List[nucleus7.model.postprocessor.ModelPostProcessor]] = None, summaries: Optional[List[nucleus7.model.summary.ModelSummary]] = None, metrics: Optional[List[nucleus7.model.metric.ModelMetric]] = None, regularization_l1: float = 0, regularization_l2: float = 0, aggregation_method=2, load_config: Optional[dict] = None, mixed_precision_config: Optional[nucleus7.model.configs.MixedPrecisionConfig] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model.html#Model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.gene_handler.GeneHandler" title="nucleus7.core.gene_handler.GeneHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.gene_handler.GeneHandler</span></code></a></p>
+<p>Model to be plugged into ModelHandler and defines the task specific
+architecture like losses, summaries etc.
+this operations will be replicated across all of the devices inside of
+ModelHandler instance
+one per task definition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugins</strong> – model plugins</p></li>
+<li><p><strong>losses</strong> – model losses</p></li>
+<li><p><strong>postprocessors</strong> – model postprocessors</p></li>
+<li><p><strong>summaries</strong> – model summaries</p></li>
+<li><p><strong>metrics</strong> – model metrics</p></li>
+<li><p><strong>regularization_l1</strong> – coefficient of the l1 regularization term to use;
+if regularization_l1 == 0, no l1 regularization will be used;
+otherwise, regularization is applied to all trainable variables from
+all nucleotides</p></li>
+<li><p><strong>regularization_l2</strong> – coefficient of the l2 regularization term to use;
+if regularization_l2 == 0, no l2 regularization will be used;
+otherwise, regularization is applied to all trainable variables from
+all nucleotides</p></li>
+<li><p><strong>aggregation_method</strong> – aggregation method for gradients;
+defaults to tf.AggregationMethod.EXPERIMENTAL_ACCUMULATE_N</p></li>
+<li><p><strong>load_config</strong> – <p>configuration for loading. Can include following keys:</p>
+<blockquote>
+<div><p><cite>checkpoint</cite> - file name of checkpoint with extension .ckpt</p>
+<p><cite>only_trainable_parameters</cite> - boolean flag to load only
+trainable variables</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>mixed_precision_config</strong> – configuration for mixed precision</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.model.model.Model.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.model.model.Model.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.model.Model.exclude_args_from_log">
+<code class="sig-name descname">exclude_args_from_log</code><a class="headerlink" href="#nucleus7.model.model.Model.exclude_args_from_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>fields that will not be included to the config logger</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.build_inference_graph">
+<code class="sig-name descname">build_inference_graph</code><span class="sig-paren">(</span><em class="sig-param">features: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.build_inference_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.build_inference_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build graph for inference</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>features</strong> – dict with mappings feature name to feature tensor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>flatten dict holding predictions</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>predictions_flatten</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if no predictions were built</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.calculate_gradients">
+<code class="sig-name descname">calculate_gradients</code><span class="sig-paren">(</span><em class="sig-param">losses: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]</em><span class="sig-paren">)</span> &#x2192; Tuple[List[Tuple[tensorflow.python.framework.ops.Tensor, tensorflow.python.ops.variables.VariableV1]], List[Tuple[tensorflow.python.framework.ops.Tensor, tensorflow.python.ops.variables.VariableV1]]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.calculate_gradients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.calculate_gradients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate gradients given losses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>losses</strong> – losses</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>grads_and_vars</em> – list of tuples holding pair (gradient, variable)</p></li>
+<li><p><em>regularization_grads_and_vars</em> – list of tuples holding pair (regularization gradient, variable)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.calculate_losses">
+<code class="sig-name descname">calculate_losses</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]], predictions_raw: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]</em><span class="sig-paren">)</span> &#x2192; Dict[str, Union[tensorflow.python.framework.ops.Tensor, Dict[str, tensorflow.python.framework.ops.Tensor]]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.calculate_losses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.calculate_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create loss for model using labels from ‘inputs’
+and predictions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with prediction tensors as values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with values as losses; inside of keys should be ‘total_loss’
+with value to optimize; default ragularizations on the all
+training variables will be applied afterwards if specified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>losses</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.default_placeholders">
+<em class="property">property </em><code class="sig-name descname">default_placeholders</code><a class="headerlink" href="#nucleus7.model.model.Model.default_placeholders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all default placeholders of the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of default placeholder info from all nucleotides</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>all_placeholders</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">exclude_args_from_log</code><em class="property"> = ['plugins', 'losses', 'postprocessors', 'summaries', 'metrics']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.model.Model.exclude_from_log">
+<code class="sig-name descname">exclude_from_log</code><em class="property"> = False</em><a class="headerlink" href="#nucleus7.model.model.Model.exclude_from_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.model.Model.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.model.model.Model.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.forward_pass">
+<code class="sig-name descname">forward_pass</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.forward_pass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.forward_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the forward pass for model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with outputs for each model plugin with keys as plugin names</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>predictions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.model.Model.gene_name_and_nucleotide_super_cls">
+<code class="sig-name descname">gene_name_and_nucleotide_super_cls</code><em class="property"> = {'losses': &lt;class 'nucleus7.model.loss.ModelLoss'&gt;, 'metrics': &lt;class 'nucleus7.model.metric.ModelMetric'&gt;, 'plugins': &lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;, 'postprocessors': &lt;class 'nucleus7.model.postprocessor.ModelPostProcessor'&gt;, 'summaries': &lt;class 'nucleus7.model.summary.ModelSummary'&gt;}</em><a class="headerlink" href="#nucleus7.model.model.Model.gene_name_and_nucleotide_super_cls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.get_metrics">
+<code class="sig-name descname">get_metrics</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]], predictions_raw: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]], predictions: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.get_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.get_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create metric
+Names without this prefixes will not be plotted in tensorboard.
+Only difference to summary is that metrics are added to its own
+collection (CollectionNames.METRIC) and not to summary collection.
+In that way it is possible to use metrics inside of training e.g. as
+for stopping training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with raw predictions</p></li>
+<li><p><strong>predictions</strong> – dict with output tensors as values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>combined summaries from all <cite>ModelMetric</cite> instances</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.get_summaries">
+<code class="sig-name descname">get_summaries</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]], predictions_raw: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]], predictions: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.get_summaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.get_summaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the summaries for model as dict
+to separate different types of summaries, the prefix is used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>scalar_{}</cite></p></li>
+<li><p><cite>image_{}</cite></p></li>
+<li><p><cite>histogram_{}</cite></p></li>
+<li><p><cite>text_{}</cite></p></li>
+<li><p><cite>audio_{}</cite></p></li>
+</ul>
+</div></blockquote>
+<p>Names without this prefixes will not be stored to tensorboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with raw predictions</p></li>
+<li><p><strong>predictions</strong> – dict with output tensors as values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>combined summaries from all <cite>ModelSummary</cite> instances</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>summaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.maybe_initialize_from_checkpoints">
+<code class="sig-name descname">maybe_initialize_from_checkpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.maybe_initialize_from_checkpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.maybe_initialize_from_checkpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize variables from checkpoints</p>
+<p>If one variable exists inside of load_config[‘checkpoint’] and also
+inside of plugin checkpoint, then plugin checkpoint will be used</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.maybe_initialize_plugins_from_checkpoints">
+<code class="sig-name descname">maybe_initialize_plugins_from_checkpoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.maybe_initialize_plugins_from_checkpoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.maybe_initialize_plugins_from_checkpoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize plugins from checkpoints if plugin have them</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.mixed_precision_config">
+<em class="property">property </em><code class="sig-name descname">mixed_precision_config</code><a class="headerlink" href="#nucleus7.model.model.Model.mixed_precision_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration of use of mixed precision</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>config for mixed precision</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>mixed_precision_config</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.model.Model.nucleotide_type_dependency_map">
+<code class="sig-name descname">nucleotide_type_dependency_map</code><em class="property"> = {&lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;: [&lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;], &lt;class 'nucleus7.model.loss.ModelLoss'&gt;: [&lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;, &lt;class 'nucleus7.model.loss.ModelLoss'&gt;], &lt;class 'nucleus7.model.postprocessor.ModelPostProcessor'&gt;: [&lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;, &lt;class 'nucleus7.model.postprocessor.ModelPostProcessor'&gt;], &lt;class 'nucleus7.model.summary.ModelSummary'&gt;: [&lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;, &lt;class 'nucleus7.model.loss.ModelLoss'&gt;, &lt;class 'nucleus7.model.postprocessor.ModelPostProcessor'&gt;, &lt;class 'nucleus7.model.summary.ModelSummary'&gt;], &lt;class 'nucleus7.model.metric.ModelMetric'&gt;: [&lt;class 'nucleus7.model.plugin.ModelPlugin'&gt;, &lt;class 'nucleus7.model.loss.ModelLoss'&gt;, &lt;class 'nucleus7.model.postprocessor.ModelPostProcessor'&gt;]}</em><a class="headerlink" href="#nucleus7.model.model.Model.nucleotide_type_dependency_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.postprocess_predictions">
+<code class="sig-name descname">postprocess_predictions</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]], predictions_raw: Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]</em><span class="sig-paren">)</span> &#x2192; Union[Dict[str, tensorflow.python.framework.ops.Tensor], Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.postprocess_predictions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.postprocess_predictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the postprocessing on predictions
+e.g. classes or probabilities from logits
+this predictions will be added to collection and further used for the
+summaries / inference</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with predictions from model_plugin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with outputs of the model for inference</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>postprocessed_predictions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.preprocess_dataset_inputs">
+<em class="property">static </em><code class="sig-name descname">preprocess_dataset_inputs</code><span class="sig-paren">(</span><em class="sig-param">inputs: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span> &#x2192; Dict[str, Dict[str, tensorflow.python.framework.ops.Tensor]]<a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.preprocess_dataset_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.preprocess_dataset_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add preprocessing step as identity nodes on dataset inputs
+and add all the inputs to dataset key</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs from datasets</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>same as inputs, but with added identity ops and add to dataset key</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inputs_with_identity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'model'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.reset_tf_graph">
+<code class="sig-name descname">reset_tf_graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model.html#Model.reset_tf_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model.Model.reset_tf_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset model tensorflow graph</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model.Model.trainable_variables">
+<em class="property">property </em><code class="sig-name descname">trainable_variables</code><a class="headerlink" href="#nucleus7.model.model.Model.trainable_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>All trainable variables in all nucleotides inside of the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>trainable variables inside of the model</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>trainable_variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.model_handler">
+<span id="nucleus7-model-model-handler-module"></span><h2>nucleus7.model.model_handler module<a class="headerlink" href="#module-nucleus7.model.model_handler" title="Permalink to this headline">¶</a></h2>
+<p>Class for handling the model, e.g. replicate the model over multiple GPUs,
+create train_op, combine the results, add summaries etc.</p>
+<dl class="class">
+<dt id="nucleus7.model.model_handler.ModelHandler">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.model_handler.</code><code class="sig-name descname">ModelHandler</code><span class="sig-paren">(</span><em class="sig-param">model: nucleus7.model.model.Model</em>, <em class="sig-param">devices: list</em>, <em class="sig-param">global_optimization_config: nucleus7.optimization.configs.OptimizationConfig</em>, <em class="sig-param">variable_strategy: str = 'GPU'</em>, <em class="sig-param">predictions_have_variable_shape: bool = False</em>, <em class="sig-param">max_outputs_tb: int = 1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>Build model_fn that will be used inside of estimator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – instance of model</p></li>
+<li><p><strong>devices</strong> – list of devices to use for the model; inputs are all always fetched
+and augmented on cpu once for all gpus</p></li>
+<li><p><strong>variable_strategy</strong> – CPU to use CPU as the parameter server</p></li>
+<li><p><strong>global_optimization_config</strong> – global optimization configuration</p></li>
+<li><p><strong>max_outputs_tb</strong> – number of maximum outputs in tensorboard e.g. for images</p></li>
+<li><p><strong>predictions_have_variable_shape</strong> – if the predictions from different devices have different shapes
+from batch to batch and so should be concatenated
+with padding during evaluation; useful for object detections</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.add_optim_configs_to_handler">
+<code class="sig-name descname">add_optim_configs_to_handler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.add_optim_configs_to_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.add_optim_configs_to_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add local optimization configs from plugins to the optimization handler</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.add_summaries">
+<code class="sig-name descname">add_summaries</code><span class="sig-paren">(</span><em class="sig-param">model_results: nucleus7.model.configs.ModelResults</em>, <em class="sig-param">mode: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.add_summaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.add_summaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add summaries from model_results to the summaries and merge them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_results</strong> – model results</p></li>
+<li><p><strong>mode</strong> – mode of the model</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.add_to_collections">
+<em class="property">static </em><code class="sig-name descname">add_to_collections</code><span class="sig-paren">(</span><em class="sig-param">model_results: nucleus7.model.configs.ModelResults</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.add_to_collections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.add_to_collections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add nucleus7 collections from model_results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_results</strong> – model results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object by updating the parameters with defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self object for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.combine_model_results_from_devices">
+<code class="sig-name descname">combine_model_results_from_devices</code><span class="sig-paren">(</span><em class="sig-param">tower_model_results: List[nucleus7.model.configs.ModelResults]</em><span class="sig-paren">)</span> &#x2192; nucleus7.model.configs.ModelResults<a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.combine_model_results_from_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.combine_model_results_from_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine model results fro all devices</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tower_model_results</strong> – list of results for each device</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>combined model results</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>model_results_combined</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.get_estimator_spec">
+<em class="property">static </em><code class="sig-name descname">get_estimator_spec</code><span class="sig-paren">(</span><em class="sig-param">mode: str, predictions: Optional[dict], losses: Optional[dict], metrics: Optional[dict], train_op: Optional[tensorflow.python.framework.ops.Operation]</em><span class="sig-paren">)</span> &#x2192; tensorflow_estimator.python.estimator.model_fn.EstimatorSpec<a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.get_estimator_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.get_estimator_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct the estimator spec</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – mode of the model</p></li>
+<li><p><strong>predictions</strong> – all predictions</p></li>
+<li><p><strong>losses</strong> – all losses</p></li>
+<li><p><strong>metrics</strong> – metrics of the model</p></li>
+<li><p><strong>train_op</strong> – training operation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>estimator spec</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>estimator_spec</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.get_model_fn">
+<code class="sig-name descname">get_model_fn</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Callable[[dict, Any, str, Any, tensorflow_estimator.python.estimator.run_config.RunConfig], tensorflow_estimator.python.estimator.model_fn.EstimatorSpec]<a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.get_model_fn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.get_model_fn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>model_fn with (features, labels, mode, config=None) as attributes;
+inputs and labels are inside of features, and labels attribute is
+there for signature convenience</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>model_fn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.get_train_op">
+<code class="sig-name descname">get_train_op</code><span class="sig-paren">(</span><em class="sig-param">model_results: nucleus7.model.configs.ModelResults</em><span class="sig-paren">)</span> &#x2192; tensorflow.python.framework.ops.Operation<a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.get_train_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.get_train_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create train operation using optimization handler. Also will add the
+update operation to it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_results</strong> – model results</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>train operation together with update operation</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>train_with_update_op</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.model_fn">
+<code class="sig-name descname">model_fn</code><span class="sig-paren">(</span><em class="sig-param">features: dict</em>, <em class="sig-param">labels</em>, <em class="sig-param">mode: str</em>, <em class="sig-param">config: Optional[tensorflow_estimator.python.estimator.run_config.RunConfig] = None</em><span class="sig-paren">)</span> &#x2192; tensorflow_estimator.python.estimator.model_fn.EstimatorSpec<a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.model_fn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.model_fn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Construct the model:</dt><dd><ul class="simple">
+<li><p>replicate over devices</p></li>
+<li><p>combine results</p></li>
+<li><p>get train operation</p></li>
+<li><p>add summaries</p></li>
+<li><p>and collections</p></li>
+</ul>
+</dd>
+</dl>
+<p>This method must be used inside of the <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.estimator.Estimator</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>features</strong> – inputs and labels</p></li>
+<li><p><strong>labels</strong> – not used</p></li>
+<li><p><strong>mode</strong> – mode of the model</p></li>
+<li><p><strong>config</strong> – not used</p></li>
+<li><p><strong>params</strong> – not used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>estimator spec</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>estimator_spec</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.model_handler.ModelHandler.replicate_model_over_devices">
+<code class="sig-name descname">replicate_model_over_devices</code><span class="sig-paren">(</span><em class="sig-param">features: dict</em>, <em class="sig-param">mode: str</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/model_handler.html#ModelHandler.replicate_model_over_devices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.model_handler.ModelHandler.replicate_model_over_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replicate the model over all devices. For PREDICT mode, will use only 1
+device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>features</strong> – inputs and labels</p></li>
+<li><p><strong>mode</strong> – mode of of the model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of ModelResults from each device</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tower_model_results</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.plugin">
+<span id="nucleus7-model-plugin-module"></span><h2>nucleus7.model.plugin module<a class="headerlink" href="#module-nucleus7.model.plugin" title="Permalink to this headline">¶</a></h2>
+<p>Interface for model plugin</p>
+<dl class="class">
+<dt id="nucleus7.model.plugin.ModelPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.plugin.</code><code class="sig-name descname">ModelPlugin</code><span class="sig-paren">(</span><em class="sig-param">*, inbound_nodes: Union[str, list] = 'dataset', activation: Union[str, Dict[str, str], Callable] = 'elu', initializer: Union[str, dict, tensorflow.python.ops.init_ops.Initializer] = None, dropout: Union[str, Dict[str, str], Callable] = 'normal', stop_gradient_from_inputs: bool = False, load_fname: str = None, load_var_scope: str = None, exclude_from_restore: bool = False, optimization_configs: Union[Dict[str, nucleus7.optimization.configs.OptimizationConfig], nucleus7.optimization.configs.OptimizationConfig, None] = None, allow_mixed_precision: bool = True, **nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/plugin.html#ModelPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide" title="nucleus7.core.nucleotide.TfNucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.TfNucleotide</span></code></a></p>
+<p>Interface of network model to be plugged into Model.
+main goal is to separate the network architecture from the task</p>
+<p>arguments are common for all plugins and may be used or not in the
+implementation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inbound_nodes</strong> – name of the input nodes</p></li>
+<li><p><strong>activation</strong> – activation function to use or its configuration in form of name
+or dict {‘name’: , ‘param1’: , ‘param2’: …}</p></li>
+<li><p><strong>dropout</strong> – dropout function to use or its configuration in form of name
+or dict {‘name’: , ‘param1’: , ‘param2’: …}</p></li>
+<li><p><strong>initializer</strong> – initializer to use as keras Initializer or its configuration in form of
+name or dict {‘name’: , ‘param1’: , ‘param2’: …}</p></li>
+<li><p><strong>stop_gradient_from_inputs</strong> – if the gradient from inputs should be stopped, so gradient from this
+plugin will not be backpropagated to its inputs</p></li>
+<li><p><strong>load_fname</strong> – checkpoint file name to restore variables</p></li>
+<li><p><strong>load_var_scope</strong> – specifies var scope of plugin variables inside of restored checkpoint</p></li>
+<li><p><strong>exclude_from_restore</strong> – if variables of this plugin should be not restored from global
+checkpoint</p></li>
+<li><p><strong>optimization_configs</strong> – optimization config or a dict with mappings of
+{variable name pattern: optimization}; if you want to specify one
+optimizer for all variables except other patterns, specify it with
+‘*’ key</p></li>
+<li><p><strong>allow_mixed_precision</strong> – defines, if the plugin should be excluded from mixed precision and in
+that way, all inputs with float16 dtype will be casted automatically
+to float32</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.model.plugin.ModelPlugin.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.plugin.ModelPlugin._variable_scope">
+<code class="sig-name descname">_variable_scope</code><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin._variable_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of variable scope for plugin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.plugin.ModelPlugin._variables">
+<code class="sig-name descname">_variables</code><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin._variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of plugin global variables (trainable and not trainable)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.plugin.ModelPlugin.defaults">
+<em class="property">property </em><code class="sig-name descname">defaults</code><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define default values for nucleotide parameters as a dict mapping from
+attribute name to its default value. Attribute name (key in returned
+dict) must be the same as attribute name in constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>default_parameters</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.plugin.ModelPlugin.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.plugin.ModelPlugin.get_optimization_configs_with_variables">
+<code class="sig-name descname">get_optimization_configs_with_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Optional[List[Tuple[nucleus7.optimization.configs.OptimizationConfig, List[tensorflow.python.ops.variables.VariableV1]]]]<a class="reference internal" href="../_modules/nucleus7/model/plugin.html#ModelPlugin.get_optimization_configs_with_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin.get_optimization_configs_with_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of (optim_config, variables) to apply on the variables of
+this plugin</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of optimization configs with variables for it</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>optim_configs_with_vars</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.plugin.ModelPlugin.maybe_initialize_from_checkpoint">
+<code class="sig-name descname">maybe_initialize_from_checkpoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/plugin.html#ModelPlugin.maybe_initialize_from_checkpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin.maybe_initialize_from_checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the variables from checkpoint if load_fname was provided</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.plugin.ModelPlugin.predict">
+<em class="property">abstract </em><code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/model/plugin.html#ModelPlugin.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.plugin.ModelPlugin.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs after this layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'model_plugin'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.postprocessor">
+<span id="nucleus7-model-postprocessor-module"></span><h2>nucleus7.model.postprocessor module<a class="headerlink" href="#module-nucleus7.model.postprocessor" title="Permalink to this headline">¶</a></h2>
+<p>Interface for model postprocessor</p>
+<dl class="class">
+<dt id="nucleus7.model.postprocessor.ModelPostProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.postprocessor.</code><code class="sig-name descname">ModelPostProcessor</code><span class="sig-paren">(</span><em class="sig-param">trainable: bool = True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/postprocessor.html#ModelPostProcessor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.postprocessor.ModelPostProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide" title="nucleus7.core.nucleotide.TfNucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.TfNucleotide</span></code></a></p>
+<p>Model Postprocessor interface</p>
+<dl class="attribute">
+<dt id="nucleus7.model.postprocessor.ModelPostProcessor.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.model.postprocessor.ModelPostProcessor.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.postprocessor.ModelPostProcessor.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.model.postprocessor.ModelPostProcessor.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.postprocessor.ModelPostProcessor.process">
+<em class="property">abstract </em><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/model/postprocessor.html#ModelPostProcessor.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.postprocessor.ModelPostProcessor.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply postprocessing on inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions_pp</strong> – predictions after applying postprocessing</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'model_postprocessor'</em></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model.summary">
+<span id="nucleus7-model-summary-module"></span><h2>nucleus7.model.summary module<a class="headerlink" href="#module-nucleus7.model.summary" title="Permalink to this headline">¶</a></h2>
+<p>Interface for model summary</p>
+<dl class="class">
+<dt id="nucleus7.model.summary.ModelSummary">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.model.summary.</code><code class="sig-name descname">ModelSummary</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">store_inside_tensorboard: bool = True</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/summary.html#ModelSummary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.summary.ModelSummary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide" title="nucleus7.core.nucleotide.TfNucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.TfNucleotide</span></code></a></p>
+<p>Model Summary interface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>store_inside_tensorboard</strong> – if the summary should be stored to tensorboard or should only serve
+as inputs to other summaries without storing</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.model.summary.ModelSummary.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.model.summary.ModelSummary.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.summary.ModelSummary._summary_prefixes">
+<code class="sig-name descname">_summary_prefixes</code><a class="headerlink" href="#nucleus7.model.summary.ModelSummary._summary_prefixes" title="Permalink to this definition">¶</a></dt>
+<dd><p>which prefixes are used further to distinguish between summary types
+in tensorboard. Add them to your summaries if you want to have them
+in tensorboard. Otherwise the logging warning will be raised and
+that summaries will not be written</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.model.summary.ModelSummary.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.model.summary.ModelSummary.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.summary.ModelSummary.process">
+<em class="property">abstract </em><code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">**inputs</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/model/summary.html#ModelSummary.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.summary.ModelSummary.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get summary given inputs.</p>
+<p>To separate different types of summaries afterwards,
+the prefix is used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>scalar_{}</cite></p></li>
+<li><p><cite>image_{}</cite></p></li>
+<li><p><cite>histogram_{}</cite></p></li>
+<li><p><cite>text_{}</cite></p></li>
+<li><p><cite>audio_{}</cite></p></li>
+</ul>
+</div></blockquote>
+<p>Names without this prefixes will not be included to summaries
+and further to tensorboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with all tensors (and ground truth tensors) as values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>summaries</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>summaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'model_summary'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.model.summary.ModelSummary.warn_about_not_stored_summaries">
+<code class="sig-name descname">warn_about_not_stored_summaries</code><span class="sig-paren">(</span><em class="sig-param">summary: dict</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/model/summary.html#ModelSummary.warn_about_not_stored_summaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.model.summary.ModelSummary.warn_about_not_stored_summaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Warn if there are summaries that will not be stored to tensorboard</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>summary</strong> – dict with summaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.model">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nucleus7.model" title="Permalink to this headline">¶</a></h2>
+<p>Model module</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nucleus7.optimization.html" class="btn btn-neutral float-right" title="nucleus7.optimization package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nucleus7.kpi.html" class="btn btn-neutral float-left" title="nucleus7.kpi package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

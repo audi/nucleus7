@@ -1,0 +1,654 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.nucleotide &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.nucleotide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.nucleotide</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interface for main building block - Nucleotide</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">MetaLogAndRegister</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">log_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">model_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nucleotide_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_collections_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_varscopes_utils</span>
+
+
+<div class="viewcode-block" id="Nucleotide"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.nucleotide.Nucleotide">[docs]</a><span class="k">class</span> <span class="nc">Nucleotide</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MetaLogAndRegister</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for nucleus nodes</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        name of the plugin; if not specified, will use class name</span>
+<span class="sd">    inbound_nodes</span>
+<span class="sd">        name of the input node</span>
+<span class="sd">    incoming_keys_mapping</span>
+<span class="sd">        list of mappings from inbound node output names to node inputs. They</span>
+<span class="sd">        should ensure connections of corresponding nodes, e.g.</span>
+<span class="sd">        if node has inputs `[&#39;input&#39;, &#39;input2&#39;]` and inbound node has outputs</span>
+<span class="sd">        `[&#39;output&#39;, &#39;output2&#39;]` then to pass this check, mapping should</span>
+<span class="sd">        be `{&#39;inbound_node&#39;: {&#39;output&#39;: &#39;input&#39;, &#39;output2&#39;: &#39;input2&#39;}}`</span>
+<span class="sd">        see corresponding implementation of node.</span>
+<span class="sd">        The mappings should ensure connections of corresponding nodes</span>
+<span class="sd">    data_format</span>
+<span class="sd">        mapping between data type and data format</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        list of arguments for `self.__call__` (predict / process) method; used</span>
+<span class="sd">        for graph connections checks; optional keys should have &#39;_&#39; as prefix</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        list of keys inside of return dict after `self.__call__` method; used</span>
+<span class="sd">        for graph connections checks; optional keys should have &#39;_&#39; as prefix</span>
+<span class="sd">    dynamic_incoming_keys</span>
+<span class="sd">        if the nucleotide has dynamic incoming keys</span>
+<span class="sd">    dynamic_generated_keys</span>
+<span class="sd">        if the nucleotide has dynamic incoming keys</span>
+<span class="sd">    _process_method_name</span>
+<span class="sd">        name of main method call, like &#39;predict&#39; for :obj:`ModelPlugin` and</span>
+<span class="sd">        &#39;process&#39; for :obj:`ModelLoss`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[str]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[str]</span>
+    <span class="n">dynamic_incoming_keys</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">dynamic_generated_keys</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_process_method_name</span> <span class="o">=</span> <span class="s1">&#39;process&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">inbound_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">incoming_keys_mapping</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">data_format</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">or</span> <span class="s1">&#39;/&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s1">&#39;Slashes are not allowed in the name!!!&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inbound_nodes</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">inbound_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">inbound_nodes</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inbound_nodes</span> <span class="o">=</span> <span class="n">inbound_nodes</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_mapping</span> <span class="o">=</span> <span class="n">incoming_keys_mapping</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inbound_nodes</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_mapping</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inbound_nodes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_format</span> <span class="o">=</span> <span class="n">data_format</span>  <span class="c1"># type: dict</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: str</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_input_mappings</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_input_keys</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data_format_default</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="s1">&#39;NHWC&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;video&#39;</span><span class="p">:</span> <span class="s1">&#39;NTHWC&#39;</span><span class="p">,</span>
+                               <span class="s1">&#39;time_series&#39;</span><span class="p">:</span> <span class="s1">&#39;NTC&#39;</span><span class="p">}</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data_format&quot;</span><span class="p">:</span> <span class="n">data_format_default</span><span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mode of nucleotide, e.g. train, eval, infer</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mode</span>
+<span class="sd">            mode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+
+    <span class="nd">@mode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_training</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If mode == train, e.g. training mode</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_training_flag</span>
+<span class="sd">            True if mode == train, else otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Name of the nucleotide or the class name, if no name was provided to</span>
+<span class="sd">        constructor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        name</span>
+<span class="sd">            name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">incoming_keys_required</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get required incoming keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        required_incoming_keys</span>
+<span class="sd">            list of incoming keys without &quot;_&quot; in the name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">incoming_keys</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">incoming_keys_optional</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get optional incoming keys without &quot;_&quot; prefix</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        optional_incoming_keys</span>
+<span class="sd">            list of incoming keys with &quot;_&quot; in the name; names are provided</span>
+<span class="sd">            without &quot;_&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">incoming_keys</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">incoming_keys_all</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all incoming keys; optional keys have no &quot;_&quot; prefix</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        incoming_keys</span>
+<span class="sd">            list of all incoming keys</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">incoming_keys_optional</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">incoming_keys_required</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_required</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get required generated keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        required_generated_keys</span>
+<span class="sd">            list of generated keys without &quot;_&quot; in the name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">generated_keys</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_optional</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get optional generated keys without &quot;_&quot; prefix</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        optional_generated_keys</span>
+<span class="sd">            list of generated keys with &quot;_&quot; in the name; names are provided</span>
+<span class="sd">            without &quot;_&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">generated_keys</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_all</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all generated keys; optional keys have no &quot;_&quot; prefix</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        generated_keys</span>
+<span class="sd">            list of all generated keys</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">generated_keys_optional</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">generated_keys_required</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">use_genes_as_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            Flag to identify if the nucleotide takes genes, e.g. dict with</span>
+<span class="sd">            other nucleotides as keys and dict of particular values as values</span>
+<span class="sd">            or on just dict with incoming_keys and corresponding values.</span>
+<span class="sd">            Is used to simulate the GeneHandler behavior.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_check_input_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check if all keys from mapping are inside of inbound nodes&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">each_mapping_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_mapping</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">each_mapping_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbound_nodes</span>
+                    <span class="ow">and</span> <span class="n">each_mapping_name</span> <span class="o">!=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">ALL_OTHERS_KEY</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                    <span class="s2">&quot;Inputs name mapping node name is not inside of &quot;</span>
+                    <span class="s2">&quot;inbound nodes!!! &quot;</span>
+                    <span class="s2">&quot;(Node: </span><span class="si">{}</span><span class="s2">, mapping: </span><span class="si">{}</span><span class="s2">, inbound nodes: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">each_mapping_name</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">inbound_nodes</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Nucleotide.filter_inputs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.nucleotide.Nucleotide.filter_inputs">[docs]</a>    <span class="k">def</span> <span class="nf">filter_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter all inputs to the nucleotide according to its inbound_nodes and</span>
+<span class="sd">        incoming keys mapping</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        inputs_filtered</span>
+<span class="sd">            filtered inputs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nucleotide_inputs</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">remap_and_collapse_nucleotide_inputs</span><span class="p">(</span>
+                <span class="n">inputs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbound_nodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_mapping</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">nucleotide_inputs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic_incoming_keys</span><span class="p">:</span>
+            <span class="n">nucleotide_inputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">nucleotide_inputs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                 <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_all</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">nucleotide_inputs</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">representation</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Nucleotide </span><span class="si">{}</span><span class="s2"> with </span><span class="si">{}</span><span class="s2"> inbound nodes, &quot;</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> incoming keys and &quot;</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> generated keys&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inbound_nodes</span><span class="p">),</span>
+                 <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_all</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generated_keys_all</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">representation</span>
+
+    <span class="k">def</span> <span class="nf">_check_input_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Inspect signature of `predict` or `process` method and check</span>
+<span class="sd">        if all items from `self.incoming_keys` are inside of function</span>
+<span class="sd">        arguments</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">get_nucleotide_signature</span><span class="p">(</span><span class="bp">self</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">inp_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys_all</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">inp_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                    <span class="s2">&quot;Update signature incoming_nodes of node </span><span class="si">{}</span><span class="s2"> according &quot;</span>
+                    <span class="s2">&quot;to incoming_keys!!! (signature args: </span><span class="si">{}</span><span class="s2">, &quot;</span>
+                    <span class="s2">&quot;incoming_keys: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">incoming_keys</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="TfNucleotide"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide">[docs]</a><span class="k">class</span> <span class="nc">TfNucleotide</span><span class="p">(</span><span class="n">Nucleotide</span><span class="p">,</span>
+                   <span class="n">model_utils</span><span class="o">.</span><span class="n">KerasLayersMixin</span><span class="p">,</span>
+                   <span class="n">model_utils</span><span class="o">.</span><span class="n">DefaultPlaceholderMixin</span><span class="p">,</span>
+                   <span class="n">model_utils</span><span class="o">.</span><span class="n">CustomSessionHandlerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for tensorflow nucleotides</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    trainable</span>
+<span class="sd">        if the nucleotide is trainable; if set to False, all variables from this</span>
+<span class="sd">        nucleotide will be removed from `tf.GraphKeys.TRAINABLE_VARIABLES`</span>
+<span class="sd">        collection so will not be used for training / updating,</span>
+<span class="sd">        but gradient will still flow;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TfNucleotide</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="n">trainable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_variable_scope</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Optional[str]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[tf.Variable]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">variable_scope</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        variable_scope</span>
+<span class="sd">            variable_scope used in nucleotide</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variable_scope</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        variables</span>
+<span class="sd">            tf variables of nucleotide</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variables</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trainable_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All trainable variables in plugin</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        trainable_variables</span>
+<span class="sd">            trainable variables inside of plugin</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">trainable_from_collection</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">GraphKeys</span><span class="o">.</span><span class="n">TRAINABLE_VARIABLES</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">))</span>
+        <span class="n">trainable_variables_plugin</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+            <span class="n">trainable_from_collection</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">))</span>
+        <span class="n">non_trainable_keras_vars</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_var</span> <span class="k">for</span> <span class="n">each_layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keras_layers</span>
+            <span class="k">for</span> <span class="n">each_var</span> <span class="ow">in</span> <span class="n">each_layer</span><span class="o">.</span><span class="n">non_trainable_variables</span><span class="p">}</span>
+        <span class="n">trainable_vars</span> <span class="o">=</span> <span class="n">trainable_variables_plugin</span> <span class="o">-</span> <span class="n">non_trainable_keras_vars</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">trainable_vars</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TfNucleotide.reset_tf_graph"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide.reset_tf_graph">[docs]</a>    <span class="k">def</span> <span class="nf">reset_tf_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset tf graph for nucleutide, e.g. remove all the variables and tensors</span>
+<span class="sd">        from the graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_keras_layers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remove_all_placeholders</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TfNucleotide.build"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.nucleotide.TfNucleotide.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_keras_layers</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="nd">@tf_varscopes_utils</span><span class="o">.</span><span class="n">with_named_variable_scope</span>
+    <span class="nd">@tf_collections_utils</span><span class="o">.</span><span class="n">remove_not_trainable_from_collection</span>
+    <span class="nd">@tf_varscopes_utils</span><span class="o">.</span><span class="n">add_var_scope_and_variables</span>
+    <span class="nd">@tf_utils</span><span class="o">.</span><span class="n">replace_outputs_with_named_identity</span>
+    <span class="nd">@log_utils</span><span class="o">.</span><span class="n">log_nucleotide_inputs_outputs</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wrapper on top of self.call with following checks:</span>
+<span class="sd">            * if object is built</span>
+<span class="sd">            * if mode property is defined</span>
+<span class="sd">            * add variables to self._variables</span>
+<span class="sd">            * use named var scope</span>
+<span class="sd">            * add var_scope to self._var_scope</span>
+<span class="sd">            * if nucleotide is not trainable, then remove from</span>
+<span class="sd">            tf.trainable_variables collection</span>
+<span class="sd">            * add tf.identity on result</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs to nucleotide</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nucleotide_outputs</span>
+<span class="sd">            nucleotide outputs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent __call__ method has more generic signature</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wrapper of predict or process method</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs to nucleotide</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nucleotide_outputs</span>
+<span class="sd">            nucleotide outputs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">process_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_method_name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">process_method</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.builders.kpi_builder &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.builders.kpi_builder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.builders.kpi_builder</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Builders for KPI evaluator</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">builder_lib</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_global_config</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">register</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.accumulator</span> <span class="kn">import</span> <span class="n">KPIAccumulator</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.cacher</span> <span class="kn">import</span> <span class="n">KPICacher</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_callback</span> <span class="kn">import</span> <span class="n">KPIEvaluatorCallback</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_callback</span> <span class="kn">import</span> <span class="n">convert_evaluator_to_callback</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_evaluator</span> <span class="kn">import</span> <span class="n">KPIEvaluator</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_plugin</span> <span class="kn">import</span> <span class="n">KPIPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.saver</span> <span class="kn">import</span> <span class="n">KPISaver</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nucleotide_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils.utils</span> <span class="kn">import</span> <span class="n">get_member_from_package_and_member_names</span>
+
+
+<div class="viewcode-block" id="build_kpi_plugins"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.kpi_builder.build_kpi_plugins">[docs]</a><span class="k">def</span> <span class="nf">build_kpi_plugins</span><span class="p">(</span><span class="n">configs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build kpi plugins from single config or list of configs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    configs</span>
+<span class="sd">        configs for plugins to build from</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list_of_kpi_plugins</span>
+<span class="sd">        built kpi plugins</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">configs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">builder_lib</span><span class="o">.</span><span class="n">build_chain_of_objects</span><span class="p">(</span>
+        <span class="n">configs</span><span class="p">,</span> <span class="n">build_fn</span><span class="o">=</span><span class="n">_build_kpi_plugin</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="build_kpi_evaluator"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.kpi_builder.build_kpi_evaluator">[docs]</a><span class="k">def</span> <span class="nf">build_kpi_evaluator</span><span class="p">(</span>
+        <span class="n">plugins_and_accumulators</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">KPIPlugin</span><span class="p">,</span>
+                                                      <span class="n">KPIAccumulator</span><span class="p">]]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">KPIEvaluator</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build kpi evaluator from plugins and accumulators</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plugins_and_accumulators</span>
+<span class="sd">        list of kpi plugins and accumulators</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    kpi_evaluator</span>
+<span class="sd">        built kpi evaluator</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">plugins_and_accumulators</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">plugins</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">accumulators</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="n">plugins_and_accumulators</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_item</span><span class="p">,</span> <span class="n">KPIAccumulator</span><span class="p">):</span>
+            <span class="n">accumulators</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_item</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plugins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">KPIEvaluator</span><span class="p">(</span><span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span><span class="p">,</span> <span class="n">accumulators</span><span class="o">=</span><span class="n">accumulators</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="build_kpi_evaluator_as_callback"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.kpi_builder.build_kpi_evaluator_as_callback">[docs]</a><span class="k">def</span> <span class="nf">build_kpi_evaluator_as_callback</span><span class="p">(</span>
+        <span class="n">plugins_and_accumulators</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">KPIPlugin</span><span class="p">,</span>
+                                                      <span class="n">KPIAccumulator</span><span class="p">]]],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">KPIEvaluatorCallback</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build kpi evaluator from plugins and accumulators and convert it to</span>
+<span class="sd">    callback</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plugins_and_accumulators</span>
+<span class="sd">        list of kpi plugins and accumulators</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    kpi_evaluator_as_callback</span>
+<span class="sd">        built kpi evaluator as callback</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">plugins_and_accumulators</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">kpi_evaluator</span> <span class="o">=</span> <span class="n">build_kpi_evaluator</span><span class="p">(</span><span class="n">plugins_and_accumulators</span><span class="p">)</span>
+    <span class="n">kpi_evaluator_callback</span> <span class="o">=</span> <span class="n">convert_evaluator_to_callback</span><span class="p">(</span><span class="n">kpi_evaluator</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kpi_evaluator_callback</span></div>
+
+
+<span class="k">def</span> <span class="nf">_build_helper</span><span class="p">(</span><span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">helper_cls</span> <span class="o">=</span> <span class="n">get_member_from_package_and_member_names</span><span class="p">(</span>
+        <span class="n">class_name</span><span class="p">,</span> <span class="n">default_package_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;nucleus7.kpi&quot;</span><span class="p">])</span>
+    <span class="n">helper</span> <span class="o">=</span> <span class="n">helper_cls</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">helper</span><span class="p">,</span> <span class="n">base_cls</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Instance of </span><span class="si">{}</span><span class="s2"> is not instance of base class </span><span class="si">{}</span><span class="s2">&quot;</span>
+                         <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">helper</span>
+
+
+<span class="k">def</span> <span class="nf">_build_list_of_helpers</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">],</span> <span class="n">base_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="p">[</span><span class="n">config</span><span class="p">]</span>
+
+    <span class="n">helpers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_config</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">helper</span> <span class="o">=</span> <span class="n">_build_helper</span><span class="p">(</span><span class="n">base_cls</span><span class="o">=</span><span class="n">base_cls</span><span class="p">,</span> <span class="o">**</span><span class="n">each_config</span><span class="p">)</span>
+        <span class="n">helpers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">helper</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">helpers</span>
+
+
+<span class="k">def</span> <span class="nf">_build_kpi_plugin</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">=</span><span class="n">KPIPlugin</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">class_name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;class_name&quot;</span><span class="p">)</span>
+    <span class="n">plugin_kwargs</span> <span class="o">=</span> <span class="n">config</span>
+
+    <span class="n">class_name</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">get_class_name_and_register_package</span><span class="p">(</span>
+        <span class="n">class_name</span><span class="o">=</span><span class="n">class_name</span><span class="p">)</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">register</span><span class="o">.</span><span class="n">retrieve_from_register</span><span class="p">(</span><span class="n">class_name</span><span class="p">,</span> <span class="n">base_cls</span><span class="p">)</span>
+    <span class="n">plugin_kwargs</span> <span class="o">=</span> <span class="n">project_global_config</span><span class="o">.</span><span class="n">add_defaults_to_nucleotide</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">plugin_kwargs</span><span class="p">)</span>
+    <span class="n">cachers_config</span> <span class="o">=</span> <span class="n">plugin_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;cachers&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">savers_config</span> <span class="o">=</span> <span class="n">plugin_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;savers&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cachers_config</span><span class="p">:</span>
+        <span class="n">plugin_kwargs</span><span class="p">[</span><span class="s2">&quot;cachers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_build_list_of_helpers</span><span class="p">(</span>
+            <span class="n">cachers_config</span><span class="p">,</span> <span class="n">KPICacher</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">savers_config</span><span class="p">:</span>
+        <span class="n">plugin_kwargs</span><span class="p">[</span><span class="s2">&quot;savers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_build_list_of_helpers</span><span class="p">(</span>
+            <span class="n">savers_config</span><span class="p">,</span> <span class="n">KPISaver</span><span class="p">)</span>
+    <span class="n">plugin</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">plugin</span>
+
+<span class="c1"># def build(evaluator_config: dict) -&gt; KPIEvaluator:</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     Build kpi evaluator based on its config</span>
+<span class="c1">#</span>
+<span class="c1">#     Parameters</span>
+<span class="c1">#     ----------</span>
+<span class="c1">#     evaluator_config</span>
+<span class="c1">#         config of KPIEvaluator</span>
+<span class="c1">#</span>
+<span class="c1">#     Returns</span>
+<span class="c1">#     -------</span>
+<span class="c1">#     evaluator</span>
+<span class="c1">#         evaluator</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#</span>
+<span class="c1">#     plugged_config_keys_and_builds = [</span>
+<span class="c1">#         builder_lib.PluggedConfigKeyAndBuildFn(</span>
+<span class="c1">#             config_key=&quot;data_filter&quot;,</span>
+<span class="c1">#             build_fn=data_filter_builder.build,</span>
+<span class="c1">#             add_to_config=False),</span>
+<span class="c1">#         builder_lib.PluggedConfigKeyAndBuildFn(</span>
+<span class="c1">#             config_key=&quot;file_list&quot;,</span>
+<span class="c1">#             build_fn=file_list_builder.build,</span>
+<span class="c1">#             add_to_config=True)</span>
+<span class="c1">#     ]</span>
+<span class="c1">#     evaluator = builder_lib.build_with_plugged_objects(</span>
+<span class="c1">#         config=evaluator_config,</span>
+<span class="c1">#         build_fn=partial(builder_lib.build_registered_object_from_config,</span>
+<span class="c1">#                          base_cls=KPIEvaluator),</span>
+<span class="c1">#         plugged_config_keys_and_builds=plugged_config_keys_and_builds,</span>
+<span class="c1">#         build_callbacks=[data_filter_builder.data_filter_build_callback])</span>
+<span class="c1">#     return evaluator</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

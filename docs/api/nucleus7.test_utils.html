@@ -1,0 +1,1408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.test_utils package &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nucleus7.third_party package" href="nucleus7.third_party.html" />
+    <link rel="prev" title="nucleus7.optimization package" href="nucleus7.optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nucleus7.test_utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.test_utils.model_dummies">nucleus7.test_utils.model_dummies module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.test_utils.test_opt_utils">nucleus7.test_utils.test_opt_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.test_utils.test_utils">nucleus7.test_utils.test_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.test_utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>nucleus7.test_utils package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/nucleus7.test_utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleus7-test-utils-package">
+<h1>nucleus7.test_utils package<a class="headerlink" href="#nucleus7-test-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nucleus7.test_utils.model_dummies">
+<span id="nucleus7-test-utils-model-dummies-module"></span><h2>nucleus7.test_utils.model_dummies module<a class="headerlink" href="#module-nucleus7.test_utils.model_dummies" title="Permalink to this headline">¶</a></h2>
+<p>Dummy and mock model parts</p>
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyNP">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DataReaderDummyNP</code><span class="sig-paren">(</span><em class="sig-param">file_list_keys_mapping: Optional[Dict[str</em>, <em class="sig-param">str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DataReaderDummyNP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyNP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.data.html#nucleus7.data.reader.DataReader" title="nucleus7.data.reader.DataReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.reader.DataReader</span></code></a></p>
+<p>transforms file_list with keys {data1, data2} by casting its values to float</p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyNP.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyNP.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyNP.file_list_keys">
+<code class="sig-name descname">file_list_keys</code><em class="property"> = ['data1', 'data2']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyNP.file_list_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyNP.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['data1', 'data2']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyNP.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyNP.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DataReaderDummyNP.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyNP.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data from file names sample wise</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fnames</strong> – matched file names</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>read data from matched file names</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyTF">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DataReaderDummyTF</code><span class="sig-paren">(</span><em class="sig-param">file_list_keys_mapping: Optional[Dict[str</em>, <em class="sig-param">str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DataReaderDummyTF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyTF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.data.html#nucleus7.data.reader.DataReader" title="nucleus7.data.reader.DataReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.reader.DataReader</span></code></a></p>
+<p>transforms file_list with keys {data1, data2} by casting its values to float</p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyTF.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyTF.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyTF.file_list_keys">
+<code class="sig-name descname">file_list_keys</code><em class="property"> = ['data1', 'data2']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyTF.file_list_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyTF.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['data1', 'data2']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyTF.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyTF.is_tensorflow">
+<code class="sig-name descname">is_tensorflow</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyTF.is_tensorflow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DataReaderDummyTF.read">
+<code class="sig-name descname">read</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DataReaderDummyTF.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DataReaderDummyTF.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read data from file names sample wise</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fnames</strong> – matched file names</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>read data from matched file names</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DatasetDummy">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DatasetDummy</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DatasetDummy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DatasetDummy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.data.html#nucleus7.data.dataset.Dataset" title="nucleus7.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.dataset.Dataset</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DatasetDummy.create_initial_data">
+<code class="sig-name descname">create_initial_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DatasetDummy.create_initial_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DatasetDummy.create_initial_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the tf.data.Dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>element data</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DatasetDummy.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DatasetDummy.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyF1KPIAccumulator</code><span class="sig-paren">(</span><em class="sig-param">buffer_processor: Optional[nucleus7.core.buffer.BufferProcessor] = None</em>, <em class="sig-param">clear_buffer_after_evaluate: bool = True</em>, <em class="sig-param">**kpi_plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyF1KPIAccumulator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.kpi.html#nucleus7.kpi.accumulator.KPIAccumulator" title="nucleus7.kpi.accumulator.KPIAccumulator"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.accumulator.KPIAccumulator</span></code></a></p>
+<p>Generates F1 score out of true positives, false positives and
+false negatives</p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['f1_score', 'precision', 'recall']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['true_positives', 'false_positives', 'false_negatives']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">true_positives</em>, <em class="sig-param">false_positives</em>, <em class="sig-param">false_negatives</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyF1KPIAccumulator.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method for KPIPlugin and must be overridden in particular
+implementations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – dict with inputs, where each value corresponds not to a batch, but
+to value of singe sample</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>calculated kpi values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpis</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyMetric">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyMetric</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">keys_to_exclude_from_sample_mask: Optional[List[str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyMetric"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyMetric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.metric.ModelMetric" title="nucleus7.model.metric.ModelMetric"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.metric.ModelMetric</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyMetric.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyMetric.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyMetric.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['metric']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyMetric.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyMetric.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['labels', 'predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyMetric.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyMetric.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">labels</em>, <em class="sig-param">predictions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyMetric.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyMetric.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate metrics given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with all tensors (and ground truth tensors) as values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>metrics</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>metrics</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPlugin2Layers">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPlugin2Layers</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">second_layer_trainable=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPlugin2Layers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPlugin2Layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.plugin.ModelPlugin" title="nucleus7.model.plugin.ModelPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPlugin2Layers.create_keras_layers">
+<code class="sig-name descname">create_keras_layers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPlugin2Layers.create_keras_layers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.create_keras_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize and assign the keras layers used in this plugin</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPlugin2Layers.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPlugin2Layers.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['outputs']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPlugin2Layers.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['inputs']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPlugin2Layers.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPlugin2Layers.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs after this layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginCNN">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPluginCNN</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginCNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginCNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.plugin.ModelPlugin" title="nucleus7.model.plugin.ModelPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginCNN.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginCNN.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginCNN.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginCNN.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginCNN.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['inputs_cnn']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginCNN.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginCNN.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">inputs_cnn</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginCNN.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginCNN.predict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs_cnn</strong> (<em>tensor_like</em>) – inputs to convolution</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions</strong> – predictions after convolution</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensor_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginFlatten">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPluginFlatten</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginFlatten"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginFlatten" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.plugin.ModelPlugin" title="nucleus7.model.plugin.ModelPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginFlatten.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginFlatten.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>inputs_flatten : inputs to flatten</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginFlatten.generated_keys">
+<code class="sig-name descname">generated_keys</code><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginFlatten.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>predictions : flattened inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)">list</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginFlatten.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginFlatten.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['predictions']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['inputs_flatten']</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginFlatten.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">inputs_flatten</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginFlatten.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginFlatten.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward pass given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs after this layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>output</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLP">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPluginMLP</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginMLP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.plugin.ModelPlugin" title="nucleus7.model.plugin.ModelPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLP.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLP.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLP.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLP.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLP.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['inputs_mlp']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLP.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLP.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">inputs_mlp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginMLP.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLP.predict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs_mlp</strong> (<em>tensor_like</em>) – inputs to dense</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions</strong> – inputs after dense layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensor_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLPKeras">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPluginMLPKeras</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginMLPKeras"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.plugin.ModelPlugin" title="nucleus7.model.plugin.ModelPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginMLPKeras.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object by updating the parameters with defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self object for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['inputs_mlp']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">inputs_mlp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginMLPKeras.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.predict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs_mlp</strong> (<em>tensor_like</em>) – inputs to dense</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions</strong> – inputs after dense layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensor_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPluginWithDummyParameter</code><span class="sig-paren">(</span><em class="sig-param">dummy_parameter</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginWithDummyParameter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.plugin.ModelPlugin" title="nucleus7.model.plugin.ModelPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.plugin.ModelPlugin</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['inputs_mlp']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.predict">
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">is_training</em>, <em class="sig-param">inputs_mlp</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPluginWithDummyParameter.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.predict" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs_mlp</strong> (<em>tensor_like</em>) – inputs to dense</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions</strong> – inputs after dense layer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensor_like</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyPostProcessor">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyPostProcessor</code><span class="sig-paren">(</span><em class="sig-param">trainable: bool = True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPostProcessor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPostProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.postprocessor.ModelPostProcessor" title="nucleus7.model.postprocessor.ModelPostProcessor"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.postprocessor.ModelPostProcessor</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPostProcessor.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPostProcessor.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPostProcessor.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['predictions_pp']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPostProcessor.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyPostProcessor.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPostProcessor.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyPostProcessor.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">predictions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyPostProcessor.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyPostProcessor.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply postprocessing on inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>predictions_pp</strong> – predictions after applying postprocessing</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyRandomAugmentationTf</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">augmentation_probability: float = 0.5</em>, <em class="sig-param">random_seed: Optional[int] = None</em>, <em class="sig-param">**processor_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyRandomAugmentationTf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf" title="nucleus7.data.processor.RandomAugmentationTf"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.processor.RandomAugmentationTf</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.augment">
+<code class="sig-name descname">augment</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">data</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyRandomAugmentationTf.augment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.augment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method for augmentation</p>
+<p>To access other random variables, use self.random_variables[key] where
+key belongs to self.random_variables_keys</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – data for augmentation</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>augmented data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>augmented</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.create_random_variables">
+<code class="sig-name descname">create_random_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyRandomAugmentationTf.create_random_variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.create_random_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create random variables. This method will be called if the random
+variables specified inside of self.random_variables_keys were not
+provided on the call</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>created random variables</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>random_variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['data']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['data']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.random_variables_keys">
+<code class="sig-name descname">random_variables_keys</code><em class="property"> = ['noise']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.random_variables_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummySoftmaxLoss">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummySoftmaxLoss</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummySoftmaxLoss"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySoftmaxLoss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.loss.ModelLoss" title="nucleus7.model.loss.ModelLoss"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.loss.ModelLoss</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummySoftmaxLoss.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySoftmaxLoss.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummySoftmaxLoss.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['loss']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySoftmaxLoss.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummySoftmaxLoss.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['labels', 'logits']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySoftmaxLoss.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummySoftmaxLoss.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">labels</em>, <em class="sig-param">logits</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummySoftmaxLoss.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySoftmaxLoss.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the loss given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – dict with input tensors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>loss values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummySummary">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummySummary</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">store_inside_tensorboard: bool = True</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummySummary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySummary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.summary.ModelSummary" title="nucleus7.model.summary.ModelSummary"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.summary.ModelSummary</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummySummary.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySummary.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummySummary.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['image_predictions_class', 'image_labels_class']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySummary.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummySummary.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['labels', 'predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySummary.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummySummary.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">labels</em>, <em class="sig-param">predictions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummySummary.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummySummary.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get summary given inputs.</p>
+<p>To separate different types of summaries afterwards,
+the prefix is used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>scalar_{}</cite></p></li>
+<li><p><cite>image_{}</cite></p></li>
+<li><p><cite>histogram_{}</cite></p></li>
+<li><p><cite>text_{}</cite></p></li>
+<li><p><cite>audio_{}</cite></p></li>
+</ul>
+</div></blockquote>
+<p>Names without this prefixes will not be included to summaries
+and further to tensorboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**inputs</strong> – dict with all tensors (and ground truth tensors) as values</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>summaries</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>summaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">DummyTpFpTnFnKPIPlugin</code><span class="sig-paren">(</span><em class="sig-param">cachers: Optional[List[nucleus7.kpi.cacher.KPICacher]] = None</em>, <em class="sig-param">savers: Optional[List[nucleus7.kpi.saver.KPISaver]] = None</em>, <em class="sig-param">not_batch_keys: Optional[List[str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyTpFpTnFnKPIPlugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.kpi.html#nucleus7.kpi.kpi_plugin.KPIPlugin" title="nucleus7.kpi.kpi_plugin.KPIPlugin"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.kpi.kpi_plugin.KPIPlugin</span></code></a></p>
+<p>Plugin to calculate true and false positives and also true and false
+negatives</p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['true_positives', 'false_positives', 'true_negatives', 'false_negatives']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.incoming_keys">
+<code class="sig-name descname">incoming_keys</code><em class="property"> = ['labels', 'predictions']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.process">
+<code class="sig-name descname">process</code><span class="sig-paren">(</span><em class="sig-param">labels</em>, <em class="sig-param">predictions</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#DummyTpFpTnFnKPIPlugin.process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method for KPIPlugin and must be overridden in particular
+implementations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – dict with inputs, where each value corresponds not to a batch, but
+to value of singe sample</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>calculated kpi values</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpis</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.FileListDummy">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">FileListDummy</code><span class="sig-paren">(</span><em class="sig-param">file_names: Dict[str, List[str]], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#FileListDummy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.FileListDummy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.data.html#nucleus7.data.file_list.FileList" title="nucleus7.data.file_list.FileList"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.file_list.FileList</span></code></a></p>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.FileListDummy.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.FileListDummy.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.FileListDummy.match">
+<code class="sig-name descname">match</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#FileListDummy.match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.FileListDummy.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Match file names between different keys, e.g. find file names that
+correspond to same sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">ModelMock</code><span class="sig-paren">(</span><em class="sig-param">num_classes</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.model.html#nucleus7.model.model.Model" title="nucleus7.model.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.model.model.Model</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.calculate_losses">
+<code class="sig-name descname">calculate_losses</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Dict[str, tensorflow.python.framework.ops.Tensor], predictions_raw: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.calculate_losses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.calculate_losses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create loss for model using labels from ‘inputs’
+and predictions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with prediction tensors as values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with values as losses; inside of keys should be ‘total_loss’
+with value to optimize; default ragularizations on the all
+training variables will be applied afterwards if specified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>losses</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.forward_pass">
+<code class="sig-name descname">forward_pass</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span> &#x2192; Dict[str, tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.forward_pass"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.forward_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the forward pass for model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with outputs for each model plugin with keys as plugin names</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>predictions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.get_metrics">
+<code class="sig-name descname">get_metrics</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Dict[str, tensorflow.python.framework.ops.Tensor], predictions_raw: Dict[str, tensorflow.python.framework.ops.Tensor], predictions: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.get_metrics"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.get_metrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create metric
+Names without this prefixes will not be plotted in tensorboard.
+Only difference to summary is that metrics are added to its own
+collection (CollectionNames.METRIC) and not to summary collection.
+In that way it is possible to use metrics inside of training e.g. as
+for stopping training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with raw predictions</p></li>
+<li><p><strong>predictions</strong> – dict with output tensors as values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>combined summaries from all <cite>ModelMetric</cite> instances</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.get_summaries">
+<code class="sig-name descname">get_summaries</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Dict[str, tensorflow.python.framework.ops.Tensor], predictions_raw: Dict[str, tensorflow.python.framework.ops.Tensor], predictions: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.get_summaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.get_summaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the summaries for model as dict
+to separate different types of summaries, the prefix is used:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><cite>scalar_{}</cite></p></li>
+<li><p><cite>image_{}</cite></p></li>
+<li><p><cite>histogram_{}</cite></p></li>
+<li><p><cite>text_{}</cite></p></li>
+<li><p><cite>audio_{}</cite></p></li>
+</ul>
+</div></blockquote>
+<p>Names without this prefixes will not be stored to tensorboard.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with raw predictions</p></li>
+<li><p><strong>predictions</strong> – dict with output tensors as values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>combined summaries from all <cite>ModelSummary</cite> instances</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>summaries</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.get_test_inputs">
+<code class="sig-name descname">get_test_inputs</code><span class="sig-paren">(</span><em class="sig-param">batch_size</em>, <em class="sig-param">data_dim</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.get_test_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.get_test_inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.postprocess_predictions">
+<code class="sig-name descname">postprocess_predictions</code><span class="sig-paren">(</span><em class="sig-param">*, inputs_from_dataset: Dict[str, tensorflow.python.framework.ops.Tensor], predictions_raw: Dict[str, tensorflow.python.framework.ops.Tensor]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.postprocess_predictions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.postprocess_predictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the postprocessing on predictions
+e.g. classes or probabilities from logits
+this predictions will be added to collection and further used for the
+summaries / inference</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_from_dataset</strong> – dictionary holding the dataset inputs</p></li>
+<li><p><strong>predictions_raw</strong> – dict with predictions from model_plugin</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict with outputs of the model for inference</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>postprocessed_predictions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.reset_tf_graph">
+<code class="sig-name descname">reset_tf_graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#ModelMock.reset_tf_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.reset_tf_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset model tensorflow graph</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.ModelMock.trainable_variables">
+<em class="property">property </em><code class="sig-name descname">trainable_variables</code><a class="headerlink" href="#nucleus7.test_utils.model_dummies.ModelMock.trainable_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>All trainable variables in all nucleotides inside of the model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>trainable variables inside of the model</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>trainable_variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.model_dummies.</code><code class="sig-name descname">TfRecordsDataReaderDummy</code><span class="sig-paren">(</span><em class="sig-param">file_list_keys_mapping: Optional[Dict[str</em>, <em class="sig-param">str]] = None</em>, <em class="sig-param">**nucleotide_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#TfRecordsDataReaderDummy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.data.html#nucleus7.data.reader.TfRecordsDataReader" title="nucleus7.data.reader.TfRecordsDataReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.data.reader.TfRecordsDataReader</span></code></a></p>
+<dl class="simple">
+<dt>decodes data from tfrecords with following shapes:</dt><dd><dl class="simple">
+<dt>{“data1”: [1],</dt><dd><p>“data2”: [None, 20],
+“data3”: [None, 1],
+“data_default”: [1]}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.generated_keys">
+<code class="sig-name descname">generated_keys</code><em class="property"> = ['data1', 'data2', 'data3', 'data_default']</em><a class="headerlink" href="#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.generated_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.get_tfrecords_features">
+<code class="sig-name descname">get_tfrecords_features</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#TfRecordsDataReaderDummy.get_tfrecords_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.get_tfrecords_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dict, possibly nested, with feature names as keys and its
+serialized type as values of type <code class="xref py py-obj docutils literal notranslate"><span class="pre">FixedLenFeature</span></code>.
+Keys should not have any ‘/’, use nested dict instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>features inside of tfrecords file</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>features</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">output_types()</span></code></dt><dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">tf.decode_raw()</span></code></p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.get_tfrecords_output_types">
+<code class="sig-name descname">get_tfrecords_output_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#TfRecordsDataReaderDummy.get_tfrecords_output_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.get_tfrecords_output_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dict, possibly nested, with tensor names and tensor types.
+Keys should not have any ‘/’, use nested dict instead.</p>
+<p>Should be same types which were used to store the tfrecord file</p>
+<p>If not implemented, assumes that the types are defined already inside
+of features, e.g. no decoding is needed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>output types of tfrecords features</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>output_types</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">output_types()</span></code></dt><dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">tf.parse_single_example()</span></code></p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.postprocess_tfrecords">
+<code class="sig-name descname">postprocess_tfrecords</code><span class="sig-paren">(</span><em class="sig-param">data1</em>, <em class="sig-param">data2</em>, <em class="sig-param">data3</em>, <em class="sig-param">data_default</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/model_dummies.html#TfRecordsDataReaderDummy.postprocess_tfrecords"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.postprocess_tfrecords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Postprocess tfrecords sample if needed.</p>
+<p>This function is applied after sample is decoded from tfrecords file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> – (nested) dict with raw tfrecords data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>postprocessed data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>postprocessed_data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.test_utils.test_opt_utils">
+<span id="nucleus7-test-utils-test-opt-utils-module"></span><h2>nucleus7.test_utils.test_opt_utils module<a class="headerlink" href="#module-nucleus7.test_utils.test_opt_utils" title="Permalink to this headline">¶</a></h2>
+<p>Test utils for optimization</p>
+<dl class="function">
+<dt id="nucleus7.test_utils.test_opt_utils.convert_grads_and_vars_to_tf">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_opt_utils.</code><code class="sig-name descname">convert_grads_and_vars_to_tf</code><span class="sig-paren">(</span><em class="sig-param">grads_and_vars_np: List[Tuple[numpy.ndarray, numpy.ndarray]]</em><span class="sig-paren">)</span> &#x2192; List[Tuple[tensorflow.python.framework.ops.Tensor, tensorflow.python.ops.variables.VariableV1]]<a class="reference internal" href="../_modules/nucleus7/test_utils/test_opt_utils.html#convert_grads_and_vars_to_tf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_opt_utils.convert_grads_and_vars_to_tf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert numpy gradients and variables to tensorlfow</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>grads_and_vars_np</strong> – numpy grads and vars</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tensorflow grads and vars</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>grads_and_vars_tf</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_opt_utils.convert_grads_to_tf">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_opt_utils.</code><code class="sig-name descname">convert_grads_to_tf</code><span class="sig-paren">(</span><em class="sig-param">grads_np: List[numpy.ndarray]</em><span class="sig-paren">)</span> &#x2192; List[tensorflow.python.framework.ops.Tensor]<a class="reference internal" href="../_modules/nucleus7/test_utils/test_opt_utils.html#convert_grads_to_tf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_opt_utils.convert_grads_to_tf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert numpy gradients to tensorflow</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>grads_np</strong> – list of numpy gradients</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of tensorflow gradients</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensorflow_grads</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_opt_utils.convert_tower_grads_and_vars_to_tf">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_opt_utils.</code><code class="sig-name descname">convert_tower_grads_and_vars_to_tf</code><span class="sig-paren">(</span><em class="sig-param">tower_grads_and_vars_np: List[List[Tuple[numpy.ndarray, numpy.ndarray]]]</em><span class="sig-paren">)</span> &#x2192; List[List[Tuple[tensorflow.python.framework.ops.Tensor, tensorflow.python.ops.variables.VariableV1]]]<a class="reference internal" href="../_modules/nucleus7/test_utils/test_opt_utils.html#convert_tower_grads_and_vars_to_tf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_opt_utils.convert_tower_grads_and_vars_to_tf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert tower numpy grads and vars to tensorflow</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tower_grads_and_vars_np</strong> – tower numpy grads and vars</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tensorflow tower grads and vars</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tower_grads_and_vars_tf</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_opt_utils.create_grads_and_vars_np">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_opt_utils.</code><code class="sig-name descname">create_grads_and_vars_np</code><span class="sig-paren">(</span><em class="sig-param">sizes: List[list]</em><span class="sig-paren">)</span> &#x2192; List[Tuple[numpy.ndarray, numpy.ndarray]]<a class="reference internal" href="../_modules/nucleus7/test_utils/test_opt_utils.html#create_grads_and_vars_np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_opt_utils.create_grads_and_vars_np" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create numpy grads and vars of sizes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sizes</strong> – sizes of variables</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>gradients and variables</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>grads_and_vars</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_opt_utils.create_tf_vars_from_np">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_opt_utils.</code><code class="sig-name descname">create_tf_vars_from_np</code><span class="sig-paren">(</span><em class="sig-param">vars_np: List[numpy.ndarray]</em><span class="sig-paren">)</span> &#x2192; List[tensorflow.python.ops.variables.VariableV1]<a class="reference internal" href="../_modules/nucleus7/test_utils/test_opt_utils.html#create_tf_vars_from_np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_opt_utils.create_tf_vars_from_np" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create tensorflow variables from numpy arrays</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vars_np</strong> – list of numpy variables</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of tensorflow variables</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensorflow_variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_opt_utils.create_tower_grads_and_vars_np">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_opt_utils.</code><code class="sig-name descname">create_tower_grads_and_vars_np</code><span class="sig-paren">(</span><em class="sig-param">num_towers: int, sizes: List[list]</em><span class="sig-paren">)</span> &#x2192; List[List[Tuple[numpy.ndarray, numpy.ndarray]]]<a class="reference internal" href="../_modules/nucleus7/test_utils/test_opt_utils.html#create_tower_grads_and_vars_np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_opt_utils.create_tower_grads_and_vars_np" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create tower numpy grads and vars of sizes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_towers</strong> – number of towers</p></li>
+<li><p><strong>sizes</strong> – sizes of variables</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tower gradients and variables</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tower_grads_and_vars</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.test_utils.test_utils">
+<span id="nucleus7-test-utils-test-utils-module"></span><h2>nucleus7.test_utils.test_utils module<a class="headerlink" href="#module-nucleus7.test_utils.test_utils" title="Permalink to this headline">¶</a></h2>
+<p>General test utils</p>
+<dl class="class">
+<dt id="nucleus7.test_utils.test_utils.TestCaseWithReset">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.test_utils.</code><code class="sig-name descname">TestCaseWithReset</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#TestCaseWithReset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.TestCaseWithReset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>TestCase which will reset register and logger for every test</p>
+<dl class="method">
+<dt id="nucleus7.test_utils.test_utils.TestCaseWithReset.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#TestCaseWithReset.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.TestCaseWithReset.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.test_utils.test_utils.TestCaseWithTempDir">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.test_utils.test_utils.</code><code class="sig-name descname">TestCaseWithTempDir</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#TestCaseWithTempDir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.TestCaseWithTempDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>TestCase which will create the temp directory on every test and then
+remove it when test is over</p>
+<dl class="method">
+<dt id="nucleus7.test_utils.test_utils.TestCaseWithTempDir.get_temp_dir">
+<code class="sig-name descname">get_temp_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#TestCaseWithTempDir.get_temp_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.TestCaseWithTempDir.get_temp_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get temp directory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to directory</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>temp_dir_path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.test_utils.TestCaseWithTempDir.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#TestCaseWithTempDir.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.TestCaseWithTempDir.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.test_utils.test_utils.TestCaseWithTempDir.tearDown">
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#TestCaseWithTempDir.tearDown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.TestCaseWithTempDir.tearDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_utils.register_new_class">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_utils.</code><code class="sig-name descname">register_new_class</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">super_cls</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#register_new_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.register_new_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new class and register it class with the register name and inherit
+the class from super_cls</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – register name</p></li>
+<li><p><strong>super_cls</strong> – super class for new class</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_utils.reset_register_and_logger">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_utils.</code><code class="sig-name descname">reset_register_and_logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#reset_register_and_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.reset_register_and_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset register and logger</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.test_utils.test_utils.write_tf_records">
+<code class="sig-prename descclassname">nucleus7.test_utils.test_utils.</code><code class="sig-name descname">write_tf_records</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">file_name</em>, <em class="sig-param">writer=None</em>, <em class="sig-param">close_writer=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/test_utils/test_utils.html#write_tf_records"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.test_utils.test_utils.write_tf_records" title="Permalink to this definition">¶</a></dt>
+<dd><p>write tfrecords file with data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – sample data to write</p></li>
+<li><p><strong>file_name</strong> – file name for tfrecords</p></li>
+<li><p><strong>writer</strong> – tfrecords writer to use</p></li>
+<li><p><strong>close_writer</strong> – if the writer should be closed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.test_utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nucleus7.test_utils" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nucleus7.third_party.html" class="btn btn-neutral float-right" title="nucleus7.third_party package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nucleus7.optimization.html" class="btn btn-neutral float-left" title="nucleus7.optimization package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

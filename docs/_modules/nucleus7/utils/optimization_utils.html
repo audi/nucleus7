@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.optimization_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.optimization_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.optimization_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils for optimization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_ops</span>
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># these are type constants, not a class</span>
+<span class="n">_GRAD_AND_VARS_TYPE</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]]</span>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+
+<div class="viewcode-block" id="average_grads_and_vars_from_multiple_devices"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.average_grads_and_vars_from_multiple_devices">[docs]</a><span class="k">def</span> <span class="nf">average_grads_and_vars_from_multiple_devices</span><span class="p">(</span>
+        <span class="n">tower_grads_and_vars</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">],</span>
+        <span class="n">consolidation_device</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">name_of_name_scope</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;gradient_averaging&#39;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Average gradients over all devices (towers)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tower_grads_and_vars</span>
+<span class="sd">        list of lists of gradients with variables for different devices (towers)</span>
+<span class="sd">    consolidation_device</span>
+<span class="sd">        device to place the averaged gradients</span>
+<span class="sd">    name_of_name_scope</span>
+<span class="sd">        name of name_scope to encapsulate this calculation</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (grads, vars) tuples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grads_and_vars_len</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">each_grads_and_vars</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">each_grads_and_vars</span> <span class="ow">in</span> <span class="n">tower_grads_and_vars</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">grads_and_vars_len</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;Number of grads and vars pairs must be equal to all &quot;</span>
+        <span class="s2">&quot;devices! (got lengths: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grads_and_vars_len</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="n">name_of_name_scope</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="n">consolidation_device</span><span class="p">):</span>
+        <span class="n">grads_and_vars_averaged</span> <span class="o">=</span> <span class="n">sum_grads_with_vars</span><span class="p">(</span>
+            <span class="n">tower_grads_and_vars</span><span class="p">,</span> <span class="n">use_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">grads_and_vars_averaged</span></div>
+
+
+<div class="viewcode-block" id="train_op_with_clip_and_noise"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.train_op_with_clip_and_noise">[docs]</a><span class="k">def</span> <span class="nf">train_op_with_clip_and_noise</span><span class="p">(</span><span class="n">optimizer</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">,</span>
+                                 <span class="n">grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                                 <span class="n">global_step</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">gradient_clip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">gradient_noise_std</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                 <span class="n">gradient_l2_norm</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Operation</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Produce train op for gradients and variables with</span>
+<span class="sd">    gradient clip and adding of gradient noise if they were provided inside of</span>
+<span class="sd">    optim config</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    optimizer</span>
+<span class="sd">        optimizer to use</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (gradient, variable)</span>
+<span class="sd">    global_step</span>
+<span class="sd">        global step to use in the optimizer; Caution: provide global_step only</span>
+<span class="sd">        once, if you execute this method multiple times in one session</span>
+<span class="sd">    gradient_clip</span>
+<span class="sd">        gradient clip value</span>
+<span class="sd">    gradient_noise_std</span>
+<span class="sd">        standard deviation of the noise to add to gradients</span>
+<span class="sd">    gradient_l2_norm</span>
+<span class="sd">        gradient l2 norm used for the gradient clipping</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    train_op</span>
+<span class="sd">        training operation, which can be used inside of session run</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">gradient_clip</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">grads_and_vars</span> <span class="o">=</span> <span class="n">clip_grads_and_vars</span><span class="p">(</span>
+            <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">gradient_clip</span><span class="p">,</span> <span class="n">gradient_l2_norm</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gradient_noise_std</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">grads_and_vars</span> <span class="o">=</span> <span class="n">add_noise_to_grads_and_vars</span><span class="p">(</span>
+            <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">gradient_noise_std</span><span class="p">)</span>
+    <span class="n">train_op</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span>
+        <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">global_step</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">train_op</span></div>
+
+
+<div class="viewcode-block" id="clip_grads_and_vars"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.clip_grads_and_vars">[docs]</a><span class="k">def</span> <span class="nf">clip_grads_and_vars</span><span class="p">(</span><span class="n">grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                        <span class="n">gradient_clip</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+                        <span class="n">gradient_l2_norm</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clip all the gradients according to global normal with gradient_clip</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (gradient, variable)</span>
+<span class="sd">    gradient_clip</span>
+<span class="sd">        value to clip</span>
+<span class="sd">    gradient_l2_norm</span>
+<span class="sd">        gradient l2 norm used for the gradient clipping</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (clipped gradient, variable)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grads</span><span class="p">,</span> <span class="n">variables</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">grads_and_vars</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">gradient_l2_norm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">grads_clipped</span><span class="p">,</span> <span class="n">gradient_l2_norm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">clip_by_global_norm</span><span class="p">(</span>
+            <span class="n">grads</span><span class="p">,</span> <span class="n">gradient_clip</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">grads_clipped</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_grad</span> <span class="o">*</span> <span class="n">gradient_clip</span>
+                         <span class="o">/</span> <span class="n">tf</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">gradient_l2_norm</span><span class="p">,</span> <span class="n">gradient_clip</span><span class="p">)</span>
+                         <span class="k">for</span> <span class="n">each_grad</span> <span class="ow">in</span> <span class="n">grads</span><span class="p">]</span>
+    <span class="n">grads_and_vars_clipped</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">grads_clipped</span><span class="p">,</span> <span class="n">variables</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">grads_and_vars_clipped</span></div>
+
+
+<div class="viewcode-block" id="add_noise_to_grads_and_vars"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.add_noise_to_grads_and_vars">[docs]</a><span class="k">def</span> <span class="nf">add_noise_to_grads_and_vars</span><span class="p">(</span><span class="n">grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                                <span class="n">gradient_noise_std</span><span class="p">:</span> <span class="nb">float</span>
+                                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add normal random noise to gradients</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (gradient, variable)</span>
+<span class="sd">    gradient_noise_std</span>
+<span class="sd">        standard deviation of the noise to add to gradients</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (gradient with noise, variable)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grads_and_vars_with_noise</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_grad</span><span class="p">,</span> <span class="n">each_var</span> <span class="ow">in</span> <span class="n">grads_and_vars</span><span class="p">:</span>
+        <span class="n">each_grad_clipped</span> <span class="o">=</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">add_gradient_noise</span><span class="p">(</span>
+            <span class="n">each_grad</span><span class="p">,</span> <span class="n">gradient_noise_std</span><span class="p">)</span>
+        <span class="n">grads_and_vars_with_noise</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">each_grad_clipped</span><span class="p">,</span> <span class="n">each_var</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">grads_and_vars_with_noise</span></div>
+
+
+<div class="viewcode-block" id="sum_grads_with_vars"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.sum_grads_with_vars">[docs]</a><span class="k">def</span> <span class="nf">sum_grads_with_vars</span><span class="p">(</span>
+        <span class="n">grads_and_vars_to_combine</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">],</span>
+        <span class="n">use_mean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sum the gradients for same variables from list of of lists of</span>
+<span class="sd">    (gradient, variable)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    grads_and_vars_to_combine</span>
+<span class="sd">        list of list of (gradient, variable) to combine</span>
+<span class="sd">    use_mean</span>
+<span class="sd">        if the mean istead of sum should be used</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (combined gradients, variable)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grads_and_vars_combined</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">vars_to_all_grads</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">grad</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">grads_and_vars_to_combine</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">grad</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">vars_to_all_grads</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">var</span><span class="p">,</span> <span class="n">grads</span> <span class="ow">in</span> <span class="n">vars_to_all_grads</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grads</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">grad_combined</span> <span class="o">=</span> <span class="n">grads</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">grad_combined</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">grads</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">use_mean</span><span class="p">:</span>
+                <span class="n">grad_combined</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">grad_combined</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">grads</span><span class="p">))</span>
+        <span class="n">grads_and_vars_combined</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">grad_combined</span><span class="p">,</span> <span class="n">var</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">grads_and_vars_combined</span></div>
+
+
+<div class="viewcode-block" id="filter_grads_for_vars"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.filter_grads_for_vars">[docs]</a><span class="k">def</span> <span class="nf">filter_grads_for_vars</span><span class="p">(</span><span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">vars_to_filter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select only (gradient, variable) tuples, where variable belongs to</span>
+<span class="sd">    vars_to_filter</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        all the gradients and variables as list of (grad, var)</span>
+<span class="sd">    vars_to_filter</span>
+<span class="sd">        variables to filter</span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    grads_and_vars</span>
+<span class="sd">        list of (gradients, variable from vars_to_filter)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">grads_and_vars_filtered</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">vars_to_filter_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">vars_to_filter</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_grad</span><span class="p">,</span> <span class="n">each_var</span> <span class="ow">in</span> <span class="n">grads_and_vars</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">each_var</span> <span class="ow">in</span> <span class="n">vars_to_filter_set</span><span class="p">:</span>
+            <span class="n">grads_and_vars_filtered</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">each_grad</span><span class="p">,</span> <span class="n">each_var</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">grads_and_vars_filtered</span></div>
+
+
+<div class="viewcode-block" id="get_gradient_l2_norm"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.optimization_utils.get_gradient_l2_norm">[docs]</a><span class="k">def</span> <span class="nf">get_gradient_l2_norm</span><span class="p">(</span><span class="n">gradients</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                         <span class="n">name_of_name_scope</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;grad_l2_norm&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate l2 norm for of the gradients</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    gradients</span>
+<span class="sd">        list of gradients</span>
+<span class="sd">    name_of_name_scope</span>
+<span class="sd">        name of the name scope</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    gradient_l2_norm</span>
+<span class="sd">        l2 norm of the gradients</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="n">name_of_name_scope</span><span class="p">):</span>
+        <span class="n">gradients_flatten</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">each_grad</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">each_grad</span> <span class="ow">in</span> <span class="n">gradients</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">gradient_l2_norm</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">gradients_flatten</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">gradient_l2_norm</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

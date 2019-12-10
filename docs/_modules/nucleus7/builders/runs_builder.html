@@ -1,0 +1,750 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.builders.runs_builder &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.builders.runs_builder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.builders.runs_builder</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Builders for executive scripts, e.g. train, infer etc.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="c1"># pylint: disable=no-name-in-module</span>
+<span class="c1"># run_config is more for tensorflow internal use</span>
+<span class="kn">from</span> <span class="nn">tensorflow.python.estimator</span> <span class="kn">import</span> <span class="n">run_config</span> <span class="k">as</span> <span class="n">run_config_lib</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">callback_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">data_feeder_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">dataset_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">inferer_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">kpi_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">model_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders</span> <span class="kn">import</span> <span class="n">trainer_builder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.builders.builder_lib</span> <span class="kn">import</span> <span class="n">build_config_object</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.callbacks_handler</span> <span class="kn">import</span> <span class="n">CallbacksHandler</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.inferer</span> <span class="kn">import</span> <span class="n">Inferer</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.configs</span> <span class="kn">import</span> <span class="n">MixedPrecisionConfig</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.loss</span> <span class="kn">import</span> <span class="n">ModelLoss</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.metric</span> <span class="kn">import</span> <span class="n">ModelMetric</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.plugin</span> <span class="kn">import</span> <span class="n">ModelPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.postprocessor</span> <span class="kn">import</span> <span class="n">ModelPostProcessor</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.summary</span> <span class="kn">import</span> <span class="n">ModelSummary</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">run_utils</span>
+
+
+<div class="viewcode-block" id="build_train"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.runs_builder.build_train">[docs]</a><span class="k">def</span> <span class="nf">build_train</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                <span class="n">trainer_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                <span class="n">datasets_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                <span class="n">model_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">plugins_config</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                <span class="n">losses_config</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                <span class="n">postprocessors_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">metrics_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">kpi_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">summaries_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">callbacks_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">callbacks_train_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">callbacks_eval_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">continue_training</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Trainer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build all components for training</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    trainer_config</span>
+<span class="sd">        trainer configuration</span>
+<span class="sd">    datasets_config</span>
+<span class="sd">        datasets configuration for each run mode</span>
+<span class="sd">    model_config</span>
+<span class="sd">        model configuration</span>
+<span class="sd">    plugins_config</span>
+<span class="sd">        configurations of single plugins inside of model</span>
+<span class="sd">    losses_config</span>
+<span class="sd">        configurations of single losses inside of model</span>
+<span class="sd">    postprocessors_config</span>
+<span class="sd">        configurations of single postprocessors inside of model</span>
+<span class="sd">    metrics_config</span>
+<span class="sd">        configurations of single metrics inside of model</span>
+<span class="sd">    kpi_config</span>
+<span class="sd">        configurations of single kpi plugins and accumulators inside of model</span>
+<span class="sd">    summaries_config</span>
+<span class="sd">        configurations of single summaries inside of model</span>
+<span class="sd">    callbacks_config</span>
+<span class="sd">        configurations of single callbacks inside of model that will be shared</span>
+<span class="sd">        for training and evaluation (instances of callbacks will be still</span>
+<span class="sd">        different)</span>
+<span class="sd">    callbacks_train_config</span>
+<span class="sd">        configurations of single callbacks inside of model for training</span>
+<span class="sd">    callbacks_eval_config</span>
+<span class="sd">        configurations of single callbacks inside of model for evaluation</span>
+<span class="sd">    continue_training</span>
+<span class="sd">        if the training should be continued in case that the project inside</span>
+<span class="sd">        of project_dir already exists</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    trainer</span>
+<span class="sd">        trainer ready to run</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-arguments,too-many-locals</span>
+    <span class="c1"># train takes so many arguments, more split will be more confusing</span>
+    <span class="n">plugins</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">build_model_nucleotides</span><span class="p">(</span>
+        <span class="n">plugins_config</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">=</span><span class="n">ModelPlugin</span><span class="p">)</span>
+    <span class="n">losses</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">build_model_nucleotides</span><span class="p">(</span>
+        <span class="n">losses_config</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">=</span><span class="n">ModelLoss</span><span class="p">)</span>
+    <span class="n">summaries</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">build_model_nucleotides</span><span class="p">(</span>
+        <span class="n">summaries_config</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">=</span><span class="n">ModelSummary</span><span class="p">)</span>
+    <span class="n">postprocessors</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">build_model_nucleotides</span><span class="p">(</span>
+        <span class="n">postprocessors_config</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">=</span><span class="n">ModelPostProcessor</span><span class="p">)</span>
+    <span class="n">metrics</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">build_model_nucleotides</span><span class="p">(</span>
+        <span class="n">metrics_config</span><span class="p">,</span> <span class="n">base_cls</span><span class="o">=</span><span class="n">ModelMetric</span><span class="p">)</span>
+    <span class="n">mixed_precision_config</span> <span class="o">=</span> <span class="n">_build_mixed_precision_config</span><span class="p">(</span><span class="n">model_config</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">model_config</span><span class="p">,</span>
+                                <span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span><span class="p">,</span>
+                                <span class="n">losses</span><span class="o">=</span><span class="n">losses</span><span class="p">,</span>
+                                <span class="n">postprocessors</span><span class="o">=</span><span class="n">postprocessors</span><span class="p">,</span>
+                                <span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span>
+                                <span class="n">summaries</span><span class="o">=</span><span class="n">summaries</span><span class="p">,</span>
+                                <span class="n">mixed_precision_config</span><span class="o">=</span><span class="n">mixed_precision_config</span><span class="p">)</span>
+
+    <span class="n">datasets_config</span> <span class="o">=</span> <span class="n">_filter_datasets_for_run</span><span class="p">(</span><span class="n">datasets_config</span><span class="p">)</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="n">_build_datasets_for_each_mode</span><span class="p">(</span><span class="n">datasets_config</span><span class="p">)</span>
+
+    <span class="n">callbacks_train_config</span> <span class="o">=</span> <span class="p">((</span><span class="n">callbacks_config</span> <span class="ow">or</span> <span class="p">[])</span> <span class="o">+</span>
+                              <span class="p">(</span><span class="n">callbacks_train_config</span> <span class="ow">or</span> <span class="p">[]))</span>
+    <span class="n">callbacks_eval_config</span> <span class="o">=</span> <span class="p">((</span><span class="n">callbacks_config</span> <span class="ow">or</span> <span class="p">[])</span> <span class="o">+</span>
+                             <span class="p">(</span><span class="n">callbacks_eval_config</span> <span class="ow">or</span> <span class="p">[]))</span>
+
+    <span class="n">kpi_plugins_and_accumulators</span> <span class="o">=</span> <span class="n">kpi_builder</span><span class="o">.</span><span class="n">build_kpi_plugins</span><span class="p">(</span><span class="n">kpi_config</span><span class="p">)</span>
+    <span class="n">kpi_evaluator_callback</span> <span class="o">=</span> <span class="n">kpi_builder</span><span class="o">.</span><span class="n">build_kpi_evaluator_as_callback</span><span class="p">(</span>
+        <span class="n">kpi_plugins_and_accumulators</span><span class="p">)</span>
+
+    <span class="n">callbacks_train</span> <span class="o">=</span> <span class="n">callback_builder</span><span class="o">.</span><span class="n">build_callbacks_chain</span><span class="p">(</span>
+        <span class="n">callbacks_train_config</span><span class="p">)</span>
+    <span class="n">callbacks_eval</span> <span class="o">=</span> <span class="n">callback_builder</span><span class="o">.</span><span class="n">build_callbacks_chain</span><span class="p">(</span>
+        <span class="n">callbacks_eval_config</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kpi_evaluator_callback</span><span class="p">:</span>
+        <span class="n">callbacks_eval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kpi_evaluator_callback</span><span class="p">)</span>
+    <span class="n">callbacks_handler_train</span> <span class="o">=</span> <span class="n">CallbacksHandler</span><span class="p">(</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_train</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="n">callbacks_handler_eval</span> <span class="o">=</span> <span class="n">CallbacksHandler</span><span class="p">(</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks_eval</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">trainer_builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span>
+        <span class="n">trainer_config</span><span class="o">=</span><span class="n">trainer_config</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+        <span class="n">project_dir</span><span class="o">=</span><span class="n">project_dir</span><span class="p">,</span>
+        <span class="n">datasets</span><span class="o">=</span><span class="n">datasets</span><span class="p">,</span>
+        <span class="n">callbacks_handler_train</span><span class="o">=</span><span class="n">callbacks_handler_train</span><span class="p">,</span>
+        <span class="n">callbacks_handler_eval</span><span class="o">=</span><span class="n">callbacks_handler_eval</span><span class="p">,</span>
+        <span class="n">continue_training</span><span class="o">=</span><span class="n">continue_training</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">trainer</span></div>
+
+
+<div class="viewcode-block" id="build_infer"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.runs_builder.build_infer">[docs]</a><span class="k">def</span> <span class="nf">build_infer</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">datafeeder_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                <span class="n">callbacks_config</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                <span class="n">kpi_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">inferer_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">saved_model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">checkpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+                <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="n">use_single_process</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">prefetch_buffer_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">use_tensorrt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Inferer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build the inferer for inference run based on its single components and</span>
+<span class="sd">    configs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        optional run name for inference project</span>
+<span class="sd">    datafeeder_config</span>
+<span class="sd">        configuration of data feeder</span>
+<span class="sd">    callbacks_config</span>
+<span class="sd">        configurations of single callbacks for inference</span>
+<span class="sd">    kpi_config</span>
+<span class="sd">        configurations of single kpi plugins and accumulators inside of model</span>
+<span class="sd">    inferer_config</span>
+<span class="sd">        configuration of inferer</span>
+<span class="sd">    checkpoint</span>
+<span class="sd">        path to checkpoint file to restore the variables relative to</span>
+<span class="sd">        project_dir/checkpoint; meta graph must be in the same folder</span>
+<span class="sd">    saved_model</span>
+<span class="sd">        path to saved_model folder relative to project_dir/saved_models</span>
+<span class="sd">    batch_size</span>
+<span class="sd">        batch size to use for inference</span>
+<span class="sd">    number_of_shards</span>
+<span class="sd">        number of shards for datafeeder file list, if file list was provided</span>
+<span class="sd">    shard_index</span>
+<span class="sd">        shard index for datafeeder file list, if file list was provided</span>
+<span class="sd">    prefetch_buffer_size</span>
+<span class="sd">        number of batches to prefetch; must be &gt;= 1</span>
+<span class="sd">    use_single_process</span>
+<span class="sd">        if data prefetching, prediction and callbacks must executed in one</span>
+<span class="sd">        single process</span>
+<span class="sd">    use_tensorrt</span>
+<span class="sd">        if the tensorrt should be enabled</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    inferer</span>
+<span class="sd">        inferer ready to run</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># all the variables are needed for now</span>
+    <span class="c1"># TODO(oleksnadr.vorobiov@audi.de): refactor and combine arguments</span>
+    <span class="n">inferer_config</span> <span class="o">=</span> <span class="n">inferer_config</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">run_name</span><span class="p">:</span>
+        <span class="n">inferer_config</span><span class="p">[</span><span class="s2">&quot;project_additional_kwargs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;run_name&quot;</span><span class="p">:</span> <span class="n">run_name</span><span class="p">}</span>
+    <span class="n">inferer_config</span> <span class="o">=</span> <span class="n">_update_inferer_run_config</span><span class="p">(</span>
+        <span class="n">inferer_config</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">prefetch_buffer_size</span><span class="p">,</span> <span class="n">use_single_process</span><span class="p">)</span>
+    <span class="n">inferer_config</span> <span class="o">=</span> <span class="n">_update_inferer_load_config</span><span class="p">(</span>
+        <span class="n">inferer_config</span><span class="p">,</span> <span class="n">saved_model</span><span class="p">,</span> <span class="n">checkpoint</span><span class="p">)</span>
+    <span class="n">inferer_config</span> <span class="o">=</span> <span class="n">_update_inferer_tensorrt_config</span><span class="p">(</span>
+        <span class="n">inferer_config</span><span class="p">,</span> <span class="n">use_tensorrt</span><span class="p">)</span>
+    <span class="n">datafeeder_config</span> <span class="o">=</span> <span class="n">_update_datafeeder_shards</span><span class="p">(</span>
+        <span class="n">datafeeder_config</span><span class="p">,</span> <span class="n">number_of_shards</span><span class="p">,</span> <span class="n">shard_index</span><span class="p">)</span>
+    <span class="n">data_feeder</span> <span class="o">=</span> <span class="n">data_feeder_builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">datafeeder_config</span><span class="p">)</span>
+    <span class="n">callbacks</span> <span class="o">=</span> <span class="n">callback_builder</span><span class="o">.</span><span class="n">build_callbacks_chain</span><span class="p">(</span><span class="n">callbacks_config</span><span class="p">)</span>
+    <span class="n">kpi_plugins_and_accumulators</span> <span class="o">=</span> <span class="n">kpi_builder</span><span class="o">.</span><span class="n">build_kpi_plugins</span><span class="p">(</span><span class="n">kpi_config</span><span class="p">)</span>
+    <span class="n">kpi_evaluator_callback</span> <span class="o">=</span> <span class="n">kpi_builder</span><span class="o">.</span><span class="n">build_kpi_evaluator_as_callback</span><span class="p">(</span>
+        <span class="n">kpi_plugins_and_accumulators</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kpi_evaluator_callback</span><span class="p">:</span>
+        <span class="n">callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kpi_evaluator_callback</span><span class="p">)</span>
+    <span class="n">callbacks_handler</span> <span class="o">=</span> <span class="n">CallbacksHandler</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="n">callbacks</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+    <span class="n">inferer</span> <span class="o">=</span> <span class="n">inferer_builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">project_dir</span><span class="o">=</span><span class="n">project_dir</span><span class="p">,</span>
+                                    <span class="n">inferer_config</span><span class="o">=</span><span class="n">inferer_config</span><span class="p">,</span>
+                                    <span class="n">data_feeder</span><span class="o">=</span><span class="n">data_feeder</span><span class="p">,</span>
+                                    <span class="n">callbacks_handler</span><span class="o">=</span><span class="n">callbacks_handler</span><span class="p">,</span>
+                                    <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inferer</span></div>
+
+
+<div class="viewcode-block" id="build_kpi_evaluate"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.runs_builder.build_kpi_evaluate">[docs]</a><span class="k">def</span> <span class="nf">build_kpi_evaluate</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                       <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">datafeeder_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                       <span class="n">callbacks_config</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                       <span class="n">kpi_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+                       <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                       <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                       <span class="n">use_single_process</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">prefetch_buffer_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Inferer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build the coordinator for kpi evaluation run based on its single components</span>
+<span class="sd">    and configs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        optional run name for kpi evaluation project</span>
+<span class="sd">    datafeeder_config</span>
+<span class="sd">        configuration of data feeder</span>
+<span class="sd">    callbacks_config</span>
+<span class="sd">        configurations of single callbacks for inference</span>
+<span class="sd">    kpi_config</span>
+<span class="sd">        configurations of single kpi plugins and accumulators inside of model</span>
+<span class="sd">    batch_size</span>
+<span class="sd">        batch size to use for inference</span>
+<span class="sd">    number_of_shards</span>
+<span class="sd">        number of shards for datafeeder file list, if file list was provided</span>
+<span class="sd">    shard_index</span>
+<span class="sd">        shard index for datafeeder file list, if file list was provided</span>
+<span class="sd">    prefetch_buffer_size</span>
+<span class="sd">        number of batches to prefetch; must be &gt;= 1</span>
+<span class="sd">    use_single_process</span>
+<span class="sd">        if data prefetching, prediction and callbacks must executed in one</span>
+<span class="sd">        single process</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    inferer</span>
+<span class="sd">        inferer ready to run</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inferer_config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;use_model&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;project_type&quot;</span><span class="p">:</span> <span class="s2">&quot;kpi&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">run_name</span><span class="p">:</span>
+        <span class="n">inferer_config</span><span class="p">[</span><span class="s2">&quot;project_additional_kwargs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;run_name&quot;</span><span class="p">:</span> <span class="n">run_name</span><span class="p">}</span>
+    <span class="n">inferer</span> <span class="o">=</span> <span class="n">build_infer</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="o">=</span><span class="n">project_dir</span><span class="p">,</span>
+        <span class="n">datafeeder_config</span><span class="o">=</span><span class="n">datafeeder_config</span><span class="p">,</span>
+        <span class="n">callbacks_config</span><span class="o">=</span><span class="n">callbacks_config</span><span class="p">,</span>
+        <span class="n">inferer_config</span><span class="o">=</span><span class="n">inferer_config</span><span class="p">,</span>
+        <span class="n">kpi_config</span><span class="o">=</span><span class="n">kpi_config</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+        <span class="n">number_of_shards</span><span class="o">=</span><span class="n">number_of_shards</span><span class="p">,</span>
+        <span class="n">shard_index</span><span class="o">=</span><span class="n">shard_index</span><span class="p">,</span>
+        <span class="n">use_single_process</span><span class="o">=</span><span class="n">use_single_process</span><span class="p">,</span>
+        <span class="n">prefetch_buffer_size</span><span class="o">=</span><span class="n">prefetch_buffer_size</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">inferer</span></div>
+
+
+<div class="viewcode-block" id="build_extract_data"><a class="viewcode-back" href="../../../api/nucleus7.builders.html#nucleus7.builders.runs_builder.build_extract_data">[docs]</a><span class="k">def</span> <span class="nf">build_extract_data</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                       <span class="n">datafeeder_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                       <span class="n">callbacks_config</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                       <span class="n">kpi_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                       <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                       <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                       <span class="n">use_single_process</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">prefetch_buffer_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Inferer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Build the coordinator for data extraction run based on its single components</span>
+<span class="sd">    and configs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        run name for data extraction project</span>
+<span class="sd">    datafeeder_config</span>
+<span class="sd">        configuration of data feeder</span>
+<span class="sd">    callbacks_config</span>
+<span class="sd">        configurations of single callbacks for inference</span>
+<span class="sd">    kpi_config</span>
+<span class="sd">        configurations of single kpi plugins and accumulators inside of model</span>
+<span class="sd">    batch_size</span>
+<span class="sd">        batch size to use for inference</span>
+<span class="sd">    number_of_shards</span>
+<span class="sd">        number of shards for datafeeder file list, if file list was provided</span>
+<span class="sd">    shard_index</span>
+<span class="sd">        shard index for datafeeder file list, if file list was provided</span>
+<span class="sd">    prefetch_buffer_size</span>
+<span class="sd">        number of batches to prefetch; must be &gt;= 1</span>
+<span class="sd">    use_single_process</span>
+<span class="sd">        if data prefetching, prediction and callbacks must executed in one</span>
+<span class="sd">        single process</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    inferer</span>
+<span class="sd">        inferer ready to run</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inferer_config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;use_model&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;project_type&quot;</span><span class="p">:</span> <span class="s2">&quot;data_extraction&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;project_additional_kwargs&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;run_name&quot;</span><span class="p">:</span> <span class="n">run_name</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">inferer</span> <span class="o">=</span> <span class="n">build_infer</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="o">=</span><span class="n">project_dir</span><span class="p">,</span>
+        <span class="n">datafeeder_config</span><span class="o">=</span><span class="n">datafeeder_config</span><span class="p">,</span>
+        <span class="n">callbacks_config</span><span class="o">=</span><span class="n">callbacks_config</span><span class="p">,</span>
+        <span class="n">inferer_config</span><span class="o">=</span><span class="n">inferer_config</span><span class="p">,</span>
+        <span class="n">kpi_config</span><span class="o">=</span><span class="n">kpi_config</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+        <span class="n">number_of_shards</span><span class="o">=</span><span class="n">number_of_shards</span><span class="p">,</span>
+        <span class="n">shard_index</span><span class="o">=</span><span class="n">shard_index</span><span class="p">,</span>
+        <span class="n">use_single_process</span><span class="o">=</span><span class="n">use_single_process</span><span class="p">,</span>
+        <span class="n">prefetch_buffer_size</span><span class="o">=</span><span class="n">prefetch_buffer_size</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">inferer</span></div>
+
+
+<span class="k">def</span> <span class="nf">_update_inferer_tensorrt_config</span><span class="p">(</span>
+        <span class="n">inferer_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">use_tensorrt</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">use_tensorrt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">inferer_config</span>
+    <span class="n">tensorrt_config</span> <span class="o">=</span> <span class="n">inferer_config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;tensorrt_config&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">tensorrt_config</span><span class="p">[</span><span class="s2">&quot;use_tensorrt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">use_tensorrt</span>
+    <span class="k">return</span> <span class="n">inferer_config</span>
+
+
+<span class="k">def</span> <span class="nf">_update_inferer_run_config</span><span class="p">(</span>
+        <span class="n">inferer_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">prefetch_buffer_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">use_single_process</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">run_config</span> <span class="o">=</span> <span class="n">inferer_config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;run_config&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">batch_size_from_config</span> <span class="o">=</span> <span class="n">run_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;batch_size&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">batch_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="n">batch_size_from_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;batch size should be set inside of&quot;</span>
+               <span class="s2">&quot;inferer_config/run_config/batch_size or as --batch_size on &quot;</span>
+               <span class="s2">&quot;CLI!&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">batch_size</span><span class="p">:</span>
+        <span class="n">run_config</span><span class="p">[</span><span class="s2">&quot;batch_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch_size</span>
+    <span class="k">if</span> <span class="n">prefetch_buffer_size</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_config</span><span class="p">[</span><span class="s2">&quot;prefetch_buffer_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefetch_buffer_size</span>
+    <span class="k">if</span> <span class="n">use_single_process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">run_config</span><span class="p">[</span><span class="s2">&quot;use_multiprocessing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">use_single_process</span>
+    <span class="k">return</span> <span class="n">inferer_config</span>
+
+
+<span class="k">def</span> <span class="nf">_update_inferer_load_config</span><span class="p">(</span><span class="n">inferer_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                                <span class="n">saved_model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                <span class="n">checkpoint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">load_config</span> <span class="o">=</span> <span class="n">inferer_config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;load_config&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="k">if</span> <span class="n">saved_model</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">[</span><span class="s2">&quot;checkpoint_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">load_config</span><span class="p">[</span><span class="s2">&quot;saved_model_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">saved_model</span>
+    <span class="k">if</span> <span class="n">checkpoint</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">[</span><span class="s2">&quot;saved_model_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">load_config</span><span class="p">[</span><span class="s2">&quot;checkpoint_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">checkpoint</span>
+    <span class="k">return</span> <span class="n">inferer_config</span>
+
+
+<span class="k">def</span> <span class="nf">_update_datafeeder_shards</span><span class="p">(</span><span class="n">datafeeder_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                              <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">file_list_config</span> <span class="o">=</span> <span class="n">datafeeder_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;file_list&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_list_config</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">datafeeder_config</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file_list_config</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_single_config</span> <span class="ow">in</span> <span class="n">file_list_config</span><span class="p">:</span>
+            <span class="n">each_single_config</span><span class="p">[</span><span class="s1">&#39;number_of_shards&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_of_shards</span>
+            <span class="n">each_single_config</span><span class="p">[</span><span class="s1">&#39;shard_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shard_index</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">file_list_config</span><span class="p">[</span><span class="s1">&#39;number_of_shards&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_of_shards</span>
+        <span class="n">file_list_config</span><span class="p">[</span><span class="s1">&#39;shard_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shard_index</span>
+    <span class="k">return</span> <span class="n">datafeeder_config</span>
+
+
+<span class="k">def</span> <span class="nf">_build_mixed_precision_config</span><span class="p">(</span><span class="n">model_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">mixed_precision_config</span> <span class="o">=</span> <span class="n">build_config_object</span><span class="p">(</span>
+        <span class="n">MixedPrecisionConfig</span><span class="p">,</span>
+        <span class="n">model_config</span><span class="p">,</span> <span class="s1">&#39;mixed_precision_config&#39;</span><span class="p">,</span> <span class="n">search_in_root</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mixed_precision_config</span>
+
+
+<span class="k">def</span> <span class="nf">_filter_datasets_for_run</span><span class="p">(</span><span class="n">datasets_config</span><span class="p">):</span>
+    <span class="n">dataset_modes_to_use</span> <span class="o">=</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">select_dataset_modes_for_run</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">dataset_modes_to_use</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">datasets_config</span><span class="o">.</span><span class="n">keys</span><span class="p">())),</span> <span class="p">(</span>
+        <span class="s2">&quot;Provide datasets for </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_modes_to_use</span><span class="p">))</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use </span><span class="si">%s</span><span class="s2"> datasets&quot;</span><span class="p">,</span> <span class="n">dataset_modes_to_use</span><span class="p">)</span>
+    <span class="n">datasets_config_filtered</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="n">datasets_config</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">dataset_modes_to_use</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">datasets_config_filtered</span>
+
+
+<span class="k">def</span> <span class="nf">_build_datasets_for_each_mode</span><span class="p">(</span><span class="n">datasets_config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">]:</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">number_of_shards</span><span class="p">,</span> <span class="n">shard_index</span> <span class="o">=</span> <span class="n">_get_dataset_shards_for_training</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">each_mode</span><span class="p">,</span> <span class="n">each_dataset_config</span> <span class="ow">in</span> <span class="n">datasets_config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">each_dataset_config</span> <span class="o">=</span> <span class="n">_add_shard_config_to_dataset</span><span class="p">(</span>
+            <span class="n">each_dataset_config</span><span class="p">,</span> <span class="n">number_of_shards</span><span class="o">=</span><span class="n">number_of_shards</span><span class="p">,</span>
+            <span class="n">shard_index</span><span class="o">=</span><span class="n">shard_index</span><span class="p">)</span>
+        <span class="n">datasets</span><span class="p">[</span><span class="n">each_mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset_builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">each_dataset_config</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">datasets</span>
+
+
+<span class="k">def</span> <span class="nf">_add_shard_config_to_dataset</span><span class="p">(</span>
+        <span class="n">dataset_config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]],</span>
+        <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset_config</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">dataset_config_with_shards</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_config</span> <span class="ow">in</span> <span class="n">dataset_config</span><span class="p">:</span>
+            <span class="n">dataset_config_with_shards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">_add_shard_config</span><span class="p">(</span>
+                    <span class="n">each_config</span><span class="p">,</span> <span class="n">number_of_shards</span><span class="o">=</span><span class="n">number_of_shards</span><span class="p">,</span>
+                    <span class="n">shard_index</span><span class="o">=</span><span class="n">shard_index</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset_config_with_shards</span> <span class="o">=</span> <span class="n">_add_shard_config</span><span class="p">(</span>
+            <span class="n">dataset_config</span><span class="p">,</span> <span class="n">number_of_shards</span><span class="o">=</span><span class="n">number_of_shards</span><span class="p">,</span>
+            <span class="n">shard_index</span><span class="o">=</span><span class="n">shard_index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataset_config_with_shards</span>
+
+
+<span class="k">def</span> <span class="nf">_add_shard_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+                      <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;number_of_shards&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">number_of_shards</span>
+    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;shard_index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shard_index</span>
+    <span class="k">return</span> <span class="n">config</span>
+
+
+<span class="k">def</span> <span class="nf">_get_dataset_shards_for_training</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get number of dataset shards and shard index according to task and task</span>
+<span class="sd">    index</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    number_of_shards</span>
+<span class="sd">        number of shards is number of workers inside of cluster;</span>
+<span class="sd">        if it is a PS, local run or evaluator, number_of_shards=1</span>
+<span class="sd">    shard_index</span>
+<span class="sd">        worker shards; if it is a PS, local run or evaluator, shard_index=0</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">run_config</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">RunConfig</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">run_config</span><span class="o">.</span><span class="n">cluster_spec</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="n">cluster_config</span> <span class="o">=</span> <span class="n">run_config</span><span class="o">.</span><span class="n">cluster_spec</span>
+    <span class="k">if</span> <span class="n">run_config</span><span class="o">.</span><span class="n">task_type</span> <span class="ow">in</span> <span class="p">[</span><span class="n">run_config_lib</span><span class="o">.</span><span class="n">TaskType</span><span class="o">.</span><span class="n">EVALUATOR</span><span class="p">,</span>
+                                <span class="n">run_config_lib</span><span class="o">.</span><span class="n">TaskType</span><span class="o">.</span><span class="n">PS</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="n">number_of_shards</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cluster_config</span><span class="o">.</span><span class="n">job_tasks</span><span class="p">(</span><span class="s1">&#39;chief&#39;</span><span class="p">)))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">number_of_shards</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cluster_config</span><span class="o">.</span><span class="n">job_tasks</span><span class="p">(</span><span class="s1">&#39;worker&#39;</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">if</span> <span class="n">run_config</span><span class="o">.</span><span class="n">task_type</span> <span class="o">==</span> <span class="n">run_config_lib</span><span class="o">.</span><span class="n">TaskType</span><span class="o">.</span><span class="n">CHIEF</span><span class="p">:</span>
+        <span class="n">shard_index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">shard_index</span> <span class="o">=</span> <span class="n">run_config</span><span class="o">.</span><span class="n">task_id</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">number_of_shards</span><span class="p">,</span> <span class="n">shard_index</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

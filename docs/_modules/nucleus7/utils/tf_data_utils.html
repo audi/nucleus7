@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.tf_data_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.tf_data_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.tf_data_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils to work with tensorflow data</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+
+
+<div class="viewcode-block" id="TfRecordsMixin"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.TfRecordsMixin">[docs]</a><span class="k">class</span> <span class="nc">TfRecordsMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mixin for tfrecords processing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TfRecordsMixin.get_tfrecords_features"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.TfRecordsMixin.get_tfrecords_features">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_tfrecords_features</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return dict, possibly nested, with feature names as keys and its</span>
+<span class="sd">        serialized type as values of type :obj:`FixedLenFeature`.</span>
+<span class="sd">        Keys should not have any &#39;/&#39;, use nested dict instead.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        features</span>
+<span class="sd">            features inside of tfrecords file</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        output_types</span>
+<span class="sd">            :func:`tf.decode_raw`</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="TfRecordsMixin.get_tfrecords_output_types"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.TfRecordsMixin.get_tfrecords_output_types">[docs]</a>    <span class="k">def</span> <span class="nf">get_tfrecords_output_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return dict, possibly nested, with tensor names and tensor types.</span>
+<span class="sd">        Keys should not have any &#39;/&#39;, use nested dict instead.</span>
+
+<span class="sd">        Should be same types which were used to store the tfrecord file</span>
+
+<span class="sd">        If not implemented, assumes that the types are defined already inside</span>
+<span class="sd">        of features, e.g. no decoding is needed</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        output_types</span>
+<span class="sd">            output types of tfrecords features</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        output_types</span>
+<span class="sd">            :func:`tf.parse_single_example`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TfRecordsMixin.postprocess_tfrecords"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.TfRecordsMixin.postprocess_tfrecords">[docs]</a>    <span class="k">def</span> <span class="nf">postprocess_tfrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Postprocess tfrecords sample if needed.</span>
+
+<span class="sd">        This function is applied after sample is decoded from tfrecords file</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        **data</span>
+<span class="sd">            (nested) dict with raw tfrecords data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        postprocessed_data</span>
+<span class="sd">            postprocessed data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="TfRecordsMixin.decode_field"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.TfRecordsMixin.decode_field">[docs]</a>    <span class="k">def</span> <span class="nf">decode_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                     <span class="n">field_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                     <span class="n">field_value</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">SparseTensor</span><span class="p">],</span>
+                     <span class="n">field_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">DType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Decode a field from a tfrecord example</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        field_name</span>
+<span class="sd">            name of the field, if nested - will be separated using &quot;/&quot;</span>
+<span class="sd">        field_value</span>
+<span class="sd">            value of the field from tfrecords example</span>
+<span class="sd">        field_type</span>
+<span class="sd">            type of the decoded field from self.get_tfrecords_output_types</span>
+<span class="sd">            or None, if it was not provided</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is designed to be overridden</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="c1"># this method is really an interface, but has a default implementation.</span>
+        <span class="k">if</span> <span class="n">field_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">field_value</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">decode_raw</span><span class="p">(</span><span class="n">field_value</span><span class="p">,</span> <span class="n">field_type</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TfRecordsMixin.parse_tfrecord_example"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.TfRecordsMixin.parse_tfrecord_example">[docs]</a>    <span class="k">def</span> <span class="nf">parse_tfrecord_example</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Parse tfrecord example&quot;&quot;&quot;</span>
+        <span class="n">features_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_tfrecords_features</span><span class="p">(),</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">output_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tfrecords_output_types</span><span class="p">()</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">output_types_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+            <span class="n">output_types</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">parsed_example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">parse_single_example</span><span class="p">(</span><span class="n">example</span><span class="p">,</span> <span class="n">features_flat</span><span class="p">)</span>
+        <span class="n">data_decoded</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">field_value</span> <span class="ow">in</span> <span class="n">parsed_example</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">output_type</span> <span class="o">=</span> <span class="n">output_types_flat</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field_name</span><span class="p">)</span>
+            <span class="n">data_decoded</span><span class="p">[</span><span class="n">field_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode_field</span><span class="p">(</span>
+                <span class="n">field_name</span><span class="p">,</span> <span class="n">field_value</span><span class="p">,</span> <span class="n">output_type</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">data_decoded</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postprocess_tfrecords</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_int32_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">int64_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Int64List</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
+
+
+<span class="k">def</span> <span class="nf">_ints32_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">int64_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Int64List</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_float_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">float_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">FloatList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
+
+
+<span class="k">def</span> <span class="nf">_floats_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">float_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">FloatList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">bytes_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">BytesList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
+
+
+<span class="k">def</span> <span class="nf">_bytes_list_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">bytes_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">BytesList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="nested_to_tfrecords_feature"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.nested_to_tfrecords_feature">[docs]</a><span class="k">def</span> <span class="nf">nested_to_tfrecords_feature</span><span class="p">(</span><span class="n">nested_values</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                                <span class="n">ignore_empty_arrays</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create tf records features from nested dictionary structure</span>
+
+<span class="sd">    Structure will be first flatten with separator &#39;/&#39; and then encoded</span>
+<span class="sd">    using corresponding feature type.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nested_values</span>
+<span class="sd">        nested dict holding data</span>
+<span class="sd">    ignore_empty_arrays</span>
+<span class="sd">        if the array is empty, e.g. it has 0 in the shape, it will not store</span>
+<span class="sd">        it; tfrecords parser raises</span>
+<span class="sd">        &#39;Invalid argument: Key: {key}. Can&#39;t parse serialized Example&#39; on</span>
+<span class="sd">        empty arrays</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    features</span>
+<span class="sd">        dict with features from flatten elements of nested_values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_get_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span> <span class="c1"># pylint: disable=too-many-return-statements</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ignore_empty_arrays</span>
+                <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">_bytes_list_feature</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">tostring</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_int32_feature</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_float_feature</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Value of type </span><span class="si">{}</span><span class="s1"> cannot be encoded!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+
+    <span class="n">flatten_values</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+        <span class="n">nested_values</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">flatten_values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">_get_feature</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">feature</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">features</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">feature</span>
+
+    <span class="k">return</span> <span class="n">features</span></div>
+
+
+<div class="viewcode-block" id="dense_to_sparse_feature"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.dense_to_sparse_feature">[docs]</a><span class="k">def</span> <span class="nf">dense_to_sparse_feature</span><span class="p">(</span><span class="n">dense_feature</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                            <span class="n">feature_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">values_dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+                            <span class="n">sparse_value_as_zeroes</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert dense feature to sparse one</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dense_feature</span>
+<span class="sd">        dense feature</span>
+<span class="sd">    feature_name</span>
+<span class="sd">        name of the feature</span>
+<span class="sd">    values_dtype</span>
+<span class="sd">        dtype of values inside of sparse tensor</span>
+<span class="sd">    sparse_value_as_zeroes</span>
+<span class="sd">        value to use as a sparse</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    sparse_feature_dict</span>
+<span class="sd">        dict holding indices, values and shape of resulted sparse tensor</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">spa</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">dense_to_sparse</span><span class="p">(</span>
+        <span class="n">dense_feature</span><span class="p">,</span> <span class="n">sparse_value_as_zeroes</span><span class="o">=</span><span class="n">sparse_value_as_zeroes</span><span class="p">)</span>
+    <span class="n">spa_inds</span> <span class="o">=</span> <span class="n">spa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">spa_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spa</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">values_dtype</span><span class="p">)</span>
+    <span class="n">spa_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">spa</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">feature_name</span><span class="p">,</span> <span class="s1">&#39;indices&#39;</span><span class="p">]):</span>
+               <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">spa_inds</span><span class="o">.</span><span class="n">tostring</span><span class="p">()),</span>
+           <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">feature_name</span><span class="p">,</span> <span class="s1">&#39;values&#39;</span><span class="p">]):</span>
+               <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">spa_values</span><span class="o">.</span><span class="n">tostring</span><span class="p">()),</span>
+           <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">feature_name</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">]):</span>
+               <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">spa_shape</span><span class="o">.</span><span class="n">tostring</span><span class="p">())}</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+<div class="viewcode-block" id="combine_features_from_list_of_dict_datasets"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.tf_data_utils.combine_features_from_list_of_dict_datasets">[docs]</a><span class="k">def</span> <span class="nf">combine_features_from_list_of_dict_datasets</span><span class="p">(</span>
+        <span class="n">list_of_datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine the features from list_of_datasets to one dataset. Datasets will</span>
+<span class="sd">    be resolved in the order they are in the list, so if the ds1 has feature</span>
+<span class="sd">    with name &#39;key1&#39; and ds2 has it, ds1[&#39;key1&#39;] will be used</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list_of_datasets</span>
+<span class="sd">        list of tf.data.Dataset instances to be combined</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataset_with_all_features</span>
+<span class="sd">        dataset with all features</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if features with same key from different datasets have different dtypes</span>
+<span class="sd">        or shapes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">combine_fn</span><span class="p">(</span><span class="o">*</span><span class="n">list_of_features</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to combine the features</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        list_of_features</span>
+<span class="sd">            list of features to combine</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_with_combined_features</span>
+<span class="sd">            data with combined features</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">features_combined_flatten</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">each_features</span> <span class="ow">in</span> <span class="n">list_of_features</span><span class="p">:</span>
+            <span class="n">each_features_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+                <span class="n">each_features</span><span class="p">)</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">each_feature_name</span><span class="p">,</span>
+                 <span class="n">each_feature</span><span class="p">)</span> <span class="ow">in</span> <span class="n">each_features_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">each_feature_name</span> <span class="ow">in</span> <span class="n">features_combined_flatten</span><span class="p">:</span>
+                    <span class="n">_assert_tensors_have_same_shape</span><span class="p">(</span>
+                        <span class="n">features_combined_flatten</span><span class="p">[</span><span class="n">each_feature_name</span><span class="p">],</span>
+                        <span class="n">each_feature</span><span class="p">)</span>
+                    <span class="n">_assert_tensors_have_same_type</span><span class="p">(</span>
+                        <span class="n">features_combined_flatten</span><span class="p">[</span><span class="n">each_feature_name</span><span class="p">],</span>
+                        <span class="n">each_feature</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">features_combined_flatten</span><span class="p">[</span><span class="n">each_feature_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_feature</span>
+
+        <span class="n">features_combined</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+            <span class="n">features_combined_flatten</span><span class="p">)</span>
+        <span class="n">data_with_featured</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensors</span><span class="p">(</span><span class="n">features_combined</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data_with_featured</span>
+
+    <span class="n">datasets_zip</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">list_of_datasets</span><span class="p">))</span>
+    <span class="n">dataset_combined</span> <span class="o">=</span> <span class="n">datasets_zip</span><span class="o">.</span><span class="n">flat_map</span><span class="p">(</span><span class="n">combine_fn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dataset_combined</span></div>
+
+
+<span class="k">def</span> <span class="nf">_assert_tensors_have_same_shape</span><span class="p">(</span><span class="n">tensor1</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tensor2</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">tensor1</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span> <span class="o">!=</span> <span class="n">tensor2</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span><span class="o">.</span><span class="n">as_list</span><span class="p">():</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Shape of tensor </span><span class="si">{}</span><span class="s2"> is not compatible with tensor </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">tensor1</span><span class="p">,</span> <span class="n">tensor2</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_tensors_have_same_type</span><span class="p">(</span><span class="n">tensor1</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tensor2</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">tensor1</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">tensor2</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Type of tensor </span><span class="si">{}</span><span class="s2"> is not compatible with tensor </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">tensor1</span><span class="p">,</span> <span class="n">tensor2</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

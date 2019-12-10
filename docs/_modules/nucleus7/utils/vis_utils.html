@@ -1,0 +1,985 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.vis_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.vis_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.vis_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Tools for visualization of model DNA</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">axes</span> <span class="k">as</span> <span class="n">plt_axes</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">patches</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.callback</span> <span class="kn">import</span> <span class="n">CoordinatorCallback</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.predictors</span> <span class="kn">import</span> <span class="n">PredictorNucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_feeder</span> <span class="kn">import</span> <span class="n">DataFeeder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.processor</span> <span class="kn">import</span> <span class="n">DataProcessor</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.reader</span> <span class="kn">import</span> <span class="n">DataReader</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.accumulator</span> <span class="kn">import</span> <span class="n">KPIAccumulator</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_callback</span> <span class="kn">import</span> <span class="n">KPIEvaluatorCallback</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_plugin</span> <span class="kn">import</span> <span class="n">KPIPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.loss</span> <span class="kn">import</span> <span class="n">ModelLoss</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.metric</span> <span class="kn">import</span> <span class="n">ModelMetric</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.plugin</span> <span class="kn">import</span> <span class="n">ModelPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.postprocessor</span> <span class="kn">import</span> <span class="n">ModelPostProcessor</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.summary</span> <span class="kn">import</span> <span class="n">ModelSummary</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nucleotide_utils</span>
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># these are type constants, not a class</span>
+<span class="n">_NUCLEOTIDE_PLOT</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;NUCLEOTIDE_PLOT&quot;</span><span class="p">,</span>
+                              <span class="p">[</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="s2">&quot;incoming_keys&quot;</span><span class="p">,</span> <span class="s2">&quot;generated_keys&quot;</span><span class="p">])</span>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+
+<div class="viewcode-block" id="draw_dna_helix"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.vis_utils.draw_dna_helix">[docs]</a><span class="k">def</span> <span class="nf">draw_dna_helix</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span>
+                   <span class="o">*</span><span class="p">,</span> <span class="n">title_prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">title_suffix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                   <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">verbosity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw interactive dna helix</span>
+
+<span class="sd">    All nucleotides bodies are clickable; also the font is automatic rescalable</span>
+<span class="sd">    to fit it to the circles / wedges.</span>
+
+<span class="sd">    By single click on nucleotide, the nucleotide description pops up on the</span>
+<span class="sd">    right side of image.</span>
+
+<span class="sd">    By double click on nucleotide, new figure is opened and subgraph with all</span>
+<span class="sd">    connections of this nucleotide is drawn in same fashion with verbosity=2.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dna_helix_graph</span>
+<span class="sd">        directed graph with nucleotides as nodes</span>
+<span class="sd">    title_prefix</span>
+<span class="sd">        prefix that will be added to the plot title</span>
+<span class="sd">    title_suffix</span>
+<span class="sd">        suffix that will be added to the plot title</span>
+<span class="sd">    figsize</span>
+<span class="sd">        size of figure</span>
+<span class="sd">    verbosity</span>
+<span class="sd">        verbosity of the visualization;</span>
+<span class="sd">        if verbosity == 0, then only the connections between</span>
+<span class="sd">        nucleotide are drawn, otherwise connections between nucleotide keys</span>
+<span class="sd">        are drawn</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    subplot</span>
+<span class="sd">        axes subplot with drawn dna helix</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if verbosity not in [0, 1]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">verbosity</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;verbosity can be 0 or 1!&quot;</span><span class="p">)</span>
+
+    <span class="n">figure</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="n">_create_figure_with_subplot</span><span class="p">(</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">figure</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title_prefix</span> <span class="o">+</span> <span class="s2">&quot;DNA helix&quot;</span> <span class="o">+</span> <span class="n">title_suffix</span><span class="p">)</span>
+    <span class="n">draw_dna_helix_on_subplot</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">)</span>
+    <span class="n">_draw_click_instructions</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+    <span class="n">_add_subgraph_events</span><span class="p">(</span><span class="n">figure</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">)</span>
+    <span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">blit</span><span class="p">(</span><span class="n">subplot</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">subplot</span></div>
+
+
+<div class="viewcode-block" id="draw_dna_helix_on_subplot"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.vis_utils.draw_dna_helix_on_subplot">[docs]</a><span class="k">def</span> <span class="nf">draw_dna_helix_on_subplot</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span>
+                              <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">verbosity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw the dna helix on given subplot according to verbosity</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dna_helix_graph</span>
+<span class="sd">        directed graph with nucleotides as nodes</span>
+<span class="sd">    subplot</span>
+<span class="sd">        axes subplot to draw on</span>
+<span class="sd">    radius</span>
+<span class="sd">        radius of nucleotide to draw</span>
+<span class="sd">    verbosity</span>
+<span class="sd">        verbosity of the visualization;</span>
+<span class="sd">        if verbosity == 0, then only the connections between</span>
+<span class="sd">        nucleotide are drawn, otherwise connections between nucleotide keys</span>
+<span class="sd">        are drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nucleotide_positions</span> <span class="o">=</span> <span class="n">_get_nucleotide_positions</span><span class="p">(</span>
+        <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+    <span class="n">nucleotide_plots</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_nucleotide</span><span class="p">,</span> <span class="n">each_nucleotide_center</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="n">nucleotide_positions</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">nucleotide_plot</span> <span class="o">=</span> <span class="n">draw_nucleotide</span><span class="p">(</span>
+            <span class="n">each_nucleotide</span><span class="p">,</span> <span class="n">each_nucleotide_center</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span>
+            <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
+        <span class="n">nucleotide_plots</span><span class="p">[</span><span class="n">each_nucleotide</span><span class="p">]</span> <span class="o">=</span> <span class="n">nucleotide_plot</span>
+    <span class="n">draw_dna_connections</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">,</span>
+                         <span class="n">nucleotide_plots</span><span class="p">,</span>
+                         <span class="n">subplot</span><span class="o">=</span><span class="n">subplot</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">)</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="k">lambda</span> <span class="n">subplot_</span><span class="p">:</span> <span class="n">subplot_</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">))</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">autoscale_view</span><span class="p">()</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">_draw_legend</span><span class="p">(</span><span class="n">subplot</span><span class="p">)</span>
+    <span class="n">_add_update_events</span><span class="p">(</span><span class="n">subplot</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">)</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">pchanged</span><span class="p">()</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">flush_events</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="draw_nucleotide"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.vis_utils.draw_nucleotide">[docs]</a><span class="k">def</span> <span class="nf">draw_nucleotide</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">,</span>
+                    <span class="n">center</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                    <span class="n">subplot</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw nucleotide with its keys</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nucleotide</span>
+<span class="sd">        directed graph with nucleotides as nodes</span>
+<span class="sd">    center</span>
+<span class="sd">        center of nucleotide on the plot</span>
+<span class="sd">    subplot</span>
+<span class="sd">        subplot to use</span>
+<span class="sd">    radius</span>
+<span class="sd">        radius of nucleotide to draw</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nucleotide_plot</span>
+<span class="sd">        named tuple holding all the drawn patches for nucleotide body and</span>
+<span class="sd">        it&#39;s keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_callback</span><span class="p">(</span><span class="n">subplot_</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_patch</span> <span class="ow">in</span> <span class="n">subplot_</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">each_patch</span><span class="o">.</span><span class="n">pchanged</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">subplot</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="n">_create_figure_with_subplot</span><span class="p">()</span>
+    <span class="n">nucleotide_body</span> <span class="o">=</span> <span class="n">_draw_nucleotide_body</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">)</span>
+    <span class="n">incoming_keys_patches</span> <span class="o">=</span> <span class="n">_draw_nucleotide_incoming_keys</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="n">subplot</span><span class="p">,</span>
+        <span class="n">nucleotide_body_patch</span><span class="o">=</span><span class="n">nucleotide_body</span><span class="p">,</span>
+        <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">radius</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">generated_keys_patches</span> <span class="o">=</span> <span class="n">_draw_nucleotide_generated_keys</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="n">subplot</span><span class="p">,</span>
+        <span class="n">nucleotide_body_patch</span><span class="o">=</span><span class="n">nucleotide_body</span><span class="p">,</span>
+        <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">radius</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">subplot</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">_callback</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="n">nucleotide_body</span><span class="p">,</span>
+                              <span class="n">incoming_keys</span><span class="o">=</span><span class="n">incoming_keys_patches</span><span class="p">,</span>
+                              <span class="n">generated_keys</span><span class="o">=</span><span class="n">generated_keys_patches</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="draw_dna_connections"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.vis_utils.draw_dna_connections">[docs]</a><span class="k">def</span> <span class="nf">draw_dna_connections</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span>
+                         <span class="n">nucleotide_plots</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">],</span>
+                         <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+                         <span class="n">verbosity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draw dna connections on given subplot according to verbosity level</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dna_helix_graph</span>
+<span class="sd">        directed graph with nucleotides as nodes</span>
+<span class="sd">    nucleotide_plots</span>
+<span class="sd">        mapping of nucleotide to its plot</span>
+<span class="sd">    subplot</span>
+<span class="sd">        subplot to draw on</span>
+<span class="sd">    verbosity</span>
+<span class="sd">        verbosity of the visualization;</span>
+<span class="sd">        if verbosity == 0, then only the connections between</span>
+<span class="sd">        nucleotide are drawn, otherwise connections between nucleotide keys</span>
+<span class="sd">        are drawn</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nucleotide_positions</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_nucleotide</span><span class="p">:</span> <span class="n">each_nucleotide_plot</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">center</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span><span class="p">,</span> <span class="n">each_nucleotide_plot</span> <span class="ow">in</span> <span class="n">nucleotide_plots</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">_draw_dna_connections</span><span class="p">(</span>
+        <span class="n">subplot</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">nucleotide_positions</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">,</span>
+        <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">)</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span>
+        <span class="n">partial</span><span class="p">(</span><span class="n">_draw_dna_connections</span><span class="p">,</span>
+                <span class="n">dna_helix_graph</span><span class="o">=</span><span class="n">dna_helix_graph</span><span class="p">,</span>
+                <span class="n">nucleotide_positions</span><span class="o">=</span><span class="n">nucleotide_positions</span><span class="p">,</span>
+                <span class="n">nucleotide_plots</span><span class="o">=</span><span class="n">nucleotide_plots</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="n">verbosity</span><span class="p">))</span></div>
+
+
+<span class="k">def</span> <span class="nf">_create_figure_with_subplot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="kc">None</span>
+                                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">,</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">]:</span>
+    <span class="n">figure</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">subplot</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+    <span class="n">figure</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">figure</span><span class="p">,</span> <span class="n">subplot</span>
+
+
+<span class="k">def</span> <span class="nf">_get_nucleotide_positions</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span>
+                              <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+    <span class="n">nucleotide_min_distance</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">radius</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">nucleotide_positions</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_agraph</span><span class="o">.</span><span class="n">graphviz_layout</span><span class="p">(</span>
+            <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">prog</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="s2">&quot;-Goverlap=compress -Granksep=5&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;For better layout of dna visualization install pygraphviz &quot;</span>
+               <span class="s2">&quot;(https://pygraphviz.github.io/)&quot;</span><span class="p">)</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">ImportWarning</span><span class="p">)</span>
+        <span class="n">nucleotide_positions</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">)</span>
+    <span class="n">edge_lengths</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_edge</span> <span class="ow">in</span> <span class="n">dna_helix_graph</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
+        <span class="n">coord0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">nucleotide_positions</span><span class="p">[</span><span class="n">each_edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="n">coord1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">nucleotide_positions</span><span class="p">[</span><span class="n">each_edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">edge_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">coord1</span> <span class="o">-</span> <span class="n">coord0</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">edge_lengths</span><span class="p">[</span><span class="n">each_edge</span><span class="p">]</span> <span class="o">=</span> <span class="n">edge_length</span>
+    <span class="k">if</span> <span class="n">edge_lengths</span><span class="p">:</span>
+        <span class="n">min_edge_length</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">edge_lengths</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">nucleotide_positions</span><span class="p">:</span>
+            <span class="n">min_coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nucleotide_positions</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">max_coord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nucleotide_positions</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">min_edge_length</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">max_coord</span> <span class="o">-</span> <span class="n">min_coord</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+                               <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">nucleotide_positions</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">min_edge_length</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">coord_scale_factor</span> <span class="o">=</span> <span class="n">nucleotide_min_distance</span> <span class="o">/</span> <span class="n">min_edge_length</span>
+    <span class="n">nucleotide_positions_scaled</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_node</span><span class="p">:</span> <span class="p">[</span><span class="n">coord</span> <span class="o">*</span> <span class="n">coord_scale_factor</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">each_position</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">each_node</span><span class="p">,</span> <span class="n">each_position</span> <span class="ow">in</span> <span class="n">nucleotide_positions</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="k">return</span> <span class="n">nucleotide_positions_scaled</span>
+
+
+<span class="k">def</span> <span class="nf">_add_update_events</span><span class="p">(</span><span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span>
+                       <span class="n">nucleotide_plots</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">]):</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+        <span class="s1">&#39;draw_event&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">subplot</span><span class="o">.</span><span class="n">pchanged</span><span class="p">())</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+        <span class="s1">&#39;resize_event&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">subplot</span><span class="o">.</span><span class="n">pchanged</span><span class="p">())</span>
+
+    <span class="n">text_initial_position</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nucleotide_plots</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">center</span>
+    <span class="n">text_object</span> <span class="o">=</span> <span class="n">subplot</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">text_initial_position</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">text_initial_position</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">ma</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">5.0</span><span class="p">))</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+        <span class="s1">&#39;button_press_event&#39;</span><span class="p">,</span>
+        <span class="n">partial</span><span class="p">(</span><span class="n">_remove_nucleotide_info_text</span><span class="p">,</span> <span class="n">text_object</span><span class="o">=</span><span class="n">text_object</span><span class="p">))</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+        <span class="s1">&#39;pick_event&#39;</span><span class="p">,</span>
+        <span class="n">partial</span><span class="p">(</span><span class="n">_draw_nucleotide_info</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="o">=</span><span class="n">dna_helix_graph</span><span class="p">,</span>
+                <span class="n">text_object</span><span class="o">=</span><span class="n">text_object</span><span class="p">,</span> <span class="n">subplot</span><span class="o">=</span><span class="n">subplot</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_add_subgraph_events</span><span class="p">(</span><span class="n">figure</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Figure</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">):</span>
+    <span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+        <span class="s1">&#39;pick_event&#39;</span><span class="p">,</span>
+        <span class="n">partial</span><span class="p">(</span><span class="n">_create_subgraph_plot</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="o">=</span><span class="n">dna_helix_graph</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_remove_nucleotide_info_text</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">text_object</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Text</span><span class="p">):</span>
+    <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="c1"># event argument is there for interface even if it is not used here</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_nucleotide_info</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span>
+                          <span class="n">text_object</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">):</span>
+    <span class="n">mouseevent</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">mouseevent</span>
+    <span class="k">if</span> <span class="n">mouseevent</span><span class="o">.</span><span class="n">dblclick</span> <span class="ow">or</span> <span class="n">mouseevent</span><span class="o">.</span><span class="n">button</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">nucleotide_name</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">artist</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">nucleotide</span> <span class="o">=</span> <span class="n">_get_nucleotide_by_name</span><span class="p">(</span><span class="n">nucleotide_name</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">)</span>
+    <span class="n">nucleotide_info</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">get_nucleotide_info</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="o">=</span><span class="n">nucleotide</span><span class="p">)</span>
+
+    <span class="n">nucleotide_info_text</span> <span class="o">=</span> <span class="s2">&quot;Information for </span><span class="si">{}</span><span class="s2">:</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">nucleotide_name</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">nucleotide_info_text</span> <span class="o">+=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">format_nucleotide_info</span><span class="p">(</span>
+        <span class="n">nucleotide_info</span><span class="p">)</span>
+
+    <span class="n">xlim</span> <span class="o">=</span> <span class="n">subplot</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">ylim</span> <span class="o">=</span> <span class="n">subplot</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">text_coord</span> <span class="o">=</span> <span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                  <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="n">nucleotide_info_text</span><span class="p">)</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_x</span><span class="p">(</span><span class="n">text_coord</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_y</span><span class="p">(</span><span class="n">text_coord</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_create_subgraph_plot</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">):</span>
+    <span class="n">mouseevent</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">mouseevent</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mouseevent</span><span class="o">.</span><span class="n">dblclick</span> <span class="ow">or</span> <span class="n">mouseevent</span><span class="o">.</span><span class="n">button</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">nucleotide_name</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">artist</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">nucleotide</span> <span class="o">=</span> <span class="n">_get_nucleotide_by_name</span><span class="p">(</span><span class="n">nucleotide_name</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Create subgraph plot for </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">nucleotide_name</span><span class="p">)</span>
+    <span class="n">figure</span><span class="p">,</span> <span class="n">subplot</span> <span class="o">=</span> <span class="n">_create_figure_with_subplot</span><span class="p">()</span>
+    <span class="n">figure</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Subgraph of nucleotide </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nucleotide_name</span><span class="p">))</span>
+
+    <span class="n">nucleotide_with_neighbors_subgraph</span> <span class="o">=</span> <span class="n">_get_nucleotide_subgraph</span><span class="p">(</span>
+        <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">nucleotide</span><span class="p">)</span>
+    <span class="n">draw_dna_helix_on_subplot</span><span class="p">(</span>
+        <span class="n">nucleotide_with_neighbors_subgraph</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">_draw_click_instructions</span><span class="p">(</span><span class="n">subplot</span><span class="p">,</span> <span class="n">doubleclick</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Done!&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_nucleotide_by_name</span><span class="p">(</span><span class="n">nucleotide_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]:</span>
+    <span class="n">nucleotide</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="n">dna_helix_graph</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">nucleotide_name</span><span class="p">:</span>
+            <span class="n">nucleotide</span> <span class="o">=</span> <span class="n">each_nucleotide</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">nucleotide</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_legend</span><span class="p">(</span><span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">):</span>
+    <span class="n">nucleotide_patches</span><span class="p">,</span> <span class="n">nucleotide_class_names_with_names</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">())</span>
+    <span class="n">nucleotide_class_names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">each_class_name_with_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">each_class_name_with_name</span> <span class="ow">in</span> <span class="n">nucleotide_class_names_with_names</span><span class="p">]</span>
+    <span class="n">legend_labels</span><span class="p">,</span> <span class="n">legend_items</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">OrderedDict</span><span class="p">(</span>
+        <span class="nb">zip</span><span class="p">(</span><span class="n">nucleotide_class_names</span><span class="p">,</span> <span class="n">nucleotide_patches</span><span class="p">))</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">legend_items</span><span class="p">,</span> <span class="n">legend_labels</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">,</span>
+                   <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Nucleotide types&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_dna_connections</span><span class="p">(</span>
+        <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+        <span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span>
+        <span class="n">nucleotide_positions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">],</span>
+        <span class="n">nucleotide_plots</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">],</span>
+        <span class="n">verbosity</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># assumes that the coordinates are equal scaled in the view</span>
+    <span class="n">edge_label</span> <span class="o">=</span> <span class="s2">&quot;_dna_edge&quot;</span>
+    <span class="n">_remove_dna_edge_patches</span><span class="p">(</span><span class="n">subplot</span><span class="p">,</span> <span class="n">edge_label</span><span class="p">)</span>
+
+    <span class="n">nucleotide_body_patch</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nucleotide_plots</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">body</span>
+    <span class="n">body_patch_window_extent</span> <span class="o">=</span> <span class="n">nucleotide_body_patch</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">verbosity</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">node_size_pixels</span> <span class="o">=</span> <span class="p">(</span><span class="n">body_patch_window_extent</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">1.5</span>
+                            <span class="o">*</span> <span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+        <span class="n">edge_patches</span> <span class="o">=</span> <span class="n">_draw_without_key_connections</span><span class="p">(</span>
+            <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">node_size_pixels</span><span class="p">,</span> <span class="n">nucleotide_positions</span><span class="p">,</span> <span class="n">subplot</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge_patches</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">each_edge_patch</span> <span class="ow">in</span> <span class="n">edge_patches</span><span class="p">:</span>
+                <span class="n">each_edge_patch</span><span class="o">.</span><span class="n">set_zorder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">edge_patches</span> <span class="o">=</span> <span class="n">_draw_with_key_connections</span><span class="p">(</span>
+            <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">,</span> <span class="n">subplot</span><span class="p">)</span>
+
+    <span class="n">edge_patches</span> <span class="o">=</span> <span class="n">edge_patches</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_edge_patch</span> <span class="ow">in</span> <span class="n">edge_patches</span><span class="p">:</span>
+        <span class="n">each_edge_patch</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">edge_label</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_without_key_connections</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">node_size_pixels</span><span class="p">,</span>
+                                  <span class="n">nucleotide_positions</span><span class="p">,</span> <span class="n">subplot</span>
+                                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">patches</span><span class="o">.</span><span class="n">FancyArrowPatch</span><span class="p">]:</span>
+    <span class="n">edge_patches</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span>
+        <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">nucleotide_positions</span><span class="p">,</span>
+        <span class="n">node_size</span><span class="o">=</span><span class="n">node_size_pixels</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">subplot</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">edge_patches</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_with_key_connections</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">,</span> <span class="n">subplot</span>
+                               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">patches</span><span class="o">.</span><span class="n">FancyArrowPatch</span><span class="p">]:</span>
+    <span class="n">edge_patches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="n">dna_helix_graph</span><span class="p">:</span>
+        <span class="n">edge_patches_for_nucleotide</span> <span class="o">=</span> <span class="n">_draw_nucleotide_keys_connections</span><span class="p">(</span>
+            <span class="n">each_nucleotide</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">edge_patches_for_nucleotide</span><span class="p">:</span>
+            <span class="n">edge_patches</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">edge_patches_for_nucleotide</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_edge_patch</span> <span class="ow">in</span> <span class="n">edge_patches</span><span class="p">:</span>
+        <span class="n">subplot</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">each_edge_patch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">edge_patches</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_nucleotide_keys_connections</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">dna_helix_graph</span><span class="p">,</span>
+                                      <span class="n">nucleotide_plots</span>
+                                      <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">patches</span><span class="o">.</span><span class="n">FancyArrowPatch</span><span class="p">]:</span>
+    <span class="n">edge_patches_for_nucleotide</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">predecessors</span> <span class="o">=</span> <span class="n">dna_helix_graph</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">)</span>
+    <span class="n">successors</span> <span class="o">=</span> <span class="n">dna_helix_graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_inbound_nucleotide</span> <span class="ow">in</span> <span class="n">predecessors</span><span class="p">:</span>
+        <span class="n">edge_patches</span> <span class="o">=</span> <span class="n">_draw_key_connections_for_nucleotide_pair</span><span class="p">(</span>
+            <span class="n">nucleotide</span><span class="p">,</span> <span class="n">each_inbound_nucleotide</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">)</span>
+        <span class="n">edge_patches_for_nucleotide</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">edge_patches</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_outgoing_nucleotide</span> <span class="ow">in</span> <span class="n">successors</span><span class="p">:</span>
+        <span class="n">edge_patches</span> <span class="o">=</span> <span class="n">_draw_key_connections_for_nucleotide_pair</span><span class="p">(</span>
+            <span class="n">each_outgoing_nucleotide</span><span class="p">,</span> <span class="n">nucleotide</span><span class="p">,</span> <span class="n">nucleotide_plots</span><span class="p">)</span>
+        <span class="n">edge_patches_for_nucleotide</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">edge_patches</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">edge_patches_for_nucleotide</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_key_connections_for_nucleotide_pair</span><span class="p">(</span>
+        <span class="n">nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">,</span>
+        <span class="n">inbound_nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">,</span>
+        <span class="n">nucleotide_plots</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">patches</span><span class="o">.</span><span class="n">FancyArrowPatch</span><span class="p">]:</span>
+    <span class="n">nucleotide_plot</span> <span class="o">=</span> <span class="n">nucleotide_plots</span><span class="p">[</span><span class="n">nucleotide</span><span class="p">]</span>
+    <span class="n">incoming_nucleotide_plot</span> <span class="o">=</span> <span class="n">nucleotide_plots</span><span class="p">[</span><span class="n">inbound_nucleotide</span><span class="p">]</span>
+
+    <span class="n">inputs_to_nucleotide</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_inbound_node</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+                            <span class="k">for</span> <span class="n">each_inbound_node</span> <span class="ow">in</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">inbound_nodes</span><span class="p">}</span>
+    <span class="n">inputs_to_nucleotide</span><span class="p">[</span><span class="n">inbound_nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">k</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">inbound_nucleotide</span><span class="o">.</span><span class="n">generated_keys_all</span><span class="p">}</span>
+
+    <span class="n">inputs_to_nucleotide_filtered</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">filter_inputs</span><span class="p">(</span>
+        <span class="n">inputs_to_nucleotide</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;&quot;</span> <span class="ow">in</span> <span class="n">inputs_to_nucleotide_filtered</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">inputs_to_nucleotide_filtered</span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+    <span class="n">edge_patches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_incoming_key</span><span class="p">,</span> <span class="n">each_generated_key</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="n">inputs_to_nucleotide_filtered</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">edge_patch</span> <span class="o">=</span> <span class="n">_draw_edge_between_keys</span><span class="p">(</span>
+            <span class="n">nucleotide</span><span class="p">,</span> <span class="n">inbound_nucleotide</span><span class="p">,</span>
+            <span class="n">each_incoming_key</span><span class="p">,</span> <span class="n">each_generated_key</span><span class="p">,</span>
+            <span class="n">nucleotide_plot</span><span class="p">,</span> <span class="n">incoming_nucleotide_plot</span><span class="p">)</span>
+        <span class="n">edge_patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge_patch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">edge_patches</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_edge_between_keys</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">,</span>
+                            <span class="n">inbound_nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">,</span>
+                            <span class="n">incoming_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">generated_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">nucleotide_plot</span><span class="p">:</span> <span class="n">_NUCLEOTIDE_PLOT</span><span class="p">,</span>
+                            <span class="n">inbound_nucleotide_plot</span><span class="p">:</span> <span class="n">_NUCLEOTIDE_PLOT</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">patches</span><span class="o">.</span><span class="n">FancyArrowPatch</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">incoming_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys_all</span><span class="p">:</span>
+        <span class="n">incoming_key</span> <span class="o">=</span> <span class="s2">&quot;DYNAMIC&quot;</span>
+    <span class="k">if</span> <span class="n">generated_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">inbound_nucleotide</span><span class="o">.</span><span class="n">generated_keys_all</span><span class="p">:</span>
+        <span class="n">generated_key</span> <span class="o">=</span> <span class="s2">&quot;DYNAMIC&quot;</span>
+    <span class="n">generated_key_wedge_patch</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">inbound_nucleotide_plot</span><span class="o">.</span><span class="n">generated_keys</span><span class="p">[</span>
+            <span class="n">generated_key</span><span class="p">])</span>
+    <span class="n">incoming_key_wedge_patch</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">nucleotide_plot</span><span class="o">.</span><span class="n">incoming_keys</span><span class="p">[</span><span class="n">incoming_key</span><span class="p">])</span>
+    <span class="n">position0</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_get_wedge_center_and_angle</span><span class="p">(</span>
+        <span class="n">generated_key_wedge_patch</span><span class="o">.</span><span class="n">center</span><span class="p">,</span>
+        <span class="n">generated_key_wedge_patch</span><span class="o">.</span><span class="n">r</span> <span class="o">-</span> <span class="n">generated_key_wedge_patch</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+        <span class="n">generated_key_wedge_patch</span><span class="o">.</span><span class="n">theta1</span><span class="p">,</span>
+        <span class="n">generated_key_wedge_patch</span><span class="o">.</span><span class="n">theta2</span><span class="p">,</span>
+        <span class="n">generated_key_wedge_patch</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">position1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_get_wedge_center_and_angle</span><span class="p">(</span>
+        <span class="n">incoming_key_wedge_patch</span><span class="o">.</span><span class="n">center</span><span class="p">,</span>
+        <span class="n">incoming_key_wedge_patch</span><span class="o">.</span><span class="n">r</span> <span class="o">-</span> <span class="n">incoming_key_wedge_patch</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+        <span class="n">incoming_key_wedge_patch</span><span class="o">.</span><span class="n">theta1</span><span class="p">,</span>
+        <span class="n">incoming_key_wedge_patch</span><span class="o">.</span><span class="n">theta2</span><span class="p">,</span>
+        <span class="n">incoming_key_wedge_patch</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+        <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">inbound_nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">incoming_key</span><span class="p">,</span>
+                       <span class="n">nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                       <span class="n">generated_key</span><span class="p">]))</span> <span class="o">&gt;&gt;</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">edge_patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">FancyArrowPatch</span><span class="p">(</span>
+        <span class="n">posA</span><span class="o">=</span><span class="n">position0</span><span class="p">,</span> <span class="n">posB</span><span class="o">=</span><span class="n">position1</span><span class="p">,</span>
+        <span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-|&gt;&#39;</span><span class="p">,</span>
+        <span class="n">mutation_scale</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">edgecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">edge_patch</span>
+
+
+<span class="k">def</span> <span class="nf">_get_nucleotide_subgraph</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">:</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">,</span> <span class="n">nucleotide</span><span class="p">):</span>
+    <span class="n">predecessors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">))</span>
+    <span class="n">successors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">))</span>
+    <span class="n">neighbors_with_nucleotide</span> <span class="o">=</span> <span class="n">predecessors</span> <span class="o">+</span> <span class="p">[</span><span class="n">nucleotide</span><span class="p">]</span> <span class="o">+</span> <span class="n">successors</span>
+    <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">subgraph</span><span class="p">(</span><span class="n">dna_helix_graph</span><span class="p">,</span> <span class="n">neighbors_with_nucleotide</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_remove_dna_edge_patches</span><span class="p">(</span><span class="n">subplot</span><span class="p">,</span> <span class="n">edge_label</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">each_patch</span> <span class="ow">in</span> <span class="n">subplot</span><span class="o">.</span><span class="n">patches</span><span class="p">[:]:</span>
+        <span class="k">if</span> <span class="n">each_patch</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span> <span class="o">==</span> <span class="n">edge_label</span><span class="p">:</span>
+            <span class="n">each_patch</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_nucleotide_body</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+                          <span class="n">radius</span><span class="o">=</span><span class="mf">10.0</span><span class="p">):</span>
+    <span class="n">nucleotide_color</span><span class="p">,</span> <span class="n">nucleotide_base_class</span> <span class="o">=</span> <span class="n">_get_nucleotide_color</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">)</span>
+    <span class="n">nucleotide_name</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nucleotide_name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">nucleotide_name</span> <span class="o">=</span> <span class="n">nucleotide_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;_</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">nucleotide_body</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+        <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">nucleotide_color</span><span class="p">)</span>
+    <span class="n">text_object</span> <span class="o">=</span> <span class="n">subplot</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+        <span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">nucleotide_name</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">nucleotide_body</span><span class="p">)</span>
+    <span class="n">nucleotide_body</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span>
+        <span class="n">partial</span><span class="p">(</span><span class="n">_nucleotide_name_callback</span><span class="p">,</span> <span class="n">text_object</span><span class="o">=</span><span class="n">text_object</span><span class="p">))</span>
+    <span class="n">nucleotide_body</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">nucleotide_base_class</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                                        <span class="n">nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">]))</span>
+    <span class="n">nucleotide_body</span><span class="o">.</span><span class="n">set_picker</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nucleotide_body</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_nucleotide_incoming_keys</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span>
+                                   <span class="n">nucleotide_body_patch</span><span class="p">:</span> <span class="n">patches</span><span class="o">.</span><span class="n">Circle</span><span class="p">,</span>
+                                   <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+                                   <span class="n">radius</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
+    <span class="n">theta_min</span><span class="p">,</span> <span class="n">theta_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">180</span>
+    <span class="n">keys_color</span> <span class="o">=</span> <span class="n">_get_key_color</span><span class="p">(</span><span class="s2">&quot;incoming&quot;</span><span class="p">)</span>
+    <span class="n">incoming_keys_required</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys_required</span>
+    <span class="k">if</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">dynamic_incoming_keys</span><span class="p">:</span>
+        <span class="n">incoming_keys_required</span> <span class="o">=</span> <span class="n">incoming_keys_required</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;DYNAMIC&quot;</span><span class="p">]</span>
+    <span class="n">key_patches</span> <span class="o">=</span> <span class="n">_draw_nucleotide_keys</span><span class="p">(</span>
+        <span class="n">incoming_keys_required</span><span class="p">,</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys_optional</span><span class="p">,</span>
+        <span class="n">center</span><span class="p">,</span> <span class="n">nucleotide_body_patch</span><span class="o">=</span><span class="n">nucleotide_body_patch</span><span class="p">,</span>
+        <span class="n">subplot</span><span class="o">=</span><span class="n">subplot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">keys_color</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+        <span class="n">theta_min</span><span class="o">=</span><span class="n">theta_min</span><span class="p">,</span> <span class="n">theta_max</span><span class="o">=</span><span class="n">theta_max</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">key_patches</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_nucleotide_generated_keys</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span>
+                                    <span class="n">nucleotide_body_patch</span><span class="p">:</span> <span class="n">patches</span><span class="o">.</span><span class="n">Circle</span><span class="p">,</span>
+                                    <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+                                    <span class="n">radius</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">5.0</span><span class="p">):</span>
+    <span class="n">theta_min</span><span class="p">,</span> <span class="n">theta_max</span> <span class="o">=</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span>
+    <span class="n">keys_color</span> <span class="o">=</span> <span class="n">_get_key_color</span><span class="p">(</span><span class="s2">&quot;generated&quot;</span><span class="p">)</span>
+    <span class="n">generated_keys_required</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">generated_keys_required</span>
+    <span class="k">if</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">dynamic_generated_keys</span><span class="p">:</span>
+        <span class="n">generated_keys_required</span> <span class="o">=</span> <span class="n">generated_keys_required</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;DYNAMIC&quot;</span><span class="p">]</span>
+    <span class="n">key_patches</span> <span class="o">=</span> <span class="n">_draw_nucleotide_keys</span><span class="p">(</span>
+        <span class="n">generated_keys_required</span><span class="p">,</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">generated_keys_optional</span><span class="p">,</span>
+        <span class="n">center</span><span class="p">,</span> <span class="n">nucleotide_body_patch</span><span class="o">=</span><span class="n">nucleotide_body_patch</span><span class="p">,</span>
+        <span class="n">subplot</span><span class="o">=</span><span class="n">subplot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">keys_color</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+        <span class="n">theta_min</span><span class="o">=</span><span class="n">theta_min</span><span class="p">,</span> <span class="n">theta_max</span><span class="o">=</span><span class="n">theta_max</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">key_patches</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_nucleotide_keys</span><span class="p">(</span><span class="n">keys_required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                          <span class="n">keys_optional</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                          <span class="n">center</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+                          <span class="n">nucleotide_body_patch</span><span class="p">:</span> <span class="n">patches</span><span class="o">.</span><span class="n">Circle</span><span class="p">,</span>
+                          <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+                          <span class="n">color</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+                          <span class="n">theta_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">theta_max</span><span class="o">=</span><span class="mi">180</span><span class="p">):</span>
+    <span class="c1"># pylint: disable=too-many-arguments</span>
+    <span class="c1"># not possible to have less arguments without more complexity</span>
+    <span class="c1"># pylint: disable=too-many-locals</span>
+    <span class="c1"># is not possible to split the method without more complexity</span>
+    <span class="n">keys_required</span> <span class="o">=</span> <span class="n">keys_required</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">keys_optional</span> <span class="o">=</span> <span class="n">keys_optional</span> <span class="ow">or</span> <span class="p">[]</span>
+
+    <span class="n">keys_all</span> <span class="o">=</span> <span class="n">keys_required</span> <span class="o">+</span> <span class="n">keys_optional</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">keys_all</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">number_of_keys</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys_all</span><span class="p">)</span>
+    <span class="n">theta_delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">theta_max</span> <span class="o">-</span> <span class="n">theta_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">number_of_keys</span>
+    <span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">theta_min</span><span class="p">,</span> <span class="n">theta_max</span><span class="p">,</span> <span class="n">theta_delta</span><span class="p">)</span>
+    <span class="n">key_patches</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_start_theta</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys_all</span><span class="p">,</span> <span class="n">thetas</span><span class="p">):</span>
+        <span class="n">hatch</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="k">if</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">keys_optional</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">theta1</span> <span class="o">=</span> <span class="n">each_start_theta</span>
+        <span class="n">theta2</span> <span class="o">=</span> <span class="n">theta1</span> <span class="o">+</span> <span class="n">theta_delta</span>
+        <span class="n">key_patch</span> <span class="o">=</span> <span class="n">patches</span><span class="o">.</span><span class="n">Wedge</span><span class="p">(</span>
+            <span class="n">center</span><span class="p">,</span> <span class="n">radius</span> <span class="o">+</span> <span class="n">width</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span>
+            <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">hatch</span><span class="o">=</span><span class="n">hatch</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+        <span class="n">key_patches</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">key_patch</span>
+
+        <span class="n">text_object</span> <span class="o">=</span> <span class="n">_draw_key_text</span><span class="p">(</span>
+            <span class="n">each_key</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">subplot</span><span class="p">)</span>
+        <span class="n">key_patch</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span>
+            <span class="n">_nucleotide_key_text_callback</span><span class="p">,</span>
+            <span class="n">text_object</span><span class="o">=</span><span class="n">text_object</span><span class="p">,</span>
+            <span class="n">nucleotide_body_patch</span><span class="o">=</span><span class="n">nucleotide_body_patch</span><span class="p">))</span>
+        <span class="n">subplot</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">key_patch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">key_patches</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_key_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span>
+                   <span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span> <span class="o">**</span><span class="n">text_kwargs</span><span class="p">):</span>
+    <span class="n">text_center</span><span class="p">,</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">_get_wedge_center_and_angle</span><span class="p">(</span>
+        <span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+    <span class="n">text_angle</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="mi">90</span>
+    <span class="k">if</span> <span class="n">text_angle</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="n">text_angle</span> <span class="o">=</span> <span class="n">text_angle</span> <span class="o">-</span> <span class="mi">180</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;_</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">text_object</span> <span class="o">=</span> <span class="n">subplot</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">text_center</span><span class="p">,</span>
+                                   <span class="n">verticalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                                   <span class="n">horizontalalignment</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                                   <span class="n">rotation</span><span class="o">=</span><span class="n">text_angle</span><span class="p">,</span> <span class="o">**</span><span class="n">text_kwargs</span><span class="p">)</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">subplot</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text_object</span>
+
+
+<span class="k">def</span> <span class="nf">_get_wedge_center_and_angle</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">theta1</span><span class="p">,</span> <span class="n">theta2</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">text_radius</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">+</span> <span class="n">width</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta1</span> <span class="o">+</span> <span class="p">(</span><span class="n">theta2</span> <span class="o">-</span> <span class="n">theta1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">theta_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">theta</span> <span class="o">/</span> <span class="mi">180</span>
+    <span class="n">delta_x</span><span class="p">,</span> <span class="n">delta_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_grad</span><span class="p">)</span> <span class="o">*</span> <span class="n">text_radius</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_grad</span><span class="p">)</span>
+                        <span class="o">*</span> <span class="n">text_radius</span><span class="p">)</span>
+    <span class="n">wedge_center</span> <span class="o">=</span> <span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta_x</span><span class="p">,</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta_y</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">wedge_center</span><span class="p">,</span> <span class="n">theta</span>
+
+
+<span class="k">def</span> <span class="nf">_nucleotide_name_callback</span><span class="p">(</span><span class="n">patch</span><span class="p">:</span> <span class="n">patches</span><span class="o">.</span><span class="n">Circle</span><span class="p">,</span>
+                              <span class="n">text_object</span><span class="p">,</span> <span class="n">x_border</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">y_border</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="n">patch_window_extent</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">()</span>
+    <span class="n">_scale_font_size</span><span class="p">(</span><span class="n">text_object</span><span class="p">,</span> <span class="n">patch_window_extent</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+                     <span class="n">patch_window_extent</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">x_border</span><span class="p">,</span> <span class="n">y_border</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_nucleotide_key_text_callback</span><span class="p">(</span><span class="n">patch</span><span class="p">:</span> <span class="n">patches</span><span class="o">.</span><span class="n">Wedge</span><span class="p">,</span>
+                                  <span class="n">nucleotide_body_patch</span><span class="p">:</span> <span class="n">patches</span><span class="o">.</span><span class="n">Circle</span><span class="p">,</span>
+                                  <span class="n">text_object</span><span class="p">,</span> <span class="n">x_border</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">y_border</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="c1"># assumes that the coordinates are equal scaled in the view</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="n">nucleotide_body_patch</span><span class="o">.</span><span class="n">radius</span>
+    <span class="n">radius_with_width</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">+</span> <span class="n">patch</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">radius_with_half_width</span> <span class="o">=</span> <span class="n">radius</span> <span class="o">+</span> <span class="n">patch</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">initial_text_rotation</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">get_rotation</span><span class="p">()</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_rotation</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">body_patch_window_extent</span> <span class="o">=</span> <span class="n">nucleotide_body_patch</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">()</span>
+    <span class="n">scale_pixel_to_units</span> <span class="o">=</span> <span class="n">body_patch_window_extent</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">radius</span>
+    <span class="n">wedge_height_pixel</span> <span class="o">=</span> <span class="n">scale_pixel_to_units</span> <span class="o">*</span> <span class="n">patch</span><span class="o">.</span><span class="n">width</span>
+    <span class="n">wedge_width</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius_with_half_width</span> <span class="o">*</span>
+                   <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">patch</span><span class="o">.</span><span class="n">theta2</span> <span class="o">-</span> <span class="n">patch</span><span class="o">.</span><span class="n">theta1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">360</span><span class="p">)</span>
+
+    <span class="n">text_width_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
+        <span class="n">wedge_width</span><span class="p">,</span>
+        <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius_with_width</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">radius_with_half_width</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">text_width_max_pixel</span> <span class="o">=</span> <span class="n">scale_pixel_to_units</span> <span class="o">*</span> <span class="n">text_width_max</span>
+
+    <span class="n">_scale_font_size</span><span class="p">(</span><span class="n">text_object</span><span class="p">,</span> <span class="n">text_width_max_pixel</span><span class="p">,</span>
+                     <span class="n">wedge_height_pixel</span><span class="p">,</span> <span class="n">x_border</span><span class="p">,</span> <span class="n">y_border</span><span class="p">)</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_rotation</span><span class="p">(</span><span class="n">initial_text_rotation</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_scale_font_size</span><span class="p">(</span><span class="n">text_object</span><span class="p">,</span> <span class="n">max_width</span><span class="p">,</span> <span class="n">max_height</span><span class="p">,</span> <span class="n">x_border</span><span class="p">,</span> <span class="n">y_border</span><span class="p">):</span>
+    <span class="n">text_fontsize</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">get_fontsize</span><span class="p">()</span>
+    <span class="n">text_window_extent</span> <span class="o">=</span> <span class="n">text_object</span><span class="o">.</span><span class="n">get_window_extent</span><span class="p">()</span>
+    <span class="n">fontsize_scale_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_width</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x_border</span><span class="p">)</span>
+                            <span class="o">/</span> <span class="n">text_window_extent</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+    <span class="n">fontsize_scale_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_height</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_border</span><span class="p">)</span>
+                             <span class="o">/</span> <span class="n">text_window_extent</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+    <span class="n">fontsize_scale</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">fontsize_scale_width</span><span class="p">,</span> <span class="n">fontsize_scale_height</span><span class="p">)</span>
+    <span class="n">fontsize_rescaled</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">fontsize_scale</span> <span class="o">*</span> <span class="n">text_fontsize</span><span class="p">))</span>
+    <span class="n">text_object</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="n">fontsize_rescaled</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_draw_click_instructions</span><span class="p">(</span><span class="n">subplot</span><span class="p">:</span> <span class="n">plt_axes</span><span class="o">.</span><span class="n">Subplot</span><span class="p">,</span>
+                             <span class="n">doubleclick</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">singleclck</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">instruction_texts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">instruction_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Interactive instructions:&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">singleclck</span><span class="p">:</span>
+        <span class="n">instruction_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;Click once on nucleotide to see its information&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">doubleclick</span><span class="p">:</span>
+        <span class="n">instruction_texts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="s2">&quot;Make double clock on nucleotide to cut the subgraph with its &quot;</span>
+            <span class="s2">&quot;incoming and outgoing nucleotides in new figure&quot;</span><span class="p">)</span>
+
+    <span class="n">instruction_text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">instruction_texts</span><span class="p">)</span>
+    <span class="n">subplot</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+        <span class="n">instruction_text</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s2">&quot;figure fraction&quot;</span><span class="p">,</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span> <span class="n">ma</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">5.0</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_get_nucleotide_color</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">type</span><span class="p">]]:</span>
+    <span class="c1"># pylint: disable=too-many-return-statements,too-many-branches</span>
+    <span class="c1"># no way to combine it further and no way to express it over dict</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">ModelPlugin</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;royalblue&quot;</span><span class="p">,</span> <span class="n">ModelPlugin</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">ModelPostProcessor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;violet&quot;</span><span class="p">,</span> <span class="n">ModelPostProcessor</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">ModelLoss</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;darkorange&quot;</span><span class="p">,</span> <span class="n">ModelLoss</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">ModelMetric</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;olive&quot;</span><span class="p">,</span> <span class="n">ModelMetric</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">ModelSummary</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;sienna&#39;</span><span class="p">,</span> <span class="n">ModelSummary</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">KPIEvaluatorCallback</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;salmon&#39;</span><span class="p">,</span> <span class="n">KPIEvaluatorCallback</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">CoordinatorCallback</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">CoordinatorCallback</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">Dataset</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">DataFeeder</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">DataFeeder</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">DataReader</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">DataReader</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">DataProcessor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;darkgreen&#39;</span><span class="p">,</span> <span class="n">DataProcessor</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">PredictorNucleotide</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;violet&#39;</span><span class="p">,</span> <span class="n">PredictorNucleotide</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">KPIAccumulator</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;salmon&#39;</span><span class="p">,</span> <span class="n">KPIAccumulator</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="n">KPIPlugin</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;royalblue&#39;</span><span class="p">,</span> <span class="n">KPIPlugin</span>
+    <span class="k">return</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">Nucleotide</span>
+
+
+<span class="k">def</span> <span class="nf">_get_key_color</span><span class="p">(</span><span class="n">key_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">key_type</span> <span class="o">==</span> <span class="s2">&quot;incoming&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;lightgray&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;darkgrey&quot;</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.register &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.register</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.register</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Register class and API</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils.warnings</span> <span class="kn">import</span> <span class="n">RegisterWarning</span>
+
+
+<span class="k">class</span> <span class="nc">_Register</span><span class="p">:</span>
+    <span class="n">_register_name_scopes</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">_used_register_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">name_scope</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register nucleotide class</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name_scope</span>
+<span class="sd">            name scope to register to</span>
+<span class="sd">        name</span>
+<span class="sd">            register name</span>
+<span class="sd">        cls</span>
+<span class="sd">            class to register</span>
+
+<span class="sd">        Warnings</span>
+<span class="sd">        --------</span>
+<span class="sd">        RegisterWarning</span>
+<span class="sd">            if class name already in use; in that case new class will be used</span>
+<span class="sd">            inside of register</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_used_register_names</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Name </span><span class="si">{}</span><span class="s2"> for class </span><span class="si">{}</span><span class="s2"> is already in use!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">RegisterWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">name_scope</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="p">[</span><span class="n">name_scope</span><span class="p">][</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
+        <span class="n">_Register</span><span class="o">.</span><span class="n">_used_register_names</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">retrieve</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">super_cls</span><span class="p">:</span> <span class="n">Optional</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve object by name from register</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name</span>
+<span class="sd">            name of registered class</span>
+<span class="sd">        super_cls</span>
+<span class="sd">            super class</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if no class was registered with that name</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if super_cls is provided and retrieved class does not inherit from</span>
+<span class="sd">            it</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        cls</span>
+<span class="sd">            class from register</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">register_all</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">crm</span> <span class="ow">in</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">register_all</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">crm</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">cls</span> <span class="o">=</span> <span class="n">register_all</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Name </span><span class="si">{}</span><span class="s2"> is not inside of nucleus7 register. &quot;</span>
+                   <span class="s2">&quot;Did you forget to include your library?&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">super_cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">super_cls</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Class </span><span class="si">{}</span><span class="s2"> with name </span><span class="si">{}</span><span class="s2"> is is not instance of &quot;</span>
+                       <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!!!&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">super_cls</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get register</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset register</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">_Register</span><span class="o">.</span><span class="n">_used_register_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">remove_from_name_scope</span><span class="p">(</span><span class="n">name_scope</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cls_or_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove registered cls from name scope</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name_scope</span>
+<span class="sd">            name scope</span>
+<span class="sd">        cls_or_name</span>
+<span class="sd">            class to remove or registered name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name_scope</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">name_scope_register</span> <span class="o">=</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="p">[</span><span class="n">name_scope</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cls_or_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">cls_or_name</span> <span class="ow">in</span> <span class="n">name_scope_register</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">name_scope_register</span><span class="p">[</span><span class="n">cls_or_name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">name_scope_register</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="p">[</span><span class="n">name_scope</span><span class="p">]</span>
+            <span class="k">return</span>
+        <span class="n">name_to_remove</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_cls</span> <span class="ow">in</span> <span class="n">name_scope_register</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">each_cls</span> <span class="ow">is</span> <span class="n">cls_or_name</span><span class="p">:</span>
+                <span class="n">name_to_remove</span> <span class="o">=</span> <span class="n">each_name</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">name_to_remove</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">name_scope_register</span><span class="p">[</span><span class="n">name_to_remove</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name_scope_register</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">_Register</span><span class="o">.</span><span class="n">_register_name_scopes</span><span class="p">[</span><span class="n">name_scope</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="register"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.register.register">[docs]</a><span class="nd">@deprecated</span><span class="o">.</span><span class="n">warn_deprecated_method</span><span class="p">(</span>
+    <span class="n">additional_instructions</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Remove this decorator from nucleus7 classes. &quot;</span>
+                             <span class="s2">&quot;Register is automatically performed by &quot;</span>
+                             <span class="s2">&quot;inheriting. See MetaLogAndRegister for more &quot;</span>
+                             <span class="s2">&quot;details how to control it&quot;</span><span class="p">))</span>
+<span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="c1"># the API must be the same as deprecated to not cause the failures</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DEPRECATED</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_register</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">cls</span>
+
+    <span class="k">return</span> <span class="n">_register</span></div>
+
+
+<div class="viewcode-block" id="register_to_name_scope"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.register.register_to_name_scope">[docs]</a><span class="k">def</span> <span class="nf">register_to_name_scope</span><span class="p">(</span><span class="n">name_scope</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span>
+                           <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Register nucleotide class</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name_scope</span>
+<span class="sd">        name scope to register to</span>
+<span class="sd">    name</span>
+<span class="sd">        register name</span>
+<span class="sd">    cls</span>
+<span class="sd">        class to register</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if class name already in use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_Register</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">name_scope</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="retrieve_from_register"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.register.retrieve_from_register">[docs]</a><span class="k">def</span> <span class="nf">retrieve_from_register</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">base_cls</span><span class="p">:</span> <span class="n">Optional</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">type</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve object by name from register</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name</span>
+<span class="sd">        name of registered class</span>
+<span class="sd">    base_cls</span>
+<span class="sd">        super class</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    KeyError</span>
+<span class="sd">        if no class was registered with that name</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if super_cls is provided and retrieved class does not inherit from it</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cls</span>
+<span class="sd">        class from register</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_Register</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">base_cls</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="remove_from_name_scope"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.register.remove_from_name_scope">[docs]</a><span class="k">def</span> <span class="nf">remove_from_name_scope</span><span class="p">(</span><span class="n">name_scope</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">cls_or_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove registered cls from name scope</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    name_scope</span>
+<span class="sd">        name scope</span>
+<span class="sd">    cls_or_name</span>
+<span class="sd">        class to remove or registered name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_Register</span><span class="o">.</span><span class="n">remove_from_name_scope</span><span class="p">(</span><span class="n">name_scope</span><span class="p">,</span> <span class="n">cls_or_name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_register"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.register.get_register">[docs]</a><span class="k">def</span> <span class="nf">get_register</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get register</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    register</span>
+<span class="sd">        register with name scopes and registered classes inside</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_Register</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="reset_register"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.register.reset_register">[docs]</a><span class="k">def</span> <span class="nf">reset_register</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reset register</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_Register</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

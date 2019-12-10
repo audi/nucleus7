@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to nucleus7’s documentation! &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to nucleus7’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-nucleus7-s-documentation">
+<h1>Welcome to nucleus7’s documentation!<a class="headerlink" href="#welcome-to-nucleus7-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#glossary-a-name-glossary-a">Glossary <span class="raw-html-m2r"><a name="glossary"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#tutorials-a-name-tutorials-a">Tutorials  <span class="raw-html-m2r"><a name="tutorials"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#mlflow-integration-a-name-mlflow-integration-a">Mlflow_integration <span class="raw-html-m2r"><a name="Mlflow-integration"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Introduction.html#known-bugs-a-name-known-bugs-a">Known bugs <span class="raw-html-m2r"><a name="known-bugs"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#python-versions-a-name-python-version-a">Python versions <span class="raw-html-m2r"><a name="python-version"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#package-installation-a-name-package-installation-a">Package installation <span class="raw-html-m2r"><a name="package-installation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#local-installation-a-name-local-installation-a">Local installation <span class="raw-html-m2r"><a name="local-installation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#tensorrt-installation-a-name-tensorrt-installation-a">Tensorrt installation <span class="raw-html-m2r"><a name="tensorrt-installation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Installation.html#build-documentation-a-name-api-documentation-a">Build documentation <span class="raw-html-m2r"><a name="api-documentation"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Project.html#configs">Configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project.html#structure">Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Project.html#execution">Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Core.html#nucleotide-a-name-nucleotide-a">Nucleotide <span class="raw-html-m2r"><a name="nucleotide"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Core.html#dna-helix-a-name-dna-helix-a">DNA helix <span class="raw-html-m2r"><a name="dna-helix"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Core.html#genehandler-a-name-gene-handler-a">GeneHandler <span class="raw-html-m2r"><a name="gene-handler"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Core.html#buffer-intermediate-results-a-name-buffer-intermediate-results-a">Buffer intermediate results <span class="raw-html-m2r"><a name="buffer-intermediate-results"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataHandling.html#feeding-the-data">Feeding the data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#main-concepts-a-name-concepts-a">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#modelplugin-a-name-plugin-a">ModelPlugin <span class="raw-html-m2r"><a name="plugin"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#modelloss-a-name-loss-a">ModelLoss <span class="raw-html-m2r"><a name="loss"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#modelpostprocessor-a-name-postprocessor-a">ModelPostProcessor <span class="raw-html-m2r"><a name="postprocessor"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#modelsummary-a-name-postprocessor-a">ModelSummary <span class="raw-html-m2r"><a name="postprocessor"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#modelmetric-a-name-metric-a">ModelMetric <span class="raw-html-m2r"><a name="metric"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#model-a-name-model-a">Model <span class="raw-html-m2r"><a name="model"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#modelhandler-a-name-model-handler-a">ModelHandler <span class="raw-html-m2r"><a name="model-handler"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Model.html#restoring-of-nucleotide-variables-and-meta-graphs-a-name-restore-a">Restoring of nucleotide variables and meta graphs <span class="raw-html-m2r"><a name="restore"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Coordination.html#coordinatorcallback-a-name-callback-a">CoordinatorCallback <span class="raw-html-m2r"><a name="callback"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Coordination.html#callbackshandler-a-name-callbacks-handler-a">CallbacksHandler <span class="raw-html-m2r"><a name="callbacks-handler"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Coordination.html#trainer-a-name-trainer-a">Trainer <span class="raw-html-m2r"><a name="trainer"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Coordination.html#inferer-a-name-inferer-a">Inferer <span class="raw-html-m2r"><a name="inferer"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Optimization.html#optimization-control-levels-a-name-optim-control-levels-a">Optimization control levels <span class="raw-html-m2r"><a name="optim_control_levels"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization.html#learning-rate-manipulation-a-name-lr-manipulation-a">Learning rate manipulation <span class="raw-html-m2r"><a name="lr_manipulation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Optimization.html#supported-optimizers-a-name-supported-optimizers-a">Supported optimizers <span class="raw-html-m2r"><a name="supported-optimizers"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="KPI.html#main-concepts-a-name-concepts-a">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="KPI.html#kpiplugin-a-name-kpiplugin-a">KPIPlugin <span class="raw-html-m2r"><a name="kpiplugin"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="KPI.html#kpiaccumulator-a-name-kpiaccumulator-a">KPIAccumulator <span class="raw-html-m2r"><a name="kpiaccumulator"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="KPI.html#kpi-saving-a-name-saving-a">KPI saving <span class="raw-html-m2r"><a name="saving"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="KPI.html#kpi-caching-a-name-caching-a">KPI caching <span class="raw-html-m2r"><a name="caching"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="KPI.html#training-a-name-training-a">Training <span class="raw-html-m2r"><a name="training"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#create-new-nucleotide-a-name-create-new-nucleotide-a">Create new nucleotide <span class="raw-html-m2r"><a name="create-new-nucleotide"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#variables-sharing-for-multi-device-setups-a-name-variables-sharing-for-multi-device-setups-a">Variables sharing for multi-device setups <span class="raw-html-m2r"><a name="variables-sharing-for-multi-device-setups"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#use-of-keras-or-other-shared-state-objects-a-name-use-of-keras-a">Use of keras or other shared state objects <span class="raw-html-m2r"><a name="use-of-keras"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#add-model-parameters-that-can-be-modified-during-inference-a-name-model-parameters-during-inference-a">Add model parameters that can be modified during inference <span class="raw-html-m2r"><a name="model-parameters-during-inference"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#special-cases-a-name-special-cases-a">Special cases <span class="raw-html-m2r"><a name="special-cases"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development.html#data-format-a-name-data-format-a">Data format <span class="raw-html-m2r"><a name="data-format"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Contribution.html#code-guidelines-a-name-code-guidelines-a">Code guidelines <span class="raw-html-m2r"><a name="code-guidelines"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contribution.html#feature-request-a-name-feature-request-a">Feature request <span class="raw-html-m2r"><a name="feature-request"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contribution.html#development-a-name-development-a">Development <span class="raw-html-m2r"><a name="development"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contribution.html#resolving-bugs-a-name-resolving-bugs-a">Resolving bugs <span class="raw-html-m2r"><a name="resolving-bugs"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Contribution.html#tests-a-name-tests-a">Tests <span class="raw-html-m2r"><a name="tests"></a></span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.builder_lib">nucleus7.builders.builder_lib module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.callback_builder">nucleus7.builders.callback_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.data_builder_lib">nucleus7.builders.data_builder_lib module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.data_feeder_builder">nucleus7.builders.data_feeder_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.data_filter_builder">nucleus7.builders.data_filter_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.data_pipe_builder">nucleus7.builders.data_pipe_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.dataset_builder">nucleus7.builders.dataset_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.file_list_builder">nucleus7.builders.file_list_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.inferer_builder">nucleus7.builders.inferer_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.kpi_builder">nucleus7.builders.kpi_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.model_builder">nucleus7.builders.model_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.optimization_builders">nucleus7.builders.optimization_builders module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.runs_builder">nucleus7.builders.runs_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders.trainer_builder">nucleus7.builders.trainer_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.builders.html#module-nucleus7.builders">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.buffer_callback">nucleus7.coordinator.buffer_callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.callback">nucleus7.coordinator.callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.callbacks_handler">nucleus7.coordinator.callbacks_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.configs">nucleus7.coordinator.configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.coordinator">nucleus7.coordinator.coordinator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.exporters">nucleus7.coordinator.exporters module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.inferer">nucleus7.coordinator.inferer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.predictors">nucleus7.coordinator.predictors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.saver_callback">nucleus7.coordinator.saver_callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.session_run_hooks">nucleus7.coordinator.session_run_hooks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator.trainer">nucleus7.coordinator.trainer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.coordinator.html#module-nucleus7.coordinator">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.base">nucleus7.core.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.buffer">nucleus7.core.buffer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.config_logger">nucleus7.core.config_logger module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.dna_helix">nucleus7.core.dna_helix module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.fields">nucleus7.core.fields module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.gene_handler">nucleus7.core.gene_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.nucleotide">nucleus7.core.nucleotide module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.project">nucleus7.core.project module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.project_artifacts">nucleus7.core.project_artifacts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.project_dirs">nucleus7.core.project_dirs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.project_global_config">nucleus7.core.project_global_config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.project_serializer">nucleus7.core.project_serializer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core.register">nucleus7.core.register module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.core.html#module-nucleus7.core">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.base">nucleus7.data.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.data_feeder">nucleus7.data.data_feeder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.data_filter">nucleus7.data.data_filter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.data_pipe">nucleus7.data.data_pipe module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.dataset">nucleus7.data.dataset module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.file_list">nucleus7.data.file_list module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.processor">nucleus7.data.processor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data.reader">nucleus7.data.reader module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.data.html#module-nucleus7.data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi.accumulator">nucleus7.kpi.accumulator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi.cacher">nucleus7.kpi.cacher module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi.kpi_callback">nucleus7.kpi.kpi_callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi.kpi_evaluator">nucleus7.kpi.kpi_evaluator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi.kpi_plugin">nucleus7.kpi.kpi_plugin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi.saver">nucleus7.kpi.saver module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.kpi.html#module-nucleus7.kpi">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.configs">nucleus7.model.configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.fields">nucleus7.model.fields module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.loss">nucleus7.model.loss module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.metric">nucleus7.model.metric module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.model">nucleus7.model.model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.model_handler">nucleus7.model.model_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.plugin">nucleus7.model.plugin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.postprocessor">nucleus7.model.postprocessor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model.summary">nucleus7.model.summary module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.model.html#module-nucleus7.model">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.optimization.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.optimization.html#module-nucleus7.optimization.configs">nucleus7.optimization.configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.optimization.html#module-nucleus7.optimization.learning_rate_manipulator">nucleus7.optimization.learning_rate_manipulator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.optimization.html#module-nucleus7.optimization.optimization_handler">nucleus7.optimization.optimization_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.optimization.html#module-nucleus7.optimization">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.test_utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.test_utils.html#module-nucleus7.test_utils.model_dummies">nucleus7.test_utils.model_dummies module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.test_utils.html#module-nucleus7.test_utils.test_opt_utils">nucleus7.test_utils.test_opt_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.test_utils.html#module-nucleus7.test_utils.test_utils">nucleus7.test_utils.test_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.test_utils.html#module-nucleus7.test_utils">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.third_party.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.third_party.html#module-nucleus7.third_party.cifar10_utils">nucleus7.third_party.cifar10_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.third_party.html#module-nucleus7.third_party.nvidia_mixed_precision">nucleus7.third_party.nvidia_mixed_precision module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.third_party.html#module-nucleus7.third_party">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.cli_utils">nucleus7.utils.cli_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.deprecated">nucleus7.utils.deprecated module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.file_utils">nucleus7.utils.file_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.git_utils">nucleus7.utils.git_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.graph_utils">nucleus7.utils.graph_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.io_utils">nucleus7.utils.io_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.jupyter_utils">nucleus7.utils.jupyter_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.kpi_utils">nucleus7.utils.kpi_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.log_utils">nucleus7.utils.log_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.mlflow_utils">nucleus7.utils.mlflow_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.model_utils">nucleus7.utils.model_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.nest_utils">nucleus7.utils.nest_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.np_utils">nucleus7.utils.np_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.nucleotide_utils">nucleus7.utils.nucleotide_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.numpydoc_utils">nucleus7.utils.numpydoc_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.object_utils">nucleus7.utils.object_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.optimization_utils">nucleus7.utils.optimization_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.project_utils">nucleus7.utils.project_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.run_utils">nucleus7.utils.run_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tensorrt_utils">nucleus7.utils.tensorrt_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tf_collections_utils">nucleus7.utils.tf_collections_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tf_data_utils">nucleus7.utils.tf_data_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tf_objects_factory">nucleus7.utils.tf_objects_factory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tf_ops">nucleus7.utils.tf_ops module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tf_utils">nucleus7.utils.tf_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.tf_varscopes_utils">nucleus7.utils.tf_varscopes_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.utils">nucleus7.utils.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.vis_utils">nucleus7.utils.vis_utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils.warnings">nucleus7.utils.warnings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/nucleus7.utils.html#module-nucleus7.utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

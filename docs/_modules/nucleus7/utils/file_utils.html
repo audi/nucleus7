@@ -1,0 +1,643 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.file_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.file_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.file_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils to work with files</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+
+<div class="viewcode-block" id="get_subdirs"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.get_subdirs">[docs]</a><span class="k">def</span> <span class="nf">get_subdirs</span><span class="p">(</span><span class="n">root_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get all subdirectories inside of root_dir</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    root_dir</span>
+<span class="sd">        name of root directory to search for subdirectories</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    subdirectories</span>
+<span class="sd">        subdirectories</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">subdirs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root_dir</span><span class="p">)</span>
+                      <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_dir</span><span class="p">,</span> <span class="n">o</span><span class="p">))])</span>
+    <span class="k">return</span> <span class="n">subdirs</span></div>
+
+
+<div class="viewcode-block" id="match_file_names"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.match_file_names">[docs]</a><span class="k">def</span> <span class="nf">match_file_names</span><span class="p">(</span><span class="n">file_names</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">],</span>
+                     <span class="n">suffixes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">basename_fn</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Arrange file names for all keys from file_list and return them in sorted</span>
+<span class="sd">    order together with data, which keys are provided for each sample</span>
+
+<span class="sd">    If one file from file pairs not exist, it will be skipped.</span>
+
+<span class="sd">    &gt;&gt;&gt; file_list = {&#39;image&#39;: [&#39;image1&#39;, &#39;image2&#39;],</span>
+<span class="sd">                     &#39;labels&#39;: [&#39;image1_label&#39;, &#39;image3_label&#39;]}</span>
+<span class="sd">    &gt;&gt;&gt; file_list_reassigned, keys_for_fnames = match_file_names(file_list)</span>
+<span class="sd">    file_list_reassigned = {&#39;image&#39;: &#39;[image1&#39;], &#39;labels&#39;: [image1_label]}</span>
+<span class="sd">    keys_for_fnames = {&#39;image&#39;: [1],</span>
+<span class="sd">                       &#39;labels&#39;: [1]}</span>
+
+<span class="sd">    Also if file_list is list of subsets and each subset can have</span>
+<span class="sd">    different keys. In that case it will be resolved as follows</span>
+
+<span class="sd">    &gt;&gt;&gt; file_list = [{&#39;image&#39;: [&#39;image1&#39;, &#39;image2&#39;],</span>
+<span class="sd">                     &#39;labels&#39;: [&#39;image1_label&#39;, &#39;image3_label&#39;]},</span>
+<span class="sd">                     {&#39;image&#39;: [&#39;image10&#39;, &#39;image20&#39;],</span>
+<span class="sd">                     &#39;labels2&#39;: [&#39;image10_label&#39;, &#39;image20_label&#39;]}]</span>
+<span class="sd">    &gt;&gt;&gt; file_list_reassigned, keys_for_fnames = match_file_names(file_list)</span>
+<span class="sd">    file_list_reassigned = {&#39;image&#39;: [&#39;image1&#39;, &#39;image10&#39;, &#39;image20&#39;],</span>
+<span class="sd">                            &#39;labels&#39;: [&#39;image1_label&#39;, &#39;&#39;, &#39;&#39;],</span>
+<span class="sd">                            &#39;labels2&#39;: [&#39;&#39;, &#39;image10_label&#39;, &#39;image20_label&#39;]}</span>
+<span class="sd">    keys_for_fnames = {&#39;image&#39;: [1, 1, 1],</span>
+<span class="sd">                       &#39;labels&#39;: [1, 0, 0],</span>
+<span class="sd">                       &#39;labels2&#39;: [0, 1, 1]}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_names</span>
+<span class="sd">        dict with glob expressions or file names corresponding to each key;</span>
+<span class="sd">        corresponding files for should have same base names except of</span>
+<span class="sd">        file_suffixes[key], e.g. {base_name}{fname_suffix}{.ext}</span>
+<span class="sd">    suffixes</span>
+<span class="sd">        dict of suffixes that will be extracted from fname to match them;</span>
+<span class="sd">        can have same keys as file_list</span>
+<span class="sd">    basename_fn</span>
+<span class="sd">        function to get the matching base name from file name itself; if not</span>
+<span class="sd">        defined, only base names with suffix will be matched; if is a dict,</span>
+<span class="sd">        should have same</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    file_list_reassigned</span>
+<span class="sd">        reassigned dict with same keys as file_list but with corresponding</span>
+<span class="sd">        files is same order</span>
+<span class="sd">    keys_for_fnames</span>
+<span class="sd">        dict of lists with all possible keys from file_list and 1&#39;s if that</span>
+<span class="sd">        sample has corresponding file name and key and 0&#39;s otherwise; this</span>
+<span class="sd">        can be used e.g. for masking of losses</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">suffixes</span> <span class="o">=</span> <span class="n">suffixes</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">file_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">file_names</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file_names</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="n">file_names</span>
+    <span class="n">all_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">({</span><span class="n">k</span> <span class="k">for</span> <span class="n">file_names_subset</span> <span class="ow">in</span> <span class="n">file_names</span>
+                     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">file_names_subset</span><span class="o">.</span><span class="n">keys</span><span class="p">()})</span>
+
+    <span class="n">file_list_reassigned</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">keys_for_fnames</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">file_list_subset</span> <span class="ow">in</span> <span class="n">file_names</span><span class="p">:</span>
+        <span class="n">basenames_common</span><span class="p">,</span> <span class="n">file_names_reassigned_subset</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">_match_file_names_subset</span><span class="p">(</span><span class="n">basename_fn</span><span class="p">,</span> <span class="n">file_list_subset</span><span class="p">,</span> <span class="n">suffixes</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">all_keys</span><span class="p">:</span>
+            <span class="n">file_list_reassigned</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">keys_for_fnames</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">file_names_reassigned_subset</span><span class="p">:</span>
+                <span class="n">file_list_reassigned</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">basenames_common</span><span class="p">))</span>
+                <span class="n">keys_for_fnames</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">basenames_common</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file_list_reassigned</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                    <span class="n">file_names_reassigned_subset</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="n">keys_for_fnames</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">basenames_common</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">file_list_reassigned</span><span class="p">,</span> <span class="n">keys_for_fnames</span></div>
+
+
+<div class="viewcode-block" id="get_incremented_path"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.get_incremented_path">[docs]</a><span class="k">def</span> <span class="nf">get_incremented_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">add_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                         <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the path to a filename which does not exist by incrementing path.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; get_incremented_path(&#39;/etc/issue&#39;)</span>
+<span class="sd">    &#39;/etc/issue-1&#39;</span>
+<span class="sd">    &gt;&gt;&gt; get_incremented_path(&#39;whatever/1337bla.py&#39;)</span>
+<span class="sd">    &#39;whatever/1337bla.py&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">path_without_extension</span><span class="p">,</span> <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">path_dir</span><span class="p">,</span> <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path_without_extension</span><span class="p">)</span>
+    <span class="n">basename</span><span class="p">,</span> <span class="n">basename_without_index</span> <span class="o">=</span> <span class="n">_get_basename_without_index</span><span class="p">(</span>
+        <span class="n">add_index</span><span class="p">,</span> <span class="n">basename</span><span class="p">,</span> <span class="n">separator</span><span class="p">)</span>
+    <span class="n">existing_file_names</span> <span class="o">=</span> <span class="n">get_existing_fnames_with_index</span><span class="p">(</span><span class="n">basename_without_index</span><span class="p">,</span>
+                                                         <span class="n">path_dir</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span>
+                                                         <span class="n">separator</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">existing_file_names</span><span class="p">:</span>
+        <span class="n">non_existing_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_dir</span><span class="p">,</span> <span class="n">basename</span> <span class="o">+</span> <span class="n">extension</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">non_existing_path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">add_suffix</span><span class="p">(</span><span class="n">non_existing_path</span><span class="p">,</span> <span class="s1">&#39;-1&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">non_existing_path</span>
+
+    <span class="n">new_index</span> <span class="o">=</span> <span class="n">_get_index_from_path</span><span class="p">(</span><span class="n">existing_file_names</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">separator</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">incremented_file_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}{}{}{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">basename_without_index</span><span class="p">,</span> <span class="n">separator</span><span class="p">,</span> <span class="n">new_index</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+    <span class="n">incremented_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_dir</span><span class="p">,</span> <span class="n">incremented_file_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">incremented_path</span></div>
+
+
+<div class="viewcode-block" id="add_suffix"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.add_suffix">[docs]</a><span class="k">def</span> <span class="nf">add_suffix</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add suffix fo filename just before extension</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname</span>
+<span class="sd">        file name to add the suffix</span>
+<span class="sd">    suffix</span>
+<span class="sd">        suffix to add</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fname_with_suffix</span>
+<span class="sd">        file name with suffix</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; add_suffix(&#39;file/name.ext&#39;, &#39;_suffix&#39;)</span>
+<span class="sd">    &#39;file/name_suffix.ext&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fname_</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">fname_</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">ext</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="maybe_fnames_from_glob"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.maybe_fnames_from_glob">[docs]</a><span class="k">def</span> <span class="nf">maybe_fnames_from_glob</span><span class="p">(</span><span class="n">fnames</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Restore the file names from glob pattern if needed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fnames_expr</span> <span class="o">=</span> <span class="p">[</span><span class="n">fnames</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fnames</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">fnames</span>
+    <span class="n">fnames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">expr</span> <span class="ow">in</span> <span class="n">fnames_expr</span><span class="p">:</span>
+        <span class="n">fnames</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">expr</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">fnames</span></div>
+
+
+<div class="viewcode-block" id="get_basename_with_depth"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.get_basename_with_depth">[docs]</a><span class="k">def</span> <span class="nf">get_basename_with_depth</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">],</span> <span class="n">path_depth</span><span class="p">:</span> <span class="nb">int</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return basename with depth of fname_depth from full file path</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname</span>
+<span class="sd">        complete path to file</span>
+<span class="sd">    path_depth</span>
+<span class="sd">        how many directories back from the file must be returned</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    basename_with_subdirectories</span>
+<span class="sd">        basename with subdirectories till depth of path_depth</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; get_basename_with_depth(&quot;long/path/to/file.txt&quot;, 0)</span>
+<span class="sd">    &quot;&quot;, &quot;file.txt&quot;</span>
+<span class="sd">    &gt;&gt;&gt; get_basename_with_depth(&quot;long/path/to/file.txt&quot;, 2)</span>
+<span class="sd">    &quot;path/to&quot;, &quot;file.txt&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">fname</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">fname_splitted</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+    <span class="n">subdir</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">path_depth</span> <span class="o">==</span> <span class="mi">0</span>
+              <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">fname_splitted</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">path_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">fname_splitted</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">subdir</span><span class="p">,</span> <span class="n">file_name</span></div>
+
+
+<div class="viewcode-block" id="match_file_names_with_glob"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.match_file_names_with_glob">[docs]</a><span class="k">def</span> <span class="nf">match_file_names_with_glob</span><span class="p">(</span><span class="n">file_names_with_glob</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                               <span class="n">match_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span>
+                               <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Match</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_names_with_glob</span>
+<span class="sd">    match_fn</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_names_from_glob</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_key</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">each_glob_expression</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_glob_expression</span> <span class="ow">in</span> <span class="n">file_names_with_glob</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">file_names_from_glob_and_match_names</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_key</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">match_fn</span><span class="p">(</span><span class="n">each_real_file_name</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">each_key</span><span class="p">):</span> <span class="n">each_real_file_name</span>
+            <span class="k">for</span> <span class="n">each_real_file_name</span> <span class="ow">in</span> <span class="n">real_file_names</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">real_file_names</span> <span class="ow">in</span> <span class="n">file_names_from_glob</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">file_names_from_glob_matches</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">set</span><span class="p">(</span><span class="n">match_names</span><span class="p">)</span> <span class="k">for</span> <span class="n">match_names</span> <span class="ow">in</span>
+        <span class="n">file_names_from_glob_and_match_names</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+    <span class="n">common_match_names</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="o">*</span><span class="n">file_names_from_glob_matches</span><span class="p">)</span>
+    <span class="n">matched_file_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_key</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">file_names_with_glob</span><span class="p">}</span>
+    <span class="k">for</span> <span class="n">match_name</span> <span class="ow">in</span> <span class="n">common_match_names</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">file_names_with_glob</span><span class="p">:</span>
+            <span class="n">real_file_name_for_match_and_key</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">file_names_from_glob_and_match_names</span><span class="p">[</span><span class="n">each_key</span><span class="p">][</span><span class="n">match_name</span><span class="p">])</span>
+            <span class="n">matched_file_names</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">real_file_name_for_match_and_key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matched_file_names</span></div>
+
+
+<div class="viewcode-block" id="remove_prefix"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.remove_prefix">[docs]</a><span class="k">def</span> <span class="nf">remove_prefix</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove the prefix from the file path if file name starts with it</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path</span>
+<span class="sd">        path with prefix</span>
+<span class="sd">    prefix</span>
+<span class="sd">        prefix to remove</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    name_without_prefix</span>
+<span class="sd">        name with removed prefix</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">prefix</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">path</span>
+    <span class="n">directory</span><span class="p">,</span> <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">basename</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">basename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">basename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">basename</span> <span class="o">+</span> <span class="n">ext</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+<div class="viewcode-block" id="remove_suffix"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.remove_suffix">[docs]</a><span class="k">def</span> <span class="nf">remove_suffix</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove the suffix from the path if file name without extension ends with it</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path</span>
+<span class="sd">        name with prefix</span>
+<span class="sd">    suffix</span>
+<span class="sd">        suffix to remove</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    name_without_suffix</span>
+<span class="sd">        name with removed suffix</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">suffix</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">path</span>
+    <span class="n">directory</span><span class="p">,</span> <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">basename</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">basename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">basename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
+        <span class="n">word_split</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word_split</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">basename</span> <span class="o">+</span> <span class="n">ext</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path</span></div>
+
+
+<div class="viewcode-block" id="get_existing_fnames_with_index"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.file_utils.get_existing_fnames_with_index">[docs]</a><span class="k">def</span> <span class="nf">get_existing_fnames_with_index</span><span class="p">(</span><span class="n">basename_without_index</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                   <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                                   <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the file names with index, e.g. all file names with {path}-{index}</span>
+<span class="sd">    format.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    basename_without_index</span>
+<span class="sd">        base name without index</span>
+<span class="sd">    extension</span>
+<span class="sd">        file extension</span>
+<span class="sd">    path_dir</span>
+<span class="sd">        path to the directory where to search</span>
+<span class="sd">    separator</span>
+<span class="sd">        separator for the index</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    existing_file_names</span>
+<span class="sd">        existing file names sorted in index order</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">glob_expr</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}{}</span><span class="s2">*</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basename_without_index</span><span class="p">,</span> <span class="n">separator</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+    <span class="n">regex_expr</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}{}</span><span class="s2">[0-9]{{1,}}</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">basename_without_index</span><span class="p">,</span> <span class="n">separator</span><span class="p">,</span> <span class="n">extension</span><span class="p">)</span>
+    <span class="n">existing_file_names</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_dir</span><span class="p">,</span> <span class="n">glob_expr</span><span class="p">))</span>
+    <span class="n">existing_file_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">existing_file_names</span>
+                           <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_dir</span><span class="p">,</span> <span class="n">regex_expr</span><span class="p">),</span> <span class="n">f</span><span class="p">)]</span>
+
+    <span class="n">existing_file_names_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+        <span class="n">existing_file_names</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">_get_index_from_path</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="n">separator</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">existing_file_names_sorted</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_basename_without_index</span><span class="p">(</span><span class="n">add_index</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">basename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span>
+                                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">basename_without_index</span> <span class="o">=</span> <span class="n">basename</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">add_index</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">separator</span> <span class="ow">in</span> <span class="n">basename</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">separator</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">_</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="n">basename_without_index</span> <span class="o">=</span> <span class="n">separator</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                    <span class="n">basename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">separator</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">basename</span> <span class="o">=</span> <span class="n">add_suffix</span><span class="p">(</span><span class="n">basename</span><span class="p">,</span> <span class="s1">&#39;-1&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">basename</span><span class="p">,</span> <span class="n">basename_without_index</span>
+
+
+<span class="k">def</span> <span class="nf">_match_file_names_subset</span><span class="p">(</span><span class="n">basename_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span>
+                             <span class="n">file_list_subset</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">suffixes</span><span class="p">:</span> <span class="nb">dict</span>
+                             <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="k">def</span> <span class="nf">_basename_fn</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fname</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">basename_fn</span> <span class="o">=</span> <span class="n">basename_fn</span> <span class="ow">or</span> <span class="n">_basename_fn</span>
+
+    <span class="n">basename2fname_subset</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">fnames_without_suffix_subset</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># TODO (oleksandr.vorobiov@audi.de): rewrite part with key selection</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basename_fn</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="n">key_basename_subset</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">basename_fn</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                               <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">file_list_subset</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">key_basename_subset</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">key_basename_subset</span><span class="p">:</span>
+        <span class="n">key_basename_subset</span> <span class="o">=</span> <span class="n">key_basename_subset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">fnames</span> <span class="ow">in</span> <span class="n">file_list_subset</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">basename_fn</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">key_basename</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span> <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">basename_fn</span>
+                                    <span class="ow">or</span> <span class="ow">not</span> <span class="n">key_basename_subset</span><span class="p">)</span>
+                            <span class="k">else</span> <span class="n">key_basename_subset</span><span class="p">)</span>
+            <span class="n">basename_fn_</span> <span class="o">=</span> <span class="n">basename_fn</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key_basename</span><span class="p">,</span> <span class="n">_basename_fn</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">basename_fn_</span> <span class="o">=</span> <span class="n">basename_fn</span>
+        <span class="n">suffix</span> <span class="o">=</span> <span class="n">suffixes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">fnames</span> <span class="o">=</span> <span class="n">maybe_fnames_from_glob</span><span class="p">(</span><span class="n">fnames</span><span class="p">)</span>
+        <span class="n">basename2fname_subset</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">remove_suffix</span><span class="p">(</span><span class="n">basename_fn_</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">suffix</span><span class="p">):</span> <span class="n">f</span>
+            <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fnames</span><span class="p">}</span>
+        <span class="n">fnames_without_suffix_subset</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">basename2fname_subset</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">basenames_common</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">fnames_without_suffix_subset</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%s</span><span class="s1"> file pairs for keys </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">basenames_common</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="n">file_list_subset</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="n">file_names_reassigned_subset</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">k</span><span class="p">:</span> <span class="p">[</span><span class="n">basename2fname_subset</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">basename</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">basename</span> <span class="ow">in</span> <span class="n">basenames_common</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">file_list_subset</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">basenames_common</span><span class="p">,</span> <span class="n">file_names_reassigned_subset</span>
+
+
+<span class="k">def</span> <span class="nf">_get_index_from_path</span><span class="p">(</span><span class="n">path_</span><span class="p">,</span> <span class="n">separator</span><span class="p">):</span>
+    <span class="n">basename_</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path_</span><span class="p">)</span>
+    <span class="n">basename_</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">basename_</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">index_</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">basename_</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">separator</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">index_</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

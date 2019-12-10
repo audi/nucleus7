@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.optimization.configs &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.optimization.configs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.optimization.configs</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Configs for optimization</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.optimization.learning_rate_manipulator</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">LearningRateManipulator</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">utils</span>
+
+<span class="n">OptimizationConfig</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;OptimizationConfig&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;optimizer_parameters&#39;</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;learning_rate_manipulator&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;gradient_clip&#39;</span><span class="p">,</span> <span class="s1">&#39;gradient_noise_std&#39;</span><span class="p">,</span> <span class="s1">&#39;optimizer_name&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;decouple_regularization&#39;</span><span class="p">,</span> <span class="s1">&#39;learning_rate_multiplier&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;optimizer&#39;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="create_and_validate_optimization_config"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.configs.create_and_validate_optimization_config">[docs]</a><span class="k">def</span> <span class="nf">create_and_validate_optimization_config</span><span class="p">(</span>
+        <span class="n">optimizer_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">optimizer_parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">learning_rate_manipulator</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LearningRateManipulator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">learning_rate_multiplier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">gradient_clip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">gradient_noise_std</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">decouple_regularization</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">is_global</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">deprecated_optimizer_parameters</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OptimizationConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create configuration for optimization</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    optimizer_name</span>
+<span class="sd">        name of the optimizer to use</span>
+<span class="sd">    optimizer_parameters</span>
+<span class="sd">        parameters to provide for the optimizer constructor</span>
+<span class="sd">    learning_rate</span>
+<span class="sd">        learning rate to use; in case of use of learning_rate_manipulator,</span>
+<span class="sd">        this will be a initial_learning_rate;</span>
+<span class="sd">        is valid only for global optimization config</span>
+<span class="sd">    learning_rate_manipulator</span>
+<span class="sd">        will change the learning rate during the training;</span>
+<span class="sd">        is valid only for global optimization config</span>
+<span class="sd">    learning_rate_multiplier</span>
+<span class="sd">        global learning_rate will be multiplied this value and will be used</span>
+<span class="sd">        for this optimizer; is valid only for local optimization configs</span>
+<span class="sd">    gradient_clip</span>
+<span class="sd">        will rescale the gradients that the l2 norm of the gradients is not more</span>
+<span class="sd">        than this value; for this method :func:`tf.clip_by_global_norm` is used</span>
+<span class="sd">    gradient_noise_std</span>
+<span class="sd">        will add a normal noise this std to all the gradients in this config</span>
+<span class="sd">    decouple_regularization</span>
+<span class="sd">        if the regularization gradients, e.g. gradients from regularization</span>
+<span class="sd">        losses, must be decoupled and use a GradientDescentOptimizer with</span>
+<span class="sd">        current learning rate; otherwise all the gradients will be summed up</span>
+<span class="sd">    **deprecated_optimizer_parameters</span>
+<span class="sd">        optimizer_parameters in deprecated form, e.g. if you not provide it</span>
+<span class="sd">        as a optimizer_parameters; is there for backward compatibility</span>
+<span class="sd">    is_global</span>
+<span class="sd">        specifies whether this is the global optimization configuration</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    optimization config</span>
+<span class="sd">        configuration used for optimization</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if learning_rate_multiplier is set for global optimization</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if optimizer_name is not set for global optimization</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if learning rate is not set for global optimization</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if learning_rate_decay is set and is not a dict for global optimization</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if learning rate is set for local optimization (is_global == False)</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if the optimizer parameters were provided inside of the</span>
+<span class="sd">        optimizer_parameter section and also inside of optimization_parameters</span>
+<span class="sd">        itself</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-arguments</span>
+    <span class="c1"># all of that arguments are needed for OptimizationConfig</span>
+    <span class="k">if</span> <span class="n">is_global</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">optimizer_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Specify optimizer_name in global optimization config&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">learning_rate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Specify learning_rate in optimization_parameters for global &quot;</span>
+            <span class="s2">&quot;optimizer&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">learning_rate_multiplier</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;learning_rate_multiplier cannot be set in the global &quot;</span>
+            <span class="s2">&quot;optimization config&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">learning_rate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;learning_rate inside of local config &quot;</span>
+            <span class="s2">&quot;is not allowed!&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">learning_rate_manipulator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;learning_rate_manipulator inside of local optimization config &quot;</span>
+            <span class="s2">&quot;is not allowed!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">deprecated_optimizer_parameters</span> <span class="ow">and</span> <span class="n">optimizer_parameters</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Do not mix a deprecated style of providing the optimizer &quot;</span>
+               <span class="s2">&quot;parameters just as parameters inside of &quot;</span>
+               <span class="s2">&quot;optimization_config with new one by providing it &quot;</span>
+               <span class="s2">&quot;explicitly inside of optimizer_parameters session &quot;</span>
+               <span class="s2">&quot;(deprecated provided: </span><span class="si">{}</span><span class="s2">, &quot;</span>
+               <span class="s2">&quot;optimizer_parameters section </span><span class="si">{}</span><span class="s2">)&quot;</span>
+               <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">deprecated_optimizer_parameters</span><span class="p">,</span> <span class="n">optimizer_parameters</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">deprecated_optimizer_parameters</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">deprecated_optimizer_parameters</span><span class="p">:</span>
+            <span class="n">deprecated</span><span class="o">.</span><span class="n">warning_deprecated_config_param</span><span class="p">(</span>
+                <span class="n">real_name</span><span class="o">=</span><span class="s2">&quot;optimizer_parameters::</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_key</span><span class="p">),</span>
+                <span class="n">deprecated_name</span><span class="o">=</span><span class="n">each_key</span><span class="p">,</span>
+                <span class="n">additional_instructions</span><span class="o">=</span><span class="p">(</span>
+                    <span class="s2">&quot;Provide optimizer_parameters using optimizer_parameters &quot;</span>
+                    <span class="s2">&quot;session&quot;</span><span class="p">))</span>
+        <span class="n">optimizer_parameters</span> <span class="o">=</span> <span class="n">deprecated_optimizer_parameters</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_global</span><span class="p">:</span>
+        <span class="n">learning_rate_multiplier</span> <span class="o">=</span> <span class="n">learning_rate_multiplier</span> <span class="ow">or</span> <span class="mf">1.0</span>
+    <span class="n">optimization_config</span> <span class="o">=</span> <span class="n">OptimizationConfig</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">optimizer_parameters</span><span class="o">=</span><span class="n">optimizer_parameters</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+        <span class="n">learning_rate_manipulator</span><span class="o">=</span><span class="n">learning_rate_manipulator</span><span class="p">,</span>
+        <span class="n">gradient_clip</span><span class="o">=</span><span class="n">gradient_clip</span><span class="p">,</span>
+        <span class="n">gradient_noise_std</span><span class="o">=</span><span class="n">gradient_noise_std</span><span class="p">,</span>
+        <span class="n">optimizer_name</span><span class="o">=</span><span class="n">optimizer_name</span><span class="p">,</span>
+        <span class="n">decouple_regularization</span><span class="o">=</span><span class="n">decouple_regularization</span><span class="p">,</span>
+        <span class="n">learning_rate_multiplier</span><span class="o">=</span><span class="n">learning_rate_multiplier</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">optimization_config</span></div>
+
+
+<div class="viewcode-block" id="merge_optimization_configs"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.configs.merge_optimization_configs">[docs]</a><span class="k">def</span> <span class="nf">merge_optimization_configs</span><span class="p">(</span>
+        <span class="n">global_optimization_config</span><span class="p">:</span> <span class="n">OptimizationConfig</span><span class="p">,</span>
+        <span class="n">local_optimization_config</span><span class="p">:</span> <span class="n">OptimizationConfig</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OptimizationConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an optimization config out of the global and local optimization</span>
+<span class="sd">    configs. All of the values, except of learning_rate* parameters will be</span>
+<span class="sd">    overwritten inside of local_optimization_config from global one if they</span>
+<span class="sd">    were set to None; if optimizer_name is provided, then optimizer_parameters</span>
+<span class="sd">    will be not updated, and if not provided, they will be updated with global,</span>
+<span class="sd">    if parameters are unset</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_optimization_config</span>
+<span class="sd">        global optimization configuration</span>
+<span class="sd">    local_optimization_config</span>
+<span class="sd">        local optimization configuration</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    local_optimization_config</span>
+<span class="sd">        merged optimization configuration</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="n">global_optimization_config</span><span class="o">.</span><span class="n">learning_rate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;learning_rate inside of global configuration should be set!&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">local_optimization_config</span><span class="o">.</span><span class="n">learning_rate_multiplier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;learning_rate_multiplier inside of local configuration should be set!&quot;</span><span class="p">)</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">local_optimization_config</span><span class="o">.</span><span class="n">optimizer_name</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">local_optimization_config</span><span class="o">.</span><span class="n">optimizer_parameters</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use global optimizer with local parameters&quot;</span><span class="p">)</span>
+            <span class="n">local_optimization_config</span> <span class="o">=</span> <span class="n">local_optimization_config</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span>
+                <span class="n">optimizer_name</span><span class="o">=</span><span class="n">global_optimization_config</span><span class="o">.</span><span class="n">optimizer_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use global optimizer with global parameters&quot;</span><span class="p">)</span>
+            <span class="n">local_optimization_config</span> <span class="o">=</span> <span class="n">local_optimization_config</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span>
+                <span class="n">optimizer_name</span><span class="o">=</span><span class="n">global_optimization_config</span><span class="o">.</span><span class="n">optimizer_name</span><span class="p">,</span>
+                <span class="n">optimizer_parameters</span><span class="o">=</span>
+                <span class="n">global_optimization_config</span><span class="o">.</span><span class="n">optimizer_parameters</span><span class="p">)</span>
+
+    <span class="n">parameters_to_update</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;gradient_noise_std&#39;</span><span class="p">,</span> <span class="s1">&#39;decouple_regularization&#39;</span><span class="p">,</span> <span class="s1">&#39;gradient_clip&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">parameter_name</span> <span class="ow">in</span> <span class="n">parameters_to_update</span><span class="p">:</span>
+        <span class="n">global_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">global_optimization_config</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">)</span>
+        <span class="n">local_optimization_config</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">utils</span><span class="o">.</span><span class="n">maybe_update_undefined_parameter_in_config</span><span class="p">(</span>
+                <span class="n">local_optimization_config</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">,</span> <span class="n">global_value</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">local_optimization_config</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

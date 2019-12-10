@@ -1,0 +1,673 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.optimization.optimization_handler &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.optimization.optimization_handler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.optimization.optimization_handler</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Class for OptimizationHandler</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span> <span class="nn">nucleus7.optimization.configs</span> <span class="kn">import</span> <span class="n">OptimizationConfig</span>
+<span class="kn">from</span> <span class="nn">nucleus7.optimization.configs</span> <span class="kn">import</span> <span class="n">merge_optimization_configs</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">optimization_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_objects_factory</span>
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># these are type constants, not a class</span>
+<span class="n">_CONFIG_TO_VAR_TYPE</span> <span class="o">=</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">OptimizationConfig</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]]</span>
+<span class="n">_GRAD_AND_VARS_TYPE</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]]</span>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+
+<div class="viewcode-block" id="OptimizationHandler"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.optimization_handler.OptimizationHandler">[docs]</a><span class="k">class</span> <span class="nc">OptimizationHandler</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main class to create train_op for the training, which allows to use multiple</span>
+<span class="sd">    optimization configurations for different variables</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">OptimizationHandler</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_step</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: OptimizationConfig</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_learning_rate</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: tf.Tensor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_local_configs_with_vars</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[_CONFIG_TO_VAR_TYPE]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vars_with_local_configs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">global_step</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Current global step</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        global_step</span>
+<span class="sd">            global step</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_step</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">global_learning_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Global learning rate</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        global_learning_rate</span>
+<span class="sd">            global learning rate</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_learning_rate</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">global_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OptimizationConfig</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Global optimization config</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        global_config</span>
+<span class="sd">            global optimization config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span>
+
+    <span class="nd">@global_config</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">global_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">OptimizationConfig</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_global_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span> <span class="o">=</span> <span class="n">config</span>
+
+<div class="viewcode-block" id="OptimizationHandler.add_config_with_variables"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.optimization_handler.OptimizationHandler.add_config_with_variables">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s2">&quot;global_config&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">add_config_with_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_with_vars</span><span class="p">:</span> <span class="n">_CONFIG_TO_VAR_TYPE</span><span class="p">,</span>
+                                  <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add tuple (config, variables) of local optimization configs to</span>
+<span class="sd">        variables to use. This variables will be removed from global</span>
+<span class="sd">        optimization</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        config_with_vars</span>
+<span class="sd">            optimization config with list of variables to apply</span>
+<span class="sd">        name</span>
+<span class="sd">            needed only to differentiate inside of the warnings / errors</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if local config has learning_rate or optimizer inside</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if variables were already used in other configs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">config</span><span class="p">,</span> <span class="n">variables</span> <span class="o">=</span> <span class="n">config_with_vars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_local_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">config_name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_variables_are_unique</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">config_name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vars_with_local_configs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">variables</span><span class="p">))</span>
+        <span class="n">config_updated</span> <span class="o">=</span> <span class="n">merge_optimization_configs</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">global_config</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="n">config_updated_with_vars</span> <span class="o">=</span> <span class="p">(</span><span class="n">config_updated</span><span class="p">,</span> <span class="n">variables</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_local_configs_with_vars</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">config_updated_with_vars</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="OptimizationHandler.initialize_for_session"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.optimization_handler.OptimizationHandler.initialize_for_session">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;global_config&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">initialize_for_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform tensors initialization, e.g.:</span>
+<span class="sd">            * create global step tensor</span>
+<span class="sd">            * create global learning rate</span>
+<span class="sd">            * create all optimizers</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_global_step</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialize_global_learning_rate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_optimizers</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="OptimizationHandler.get_train_op"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.optimization_handler.OptimizationHandler.get_train_op">[docs]</a>    <span class="k">def</span> <span class="nf">get_train_op</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                     <span class="n">regularization_grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                     <span class="n">trainable_variables</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]</span>
+                     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Operation</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate training operation using optimization configs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        grads_and_vars</span>
+<span class="sd">            list of (gradient, variable) for all variables in the model</span>
+<span class="sd">        regularization_grads_and_vars</span>
+<span class="sd">            list of (gradients, variable) from regularization losses for all</span>
+<span class="sd">            variables in the model</span>
+<span class="sd">        trainable_variables</span>
+<span class="sd">            list of trainable variables</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        train_op</span>
+<span class="sd">            train operation with update</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_train_op</span><span class="p">(</span>
+            <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">regularization_grads_and_vars</span><span class="p">,</span> <span class="n">trainable_variables</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="OptimizationHandler.create_configs_with_grads_and_vars"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.optimization_handler.OptimizationHandler.create_configs_with_grads_and_vars">[docs]</a>    <span class="k">def</span> <span class="nf">create_configs_with_grads_and_vars</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+            <span class="n">regularization_grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+            <span class="n">all_trainable_variables</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">OptimizationConfig</span><span class="p">,</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter gradients according to variables used in each config and create</span>
+<span class="sd">        decoupled configs for regularization terms if decouple_regularization</span>
+<span class="sd">        flag is set inside of some config</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        grads_and_vars</span>
+<span class="sd">            gradients and variables</span>
+<span class="sd">        regularization_grads_and_vars</span>
+<span class="sd">            regularization gradients and variables</span>
+<span class="sd">        all_trainable_variables</span>
+<span class="sd">            all trainable variables</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        optim_configs_with_variables</span>
+<span class="sd">            list of config to variable pairs</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vars_for_global_optimizer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_vars_for_global_optimizer</span><span class="p">(</span>
+            <span class="n">all_trainable_variables</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_local_configs_with_vars</span><span class="p">:</span>
+            <span class="n">local_optim_configs</span><span class="p">,</span> <span class="n">vars_for_local_configs</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_local_configs_with_vars</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">local_optim_configs</span><span class="p">,</span> <span class="n">vars_for_local_configs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+
+        <span class="n">optim_configs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">local_optim_configs</span><span class="p">)</span>
+        <span class="n">vars_for_configs</span> <span class="o">=</span> <span class="p">([</span><span class="n">vars_for_global_optimizer</span><span class="p">]</span>
+                            <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">vars_for_local_configs</span><span class="p">))</span>
+
+        <span class="n">optim_configs_with_variables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_config</span><span class="p">,</span> <span class="n">each_vars_for_config</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">optim_configs</span><span class="p">,</span>
+                                                     <span class="n">vars_for_configs</span><span class="p">):</span>
+            <span class="n">optim_configs_for_vars</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">filter_grads_and_vars_with_decouple_for_config</span><span class="p">(</span>
+                    <span class="n">each_config</span><span class="p">,</span> <span class="n">each_vars_for_config</span><span class="p">,</span> <span class="n">grads_and_vars</span><span class="p">,</span>
+                    <span class="n">regularization_grads_and_vars</span><span class="p">))</span>
+            <span class="n">optim_configs_with_variables</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">optim_configs_for_vars</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">optim_configs_with_variables</span></div>
+
+<div class="viewcode-block" id="OptimizationHandler.filter_grads_and_vars_with_decouple_for_config"><a class="viewcode-back" href="../../../api/nucleus7.optimization.html#nucleus7.optimization.optimization_handler.OptimizationHandler.filter_grads_and_vars_with_decouple_for_config">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">filter_grads_and_vars_with_decouple_for_config</span><span class="p">(</span>
+            <span class="n">optim_config</span><span class="p">,</span> <span class="n">vars_for_config</span><span class="p">,</span> <span class="n">grads_and_vars</span><span class="p">,</span>
+            <span class="n">regularization_grads_and_vars</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">OptimizationConfig</span><span class="p">,</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter gradients and regularization gradients according to variables</span>
+<span class="sd">        of the optimization config and add the decoupled config for the same</span>
+<span class="sd">        variables in case if decouple_regularization flag was provided inside</span>
+<span class="sd">        of optim_config</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        optim_config</span>
+<span class="sd">            optimization config</span>
+<span class="sd">        vars_for_config</span>
+<span class="sd">            variables to use with optimization config</span>
+<span class="sd">        grads_and_vars</span>
+<span class="sd">            list of (gradient, variable) for all variables in the model</span>
+<span class="sd">        regularization_grads_and_vars</span>
+<span class="sd">            list of (gradients, variable) from regularization losses for all</span>
+<span class="sd">            variables in the model</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        optim_configs_with_variables</span>
+<span class="sd">            list of the same config with filtered gradients and variables with</span>
+<span class="sd">            decoupled config (if it was requested)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">optim_configs_with_variables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">grads_and_vars_for_config</span> <span class="o">=</span> <span class="n">optimization_utils</span><span class="o">.</span><span class="n">filter_grads_for_vars</span><span class="p">(</span>
+            <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">vars_for_config</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">regularization_grads_and_vars</span><span class="p">:</span>
+            <span class="n">reg_grads_and_vars_for_config</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">optimization_utils</span><span class="o">.</span><span class="n">filter_grads_for_vars</span><span class="p">(</span>
+                    <span class="n">regularization_grads_and_vars</span><span class="p">,</span> <span class="n">vars_for_config</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">reg_grads_and_vars_for_config</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">decouple_regularization</span> <span class="o">=</span> <span class="p">(</span><span class="n">optim_config</span><span class="o">.</span><span class="n">decouple_regularization</span>
+                                   <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">reg_grads_and_vars_for_config</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">decouple_regularization</span><span class="p">:</span>
+            <span class="n">grads_and_vars_for_config</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">optimization_utils</span><span class="o">.</span><span class="n">sum_grads_with_vars</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">grads_and_vars_for_config</span><span class="p">,</span> <span class="n">reg_grads_and_vars_for_config</span><span class="p">]</span>
+                <span class="p">))</span>
+        <span class="n">optim_configs_with_variables</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">optim_config</span><span class="p">,</span>
+                                             <span class="n">grads_and_vars_for_config</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">decouple_regularization</span><span class="p">:</span>
+            <span class="n">regularization_config</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">OptimizationHandler</span><span class="o">.</span><span class="n">_get_regularization_config</span><span class="p">(</span><span class="n">optim_config</span><span class="p">))</span>
+            <span class="n">optim_configs_with_variables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">regularization_config</span><span class="p">,</span> <span class="n">reg_grads_and_vars_for_config</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">optim_configs_with_variables</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_train_op</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                      <span class="n">regularization_grads_and_vars</span><span class="p">:</span> <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                      <span class="n">trainable_variables</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]</span>
+                      <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Operation</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate training operation using optimization configs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        grads_and_vars</span>
+<span class="sd">            list of (gradient, variable) for all variables in the model</span>
+<span class="sd">        regularization_grads_and_vars</span>
+<span class="sd">            list of (gradients, variable) from regularization losses for all</span>
+<span class="sd">            variables in the model</span>
+<span class="sd">        trainable_variables</span>
+<span class="sd">            list of trainable variables</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        train_op</span>
+<span class="sd">            train operation with update</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">optim_configs_to_grads_and_vars</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_configs_with_grads_and_vars</span><span class="p">(</span>
+                <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">regularization_grads_and_vars</span><span class="p">,</span>
+                <span class="n">trainable_variables</span><span class="p">))</span>
+
+        <span class="n">train_ops_for_all_optimizers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">optim_global_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_step</span>
+        <span class="n">gradients</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">grads_and_vars</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">gradient_l2_norm</span> <span class="o">=</span> <span class="n">optimization_utils</span><span class="o">.</span><span class="n">get_gradient_l2_norm</span><span class="p">(</span><span class="n">gradients</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_config</span><span class="p">,</span> <span class="n">each_grads_and_vars</span> <span class="ow">in</span> <span class="n">optim_configs_to_grads_and_vars</span><span class="p">:</span>
+            <span class="n">train_op_for_config</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">optimization_utils</span><span class="o">.</span><span class="n">train_op_with_clip_and_noise</span><span class="p">(</span>
+                    <span class="n">optimizer</span><span class="o">=</span><span class="n">each_config</span><span class="o">.</span><span class="n">optimizer</span><span class="p">,</span>
+                    <span class="n">grads_and_vars</span><span class="o">=</span><span class="n">each_grads_and_vars</span><span class="p">,</span>
+                    <span class="n">gradient_clip</span><span class="o">=</span><span class="n">each_config</span><span class="o">.</span><span class="n">gradient_clip</span><span class="p">,</span>
+                    <span class="n">gradient_noise_std</span><span class="o">=</span><span class="n">each_config</span><span class="o">.</span><span class="n">gradient_noise_std</span><span class="p">,</span>
+                    <span class="n">gradient_l2_norm</span><span class="o">=</span><span class="n">gradient_l2_norm</span><span class="p">,</span>
+                    <span class="n">global_step</span><span class="o">=</span><span class="n">optim_global_step</span><span class="p">))</span>
+            <span class="n">optim_global_step</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">train_ops_for_all_optimizers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_op_for_config</span><span class="p">)</span>
+
+        <span class="n">train_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="o">*</span><span class="n">train_ops_for_all_optimizers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">train_op</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_regularization_config</span><span class="p">(</span><span class="n">optim_config</span><span class="p">:</span> <span class="n">OptimizationConfig</span>
+                                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OptimizationConfig</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Construct the regularization config</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        optim_config</span>
+<span class="sd">            optimization config to construct the regularization config from</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        regularization_config</span>
+<span class="sd">            optimization config for decoupled regularization</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">regularization_optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="n">optim_config</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">,</span>
+            <span class="n">use_locking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;RegularizationGradientDescent&quot;</span><span class="p">)</span>
+        <span class="n">regularization_config</span> <span class="o">=</span> <span class="n">optim_config</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span>
+            <span class="n">optimizer</span><span class="o">=</span><span class="n">regularization_optimizer</span><span class="p">,</span>
+            <span class="n">learning_rate</span><span class="o">=</span><span class="n">optim_config</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">regularization_config</span>
+
+    <span class="k">def</span> <span class="nf">_check_variables_are_unique</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_variables</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">],</span>
+                                    <span class="n">config_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">new_variables_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">new_variables</span><span class="p">)</span>
+        <span class="n">common_vars</span> <span class="o">=</span> <span class="n">new_variables_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vars_with_local_configs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">common_vars</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">config_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Variables </span><span class="si">{}</span><span class="s2"> from config </span><span class="si">{}</span><span class="s2"> already used in other &quot;</span>
+                       <span class="s2">&quot;optimization config!&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">common_vars</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Variables </span><span class="si">{}</span><span class="s2"> already used in other optimization config!&quot;</span>
+                       <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">common_vars</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_check_global_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">OptimizationConfig</span><span class="p">):</span>
+        <span class="n">_check_required_parameter_in_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;optimizer_name&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">)</span>
+        <span class="n">_check_required_parameter_in_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">)</span>
+        <span class="n">_check_not_allowed_parameter_in_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s1">&#39;optimizer&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">)</span>
+        <span class="n">_check_not_allowed_parameter_in_config</span><span class="p">(</span>
+            <span class="n">config</span><span class="p">,</span> <span class="s1">&#39;learning_rate_multiplier&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_check_local_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">OptimizationConfig</span><span class="p">,</span>
+                            <span class="n">config_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">config_name</span> <span class="o">=</span> <span class="s2">&quot;local </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config_name</span><span class="p">)</span> <span class="k">if</span> <span class="n">config_name</span> <span class="k">else</span> <span class="s1">&#39;local&#39;</span>
+        <span class="n">_check_not_allowed_parameter_in_config</span><span class="p">(</span>
+            <span class="n">config</span><span class="p">,</span> <span class="s1">&#39;optimizer&#39;</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span>
+        <span class="n">_check_not_allowed_parameter_in_config</span><span class="p">(</span>
+            <span class="n">config</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span>
+        <span class="n">_check_not_allowed_parameter_in_config</span><span class="p">(</span>
+            <span class="n">config</span><span class="p">,</span> <span class="s1">&#39;learning_rate_manipulator&#39;</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_initialize_global_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_step</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_or_create_global_step</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_initialize_global_learning_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">learning_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span><span class="o">.</span><span class="n">learning_rate</span>
+        <span class="n">learning_rate_manipulator</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span><span class="o">.</span><span class="n">learning_rate_manipulator</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">learning_rate_manipulator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate_manipulator</span><span class="o">.</span><span class="n">get_current_learning_rate</span><span class="p">(</span>
+                <span class="n">learning_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_step</span><span class="p">)</span>
+        <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>
+
+    <span class="k">def</span> <span class="nf">_create_optimizers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_global_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_optimizer_to_config</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">global_config</span><span class="p">)</span>
+        <span class="n">local_configs_with_optimizers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_config_to_var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_local_configs_with_vars</span><span class="p">:</span>
+            <span class="n">each_config</span><span class="p">,</span> <span class="n">each_vars</span> <span class="o">=</span> <span class="n">each_config_to_var</span>
+            <span class="n">each_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_optimizer_to_config</span><span class="p">(</span><span class="n">each_config</span><span class="p">)</span>
+            <span class="n">local_configs_with_optimizers</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">each_config</span><span class="p">,</span> <span class="n">each_vars</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_local_configs_with_vars</span> <span class="o">=</span> <span class="n">local_configs_with_optimizers</span>
+
+    <span class="k">def</span> <span class="nf">_add_optimizer_to_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">OptimizationConfig</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OptimizationConfig</span><span class="p">:</span>
+        <span class="n">learning_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_learning_rate</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">learning_rate_multiplier</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">learning_rate_multiplier</span>
+        <span class="n">optimizer_parameters</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">optimizer_parameters</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">tf_objects_factory</span><span class="o">.</span><span class="n">optimizer_factory_from_name_and_parameters</span><span class="p">(</span>
+                <span class="n">config</span><span class="o">.</span><span class="n">optimizer_name</span><span class="p">,</span>
+                <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">optimizer_parameters</span><span class="p">))</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
+                                 <span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">config</span>
+
+    <span class="k">def</span> <span class="nf">_get_vars_for_global_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_trainable_varibles</span><span class="p">):</span>
+        <span class="n">vars_for_global_optimizer</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">all_trainable_varibles</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vars_with_local_configs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">vars_for_global_optimizer</span></div>
+
+
+<span class="k">def</span> <span class="nf">_check_required_parameter_in_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">OptimizationConfig</span><span class="p">,</span>
+                                        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if the required parameter is set</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config</span>
+<span class="sd">        config</span>
+<span class="sd">    name</span>
+<span class="sd">        parameter name</span>
+<span class="sd">    config_name</span>
+<span class="sd">        name of the config to print inside of the message</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if attribute with name is None in the config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> must be set for </span><span class="si">{}</span><span class="s2"> optimization config! &quot;</span>
+               <span class="s2">&quot;(got </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">config</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_check_not_allowed_parameter_in_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">OptimizationConfig</span><span class="p">,</span>
+                                           <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if the not allowed parameter is None</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config</span>
+<span class="sd">        config</span>
+<span class="sd">    name</span>
+<span class="sd">        parameter name</span>
+<span class="sd">    config_name</span>
+<span class="sd">        name of the config to print inside of the message</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if attribute with name is not None in the config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> cannot be set for </span><span class="si">{}</span><span class="s2"> optimization config! &quot;</span>
+               <span class="s2">&quot;(got </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">config</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

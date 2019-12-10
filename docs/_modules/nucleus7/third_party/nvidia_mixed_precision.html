@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.third_party.nvidia_mixed_precision &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.third_party.nvidia_mixed_precision</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.third_party.nvidia_mixed_precision</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2018. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># original code is from</span>
+<span class="c1"># https://github.com/NVIDIA/DeepLearningExamples/blob/</span>
+<span class="c1">#   b1ae8dd47c0e1474741431ad7f0d7a14d6bd6210/TensorFlow/Recommendation/NCF/</span>
+<span class="c1">#   neumf.py</span>
+<span class="c1">#</span>
+<span class="c1">#                              Apache License</span>
+<span class="c1">#                        Version 2.0, January 2004</span>
+<span class="c1">#                     http://www.apache.org/licenses/</span>
+<span class="c1">#</span>
+<span class="c1"># TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</span>
+<span class="c1">#</span>
+<span class="c1"># 1. Definitions.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;License&quot; shall mean the terms and conditions for use, reproduction,</span>
+<span class="c1">#   and distribution as defined by Sections 1 through 9 of this document.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Licensor&quot; shall mean the copyright owner or entity authorized by</span>
+<span class="c1">#   the copyright owner that is granting the License.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Legal Entity&quot; shall mean the union of the acting entity and all</span>
+<span class="c1">#   other entities that control, are controlled by, or are under common</span>
+<span class="c1">#   control with that entity. For the purposes of this definition,</span>
+<span class="c1">#   &quot;control&quot; means (i) the power, direct or indirect, to cause the</span>
+<span class="c1">#   direction or management of such entity, whether by contract or</span>
+<span class="c1">#   otherwise, or (ii) ownership of fifty percent (50%) or more of the</span>
+<span class="c1">#   outstanding shares, or (iii) beneficial ownership of such entity.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity</span>
+<span class="c1">#   exercising permissions granted by this License.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Source&quot; form shall mean the preferred form for making modifications,</span>
+<span class="c1">#   including but not limited to software source code, documentation</span>
+<span class="c1">#   source, and configuration files.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Object&quot; form shall mean any form resulting from mechanical</span>
+<span class="c1">#   transformation or translation of a Source form, including but</span>
+<span class="c1">#   not limited to compiled object code, generated documentation,</span>
+<span class="c1">#   and conversions to other media types.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Work&quot; shall mean the work of authorship, whether in Source or</span>
+<span class="c1">#   Object form, made available under the License, as indicated by a</span>
+<span class="c1">#   copyright notice that is included in or attached to the work</span>
+<span class="c1">#   (an example is provided in the Appendix below).</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Derivative Works&quot; shall mean any work, whether in Source or Object</span>
+<span class="c1">#   form, that is based on (or derived from) the Work and for which the</span>
+<span class="c1">#   editorial revisions, annotations, elaborations, or other modifications</span>
+<span class="c1">#   represent, as a whole, an original work of authorship. For the purposes</span>
+<span class="c1">#   of this License, Derivative Works shall not include works that remain</span>
+<span class="c1">#   separable from, or merely link (or bind by name) to the interfaces of,</span>
+<span class="c1">#   the Work and Derivative Works thereof.</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Contribution&quot; shall mean any work of authorship, including</span>
+<span class="c1">#   the original version of the Work and any modifications or additions</span>
+<span class="c1">#   to that Work or Derivative Works thereof, that is intentionally</span>
+<span class="c1">#   submitted to Licensor for inclusion in the Work by the copyright owner</span>
+<span class="c1">#   or by an individual or Legal Entity authorized to submit on behalf of</span>
+<span class="c1">#   the copyright owner. For the purposes of this definition, &quot;submitted&quot;</span>
+<span class="c1">#   means any form of electronic, verbal, or written communication sent</span>
+<span class="c1">#   to the Licensor or its representatives, including but not limited to</span>
+<span class="c1">#   communication on electronic mailing lists, source code control systems,</span>
+<span class="c1">#   and issue tracking systems that are managed by, or on behalf of, the</span>
+<span class="c1">#   Licensor for the purpose of discussing and improving the Work, but</span>
+<span class="c1">#   excluding communication that is conspicuously marked or otherwise</span>
+<span class="c1">#   designated in writing by the copyright owner as &quot;Not a Contribution.&quot;</span>
+<span class="c1">#</span>
+<span class="c1">#   &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity</span>
+<span class="c1">#   on behalf of whom a Contribution has been received by Licensor and</span>
+<span class="c1">#   subsequently incorporated within the Work.</span>
+<span class="c1">#</span>
+<span class="c1"># 2. Grant of Copyright License. Subject to the terms and conditions of</span>
+<span class="c1">#   this License, each Contributor hereby grants to You a perpetual,</span>
+<span class="c1">#   worldwide, non-exclusive, no-charge, royalty-free, irrevocable</span>
+<span class="c1">#   copyright license to reproduce, prepare Derivative Works of,</span>
+<span class="c1">#   publicly display, publicly perform, sublicense, and distribute the</span>
+<span class="c1">#   Work and such Derivative Works in Source or Object form.</span>
+<span class="c1">#</span>
+<span class="c1"># 3. Grant of Patent License. Subject to the terms and conditions of</span>
+<span class="c1">#   this License, each Contributor hereby grants to You a perpetual,</span>
+<span class="c1">#   worldwide, non-exclusive, no-charge, royalty-free, irrevocable</span>
+<span class="c1">#   (except as stated in this section) patent license to make, have made,</span>
+<span class="c1">#   use, offer to sell, sell, import, and otherwise transfer the Work,</span>
+<span class="c1">#   where such license applies only to those patent claims licensable</span>
+<span class="c1">#   by such Contributor that are necessarily infringed by their</span>
+<span class="c1">#   Contribution(s) alone or by combination of their Contribution(s)</span>
+<span class="c1">#   with the Work to which such Contribution(s) was submitted. If You</span>
+<span class="c1">#   institute patent litigation against any entity (including a</span>
+<span class="c1">#   cross-claim or counterclaim in a lawsuit) alleging that the Work</span>
+<span class="c1">#   or a Contribution incorporated within the Work constitutes direct</span>
+<span class="c1">#   or contributory patent infringement, then any patent licenses</span>
+<span class="c1">#   granted to You under this License for that Work shall terminate</span>
+<span class="c1">#   as of the date such litigation is filed.</span>
+<span class="c1">#</span>
+<span class="c1"># 4. Redistribution. You may reproduce and distribute copies of the</span>
+<span class="c1">#   Work or Derivative Works thereof in any medium, with or without</span>
+<span class="c1">#   modifications, and in Source or Object form, provided that You</span>
+<span class="c1">#   meet the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1">#   (a) You must give any other recipients of the Work or</span>
+<span class="c1">#       Derivative Works a copy of this License; and</span>
+<span class="c1">#</span>
+<span class="c1">#   (b) You must cause any modified files to carry prominent notices</span>
+<span class="c1">#       stating that You changed the files; and</span>
+<span class="c1">#</span>
+<span class="c1">#   (c) You must retain, in the Source form of any Derivative Works</span>
+<span class="c1">#       that You distribute, all copyright, patent, trademark, and</span>
+<span class="c1">#       attribution notices from the Source form of the Work,</span>
+<span class="c1">#       excluding those notices that do not pertain to any part of</span>
+<span class="c1">#       the Derivative Works; and</span>
+<span class="c1">#</span>
+<span class="c1">#   (d) If the Work includes a &quot;NOTICE&quot; text file as part of its</span>
+<span class="c1">#       distribution, then any Derivative Works that You distribute must</span>
+<span class="c1">#       include a readable copy of the attribution notices contained</span>
+<span class="c1">#       within such NOTICE file, excluding those notices that do not</span>
+<span class="c1">#       pertain to any part of the Derivative Works, in at least one</span>
+<span class="c1">#       of the following places: within a NOTICE text file distributed</span>
+<span class="c1">#       as part of the Derivative Works; within the Source form or</span>
+<span class="c1">#       documentation, if provided along with the Derivative Works; or,</span>
+<span class="c1">#       within a display generated by the Derivative Works, if and</span>
+<span class="c1">#       wherever such third-party notices normally appear. The contents</span>
+<span class="c1">#       of the NOTICE file are for informational purposes only and</span>
+<span class="c1">#       do not modify the License. You may add Your own attribution</span>
+<span class="c1">#       notices within Derivative Works that You distribute, alongside</span>
+<span class="c1">#       or as an addendum to the NOTICE text from the Work, provided</span>
+<span class="c1">#       that such additional attribution notices cannot be construed</span>
+<span class="c1">#       as modifying the License.</span>
+<span class="c1">#</span>
+<span class="c1">#   You may add Your own copyright statement to Your modifications and</span>
+<span class="c1">#   may provide additional or different license terms and conditions</span>
+<span class="c1">#   for use, reproduction, or distribution of Your modifications, or</span>
+<span class="c1">#   for any such Derivative Works as a whole, provided Your use,</span>
+<span class="c1">#   reproduction, and distribution of the Work otherwise complies with</span>
+<span class="c1">#   the conditions stated in this License.</span>
+<span class="c1">#</span>
+<span class="c1"># 5. Submission of Contributions. Unless You explicitly state otherwise,</span>
+<span class="c1">#   any Contribution intentionally submitted for inclusion in the Work</span>
+<span class="c1">#   by You to the Licensor shall be under the terms and conditions of</span>
+<span class="c1">#   this License, without any additional terms or conditions.</span>
+<span class="c1">#   Notwithstanding the above, nothing herein shall supersede or modify</span>
+<span class="c1">#   the terms of any separate license agreement you may have executed</span>
+<span class="c1">#   with Licensor regarding such Contributions.</span>
+<span class="c1">#</span>
+<span class="c1"># 6. Trademarks. This License does not grant permission to use the trade</span>
+<span class="c1">#   names, trademarks, service marks, or product names of the Licensor,</span>
+<span class="c1">#   except as required for reasonable and customary use in describing the</span>
+<span class="c1">#   origin of the Work and reproducing the content of the NOTICE file.</span>
+<span class="c1">#</span>
+<span class="c1"># 7. Disclaimer of Warranty. Unless required by applicable law or</span>
+<span class="c1">#   agreed to in writing, Licensor provides the Work (and each</span>
+<span class="c1">#   Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or</span>
+<span class="c1">#   implied, including, without limitation, any warranties or conditions</span>
+<span class="c1">#   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A</span>
+<span class="c1">#   PARTICULAR PURPOSE. You are solely responsible for determining the</span>
+<span class="c1">#   appropriateness of using or redistributing the Work and assume any</span>
+<span class="c1">#   risks associated with Your exercise of permissions under this License.</span>
+<span class="c1">#</span>
+<span class="c1"># 8. Limitation of Liability. In no event and under no legal theory,</span>
+<span class="c1">#   whether in tort (including negligence), contract, or otherwise,</span>
+<span class="c1">#   unless required by applicable law (such as deliberate and grossly</span>
+<span class="c1">#   negligent acts) or agreed to in writing, shall any Contributor be</span>
+<span class="c1">#   liable to You for damages, including any direct, indirect, special,</span>
+<span class="c1">#   incidental, or consequential damages of any character arising as a</span>
+<span class="c1">#   result of this License or out of the use or inability to use the</span>
+<span class="c1">#   Work (including but not limited to damages for loss of goodwill,</span>
+<span class="c1">#   work stoppage, computer failure or malfunction, or any and all</span>
+<span class="c1">#   other commercial damages or losses), even if such Contributor</span>
+<span class="c1">#   has been advised of the possibility of such damages.</span>
+<span class="c1">#</span>
+<span class="c1"># 9. Accepting Warranty or Additional Liability. While redistributing</span>
+<span class="c1">#   the Work or Derivative Works thereof, You may choose to offer,</span>
+<span class="c1">#   and charge a fee for, acceptance of support, warranty, indemnity,</span>
+<span class="c1">#   or other liability obligations and/or rights consistent with this</span>
+<span class="c1">#   License. However, in accepting such obligations, You may act only</span>
+<span class="c1">#   on Your own behalf and on Your sole responsibility, not on behalf</span>
+<span class="c1">#   of any other Contributor, and only if You agree to indemnify,</span>
+<span class="c1">#   defend, and hold each Contributor harmless for any liability</span>
+<span class="c1">#   incurred by, or claims asserted against, such Contributor by reason</span>
+<span class="c1">#   of your accepting any such warranty or additional liability.</span>
+<span class="c1">#</span>
+<span class="c1"># END OF TERMS AND CONDITIONS</span>
+<span class="c1">#</span>
+<span class="c1"># APPENDIX: How to apply the Apache License to your work.</span>
+<span class="c1">#</span>
+<span class="c1">#   To apply the Apache License to your work, attach the following</span>
+<span class="c1">#   boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;</span>
+<span class="c1">#   replaced with your own identifying information. (Don&#39;t include</span>
+<span class="c1">#   the brackets!)  The text should be enclosed in the appropriate</span>
+<span class="c1">#   comment syntax for the file format. We also recommend that a</span>
+<span class="c1">#   file or class name and description of purpose be included on the</span>
+<span class="c1">#   same &quot;printed page&quot; as the copyright notice for easier</span>
+<span class="c1">#   identification within third-party archives.</span>
+<span class="c1"># ==============================================================================</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018, NVIDIA CORPORATION. All rights reserved.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Mixed precision from nvidia</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+
+<span class="c1"># pylint: disable=keyword-arg-before-vararg</span>
+<div class="viewcode-block" id="float32_variable_storage_getter"><a class="viewcode-back" href="../../../api/nucleus7.third_party.html#nucleus7.third_party.nvidia_mixed_precision.float32_variable_storage_getter">[docs]</a><span class="k">def</span> <span class="nf">float32_variable_storage_getter</span><span class="p">(</span><span class="n">getter</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">initializer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regularizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Custom variable getter that forces trainable variables to be stored in</span>
+<span class="sd">    float32 precision and then casts them to the training precision.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    info</span>
+<span class="sd">        https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html</span>
+<span class="sd">    source</span>
+<span class="sd">        https://github.com/NVIDIA/DeepLearningExamples/blob/b1ae8dd47c0e1474741431ad7f0d7a14d6bd6210/TensorFlow/Recommendation/NCF/neumf.py</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">storage_dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span> <span class="k">if</span> <span class="n">trainable</span> <span class="k">else</span> <span class="n">dtype</span>
+    <span class="n">variable</span> <span class="o">=</span> <span class="n">getter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">storage_dtype</span><span class="p">,</span>
+                      <span class="n">initializer</span><span class="o">=</span><span class="n">initializer</span><span class="p">,</span> <span class="n">regularizer</span><span class="o">=</span><span class="n">regularizer</span><span class="p">,</span>
+                      <span class="n">trainable</span><span class="o">=</span><span class="n">trainable</span><span class="p">,</span>
+                      <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trainable</span> <span class="ow">and</span> <span class="n">dtype</span> <span class="o">!=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+        <span class="n">variable</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">variable</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

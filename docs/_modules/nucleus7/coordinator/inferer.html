@@ -1,0 +1,703 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator.inferer &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator.inferer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.coordinator.inferer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interface for Inference coordinator</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="k">as</span> <span class="nn">mp</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="c1"># pylint: disable=no-name-in-module</span>
+<span class="c1"># is not part of the tensorflow API, but is needed here</span>
+<span class="c1"># pylint: disable=unused-import</span>
+<span class="c1"># is used for type declaration</span>
+<span class="kn">from</span> <span class="nn">tensorflow.contrib.predictor.predictor</span> <span class="kn">import</span> <span class="n">Predictor</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator</span> <span class="kn">import</span> <span class="n">configs</span> <span class="k">as</span> <span class="n">coord_configs</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator</span> <span class="kn">import</span> <span class="n">predictors</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.callbacks_handler</span> <span class="kn">import</span> <span class="n">CallbacksHandler</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.coordinator</span> <span class="kn">import</span> <span class="n">Coordinator</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_artifacts</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_serializer</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.dna_helix</span> <span class="kn">import</span> <span class="n">DNAHelix</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_feeder</span> <span class="kn">import</span> <span class="n">DataFeeder</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">mlflow_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nucleotide_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+<span class="c1"># pylint: enable=unused-import,no-name-in-module</span>
+
+
+<span class="n">_QUEUE_COMPLETED</span> <span class="o">=</span> <span class="s2">&quot;QUEUE_COMPLETED&quot;</span>
+<span class="n">_InfererQueues</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;InfererQueues&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;data_feeder&quot;</span><span class="p">,</span> <span class="s2">&quot;results&quot;</span><span class="p">))</span>
+<span class="n">_InfererProcesses</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;InfererProcesses&quot;</span><span class="p">,</span>
+                               <span class="p">(</span><span class="s2">&quot;data_feeder&quot;</span><span class="p">,</span> <span class="s2">&quot;callbacks_handler&quot;</span><span class="p">))</span>
+
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># attributes cannot be combined or extracted further</span>
+<div class="viewcode-block" id="Inferer"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.inferer.Inferer">[docs]</a><span class="k">class</span> <span class="nc">Inferer</span><span class="p">(</span><span class="n">Coordinator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for coordination of inference</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_config</span>
+<span class="sd">        run configuration for inferer</span>
+<span class="sd">    load_config</span>
+<span class="sd">        inferer load configuration</span>
+<span class="sd">    tensorrt_config</span>
+<span class="sd">        tensorrt config to use for inference</span>
+<span class="sd">    data_feeder</span>
+<span class="sd">        used for feeding the data to session using feed_dict</span>
+<span class="sd">    model_incoming_keys_mapping</span>
+<span class="sd">        mapping of keys to use between data feeder and the model; if not set,</span>
+<span class="sd">        input keys from the model, e.g. collection names inside of</span>
+<span class="sd">        CollectionNames.INPUTS collection should match desired data feeder</span>
+<span class="sd">        keys</span>
+<span class="sd">    model_parameters</span>
+<span class="sd">        parameters of the model, that wre defined as default placeholders in</span>
+<span class="sd">        nested view, e.g. {&#39;nucleotide_name&#39;: {&#39;parameter1&#39;: 100}}</span>
+<span class="sd">    callbacks_handler</span>
+<span class="sd">        handler with callbacks for inference</span>
+<span class="sd">    session_config</span>
+<span class="sd">        session configuration passed to `tf.Session(config=session_config)`</span>
+<span class="sd">    use_model</span>
+<span class="sd">        if the inferer should use a tensorflow model as predictor after</span>
+<span class="sd">        data feeder and before callbacks; otherwise only callbacks and</span>
+<span class="sd">        data feeder will be used</span>
+<span class="sd">    project_type</span>
+<span class="sd">        type of the inference project; one of [infer, kpi, data_extraction]</span>
+<span class="sd">    project_additional_kwargs</span>
+<span class="sd">        additional kwargs to pass to project generation method</span>
+
+<span class="sd">    Generates following project structure, where saved_model_tag is a last</span>
+<span class="sd">    directory of saved_model or checkpoint file name, e.g. in path</span>
+<span class="sd">    `model.ckpt-100` subdir will be model-ckpt-100:</span>
+
+<span class="sd">        - {project_dir}/infer_configs/{saved_model_tag}</span>
+<span class="sd">        - {project_dir}/infer_results/{saved_model_tag}</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    register_name_scope</span>
+<span class="sd">        name scope for register and for the config logger</span>
+<span class="sd">    exclude_args_from_log</span>
+<span class="sd">        fields that will not be included to the config logger</span>
+<span class="sd">    _queues</span>
+<span class="sd">        queues between data_feeder and model and model and callbacks_handler</span>
+<span class="sd">    _processes</span>
+<span class="sd">        data feeder process and callbacks handler process</span>
+<span class="sd">    _predictor</span>
+<span class="sd">        predictor to use</span>
+<span class="sd">    _iteration_number</span>
+<span class="sd">        iteration number</span>
+<span class="sd">    _number_of_iterations</span>
+<span class="sd">        number of iteration</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :obj:`nucleus7.coordinator.configs.InferenceRunConfig`</span>
+<span class="sd">    :obj:`nucleus7.coordinator.configs.InferenceLoadConfig`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s2">&quot;inferer&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_from_log</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data_feeder&quot;</span><span class="p">,</span> <span class="s2">&quot;callbacks_handler&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+            <span class="n">data_feeder</span><span class="p">:</span> <span class="n">DataFeeder</span><span class="p">,</span>
+            <span class="n">run_config</span><span class="p">:</span> <span class="n">coord_configs</span><span class="o">.</span><span class="n">InferenceRunConfig</span><span class="p">,</span>
+            <span class="n">load_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">coord_configs</span><span class="o">.</span><span class="n">InferenceLoadConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">tensorrt_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">coord_configs</span><span class="o">.</span><span class="n">TensorrtConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">model_incoming_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">model_parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">callbacks_handler</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbacksHandler</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">session_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">use_model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">project_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;infer&quot;</span><span class="p">,</span>
+            <span class="n">project_additional_kwargs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Inferer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">run_config</span><span class="p">,</span>
+                                      <span class="n">callbacks_handler</span><span class="o">=</span><span class="n">callbacks_handler</span><span class="p">,</span>
+                                      <span class="n">session_config</span><span class="o">=</span><span class="n">session_config</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">use_model</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">load_config</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;load_config must be provided if you want to use a model&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">use_model</span> <span class="ow">and</span> <span class="n">load_config</span><span class="p">:</span>
+            <span class="n">load_config</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">project_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;infer&quot;</span><span class="p">,</span> <span class="s2">&quot;kpi&quot;</span><span class="p">,</span> <span class="s2">&quot;data_extraction&quot;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;project_type must be one of &quot;</span>
+                             <span class="s2">&quot;[infer, kpi, data_extraction]! &quot;</span>
+                             <span class="s2">&quot;(provided: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">project_type</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_config</span> <span class="o">=</span> <span class="n">load_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span> <span class="o">=</span> <span class="n">data_feeder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_incoming_keys_mapping</span> <span class="o">=</span> <span class="n">model_incoming_keys_mapping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_parameters</span> <span class="o">=</span> <span class="n">model_parameters</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensorrt_config</span> <span class="o">=</span> <span class="n">tensorrt_config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span> <span class="o">=</span> <span class="n">use_model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">project_type</span> <span class="o">=</span> <span class="n">project_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">project_additional_kwargs</span> <span class="o">=</span> <span class="n">project_additional_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predictor_dna_helix</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: DNAHelix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predictor</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Optional[Predictor]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: _InfererQueues</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: _InfererProcesses</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dna_helices</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DNAHelix</span><span class="p">]]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">built</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">project_dna_helix</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_predictor_dna_helix</span>
+                             <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">dna_helix</span><span class="p">)</span>
+        <span class="n">dna_helices</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span> <span class="n">project_dna_helix</span><span class="p">}</span>
+        <span class="n">dna_helices_kpi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">kpi_evaluators_dna_helices</span>
+        <span class="k">if</span> <span class="n">dna_helices_kpi</span><span class="p">:</span>
+            <span class="n">dna_helices</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dna_helices_kpi</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="p">,</span> <span class="s2">&quot;dna_helix&quot;</span><span class="p">):</span>
+            <span class="n">dna_helices</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">dna_helix</span>
+        <span class="k">return</span> <span class="n">dna_helices</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">predictor_dna_helix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DNAHelix</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictor_dna_helix</span>
+<span class="sd">            dna helix with data feeder and predictor nucleotides</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predictor_dna_helix</span>
+
+<div class="viewcode-block" id="Inferer.build"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.inferer.Inferer.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">project</span><span class="o">.</span><span class="n">create_or_get_active_project</span><span class="p">(</span>
+            <span class="n">project_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">project_type</span><span class="p">,</span>
+            <span class="n">project_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">project_dir</span><span class="p">,</span>
+            <span class="n">continue_last</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">continue_last</span><span class="p">,</span>
+            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">project_additional_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">project_dirs</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_active_project_dirs</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_predictor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_predictor</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_predictor</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_predictor_dna</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_callbacks_handler_dna</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">samples_n</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">number_iterations_per_epoch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">number_iterations_per_epoch</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">samples_n</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_callback_properties</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">,</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">project_dirs</span><span class="o">.</span><span class="n">callbacks</span><span class="p">,</span>
+                                     <span class="n">number_iterations_per_epoch</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">create_mlflow_experiment_and_start_run</span>
+    <span class="nd">@project_serializer</span><span class="o">.</span><span class="n">serialize_run_configs</span><span class="p">(</span>
+        <span class="s2">&quot;infer_run&quot;</span><span class="p">,</span>
+        <span class="n">single_config_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;inferer&quot;</span><span class="p">,</span> <span class="s2">&quot;data_feeder&quot;</span><span class="p">],</span>
+        <span class="n">serializers_to_use</span><span class="o">=</span><span class="p">[</span><span class="n">project_serializer</span><span class="o">.</span><span class="n">RunConfigSerializer</span><span class="p">,</span>
+                            <span class="n">project_serializer</span><span class="o">.</span><span class="n">MlflowConfigSerializer</span><span class="p">])</span>
+    <span class="nd">@project_artifacts</span><span class="o">.</span><span class="n">serialize_project_artifacts</span>
+    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_project_artifacts_to_mlflow</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the inference</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;START </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+        <span class="n">time_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run</span><span class="p">()</span>
+        <span class="n">time_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_start</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Completed in </span><span class="si">{:0.3f}</span><span class="s2"> s&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_end</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;DONE!!!&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Inferer.get_predictor"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.inferer.Inferer.get_predictor">[docs]</a>    <span class="k">def</span> <span class="nf">get_predictor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Predictor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize predictor from load config</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictor</span>
+<span class="sd">            predictor from load_config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">session_config</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">session_config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">predictors</span><span class="o">.</span><span class="n">predictor_from_load_config</span><span class="p">(</span>
+            <span class="n">load_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">load_config</span><span class="p">,</span>
+            <span class="n">tensorrt_config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tensorrt_config</span><span class="p">,</span>
+            <span class="n">session_config</span><span class="o">=</span><span class="n">session_config</span><span class="p">,</span>
+            <span class="n">postprocessors_to_use</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">postprocessors_to_use</span><span class="p">,</span>
+            <span class="n">model_parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_parameters</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Inferer.read_data_batch"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.inferer.Inferer.read_data_batch">[docs]</a>    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span>
+        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;read_data_batch&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">read_data_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">last_inputs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the batch and add it to the queue</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        last_inputs</span>
+<span class="sd">            last input that was generated; it is needed to understand if this</span>
+<span class="sd">            is the last iteration</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_last_iteration</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">last_inputs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">inputs</span> <span class="o">=</span> <span class="n">last_inputs</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">last_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="n">is_last_iteration</span> <span class="o">=</span> <span class="kc">True</span>
+
+            <span class="k">return</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">last_inputs</span><span class="p">,</span> <span class="n">is_last_iteration</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="Inferer.predict_batch"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.inferer.Inferer.predict_batch">[docs]</a>    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span>
+        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;predict_batch&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">predict_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Make predictions given inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs to the network</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions</span>
+<span class="sd">            predictions of the network</span>
+<span class="sd">        predict_exec_time</span>
+<span class="sd">            execution time of network prediction</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">time_start_predict</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">inputs</span><span class="p">]</span>
+        <span class="n">list_of_predictions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_input</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model_incoming_keys_mapping</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">each_input</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">remap_and_collapse_inputs</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">each_input</span><span class="p">],</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">model_incoming_keys_mapping</span><span class="p">])</span>
+            <span class="n">each_input_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">each_input</span><span class="p">)</span>
+            <span class="n">current_prediction_flatten</span> <span class="o">=</span> <span class="n">predictors</span><span class="o">.</span><span class="n">predict_using_predictor</span><span class="p">(</span>
+                <span class="n">predictor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_predictor</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">each_input_flatten</span><span class="p">,</span>
+                <span class="n">model_parameters</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_parameters</span><span class="p">)</span>
+            <span class="n">list_of_predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_prediction_flatten</span><span class="p">)</span>
+        <span class="n">predictions_flatten</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">collapse_inputs</span><span class="p">(</span>
+            <span class="n">list_of_predictions</span><span class="p">)</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">predictions_flatten</span><span class="p">)</span>
+        <span class="n">predict_exec_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_start_predict</span>
+        <span class="k">return</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">predict_exec_time</span></div>
+
+<div class="viewcode-block" id="Inferer.run_callbacks_handler_on_batch"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.inferer.Inferer.run_callbacks_handler_on_batch">[docs]</a>    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span>
+        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;run_callbacks_handler&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">run_callbacks_handler_on_batch</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">predictions</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">predict_exec_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">iteration_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_last_iteration</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run callbacks handler on batch of predictions and inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs from data_feeder</span>
+<span class="sd">        predictions</span>
+<span class="sd">            predictions from network</span>
+<span class="sd">        predict_exec_time</span>
+<span class="sd">            execution time of network</span>
+<span class="sd">        iteration_number</span>
+<span class="sd">            iteration number</span>
+<span class="sd">        is_last_iteration</span>
+<span class="sd">            flag that indicates that this iteration is last one</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">on_iteration_start</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">collapse_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inputs</span>
+        <span class="n">iteration_info</span> <span class="o">=</span> <span class="n">coord_configs</span><span class="o">.</span><span class="n">RunIterationInfo</span><span class="p">(</span>
+            <span class="n">epoch_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">iteration_number</span><span class="o">=</span><span class="n">iteration_number</span><span class="p">,</span>
+            <span class="n">execution_time</span><span class="o">=</span><span class="n">predict_exec_time</span><span class="p">,</span>
+            <span class="n">is_last_iteration</span><span class="o">=</span><span class="n">is_last_iteration</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">iteration_info</span> <span class="o">=</span> <span class="n">iteration_info</span>
+        <span class="n">callbacks_handler_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">filter_inputs</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="p">(</span><span class="o">**</span><span class="n">callbacks_handler_inputs</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">use_multiprocessing</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_run_multiprocessing</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_run_single_process</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_run_single_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">last_inputs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">iteration_number</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_data_batch</span><span class="p">(</span><span class="n">last_inputs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">batch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">last_inputs</span><span class="p">,</span> <span class="n">is_last_iteration</span> <span class="o">=</span> <span class="n">batch</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span><span class="p">:</span>
+                <span class="n">predictions</span><span class="p">,</span> <span class="n">predict_exec_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_batch</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">predictions</span><span class="p">,</span> <span class="n">predict_exec_time</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">-</span><span class="mf">1.0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks_handler_on_batch</span><span class="p">(</span>
+                <span class="n">inputs</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">predict_exec_time</span><span class="p">,</span>
+                <span class="n">iteration_number</span><span class="p">,</span> <span class="n">is_last_iteration</span><span class="p">)</span>
+            <span class="n">iteration_number</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">is_last_iteration</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_run_multiprocessing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_queues</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_processes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_processes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_close_queues</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_terminate_processes</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_run_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_predict_batch_in_separate_process</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_create_queues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data_feeder_queue</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">prefetch_buffer_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span><span class="p">:</span>
+            <span class="n">results_queue</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">run_config</span><span class="o">.</span><span class="n">prefetch_buffer_size</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">results_queue</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span> <span class="o">=</span> <span class="n">_InfererQueues</span><span class="p">(</span><span class="n">data_feeder_queue</span><span class="p">,</span> <span class="n">results_queue</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data_feeder_process</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_prefetch_data_in_separate_process</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">callbacks_handler_process</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_run_callbacks_handler_on_batch_in_separate_process</span><span class="p">,</span>
+            <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span> <span class="o">=</span> <span class="n">_InfererProcesses</span><span class="p">(</span>
+            <span class="n">data_feeder_process</span><span class="p">,</span> <span class="n">callbacks_handler_process</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_close_queues</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">results</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_terminate_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_prefetch_data_in_separate_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">last_inputs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">iteration_number</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">inputs_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_data_batch</span><span class="p">(</span><span class="n">last_inputs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">inputs_queue</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">last_inputs</span><span class="p">,</span> <span class="n">is_last_iteration</span> <span class="o">=</span> <span class="n">inputs_queue</span>
+            <span class="n">queue_data</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">iteration_number</span><span class="p">,</span> <span class="n">is_last_iteration</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span>
+                <span class="k">else</span> <span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="p">{},</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">iteration_number</span><span class="p">,</span> <span class="n">is_last_iteration</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">queue_data</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">is_last_iteration</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">iteration_number</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">_QUEUE_COMPLETED</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_predict_batch_in_separate_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">inputs_deque</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">inputs_deque</span> <span class="o">==</span> <span class="n">_QUEUE_COMPLETED</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">_QUEUE_COMPLETED</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">iteration_number</span><span class="p">,</span> <span class="n">is_last_iteration</span> <span class="o">=</span> <span class="n">inputs_deque</span>
+            <span class="n">predictions</span><span class="p">,</span> <span class="n">predict_exec_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_batch</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+            <span class="n">inputs_for_callbacks</span> <span class="o">=</span> <span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">predict_exec_time</span><span class="p">,</span>
+                                    <span class="n">iteration_number</span><span class="p">,</span> <span class="n">is_last_iteration</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">inputs_for_callbacks</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_run_callbacks_handler_on_batch_in_separate_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span><span class="p">:</span>
+                <span class="n">inputs_deque</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">inputs_deque</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_queues</span><span class="o">.</span><span class="n">data_feeder</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">inputs_deque</span> <span class="o">==</span> <span class="n">_QUEUE_COMPLETED</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks_handler_on_batch</span><span class="p">(</span><span class="o">*</span><span class="n">inputs_deque</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_build_predictor_dna</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_model</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_predictor_dna_helix</span> <span class="o">=</span> <span class="n">DNAHelix</span><span class="p">(</span><span class="n">nucleotides</span><span class="o">=</span><span class="p">[])</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+            <span class="k">return</span>
+
+        <span class="n">incoming_nucleotides</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="p">]</span>
+        <span class="n">predictor_nucleotides</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">predictors</span><span class="o">.</span><span class="n">represent_predictor_through_nucleotides</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_predictor</span><span class="p">,</span>
+                <span class="n">incoming_keys_mapping</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_incoming_keys_mapping</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_predictor_dna_helix</span> <span class="o">=</span> <span class="n">DNAHelix</span><span class="p">(</span>
+            <span class="n">nucleotides</span><span class="o">=</span><span class="n">predictor_nucleotides</span><span class="p">,</span>
+            <span class="n">incoming_nucleotides</span><span class="o">=</span><span class="n">incoming_nucleotides</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_build_callbacks_handler_dna</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">incoming_nucleotides</span> <span class="o">=</span> <span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">data_feeder</span><span class="p">]</span>
+                                <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_predictor_dna_helix</span><span class="o">.</span><span class="n">nucleotides</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callbacks_handler</span><span class="o">.</span><span class="n">build_dna</span><span class="p">(</span>
+            <span class="n">incoming_nucleotides</span><span class="o">=</span><span class="n">incoming_nucleotides</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

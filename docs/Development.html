@@ -1,0 +1,607 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contribution" href="Contribution.html" />
+    <link rel="prev" title="KPI" href="KPI.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-new-nucleotide-a-name-create-new-nucleotide-a">Create new nucleotide <span class="raw-html-m2r"><a name="create-new-nucleotide"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables-sharing-for-multi-device-setups-a-name-variables-sharing-for-multi-device-setups-a">Variables sharing for multi-device setups <span class="raw-html-m2r"><a name="variables-sharing-for-multi-device-setups"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-of-keras-or-other-shared-state-objects-a-name-use-of-keras-a">Use of keras or other shared state objects <span class="raw-html-m2r"><a name="use-of-keras"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-model-parameters-that-can-be-modified-during-inference-a-name-model-parameters-during-inference-a">Add model parameters that can be modified during inference <span class="raw-html-m2r"><a name="model-parameters-during-inference"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#special-cases-a-name-special-cases-a">Special cases <span class="raw-html-m2r"><a name="special-cases"></a></span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#meta-flags-a-name-meta-flags-a">Meta flags <span class="raw-html-m2r"><a name="meta-flags"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-artifacts-to-log-a-name-add-artifacts-to-log-a">Add artifacts to log <span class="raw-html-m2r"><a name="add-artifacts-to-log"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tracking-of-the-execution-time">Tracking of the execution time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-format-a-name-data-format-a">Data format <span class="raw-html-m2r"><a name="data-format"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Development</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Development.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development">
+<h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#create-new-nucleotide-a-name-create-new-nucleotide-a" id="id1">Create new nucleotide <span class="raw-html-m2r"><a name="create-new-nucleotide"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#variables-sharing-for-multi-device-setups-a-name-variables-sharing-for-multi-device-setups-a" id="id2">Variables sharing for multi-device setups <span class="raw-html-m2r"><a name="variables-sharing-for-multi-device-setups"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#use-of-keras-or-other-shared-state-objects-a-name-use-of-keras-a" id="id3">Use of keras or other shared state objects <span class="raw-html-m2r"><a name="use-of-keras"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#add-model-parameters-that-can-be-modified-during-inference-a-name-model-parameters-during-inference-a" id="id4">Add model parameters that can be modified during inference <span class="raw-html-m2r"><a name="model-parameters-during-inference"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#special-cases-a-name-special-cases-a" id="id5">Special cases <span class="raw-html-m2r"><a name="special-cases"></a></span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#meta-flags-a-name-meta-flags-a" id="id6">Meta flags <span class="raw-html-m2r"><a name="meta-flags"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#add-artifacts-to-log-a-name-add-artifacts-to-log-a" id="id7">Add artifacts to log <span class="raw-html-m2r"><a name="add-artifacts-to-log"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#tracking-of-the-execution-time" id="id8">Tracking of the execution time</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#data-format-a-name-data-format-a" id="id9">Data format <span class="raw-html-m2r"><a name="data-format"></a></span></a></p></li>
+</ul>
+</div>
+<div class="section" id="create-new-nucleotide-a-name-create-new-nucleotide-a">
+<h2><a class="toc-backref" href="#id1">Create new nucleotide <span class="raw-html-m2r"><a name="create-new-nucleotide"></a></span></a><a class="headerlink" href="#create-new-nucleotide-a-name-create-new-nucleotide-a" title="Permalink to this headline">¶</a></h2>
+<p>Adding new nucleotide is pretty easy. You just need to define which type you would
+like to inherit from and override it’s process method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">VerySophisticatedArchitecture</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="c1"># this names must match kwargs from predict method:</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;image1&#39;</span><span class="p">,</span> <span class="s1">&#39;image2&#39;</span><span class="p">,</span> <span class="s1">&#39;_optional_input&#39;</span><span class="p">]</span>
+    <span class="c1"># this names must match keys of the returned dict out of process method</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;very_novel_output&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">config_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VerySophisticatedArchitecture</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">param1</span> <span class="o">=</span> <span class="n">param1</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">defaults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">defaults</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">VerySophisticatedArchitecture</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">defaults</span>
+        <span class="n">param1_default</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;k1&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span> <span class="s2">&quot;k2&quot;</span><span class="p">:</span> <span class="s2">&quot;v2&quot;</span><span class="p">}</span>
+        <span class="n">defaults</span><span class="p">[</span><span class="s2">&quot;param1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">param1_default</span>
+        <span class="k">return</span> <span class="n">defaults</span>
+
+    <span class="c1"># in most of the cases you do not need this method</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VerySophisticatedArchitecture</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="c1"># do a build of your attributes</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="c1"># process method is &#39;predict&#39; for ModelPlugin and &#39;process&#39; for other nucleotides</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image1</span><span class="p">,</span> <span class="n">image2</span><span class="p">,</span> <span class="n">optional_input</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">is_training</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_training</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span>
+        <span class="n">very_novel_output</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;very_novel_output&quot;</span><span class="p">:</span> <span class="n">very_novel_output</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>And that is all!</p>
+<p>Let’s take a look at main building blocks of the implementation:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">incoming_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code>:</p>
+<ul>
+<li><p>this are basically the signature of the nucleotide - <code class="docutils literal notranslate"><span class="pre">ìncoming_keys</span></code>
+describe the names of input data parameters and <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code> describe
+the output keys.</p></li>
+<li><p>if the key is optional, add the ‘_’ in the beginning, e.g.
+<code class="docutils literal notranslate"><span class="pre">_optional_key</span></code>, but use it without ‘_’ prefix inside of the process method</p></li>
+<li><p>it is also possible to specify dynamic keys e.g. the keys that
+can differ and depend on inbound nucleotides (setting
+<code class="docutils literal notranslate"><span class="pre">dynamic_incoming_keys=True</span></code> and (or) <code class="docutils literal notranslate"><span class="pre">dynamic_generated_keys=True</span></code>),
+and to combine static and dynamic keys. If nucleotide has dynamic incoming
+keys, then that keys are equal to remapped generated keys from all
+inbound nodes; if it has dynamic generated keys, then you are free to
+return whatever you want. Be sure, that you use <strong>kwargs</strong> signature
+inside of process method if you specify dynamic_incoming_keys!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NucleotideWithDynamicKeys</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">Nucleotide</span><span class="p">):</span>
+  <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;key1&quot;</span><span class="p">]</span>
+  <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;key2&quot;</span><span class="p">]</span>
+  <span class="n">dynamic_incoming_keys</span> <span class="o">=</span> <span class="kc">True</span>
+  <span class="n">dynamic_generated_keys</span> <span class="o">=</span> <span class="kc">True</span>
+
+  <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key1</span><span class="p">,</span> <span class="o">**</span><span class="n">dynamic_keys</span><span class="p">):</span>
+      <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s2">&quot;dynamic_key1&quot;</span><span class="p">:</span> <span class="o">...</span><span class="p">,}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> method:</p>
+<ul class="simple">
+<li><p>this is common constructor. Everything what is passed using
+<strong>config_kwargs</strong> can be configured over corresponding <code class="docutils literal notranslate"><span class="pre">config.json</span></code> and
+will be logged when the object is constructed</p></li>
+<li><p><strong>DO NOT</strong> perform any computations here, only assignments and sanity
+checks</p></li>
+<li><p><strong>DO NOT</strong> create any tensorflow objects with variables here,
+since graph is empty at this point and if you create some, it will be not
+used further</p></li>
+</ul>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">defaults</span></code> method:</dt><dd><p>this method is used when you need to set the default values for arguments
+that were not provided to constructor. This is much cleaner to use this
+standalone method instead of providing the defaults inside of the
+constructor (in case of mutable objects) and it is automatically
+called inside of the <code class="docutils literal notranslate"><span class="pre">build</span></code> method.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build</span></code> method:</p>
+<ul class="simple">
+<li><p>if you need any calculations or building of attributes, this is for you</p></li>
+<li><p><strong>DO NOT</strong> create any tensorflow objects with variables here,
+since graph is empty at this point and if you create some, it will be not
+used further</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">process</span></code> or <code class="docutils literal notranslate"><span class="pre">predict</span></code> method:</p>
+<ul class="simple">
+<li><p>take a look on the parent, which method it has (only ModelPlugin uses
+<code class="docutils literal notranslate"><span class="pre">predict</span></code>, other ones use <code class="docutils literal notranslate"><span class="pre">process</span></code>)</p></li>
+<li><p>create tensorflow variables here</p></li>
+<li><p>kwargs names of the method must match the <code class="docutils literal notranslate"><span class="pre">Class.incoming_keys</span></code> and
+optional ones must be set to <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>method <strong>MUST</strong> return dict with keys equal to <code class="docutils literal notranslate"><span class="pre">Class.generated_keys</span></code>
+(optional keys can be omitted)</p></li>
+</ul>
+</li>
+<li><p>if you need to access the run mode of nucleotide or to know if it is training,
+e.g. for the dropout layers, you can use <code class="docutils literal notranslate"><span class="pre">self.mode</span></code> and <code class="docutils literal notranslate"><span class="pre">self.is_training</span></code>
+respectively</p></li>
+</ul>
+<p><strong>DO NOT</strong> override the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method, since it is used internally!</p>
+<p>Side note: It is better to do the implementation as flexible as possible and
+do not hardcore attributes if they can alter.</p>
+</div>
+<div class="section" id="variables-sharing-for-multi-device-setups-a-name-variables-sharing-for-multi-device-setups-a">
+<h2><a class="toc-backref" href="#id2">Variables sharing for multi-device setups <span class="raw-html-m2r"><a name="variables-sharing-for-multi-device-setups"></a></span></a><a class="headerlink" href="#variables-sharing-for-multi-device-setups-a-name-variables-sharing-for-multi-device-setups-a" title="Permalink to this headline">¶</a></h2>
+<p>Parameters can be shared over multiple devices, not over multiple nucleotides.</p>
+<p>Currently (as of tensorflow &lt;= 2.0), there are 2 ways to create variables
+(both ways are supported by <strong>nucleus7</strong>) and need to be handled differently:</p>
+<ul class="simple">
+<li><p>using <code class="docutils literal notranslate"><span class="pre">tf.get_variable</span></code> - used by tensorflow</p>
+<ul>
+<li><p>to handle the sharing, <code class="docutils literal notranslate"><span class="pre">tf.get_variable_scope().reuse</span></code> can be used even
+if new object is generated</p></li>
+<li><p>does not need any special behavior from user side</p></li>
+</ul>
+</li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">tf.Variable</span></code> - used by keras</p>
+<ul>
+<li><p>can be handled ONLY by creating the object (e.g. keras layer) once and
+then reusing it over all the instances</p></li>
+<li><p>need to be reset if new graph is used</p></li>
+<li><p>implementations using keras layers, need to add the layers / objects
+using predefined interface</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="use-of-keras-or-other-shared-state-objects-a-name-use-of-keras-a">
+<h2><a class="toc-backref" href="#id3">Use of keras or other shared state objects <span class="raw-html-m2r"><a name="use-of-keras"></a></span></a><a class="headerlink" href="#use-of-keras-or-other-shared-state-objects-a-name-use-of-keras-a" title="Permalink to this headline">¶</a></h2>
+<p>Since we need to create them only once and reset when it is needed, e.g.
+for evaluation or inference graph export, following interface must be used:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">PluginWithKeras</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">config_kwargs</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="c1"># following lines are a good style, but not mandatory for functionality</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># type: tf.keras.layers.Layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># type: tf.keras.layers.Layer</span>
+
+    <span class="k">def</span> <span class="nf">create_keras_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">one_more_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;new_layer&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">one_more_layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>Let’s take a look on the steps:</p>
+<ul class="simple">
+<li><p>attributes that will hold the layers should be defined in the constructor
+(just a good style)</p></li>
+<li><p>create the keras layers using <code class="docutils literal notranslate"><span class="pre">self.add_keras_layer(...)</span></code> inside
+<code class="docutils literal notranslate"><span class="pre">create_keras_layers()</span></code> - this will track the layers in the nucleotide and
+allow them to be reset when needed.
+<strong>CAUTION</strong>: make sure that this method does not generate any tensorflow
+variables!
+Otherwise call <code class="docutils literal notranslate"><span class="pre">add_keras_layer(...)</span></code> as described further in
+<code class="docutils literal notranslate"><span class="pre">plugin.predict(...)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">create_keras_layers()</span></code> will be called automatically inside <code class="docutils literal notranslate"><span class="pre">build()</span></code></p></li>
+<li><p>use attribute layers (aka <code class="docutils literal notranslate"><span class="pre">self.layer1</span></code>) inside of the <code class="docutils literal notranslate"><span class="pre">predict()</span></code> /
+<code class="docutils literal notranslate"><span class="pre">process()</span></code></p></li>
+<li><p>if you want to create keras layers with constructors which require tensorflow
+tensors (usually not the best choice, but sometimes unavoidable),
+then you need to add the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument to
+<code class="docutils literal notranslate"><span class="pre">add_keras_layer(...,</span> <span class="pre">name=&quot;unique_name&quot;)</span></code>,
+as shown above for <code class="docutils literal notranslate"><span class="pre">one_more_layer</span></code>
+This allows the layer to be created once and reused for multi-device setup.
+Use unique names for unique layers</p></li>
+<li><p>it is possible to provide a lambda expression to <code class="docutils literal notranslate"><span class="pre">add_keras_layer(...)</span></code>
+to build the layer. This is an alternative to building the heavy weight layers
+every time inside <code class="docutils literal notranslate"><span class="pre">predict(...)</span></code></p></li>
+</ul>
+<p><strong>DO NOT</strong> call <code class="docutils literal notranslate"><span class="pre">keras.Layer.build(...)</span></code> method before
+<code class="docutils literal notranslate"><span class="pre">nucleotide.predict(...)</span></code> method!</p>
+</div>
+<div class="section" id="add-model-parameters-that-can-be-modified-during-inference-a-name-model-parameters-during-inference-a">
+<h2><a class="toc-backref" href="#id4">Add model parameters that can be modified during inference <span class="raw-html-m2r"><a name="model-parameters-during-inference"></a></span></a><a class="headerlink" href="#add-model-parameters-that-can-be-modified-during-inference-a-name-model-parameters-during-inference-a" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to change a parameter of tensorflow nucleotide during inference.
+This can be useful e.g. for object detection models like Faster RCNN, where
+you can specify different number of predictions and your trained model
+does not depend on it. So the idea is to add the placeholder with default
+value to the tensorflow graph and then to modify it if needed during inference:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">PluginWithParameter</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="n">parameter1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_default_placeholder</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;parameter1&quot;</span><span class="p">)</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>Now you have a placeholder with name
+<code class="docutils literal notranslate"><span class="pre">predictions_raw/PluginWithParameter/PluginWithParameter//parameter1:0</span></code> and
+value 10 inside of your model and it can be feeded during inference
+(see <a class="reference external" href="Project.html#configs">here</a> for details). Also this placeholder is written
+to the input receiver function inside of saved model interface and also
+to ‘checkpoints/input_output_names.json’ file.</p>
+</div>
+<div class="section" id="special-cases-a-name-special-cases-a">
+<h2><a class="toc-backref" href="#id5">Special cases <span class="raw-html-m2r"><a name="special-cases"></a></span></a><a class="headerlink" href="#special-cases-a-name-special-cases-a" title="Permalink to this headline">¶</a></h2>
+<p>Following functionality already used in its default configuration, so use it
+only if you really need it :)</p>
+<div class="section" id="meta-flags-a-name-meta-flags-a">
+<h3><a class="toc-backref" href="#id6">Meta flags <span class="raw-html-m2r"><a name="meta-flags"></a></span></a><a class="headerlink" href="#meta-flags-a-name-meta-flags-a" title="Permalink to this headline">¶</a></h3>
+<p>Following functionality must be used with caution and only if you know what
+you want to do.</p>
+<p>There are some special class attributes by setting them you can control how
+it will be handled internally:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+
+<span class="c1"># you are free to select the class to inherit</span>
+<span class="k">class</span> <span class="nc">NewNucleotide</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Nucleotide</span><span class="p">):</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s1">&#39;e.g. plugin&#39;</span>
+    <span class="n">register_name</span> <span class="o">=</span> <span class="s1">&#39;class.name&#39;</span>
+    <span class="n">log_name_scope</span> <span class="o">=</span> <span class="s1">&#39;e.g. plugin&#39;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">exclude_from_log</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inherited&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Let’s describe them:</p>
+<ul class="simple">
+<li><p>register_name_scope - name scope for register; if not set, original
+class name will be used (will be searched also inside of bases)</p></li>
+<li><p>register_name - name of the class inside of register; if not set,
+class name will be used (will be searched only in the class)</p></li>
+<li><p>log_name_scope - name scope for config logger; defaults to
+register_name_scope (will be searched also inside of bases)</p></li>
+<li><p>exclude_args_from_log - list of the constructor arguments that must be
+not logged (will be searched also inside of bases)</p></li>
+<li><p>exclude_from_register - flag if this class must be excluded from
+register, e.g. for interfaces and base classes
+(will be searched only in the class)</p></li>
+<li><p>exclude_from_log - flag if this class must be excluded from
+constructor log, e.g. for intermediate classes, defaults to
+exclude_from_register (will be searched only in the class)</p></li>
+</ul>
+</div>
+<div class="section" id="add-artifacts-to-log-a-name-add-artifacts-to-log-a">
+<h3><a class="toc-backref" href="#id7">Add artifacts to log <span class="raw-html-m2r"><a name="add-artifacts-to-log"></a></span></a><a class="headerlink" href="#add-artifacts-to-log-a-name-add-artifacts-to-log-a" title="Permalink to this headline">¶</a></h3>
+<p>If you want that some of the objects, that will be generated during the build
+of your nucleotide, are logged, e.g. file lists of datasets and data feeders
+(is already there by default), you can use following decorator on the top
+of the property to store:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_artifacts</span>
+
+
+<span class="c1"># you are free to select the class to inherit</span>
+<span class="k">class</span> <span class="nc">NewNucleotide</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">Nucleotide</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">config_kwargs</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter_to_log</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@project_artifacts</span><span class="o">.</span><span class="n">add_project_artifact</span><span class="p">(</span>
+        <span class="s2">&quot;name_of_the_artifact_to_save&quot;</span><span class="p">,</span> <span class="s2">&quot;parameter_to_log&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parameter_to_log</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;value to log&quot;</span><span class="p">}</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>This will add the <code class="docutils literal notranslate"><span class="pre">parameter_to_log</span></code> to the artifacts.
+If <code class="docutils literal notranslate"><span class="pre">NewNucleotide</span></code> have <code class="docutils literal notranslate"><span class="pre">mode</span></code> property (as most of them) and this property
+is set on the time of run start (even after the build method was called),
+it will add mode value to the artifact name. This is also possible to use
+different custom serializer to serialize the artifact
+(default the json serializer is used).</p>
+<p>Parameters can have also a nested structure, e.g. if you want to log the
+<code class="docutils literal notranslate"><span class="pre">self.param1.param2.param3</span></code> value, use
+<code class="docutils literal notranslate"><span class="pre">add_project_artifact(&quot;name_of_the_artifact_to_save&quot;,</span> <span class="pre">&quot;param1.param2.param3&quot;)</span></code>.</p>
+<p>Caveat: artifacts will be saved to memory till they are saved to project</p>
+</div>
+<div class="section" id="tracking-of-the-execution-time">
+<h3><a class="toc-backref" href="#id8">Tracking of the execution time</a><a class="headerlink" href="#tracking-of-the-execution-time" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to log the execution time of methods of nucleotides. But
+this is method execution time, so if you add it to the predict method of
+model plugin, this method is called once for the training for construction
+of tensorflow graph, so it will give you only this name. But it makes sence
+for the objects, which are not inside of the tensorflow graph, like
+<code class="docutils literal notranslate"><span class="pre">CoordinatorCallback</span></code> (also for the training), <code class="docutils literal notranslate"><span class="pre">DataFeeder</span></code> etc.</p>
+<p>This performance measurement will be added to the mlflow metrics tracking</p>
+<p>To add it, use following decorator (will log the time to
+<code class="docutils literal notranslate"><span class="pre">performance-{ClassName}-method_name</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">mlflow_utils</span>
+
+
+<span class="k">class</span> <span class="nc">NewNucleotide</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">coordinator</span><span class="o">.</span><span class="n">CoordinatorCallback</span><span class="p">):</span>
+
+    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;some_name&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>You can also specify for which mode you want to log the performance by
+providing <code class="docutils literal notranslate"><span class="pre">log_on_train</span></code>, <code class="docutils literal notranslate"><span class="pre">log_on_eval</span></code> or <code class="docutils literal notranslate"><span class="pre">log_on_infer</span></code> arguments
+to the decorator. Default performance is logged only for inference.</p>
+</div>
+</div>
+<div class="section" id="data-format-a-name-data-format-a">
+<h2><a class="toc-backref" href="#id9">Data format <span class="raw-html-m2r"><a name="data-format"></a></span></a><a class="headerlink" href="#data-format-a-name-data-format-a" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to set the data_format for all the nucleotides
+globally or locally by using following format:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;data_format&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;NHWC&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;video&quot;</span><span class="p">:</span> <span class="s2">&quot;NTHWC&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;time_series&quot;</span><span class="p">:</span> <span class="s2">&quot;NTC&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And you can access it by <code class="docutils literal notranslate"><span class="pre">self.data_format</span></code> in nucleotide itself.</p>
+<p><strong>Caveat</strong>: to make this setting work, you need to have be sure that
+the nucleotides you use, rely on it.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Contribution.html" class="btn btn-neutral float-right" title="Contribution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="KPI.html" class="btn btn-neutral float-left" title="KPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

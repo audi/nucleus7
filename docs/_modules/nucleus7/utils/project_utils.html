@@ -1,0 +1,519 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.project_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.project_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.project_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils to work with project</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">config_logger</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">git_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">run_utils</span>
+
+<span class="n">_CONFIG_LIST_INSERT_IDENTIFIER</span> <span class="o">=</span> <span class="s2">&quot;__BASE__&quot;</span>
+<span class="n">_CONFIG_DICT_UPDATE_IDENTIFIER</span> <span class="o">=</span> <span class="s2">&quot;__UPDATE_CONFIG__&quot;</span>
+<span class="n">_PROJECT_META_FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;nucleus7_project.json&quot;</span>
+<span class="n">_PROJECT_NAME_KEY</span> <span class="o">=</span> <span class="s2">&quot;PROJECT_NAME&quot;</span>
+
+
+<div class="viewcode-block" id="ProjectLock"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.ProjectLock">[docs]</a><span class="k">class</span> <span class="nc">ProjectLock</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to lock directory</span>
+
+<span class="sd">    Can be used to ensure that multiple processes will perform operations</span>
+<span class="sd">    sequentially.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lock_dir</span>
+<span class="sd">        path where to store lockfile</span>
+<span class="sd">    lockname</span>
+<span class="sd">        file name of lock file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lock_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lockname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;lockfile&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lock_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lock_dir</span><span class="p">,</span> <span class="n">lockname</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ProjectLock.lock_or_wait"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.ProjectLock.lock_or_wait">[docs]</a>    <span class="k">def</span> <span class="nf">lock_or_wait</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create lock file if it does not exist or wait until lock file</span>
+<span class="sd">        is removed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lock_fname</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Lock file </span><span class="si">%s</span><span class="s1"> created&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock_fname</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Lock file </span><span class="si">%s</span><span class="s1"> found, wait 0.5 sec&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock_fname</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lock_or_wait</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ProjectLock.release"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.ProjectLock.release">[docs]</a>    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove the lock file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Lock file </span><span class="si">%s</span><span class="s1"> released&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock_fname</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lock_fname</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="collect_project_meta_info"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.collect_project_meta_info">[docs]</a><span class="k">def</span> <span class="nf">collect_project_meta_info</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect the meta information of the project including run type, git hashes</span>
+<span class="sd">    of imported objects etc.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    project_meta</span>
+<span class="sd">        dict holding meta information of the project for this run</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;HOSTNAME&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;HOSTNAME&#39;</span><span class="p">)</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;run_start_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span>
+        <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="n">cluster_spec</span> <span class="o">=</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">get_cluster_spec</span><span class="p">()</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;CLUSTER_SPEC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_spec</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;USER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;USER&#39;</span><span class="p">)</span>
+    <span class="n">source_versions</span> <span class="o">=</span> <span class="n">get_source_versions</span><span class="p">()</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;source_versions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">source_versions</span>
+    <span class="k">return</span> <span class="n">meta</span></div>
+
+
+<div class="viewcode-block" id="collect_and_add_project_meta_info"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.collect_and_add_project_meta_info">[docs]</a><span class="k">def</span> <span class="nf">collect_and_add_project_meta_info</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect the meta information of the project including run type, git hashes</span>
+<span class="sd">    of imported objects etc. and add it to existing meta information file inside</span>
+<span class="sd">    of project directory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">meta_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">_PROJECT_META_FILE_NAME</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">meta_fname</span><span class="p">):</span>
+        <span class="n">meta_all</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">meta_all</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">meta_fname</span><span class="p">)</span>
+    <span class="n">project_name</span> <span class="o">=</span> <span class="n">get_project_name_from_directory</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="n">meta_all</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">_PROJECT_NAME_KEY</span><span class="p">,</span> <span class="n">project_name</span><span class="p">)</span>
+    <span class="n">meta_run</span> <span class="o">=</span> <span class="n">collect_project_meta_info</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">meta_run</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">meta_all</span><span class="p">:</span>
+            <span class="n">meta_all</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_all</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">meta_run</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">meta_all</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">meta_run</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">meta_fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">meta_all</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_runtype_to_project_meta_info"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.add_runtype_to_project_meta_info">[docs]</a><span class="k">def</span> <span class="nf">add_runtype_to_project_meta_info</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add current runtype to the project meta information json</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">meta_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">_PROJECT_META_FILE_NAME</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">meta_fname</span><span class="p">):</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">meta</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">meta_fname</span><span class="p">)</span>
+    <span class="n">used_runs</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;runs&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="n">runtype</span> <span class="o">=</span> <span class="n">_get_or_increase_runtype</span><span class="p">(</span><span class="n">used_runs</span><span class="p">)</span>
+    <span class="n">meta</span><span class="p">[</span><span class="s1">&#39;runs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">used_runs</span> <span class="o">+</span> <span class="p">[</span><span class="n">runtype</span><span class="p">]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">meta_fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">meta</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_source_versions"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.get_source_versions">[docs]</a><span class="k">def</span> <span class="nf">get_source_versions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the source versions for all the modules used to construct</span>
+<span class="sd">    nucleus7 objects</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    source_versions</span>
+<span class="sd">        dict with package names as keys and its version or git has as value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logged_configs</span> <span class="o">=</span> <span class="n">config_logger</span><span class="o">.</span><span class="n">get_logged_configs</span><span class="p">()</span>
+    <span class="n">configs_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">logged_configs</span><span class="p">)</span>
+    <span class="n">class_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">configs_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                   <span class="k">if</span> <span class="s2">&quot;class_name&quot;</span> <span class="ow">in</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;//&#39;</span><span class="p">)}</span>
+    <span class="n">source_versions</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;nucleus7&quot;</span><span class="p">:</span> <span class="n">_get_package_version</span><span class="p">(</span><span class="s2">&quot;nucleus7&quot;</span><span class="p">)}</span>
+
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">class_names</span><span class="p">:</span>
+        <span class="n">package</span> <span class="o">=</span> <span class="n">each</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">package</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">source_versions</span><span class="p">:</span>
+            <span class="n">package_version</span> <span class="o">=</span> <span class="n">_get_package_version</span><span class="p">(</span><span class="n">package</span><span class="p">)</span>
+            <span class="n">source_versions</span><span class="p">[</span><span class="n">package</span><span class="p">]</span> <span class="o">=</span> <span class="n">package_version</span>
+    <span class="k">return</span> <span class="n">source_versions</span></div>
+
+
+<div class="viewcode-block" id="log_exported_model_info"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.log_exported_model_info">[docs]</a><span class="k">def</span> <span class="nf">log_exported_model_info</span><span class="p">(</span><span class="n">path_to_log</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">global_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log the exported model information to file &quot;model.info&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path_to_log</span>
+<span class="sd">        path to log directory to store the file</span>
+<span class="sd">    global_step</span>
+<span class="sd">        global step of the export</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">global_step_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_log</span><span class="p">,</span> <span class="s1">&#39;model.info&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">global_step_fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;global_step=</span><span class="si">{:d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">global_step</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="update_config_with_other_config"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.update_config_with_other_config">[docs]</a><span class="k">def</span> <span class="nf">update_config_with_other_config</span><span class="p">(</span><span class="n">config1</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">config2</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update one config with other</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config1</span>
+<span class="sd">        base config, e.g. config that will be updated</span>
+<span class="sd">    config2</span>
+<span class="sd">        config tha will update</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    updated_config</span>
+<span class="sd">        updated config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">updated_config</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">updated_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_key_config2</span><span class="p">,</span> <span class="n">each_subconfig2</span> <span class="ow">in</span> <span class="n">config2</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">subconfig_updated</span> <span class="o">=</span> <span class="n">_update_subconfig</span><span class="p">(</span>
+            <span class="n">config1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">each_key_config2</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">each_subconfig2</span><span class="p">)</span>
+        <span class="n">updated_config</span><span class="p">[</span><span class="n">each_key_config2</span><span class="p">]</span> <span class="o">=</span> <span class="n">subconfig_updated</span>
+    <span class="k">return</span> <span class="n">updated_config</span></div>
+
+
+<div class="viewcode-block" id="get_project_name_from_directory"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.project_utils.get_project_name_from_directory">[docs]</a><span class="k">def</span> <span class="nf">get_project_name_from_directory</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns project name given project directory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    project_name</span>
+<span class="sd">        project name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">project_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">project_meta_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">_PROJECT_META_FILE_NAME</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">project_meta_file_name</span><span class="p">):</span>
+        <span class="n">project_meta</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">project_meta_file_name</span><span class="p">)</span>
+        <span class="n">project_name</span> <span class="o">=</span> <span class="n">project_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_PROJECT_NAME_KEY</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">project_name</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">project_dir</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">))[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+<span class="k">def</span> <span class="nf">_update_subconfig</span><span class="p">(</span><span class="n">config1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">],</span> <span class="n">config2</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span>
+                      <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">config1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">config2</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">config2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">config1</span>
+    <span class="k">if</span> <span class="n">_define_subconfig_type</span><span class="p">(</span><span class="n">config1</span><span class="p">,</span> <span class="n">config2</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_update_list_subconfigs</span><span class="p">(</span><span class="n">config1</span><span class="p">,</span> <span class="n">config2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_update_dict_subconfigs</span><span class="p">(</span><span class="n">config1</span><span class="p">,</span> <span class="n">config2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_define_subconfig_type</span><span class="p">(</span><span class="n">config1</span><span class="p">,</span> <span class="n">config2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">((</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">config1</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config2</span><span class="p">,</span> <span class="nb">list</span><span class="p">))):</span>
+        <span class="k">return</span> <span class="s2">&quot;list&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;dict&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_update_list_subconfigs</span><span class="p">(</span><span class="n">config1</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">config2</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config1</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">config1</span> <span class="o">=</span> <span class="p">[</span><span class="n">config1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config2</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+        <span class="n">config2</span> <span class="o">=</span> <span class="p">[</span><span class="n">config2</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">_CONFIG_LIST_INSERT_IDENTIFIER</span> <span class="ow">in</span> <span class="n">config1</span><span class="p">:</span>
+        <span class="n">config1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">config1</span><span class="p">)</span>
+        <span class="n">config1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">_CONFIG_LIST_INSERT_IDENTIFIER</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">base_index</span> <span class="o">=</span> <span class="n">config2</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">_CONFIG_LIST_INSERT_IDENTIFIER</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">base_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">base_index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">config2</span>
+
+    <span class="n">config_updated</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">config2</span><span class="p">)</span>
+    <span class="n">config_updated</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">_CONFIG_LIST_INSERT_IDENTIFIER</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="n">config1</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">config_updated</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">base_index</span><span class="p">,</span> <span class="n">each_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config_updated</span>
+
+
+<span class="k">def</span> <span class="nf">_update_dict_subconfigs</span><span class="p">(</span><span class="n">config1</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">config2</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">config2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">_CONFIG_DICT_UPDATE_IDENTIFIER</span><span class="p">):</span>
+        <span class="n">config_updated</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">config_updated</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config1</span><span class="p">)</span>
+        <span class="n">config_updated</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config2</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">config_updated</span><span class="p">[</span><span class="n">_CONFIG_DICT_UPDATE_IDENTIFIER</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">config_updated</span>
+    <span class="k">return</span> <span class="n">config2</span>
+
+
+<span class="k">def</span> <span class="nf">_get_package_version</span><span class="p">(</span><span class="n">package_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">__version__</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">git_utils</span><span class="o">.</span><span class="n">get_git_revision_hash_from_module_path</span><span class="p">(</span>
+            <span class="kc">None</span><span class="p">,</span> <span class="n">package_name</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_or_increase_runtype</span><span class="p">(</span><span class="n">used_runs</span><span class="p">):</span>
+    <span class="n">runtype</span> <span class="o">=</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">get_run_type</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">runtype</span> <span class="ow">in</span> <span class="n">used_runs</span><span class="p">:</span>
+        <span class="n">same_run_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">used_runs</span> <span class="k">if</span> <span class="n">runtype</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span>
+        <span class="n">run_nums_continued</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">same_run_types</span><span class="p">]</span>
+        <span class="n">run_num</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">t</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">run_nums_continued</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">runtype</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">runtype</span><span class="p">,</span> <span class="n">run_num</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">runtype</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

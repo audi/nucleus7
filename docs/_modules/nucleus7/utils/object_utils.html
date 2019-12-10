@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.object_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.object_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.object_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils to work with objects</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+
+
+<div class="viewcode-block" id="get_parent_method"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.get_parent_method">[docs]</a><span class="k">def</span> <span class="nf">get_parent_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="n">method</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                      <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the parent class if method is not specified otherwise get all parent</span>
+<span class="sd">    methods which are overridden by method</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cls</span>
+<span class="sd">        class to get the parents</span>
+<span class="sd">    method</span>
+<span class="sd">        method of the class to search for parents</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    parent</span>
+<span class="sd">        parent class or method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">parents</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getmro</span><span class="p">(</span><span class="bp">cls</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span>
+    <span class="n">parent_methods</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                      <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">parents</span>
+                      <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                      <span class="ow">and</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">object</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">parent_methods</span></div>
+
+
+<div class="viewcode-block" id="get_method_signatures"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.get_method_signatures">[docs]</a><span class="k">def</span> <span class="nf">get_method_signatures</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">method</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">include_parents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+                          <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">inspect</span><span class="o">.</span><span class="n">Signature</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get signature of the method together with signatures of the parents</span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cls</span>
+<span class="sd">        class to get the parents</span>
+<span class="sd">    method</span>
+<span class="sd">        method to search for</span>
+
+<span class="sd">    include_parents</span>
+<span class="sd">        if the parents must be included in the signatures</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list_of_signatures</span>
+<span class="sd">        signatures in hierarchical order (method is first)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">signatures</span> <span class="o">=</span> <span class="p">[</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">method</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">include_parents</span><span class="p">:</span>
+        <span class="n">parent_methods</span> <span class="o">=</span> <span class="n">get_parent_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_parent_method</span> <span class="ow">in</span> <span class="n">parent_methods</span><span class="p">:</span>
+            <span class="n">parent_signature</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">each_parent_method</span><span class="p">)</span>
+            <span class="n">signatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">parent_signature</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signatures</span></div>
+
+
+<div class="viewcode-block" id="get_object_name"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.get_object_name">[docs]</a><span class="k">def</span> <span class="nf">get_object_name</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return object name or class name if object has no __name__ field. If it is \</span>
+<span class="sd">    a class, return class name</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj</span>
+<span class="sd">        Input to get name from</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    name</span>
+<span class="sd">        The requested name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">name_str</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name_str</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;object at&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">name_str</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span></div>
+
+
+<div class="viewcode-block" id="assert_is_built"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.assert_is_built">[docs]</a><span class="k">def</span> <span class="nf">assert_is_built</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator to check if self._built == True else raises ValueError</span>
+<span class="sd">    with name of object and message to build it</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    function</span>
+<span class="sd">        method to decorate</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    decorated_method</span>
+<span class="sd">        decorated method</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if self.built != True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">assert_object_is_built</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span></div>
+
+
+<div class="viewcode-block" id="assert_object_is_built"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.assert_object_is_built">[docs]</a><span class="k">def</span> <span class="nf">assert_object_is_built</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if object is built, e.g. self.built == True</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj</span>
+<span class="sd">        object to check</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    decorated_method</span>
+<span class="sd">        decorated method</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if object.built != True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">obj</span><span class="o">.</span><span class="n">built</span><span class="p">:</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Object </span><span class="si">{}</span><span class="s2"> is not built! Call self.build() first&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">class_name</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># this will be used as a property decorator, so has same name pattern</span>
+<div class="viewcode-block" id="classproperty"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.classproperty">[docs]</a><span class="k">class</span> <span class="nc">classproperty</span><span class="p">(</span><span class="nb">property</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add the class property to class</span>
+
+<span class="sd">    Usage is same as a @property, but this properties first argument is class</span>
+<span class="sd">    itself, not a object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=no-member</span>
+    <span class="c1"># __get__ method is a method of fget, since it is a descriptor</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">self_object</span><span class="p">,</span> <span class="n">self_cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">self_object</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fget</span><span class="o">.</span><span class="fm">__get__</span><span class="p">(</span><span class="n">self_cls</span><span class="p">)()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fget</span><span class="o">.</span><span class="fm">__get__</span><span class="p">(</span><span class="n">self_object</span><span class="p">)()</span></div>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+
+<div class="viewcode-block" id="select_fn_arguments_from_dict"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.select_fn_arguments_from_dict">[docs]</a><span class="k">def</span> <span class="nf">select_fn_arguments_from_dict</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select matching to function signature keyword parameters from config</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    function</span>
+<span class="sd">        function to get the parameters for</span>
+<span class="sd">    config</span>
+<span class="sd">        configuration</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    kwargs</span>
+<span class="sd">        keyword arguments for function</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fn_parameters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">function</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">fn_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">fn_parameters</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">config</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">fn_kwargs</span></div>
+
+
+<div class="viewcode-block" id="assert_property_is_defined"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.assert_property_is_defined">[docs]</a><span class="k">def</span> <span class="nf">assert_property_is_defined</span><span class="p">(</span><span class="n">property_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if object property is not None</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    property_name</span>
+<span class="sd">        name of the property</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if obj.[property] is None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_name</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">class_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+                <span class="n">object_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Property </span><span class="si">{}</span><span class="s2"> of object </span><span class="si">{}</span><span class="s2"> with class </span><span class="si">{}</span><span class="s2"> is &quot;</span>
+                       <span class="s2">&quot;not set!&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">property_name</span><span class="p">,</span> <span class="n">object_name</span><span class="p">,</span>
+                                          <span class="n">class_name</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapped</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="get_full_method_signature"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.get_full_method_signature">[docs]</a><span class="k">def</span> <span class="nf">get_full_method_signature</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">method</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                              <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method gets all arguments of the current method as well as its</span>
+<span class="sd">    parents implementations. This is useful when creating a child class and</span>
+<span class="sd">    passing the constructor arguments to the parent using `**kwargs`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cls</span>
+<span class="sd">        class to get the parents</span>
+<span class="sd">    method</span>
+<span class="sd">        method of the class to search for parents</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    args</span>
+<span class="sd">        list of args, e.g. ordered arguments</span>
+<span class="sd">    kwargs</span>
+<span class="sd">        list of keyword only arguments</span>
+<span class="sd">    defaults</span>
+<span class="sd">        dict with mapping of argument name to its default value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parent_methods</span> <span class="o">=</span> <span class="n">get_parent_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">parent_methods</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">methods_to_inspect</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span> <span class="ow">or</span> <span class="bp">cls</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">parent_methods</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">methods_to_inspect</span> <span class="o">=</span> <span class="p">[</span><span class="n">method</span> <span class="ow">or</span> <span class="bp">cls</span><span class="p">]</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">defaults</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">check_args</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">check_kwargs</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">for</span> <span class="n">each_method</span> <span class="ow">in</span> <span class="n">methods_to_inspect</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">check_args</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">check_kwargs</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="c1"># pylint: disable=unidiomatic-typecheck</span>
+        <span class="c1"># this is needed because otherwise the metaclass.__call__ method</span>
+        <span class="c1"># will be inspected and not method.__init__</span>
+        <span class="k">if</span> <span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">each_method</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">type</span><span class="p">(</span><span class="n">each_method</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">:</span>
+            <span class="n">each_method</span> <span class="o">=</span> <span class="n">each_method</span><span class="o">.</span><span class="fm">__init__</span>
+        <span class="n">full_arg_scope</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">each_method</span><span class="p">)</span>
+
+        <span class="n">method_signature</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">each_method</span><span class="p">)</span>
+        <span class="n">params_order</span> <span class="o">=</span> <span class="n">full_arg_scope</span><span class="o">.</span><span class="n">args</span> <span class="o">+</span> <span class="n">full_arg_scope</span><span class="o">.</span><span class="n">kwonlyargs</span>
+
+        <span class="k">for</span> <span class="n">each_param_name</span> <span class="ow">in</span> <span class="n">params_order</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">each_param_name</span> <span class="o">==</span> <span class="s1">&#39;self&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">each_param</span> <span class="o">=</span> <span class="n">method_signature</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">each_param_name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">each_param</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="n">inspect</span><span class="o">.</span><span class="n">Parameter</span><span class="o">.</span><span class="n">KEYWORD_ONLY</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">check_kwargs</span>
+                        <span class="ow">and</span> <span class="n">each_param_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span>
+                        <span class="ow">and</span> <span class="n">each_param_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+                    <span class="n">kwargs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_param_name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">check_args</span>
+                        <span class="ow">and</span> <span class="n">each_param_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span>
+                        <span class="ow">and</span> <span class="n">each_param_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
+                    <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_param_name</span><span class="p">)</span>
+            <span class="c1"># pylint: disable=protected-access</span>
+            <span class="c1"># _empty must be used since it is a part of inspect</span>
+            <span class="k">if</span> <span class="n">each_param</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">inspect</span><span class="o">.</span><span class="n">_empty</span><span class="p">:</span>
+                <span class="n">defaults</span><span class="p">[</span><span class="n">each_param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_param</span><span class="o">.</span><span class="n">default</span>
+            <span class="c1"># pylint: enable=protected-access</span>
+
+        <span class="n">check_args</span> <span class="o">=</span> <span class="n">full_arg_scope</span><span class="o">.</span><span class="n">varargs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">check_kwargs</span> <span class="o">=</span> <span class="n">full_arg_scope</span><span class="o">.</span><span class="n">varkw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">defaults</span></div>
+
+
+<div class="viewcode-block" id="get_class_name_with_module"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.get_class_name_with_module">[docs]</a><span class="k">def</span> <span class="nf">get_class_name_with_module</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the full class name, e.g. module name and class name out of the object</span>
+<span class="sd">    class</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj</span>
+<span class="sd">        object</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    module_and_class_name</span>
+<span class="sd">        module (if exist) and class name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">module_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__module__</span>
+    <span class="n">class_name</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">module_name</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">class_name</span>
+    <span class="k">return</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">module_name</span><span class="p">,</span> <span class="n">class_name</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="recursive_getattr"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.object_utils.recursive_getattr">[docs]</a><span class="k">def</span> <span class="nf">recursive_getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursive getattr to get the attr of the attr, e.g. if object has attribute</span>
+<span class="sd">    a and it is a object that holds a attribute b with value V, then you</span>
+<span class="sd">    can access it with `recursive_getattr(obj, &#39;a.b&#39;)`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    obj</span>
+<span class="sd">        object with attributes</span>
+<span class="sd">    attr_name</span>
+<span class="sd">        name of the attribute to get; levels are separated using separator</span>
+<span class="sd">    separator</span>
+<span class="sd">        separator to separate different attribute levels</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    value</span>
+<span class="sd">        value of the recursive attribute of the object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">attr_split</span> <span class="o">=</span> <span class="n">attr_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">obj</span>
+    <span class="k">for</span> <span class="n">each_attr</span> <span class="ow">in</span> <span class="n">attr_split</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">each_attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.data.processor &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.data.processor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.data.processor</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Base interfaces for Data Processor</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.data.base</span> <span class="kn">import</span> <span class="n">BaseDataPipeNucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_filter</span> <span class="kn">import</span> <span class="n">DataFilterMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">utils</span>
+
+
+<div class="viewcode-block" id="DataProcessor"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.DataProcessor">[docs]</a><span class="k">class</span> <span class="nc">DataProcessor</span><span class="p">(</span><span class="n">BaseDataPipeNucleotide</span><span class="p">,</span>
+                    <span class="n">DataFilterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Data Processor interface, which can be used to process the data from</span>
+<span class="sd">    readers or other processors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s2">&quot;data_processor&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="DataProcessor.process"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.DataProcessor.process">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Main method to process the inputs sample wise</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs to data processor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        processed_data</span>
+<span class="sd">            processed data</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent __call__ method has more generic signature</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="RandomAugmentationTf"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf">[docs]</a><span class="k">class</span> <span class="nc">RandomAugmentationTf</span><span class="p">(</span><span class="n">DataProcessor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Random augmentation processor.</span>
+
+<span class="sd">    Augments the input with probability given by `augmentation_probability`.</span>
+<span class="sd">    If the `augment` key is provided, then `augmentation_probability` is ignored</span>
+<span class="sd">    and the tensorflow boolean values from augment specify whether</span>
+<span class="sd">    the input is augmented.</span>
+
+<span class="sd">    Can also be used as a random generator. In that case you can also override</span>
+<span class="sd">    `not_augment(...)`. If doing so, take care to ensure that</span>
+<span class="sd">    `not_augment(...)` and `augment(...)` result in dicts with the</span>
+<span class="sd">    same structure.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    augmentation_probability</span>
+<span class="sd">        probability of augmentation being applied; ignored if the `augment` key</span>
+<span class="sd">        is supplied</span>
+<span class="sd">    random_seed</span>
+<span class="sd">        random number generator seed</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    random_variables</span>
+<span class="sd">        dict with random variables with keys from random_variables_keys;</span>
+<span class="sd">        automatically generated if not passed.</span>
+<span class="sd">    random_variables_keys</span>
+<span class="sd">        If all of these random variables are passed to `process()` they will be</span>
+<span class="sd">        used, otherwise `create_random_variables()` is called and passed</span>
+<span class="sd">        through.</span>
+<span class="sd">        These variables are added as optional incoming and required generated</span>
+<span class="sd">        keys. These variables are not passed to the augment method,</span>
+<span class="sd">        but are saved to `self.random_variables` dict</span>
+<span class="sd">    incoming_keys</span>
+<span class="sd">        * augment : optional key of tf.bool and size [];</span>
+<span class="sd">          if used overrides ``augmentation_probability`` to specify when input</span>
+<span class="sd">          is augmented</span>
+<span class="sd">    generated_keys</span>
+<span class="sd">        * augment : pass-through incoming `augment` key if provided,</span>
+<span class="sd">          otherwise generates a bool flag for this augmentation</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">is_tensorflow</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">augmentation_probability</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+                 <span class="n">random_seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">processor_kwargs</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">augmentation_probability</span> <span class="o">&lt;=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Augmentation probability must be in [0.0, 1.0]&quot;</span>
+        <span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">processor_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">augmentation_probability</span> <span class="o">=</span> <span class="n">augmentation_probability</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span> <span class="o">=</span> <span class="n">random_seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables_keys</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_augmentation_flag</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Optional[tf.Tensor]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_random_seed_used_times</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="RandomAugmentationTf.get_random_seed"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf.get_random_seed">[docs]</a>    <span class="k">def</span> <span class="nf">get_random_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function that generates the random seed from self.random_seed and</span>
+<span class="sd">        the name and increments it every time it was called.</span>
+
+<span class="sd">        To have more random behavior but at the same time same reproducibility,</span>
+<span class="sd">        it is better to use this method to get the seed compared to</span>
+<span class="sd">        self.random_seed</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        random_seed</span>
+<span class="sd">            new random seed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">random_seed_ord</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">string_to_int_code</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_random_seed_used_times</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span> <span class="o">+</span> <span class="n">random_seed_ord</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_random_seed_used_times</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">random_cond_initialized</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        True if augment_condition was initialized or provided, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">incoming_keys_optional</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">extra_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;augment&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">random_variables_keys</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">incoming_keys_optional</span> <span class="o">+</span> <span class="n">extra_keys</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_required</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">extra_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;augment&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">random_variables_keys</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">generated_keys_required</span> <span class="o">+</span> <span class="n">extra_keys</span>
+
+<div class="viewcode-block" id="RandomAugmentationTf.augment"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf.augment">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method for augmentation</span>
+
+<span class="sd">        To access other random variables, use self.random_variables[key] where</span>
+<span class="sd">        key belongs to self.random_variables_keys</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            data for augmentation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        augmented</span>
+<span class="sd">            augmented data</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="RandomAugmentationTf.not_augment"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf.not_augment">[docs]</a>    <span class="k">def</span> <span class="nf">not_augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method for augmentation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            data for augmentation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        augmented</span>
+<span class="sd">            augmented data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="k">return</span> <span class="n">inputs</span></div>
+
+<div class="viewcode-block" id="RandomAugmentationTf.create_random_variables"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf.create_random_variables">[docs]</a>    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create random variables. This method will be called if the random</span>
+<span class="sd">        variables specified inside of self.random_variables_keys were not</span>
+<span class="sd">        provided on the call</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        random_variables</span>
+<span class="sd">            created random variables</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables_keys</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s2">&quot;Implement method create_random_variables!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{}</span></div>
+
+<div class="viewcode-block" id="RandomAugmentationTf.initialize_augment_condition"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf.initialize_augment_condition">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_augment_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the augment_condition using provided probability</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Create new augment condition&quot;</span><span class="p">)</span>
+        <span class="n">random_uniform</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">(</span>
+            <span class="p">[],</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_augmentation_flag</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span>
+            <span class="n">random_uniform</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">augmentation_probability</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="RandomAugmentationTf.process"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.processor.RandomAugmentationTf.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">augment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="k">if</span> <span class="n">augment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use provided augment condition and ignore &quot;</span>
+                              <span class="s2">&quot;self.augmentation_probability&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_initialized</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_augmentation_flag</span> <span class="o">=</span> <span class="n">augment</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_augmentation_flag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialize_augment_condition</span><span class="p">()</span>
+
+        <span class="p">(</span><span class="n">inputs_only</span><span class="p">,</span> <span class="n">passed_random_variables</span>
+         <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_inputs_with_random_variables</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_create_random_variables</span><span class="p">(</span><span class="n">passed_random_variables</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_augmentation_flag</span><span class="p">,</span>
+                         <span class="n">true_fn</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span><span class="p">(</span><span class="o">**</span><span class="n">inputs_only</span><span class="p">),</span>
+                         <span class="n">false_fn</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">not_augment</span><span class="p">(</span><span class="o">**</span><span class="n">inputs_only</span><span class="p">))</span>
+        <span class="n">result</span><span class="p">[</span><span class="s2">&quot;augment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_augmentation_flag</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span> <span class="nf">_split_inputs_with_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="n">inputs_only</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_key</span><span class="p">:</span> <span class="n">each_value</span> <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">each_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables_keys</span><span class="p">}</span>
+        <span class="n">random_variables</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_key</span><span class="p">:</span> <span class="n">each_value</span> <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">each_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables_keys</span>
+                <span class="ow">and</span> <span class="n">each_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="n">inputs_only</span><span class="p">,</span> <span class="n">random_variables</span>
+
+    <span class="k">def</span> <span class="nf">_maybe_create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">passed_random_variables</span><span class="p">):</span>
+        <span class="n">random_variables_keys_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_variables_keys</span><span class="p">)</span>
+        <span class="n">passed_variables_keys_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">passed_random_variables</span><span class="p">)</span>
+        <span class="n">missing_random_variables</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span>
+            <span class="n">random_variables_keys_set</span><span class="p">,</span> <span class="n">passed_variables_keys_set</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">missing_random_variables</span><span class="p">:</span>
+            <span class="n">common_variables</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span>
+                <span class="n">random_variables_keys_set</span><span class="p">,</span> <span class="n">passed_variables_keys_set</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialize random variables </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                              <span class="nb">list</span><span class="p">(</span><span class="n">missing_random_variables</span><span class="p">))</span>
+            <span class="n">random_variables_to_use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_random_variables</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">random_variables_to_use</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Created random variables </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                                  <span class="nb">list</span><span class="p">(</span><span class="n">common_variables</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">common_variables</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use passed random variables </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                                  <span class="nb">list</span><span class="p">(</span><span class="n">common_variables</span><span class="p">))</span>
+                <span class="n">random_variables_to_use</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">passed_random_variables</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use passed random variables </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">random_variables_keys</span><span class="p">)</span>
+            <span class="n">random_variables_to_use</span> <span class="o">=</span> <span class="n">passed_random_variables</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span> <span class="o">=</span> <span class="n">random_variables_to_use</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

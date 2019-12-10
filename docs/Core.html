@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Nucleotide and co. &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data handling" href="DataHandling.html" />
+    <link rel="prev" title="Project" href="Project.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Nucleotide and co.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nucleotide-a-name-nucleotide-a">Nucleotide <span class="raw-html-m2r"><a name="nucleotide"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dna-helix-a-name-dna-helix-a">DNA helix <span class="raw-html-m2r"><a name="dna-helix"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#genehandler-a-name-gene-handler-a">GeneHandler <span class="raw-html-m2r"><a name="gene-handler"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#buffer-intermediate-results-a-name-buffer-intermediate-results-a">Buffer intermediate results <span class="raw-html-m2r"><a name="buffer-intermediate-results"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Nucleotide and co.</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Core.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleotide-and-co">
+<h1>Nucleotide and co.<a class="headerlink" href="#nucleotide-and-co" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#nucleotide-a-name-nucleotide-a" id="id1">Nucleotide <span class="raw-html-m2r"><a name="nucleotide"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#dna-helix-a-name-dna-helix-a" id="id2">DNA helix <span class="raw-html-m2r"><a name="dna-helix"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#genehandler-a-name-gene-handler-a" id="id3">GeneHandler <span class="raw-html-m2r"><a name="gene-handler"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#buffer-intermediate-results-a-name-buffer-intermediate-results-a" id="id4">Buffer intermediate results <span class="raw-html-m2r"><a name="buffer-intermediate-results"></a></span></a></p></li>
+</ul>
+</div>
+<div class="section" id="nucleotide-a-name-nucleotide-a">
+<h2><a class="toc-backref" href="#id1">Nucleotide <span class="raw-html-m2r"><a name="nucleotide"></a></span></a><a class="headerlink" href="#nucleotide-a-name-nucleotide-a" title="Permalink to this headline">¶</a></h2>
+<p>Nucleotide can be represented as follows:</p>
+<a class="reference external image-reference" href="../../docs_source/images/nucleotide.png"><img alt="Nucleotide" src="_images/nucleotide.png" /></a>
+<p>and has following interface (simplified):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Nucleotide</span><span class="p">:</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;input1&#39;</span><span class="p">,</span> <span class="s1">&#39;_input2&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;output1&#39;</span><span class="p">,</span> <span class="s1">&#39;_output2&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output1&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;output2&#39;</span><span class="p">:</span> <span class="o">...</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>So each nucleotide has following mandatory fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">incoming_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code>:</p>
+<ul>
+<li><p>this are basically the signature of the nucleotide - <code class="docutils literal notranslate"><span class="pre">ìncoming_keys</span></code>
+describe the names of input data parameters and <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code> describe
+the output keys and can be of 2 types - required and optional.</p></li>
+<li><p>if the key is optional, add the ‘_’ in the beginning, e.g.
+<code class="docutils literal notranslate"><span class="pre">_optional_key</span></code>, but use it without ‘_’ prefix inside of the process method</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">process</span></code> method:</p>
+<ul>
+<li><p>perform calculations on inputs and return outputs; inputs are always
+passed as kwargs and its keys are same as <code class="docutils literal notranslate"><span class="pre">ìncoming_keys</span></code> and outputs is
+a dict (also nested), which keys are equal to <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>It is not mandatory that <code class="docutils literal notranslate"><span class="pre">incoming_keys</span></code> or <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code> are defined,
+but if <code class="docutils literal notranslate"><span class="pre">incoming_keys</span></code> is not defined, it assumes that nucleotide has no inputs
+and if <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code> is not defined, it assumes that nucleotide does not
+produce any outputs, but still may perform some calculations.</p>
+<p>Also <code class="docutils literal notranslate"><span class="pre">incoming_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code> are class attributes. It means
+that they are fixed for one nucleotide implementation.</p>
+<p>There are different <strong>Nucleotide</strong> types:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="Model.html">Model</a></p>
+<ul>
+<li><p>ModelPlugin</p></li>
+<li><p>ModelLoss</p></li>
+<li><p>ModelPostProcessor</p></li>
+<li><p>ModelMetric</p></li>
+<li><p>ModelSummary</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="Coordination.html">Callback</a></p>
+<ul>
+<li><p>CoordinatorCallback</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="KPI.html">KPIEvaluator</a></p>
+<ul>
+<li><p>KPIPlugin</p></li>
+<li><p>KPIAccumulator</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="DataHandling.html#feeding-the-data">Data</a></p>
+<ul>
+<li><p>Dataset</p></li>
+<li><p>DataFeeder</p></li>
+</ul>
+</li>
+</ul>
+<p>In short, all of nucleotides inside of nucleus7 project are only interfaces and
+need to be implemented for particular tasks.</p>
+</div>
+<div class="section" id="dna-helix-a-name-dna-helix-a">
+<h2><a class="toc-backref" href="#id2">DNA helix <span class="raw-html-m2r"><a name="dna-helix"></a></span></a><a class="headerlink" href="#dna-helix-a-name-dna-helix-a" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../../docs_source/images/nucleus_structure.png"><img alt="Gene structure" src="_images/nucleus_structure.png" /></a>
+<p><code class="docutils literal notranslate"><span class="pre">DNA</span> <span class="pre">helix</span></code> called the graph constructed of all model nucleotides and also
+sorted in topological order. This means that nucleotides cannot be cycled.</p>
+<p>Each <strong>Nucleotide</strong> has a list of inbound nodes (<code class="docutils literal notranslate"><span class="pre">nucleotide.inbound_nodes</span></code>)
+and a list of key mapping from inbound node generated keys to own incoming keys
+(<code class="docutils literal notranslate"><span class="pre">nucleotide.incoming_keys_mapping</span></code>), e.g. Nucleotide1 from image has
+following mapping:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Nucleotide1</span><span class="o">.</span><span class="n">inbound_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Nucleotide2&#39;</span><span class="p">,</span> <span class="s1">&#39;Nucleotide3&#39;</span><span class="p">]</span>
+<span class="n">Nucleotide1</span><span class="o">.</span><span class="n">incoming_keys_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Nucleotide2&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;out1&#39;</span><span class="p">:</span> <span class="s1">&#39;inp1&#39;</span><span class="p">,</span> <span class="s1">&#39;out2&#39;</span><span class="p">:</span> <span class="s1">&#39;inp2&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;Nucleotide3&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;out2&#39;</span><span class="p">:</span> <span class="s1">&#39;inp2&#39;</span><span class="p">,</span> <span class="s1">&#39;out1&#39;</span><span class="p">:</span> <span class="s1">&#39;inp3&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>These mappings and inbound node list can vary for each instance of same
+nucleotide class and can be controlled through its configuration. Mapping has
+following rules:</p>
+<ul>
+<li><p>if no mapping was provided, it assumes that generated key name of inbound node
+correspond to incoming key name.</p></li>
+<li><p>if you map some key to <code class="docutils literal notranslate"><span class="pre">_</span></code>, then it will be omitted and so not used as input
+to nucleotide node process.</p></li>
+<li><p>you can remap all other keys for different nested levels using <code class="docutils literal notranslate"><span class="pre">*</span></code>, e.g.
+<code class="docutils literal notranslate"><span class="pre">{'*':</span> <span class="pre">'_',</span> <span class="pre">'a':</span> <span class="pre">'b'}</span></code> will redirect all inputs except ‘a’ to ‘_’ (omit them)
+and <code class="docutils literal notranslate"><span class="pre">{'a:b:*':</span> <span class="pre">'_',</span> <span class="pre">'a:b:c':</span> <span class="pre">'e'}</span></code> will redirect all nested levels from <code class="docutils literal notranslate"><span class="pre">a:b</span></code> to
+<code class="docutils literal notranslate"><span class="pre">_</span></code> except <code class="docutils literal notranslate"><span class="pre">a:b:c</span></code>, which will be forwarded to <code class="docutils literal notranslate"><span class="pre">e</span></code>.</p></li>
+<li><p>if after the mapping, there are inputs from different inbound nodes but
+mapped key, then they will be appended to one list in the order of
+inbound nodes.</p></li>
+<li><p>it is possible to map multiple output keys (also from different inbound nodes)
+to one incoming key and also to pass the output as a key of the inputs dict in
+key; following will result in <code class="docutils literal notranslate"><span class="pre">out2</span> <span class="pre">=</span> <span class="pre">[Nucleotide1:out1:key1,</span> <span class="pre">Nucleotide2:out1]</span></code>
+and <code class="docutils literal notranslate"><span class="pre">out1</span> <span class="pre">=</span> <span class="pre">{&quot;key1&quot;:</span> <span class="pre">Nucleotide1:out2,</span> <span class="pre">&quot;key2&quot;:</span> <span class="pre">Nucleotide2:out2}</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Nucleotide1</span><span class="o">.</span><span class="n">incoming_keys_mapping</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;Nucleotide1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;out1:key1&quot;</span><span class="p">:</span>  <span class="s2">&quot;out2:0&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;out2&quot;</span><span class="p">:</span>  <span class="s2">&quot;out1:key1&quot;</span><span class="p">},</span>
+  <span class="s2">&quot;Nucleotide2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;out1&quot;</span><span class="p">:</span>  <span class="s2">&quot;out2:1&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;out2&quot;</span><span class="p">:</span>  <span class="s2">&quot;out1:key2&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Let´s go a bit deeper and see what is happening under the hood in <strong>nucleus7</strong>
+during the <strong>dna_helix</strong> building. Pseudo code is following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_dna</span><span class="p">():</span>
+    <span class="n">nucleotides_in_sorted_order</span> <span class="o">=</span> <span class="n">topological_sort</span><span class="p">(</span><span class="n">nucleotides</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">nucleotide</span> <span class="ow">in</span> <span class="n">nucleotides_in_sorted_order</span><span class="p">:</span>
+        <span class="n">nucleotide_inputs</span> <span class="o">=</span> <span class="n">select_inputs_from_inbound_nodes</span><span class="p">(</span>
+            <span class="n">results</span><span class="p">,</span> <span class="n">inbound_nodes</span><span class="p">)</span>
+        <span class="n">nucleotide_inputs_mapped</span> <span class="o">=</span> <span class="n">map_generated_keys_to_incoming_keys</span><span class="p">(</span>
+            <span class="n">nucleotide_inputs</span><span class="p">,</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys_mapping</span><span class="p">)</span>
+        <span class="n">nucleotide_output</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="p">(</span><span class="n">is_training</span><span class="p">,</span> <span class="o">**</span><span class="n">nucleotide_inputs_mapped</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">nucleotide</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">nucleotide_output</span>
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+<p>Each <code class="docutils literal notranslate"><span class="pre">process</span></code> block of nucleotide takes inputs without knowing where are
+they coming from (from which nucleotide) and returns a dictionary with
+it´s <code class="docutils literal notranslate"><span class="pre">generated_keys</span></code> as keys. That result will be put to main dictionary
+holding all results of all nucleotides.</p>
+</div>
+<div class="section" id="genehandler-a-name-gene-handler-a">
+<h2><a class="toc-backref" href="#id3">GeneHandler <span class="raw-html-m2r"><a name="gene-handler"></a></span></a><a class="headerlink" href="#genehandler-a-name-gene-handler-a" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GeneHandler</span></code> takes multiple genes (gene is a set os nucleotides of same kind)
+and is responsible for the data flow across them:</p>
+<ul class="simple">
+<li><p>it creates a DNA helix for all the genes</p></li>
+<li><p>checks if the dependency of each gene on other gene is allowed
+(e.g. ModelLoss cannot depend on ModelMetric)</p></li>
+<li><p>sort each gene in topological order if it is possible inside of the gene and
+also across all the genes</p></li>
+</ul>
+</div>
+<div class="section" id="buffer-intermediate-results-a-name-buffer-intermediate-results-a">
+<h2><a class="toc-backref" href="#id4">Buffer intermediate results <span class="raw-html-m2r"><a name="buffer-intermediate-results"></a></span></a><a class="headerlink" href="#buffer-intermediate-results-a-name-buffer-intermediate-results-a" title="Permalink to this headline">¶</a></h2>
+<p>In some cases we want to buffer the sample intermediate results and then use
+them only when everything was collected. This may be useful for data
+summarization, tracking, KPI accumulation and evaluation etc.
+To deal with it in general fashion, class <code class="docutils literal notranslate"><span class="pre">SamplesBuffer</span></code> and <code class="docutils literal notranslate"><span class="pre">BufferProcessor</span></code>
+are introduced. Former is the buffer, which only stores the data and cleans it.
+Later one is the processor to deal, e.g. to accumulate the data from batches,
+split it and then execute some processor function on the buffer inputs.
+Refer to particular implementation of Nucleotide for further info on how to
+use it.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DataHandling.html" class="btn btn-neutral float-right" title="Data handling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Project.html" class="btn btn-neutral float-left" title="Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Optimization &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="KPI" href="KPI.html" />
+    <link rel="prev" title="Coordination" href="Coordination.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Optimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#optimization-control-levels-a-name-optim-control-levels-a">Optimization control levels <span class="raw-html-m2r"><a name="optim_control_levels"></a></span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-level-a-name-global-level-a">Global level <span class="raw-html-m2r"><a name="global_level"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plugin-level-a-name-plugin-level-a">Plugin level <span class="raw-html-m2r"><a name="plugin_level"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-rate-manipulation-a-name-lr-manipulation-a">Learning rate manipulation <span class="raw-html-m2r"><a name="lr_manipulation"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-optimizers-a-name-supported-optimizers-a">Supported optimizers <span class="raw-html-m2r"><a name="supported-optimizers"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Optimization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Optimization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="optimization">
+<h1>Optimization<a class="headerlink" href="#optimization" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#optimization-control-levels-a-name-optim-control-levels-a" id="id1">Optimization control levels <span class="raw-html-m2r"><a name="optim_control_levels"></a></span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#global-level-a-name-global-level-a" id="id2">Global level <span class="raw-html-m2r"><a name="global_level"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#plugin-level-a-name-plugin-level-a" id="id3">Plugin level <span class="raw-html-m2r"><a name="plugin_level"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#learning-rate-manipulation-a-name-lr-manipulation-a" id="id4">Learning rate manipulation <span class="raw-html-m2r"><a name="lr_manipulation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#supported-optimizers-a-name-supported-optimizers-a" id="id5">Supported optimizers <span class="raw-html-m2r"><a name="supported-optimizers"></a></span></a></p></li>
+</ul>
+</div>
+<div class="section" id="optimization-control-levels-a-name-optim-control-levels-a">
+<h2><a class="toc-backref" href="#id1">Optimization control levels <span class="raw-html-m2r"><a name="optim_control_levels"></a></span></a><a class="headerlink" href="#optimization-control-levels-a-name-optim-control-levels-a" title="Permalink to this headline">¶</a></h2>
+<p>nucleus7 has a hierarchy of optimization settings, where more specific
+optimizations settings will overwrite or extend the more general optimization
+settings. In total, there are the following three levels sorted by increasing
+specificy:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#global_level">Global level</a></p></li>
+<li><p><a class="reference external" href="#plugin_level">Plugin level</a></p></li>
+</ul>
+<p>The first two levels allow full control over the used optimizer (e.g. you could
+set a GradientDescentOptimizer as global optimizer and overwrite it for a
+specific plugin to use AdamOptimizer). The only exception to this is the
+learning rate which can only be set at the global level, where the plugin level
+only allows to set a learning rate multiplier
+(<code class="docutils literal notranslate"><span class="pre">local_learning_rate</span> <span class="pre">=</span> <span class="pre">global_learning_rate</span> <span class="pre">*</span> <span class="pre">learning_rate_multiplier</span></code>).</p>
+<div class="section" id="global-level-a-name-global-level-a">
+<h3><a class="toc-backref" href="#id2">Global level <span class="raw-html-m2r"><a name="global_level"></a></span></a><a class="headerlink" href="#global-level-a-name-global-level-a" title="Permalink to this headline">¶</a></h3>
+<p>In general the optimization parameters at the global level can have following
+attributes:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;learning_rate&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="nt">&quot;optimizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RMSPropOptimizer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;decouple_regularization&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;optimizer_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;RMSPropOptimizer_arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;RMSPropOptimizer_arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;learning_rate_manipulator&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;nucleus7.optimization.TFLearningRateDecay&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;TFLearningRateDecay_arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;TFLearningRateDecay_arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;gradient_noise_std&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="nt">&quot;gradient_clip&quot;</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code> is the initial global learning rate. It should be a float.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">optimizer_name</span></code> is the name of the used optimizer. You can find a list of
+supported optimizers <a class="reference external" href="#supported-optimizers">here</a></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">decouple_regularization</span></code> parameter specifies whether L1 and L2
+regularization are optimized using a separate optimizer. This is can improve
+performance of optimizers like Adam. For details look up the <a class="reference external" href="https://arxiv.org/abs/1711.05101">paper on
+arXiv</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">optimizer_parameters</span></code> are the additional constructor arguments except
+of learning_rate, that are passed to the tensorflow optimizer constructor. It’s
+a dict containing keyword-argument pairs.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">learning_rate_manipulator</span></code> dict will control the learning rate
+manipulation. It needs a full class name including packages, e.g.
+<code class="docutils literal notranslate"><span class="pre">class_name</span> <span class="pre">=</span> <span class="pre">nucleus7.optimization.ConstantLearningRate</span></code>.
+The other parameters will be given to the constructor of the chosen learning
+rate manipulator. If class_name is “tf”, it will wrap the standard tensorflow
+decay implementation in tf.train (tf.train.*_decay).</p>
+<p><code class="docutils literal notranslate"><span class="pre">gradient_noise_std</span></code> allows to add a uniform random noise to gradients before
+update (<a class="reference external" href="http://arxiv.org/abs/1511.06807">arXiv</a>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">gradient_clip</span></code> allows to set the global norm and gradients will be clipped to
+it.</p>
+</div>
+<div class="section" id="plugin-level-a-name-plugin-level-a">
+<h3><a class="toc-backref" href="#id3">Plugin level <span class="raw-html-m2r"><a name="plugin_level"></a></span></a><a class="headerlink" href="#plugin-level-a-name-plugin-level-a" title="Permalink to this headline">¶</a></h3>
+<p>At the plugin level you can set all the parameters, except <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>
+and <cite>learning_rate_manipulator`</cite>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;learning_rate_multiplier&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="nt">&quot;optimizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RMSPropOptimizer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;decouple_regularization&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;optimizer_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;RMSPropOptimizer_arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;RMSPropOptimizer_arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;gradient_noise_std&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="nt">&quot;gradient_clip&quot;</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This dict will be combined together with the global one using following rules:</p>
+<ul class="simple">
+<li><p>if the local config doesnt have <code class="docutils literal notranslate"><span class="pre">optimizer_name</span></code> provided then the global
+optimizer class will be used with either local <code class="docutils literal notranslate"><span class="pre">optimizer_parameters</span></code> (if they
+were provided) or with global ones otherwise</p></li>
+<li><p>if local config has <code class="docutils literal notranslate"><span class="pre">optimizer_name</span></code> even if it matches the global one,
+global <code class="docutils literal notranslate"><span class="pre">optimizer_parameters</span></code> will not be used</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optimizer_parameters</span></code>, <code class="docutils literal notranslate"><span class="pre">gradient_noise_std</span></code> and <code class="docutils literal notranslate"><span class="pre">gradient_clip</span></code> will be
+taken from global config, if they were not provided inside of local one.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate_multiplier</span></code> will be multiplied with the global learning rate to
+get a plugin-level learning rate which will change the same way as the global
+one.</p></li>
+</ul>
+<p>The dict needs to be specified in the plugin parameters. The parameter name the
+dict should be passed as <strong>“optimization_parameters”</strong>.</p>
+<p>It is also possible to set the optimization config only for particular variables
+by providing it as a mapping of {variable_pattern: optimization_config}:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;batch_norm&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;learning_rate_multiplier&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;*&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;learning_rate_multiplier&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="nt">&quot;optimizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RMSPropOptimizer&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;decouple_regularization&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;optimizer_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;RMSPropOptimizer_arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;RMSPropOptimizer_arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This one will use learning_rate_multiplier for all plugin variables that have
+<strong>batch_norm</strong> in their names and the <code class="docutils literal notranslate"><span class="pre">*</span></code> config will be used for the rest of
+variables (but this is not mandatory).</p>
+</div>
+</div>
+<div class="section" id="learning-rate-manipulation-a-name-lr-manipulation-a">
+<h2><a class="toc-backref" href="#id4">Learning rate manipulation <span class="raw-html-m2r"><a name="lr_manipulation"></a></span></a><a class="headerlink" href="#learning-rate-manipulation-a-name-lr-manipulation-a" title="Permalink to this headline">¶</a></h2>
+<p>To be able to manipulate the learning rate nucleus7 offers the ability to write
+LearningRateManipulator. To create a new one you need to inherit from the
+<code class="docutils literal notranslate"><span class="pre">optimization.learning_rate_manipulator.LearningRateManipulator</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewLearningRateManipulator</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">LearningRateManipulator</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">get_current_learning_rate</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">initial_learning_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">global_step</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">new_learning_rate</span>
+</pre></div>
+</div>
+<p>Please note that this function takes a tensorflow tensor in (global_step) and
+is expected to return a tensorflow tensor as well. The return tensor must have
+the dtype tf.float32. If you need numpy computation or more complex control
+flow you can use tf.py_func to wrap normal python code. This could for example
+also be used for dynamic setting of the learning rate in a cluster using MQTT.</p>
+<p>The learning rate manipulator class must be set in the global optimization
+config as</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;learning_rate_decay&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;enter.here.full.package.path.of.lr.manipulator&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="#global_level">global optimization level</a> for more details.</p>
+<p>A tip for writing new learning_rate_manipulators:
+global_step might become big, so use <code class="docutils literal notranslate"><span class="pre">tf.float64</span></code> for the internal computation
+of learning rate</p>
+</div>
+<div class="section" id="supported-optimizers-a-name-supported-optimizers-a">
+<h2><a class="toc-backref" href="#id5">Supported optimizers <span class="raw-html-m2r"><a name="supported-optimizers"></a></span></a><a class="headerlink" href="#supported-optimizers-a-name-supported-optimizers-a" title="Permalink to this headline">¶</a></h2>
+<p>All optimizers from <code class="docutils literal notranslate"><span class="pre">tf.train</span></code> namespace are supported and so every parameter
+from its constructor can be set using “optimizer_parameters” key. So if you want
+to use e.g. <code class="docutils literal notranslate"><span class="pre">tf.train.RMSPropOptimizer</span></code> , use:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;optimizer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;RMSPropOptimizer&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;optimizer_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;decay&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;momentum&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="KPI.html" class="btn btn-neutral float-right" title="KPI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Coordination.html" class="btn btn-neutral float-left" title="Coordination" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

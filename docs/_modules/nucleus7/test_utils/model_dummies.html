@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.test_utils.model_dummies &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.test_utils.model_dummies</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.test_utils.model_dummies</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Dummy and mock model parts</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data</span> <span class="kn">import</span> <span class="n">FileList</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.processor</span> <span class="kn">import</span> <span class="n">RandomAugmentationTf</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.reader</span> <span class="kn">import</span> <span class="n">DataReader</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.reader</span> <span class="kn">import</span> <span class="n">TfRecordsDataReader</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi</span> <span class="kn">import</span> <span class="n">KPIAccumulator</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi</span> <span class="kn">import</span> <span class="n">KPIPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">ModelLoss</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">ModelMetric</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">ModelPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">ModelPostProcessor</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">ModelSummary</span>
+
+
+<span class="c1"># pylint: disable=missing-docstring,abstract-method</span>
+<span class="c1"># are test dummies, so docstring is not needed</span>
+<span class="c1"># not all abstract methods must be overridden</span>
+
+<div class="viewcode-block" id="DummyPluginCNN"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginCNN">[docs]</a><span class="k">class</span> <span class="nc">DummyPluginCNN</span><span class="p">(</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inputs_cnn&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPluginCNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DummyPluginCNN.predict"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginCNN.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs_cnn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_cnn : tensor_like</span>
+<span class="sd">            inputs to convolution</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions : tensor_like</span>
+<span class="sd">            predictions after convolution</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span>
+            <span class="n">inputs_cnn</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span>
+            <span class="n">activation</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">activation</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyPluginFlatten"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginFlatten">[docs]</a><span class="k">class</span> <span class="nc">DummyPluginFlatten</span><span class="p">(</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    incoming_keys : list</span>
+<span class="sd">        * inputs_flatten : inputs to flatten</span>
+<span class="sd">    generated_keys : list</span>
+<span class="sd">        predictions : flattened inputs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inputs_flatten&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPluginFlatten</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DummyPluginFlatten.predict"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginFlatten.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs_flatten</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">inputs_flatten</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyPluginMLP"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginMLP">[docs]</a><span class="k">class</span> <span class="nc">DummyPluginMLP</span><span class="p">(</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inputs_mlp&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPluginMLP</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;num_classes&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DummyPluginMLP.predict"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginMLP.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs_mlp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_mlp : tensor_like</span>
+<span class="sd">            inputs to dense</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions : tensor_like</span>
+<span class="sd">            inputs after dense layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">inputs_mlp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyPluginMLPKeras"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras">[docs]</a><span class="k">class</span> <span class="nc">DummyPluginMLPKeras</span><span class="p">(</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inputs_mlp&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPluginMLPKeras</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;num_classes&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: tf.keras.layers.Dense</span>
+
+<div class="viewcode-block" id="DummyPluginMLPKeras.build"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPluginMLPKeras</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">dense_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span><span class="n">dense_layer</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DummyPluginMLPKeras.predict"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginMLPKeras.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs_mlp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_mlp : tensor_like</span>
+<span class="sd">            inputs to dense</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions : tensor_like</span>
+<span class="sd">            inputs after dense layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="n">second_dense_layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">),</span> <span class="s2">&quot;second_dense_layer&quot;</span><span class="p">)</span>
+        <span class="n">first_layer_output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_layer</span><span class="p">(</span><span class="n">inputs_mlp</span><span class="p">)</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">second_dense_layer</span><span class="p">(</span><span class="n">first_layer_output</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="n">predictions</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyPluginWithDummyParameter"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter">[docs]</a><span class="k">class</span> <span class="nc">DummyPluginWithDummyParameter</span><span class="p">(</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inputs_mlp&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dummy_parameter</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPluginWithDummyParameter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;num_classes&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dummy_parameter</span> <span class="o">=</span> <span class="n">dummy_parameter</span>
+
+<div class="viewcode-block" id="DummyPluginWithDummyParameter.predict"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPluginWithDummyParameter.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_training</span><span class="p">,</span> <span class="n">inputs_mlp</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_mlp : tensor_like</span>
+<span class="sd">            inputs to dense</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions : tensor_like</span>
+<span class="sd">            inputs after dense layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="c1"># is_training is there because of interface signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">inputs_mlp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyPlugin2Layers"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPlugin2Layers">[docs]</a><span class="k">class</span> <span class="nc">DummyPlugin2Layers</span><span class="p">(</span><span class="n">ModelPlugin</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inputs&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;outputs&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">second_layer_trainable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super __init__ has more generic signature</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummyPlugin2Layers</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second_layer_trainable</span> <span class="o">=</span> <span class="n">second_layer_trainable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="DummyPlugin2Layers.create_keras_layers"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.create_keras_layers">[docs]</a>    <span class="k">def</span> <span class="nf">create_keras_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">second_layer_trainable</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="DummyPlugin2Layers.predict"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPlugin2Layers.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;outputs&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">inputs</span><span class="p">))}</span></div></div>
+
+
+<div class="viewcode-block" id="DummySoftmaxLoss"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummySoftmaxLoss">[docs]</a><span class="k">class</span> <span class="nc">DummySoftmaxLoss</span><span class="p">(</span><span class="n">ModelLoss</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">,</span> <span class="s1">&#39;logits&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DummySoftmaxLoss</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DummySoftmaxLoss.process"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummySoftmaxLoss.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">logits</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyPostProcessor"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPostProcessor">[docs]</a><span class="k">class</span> <span class="nc">DummyPostProcessor</span><span class="p">(</span><span class="n">ModelPostProcessor</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predictions_pp&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DummyPostProcessor.process"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyPostProcessor.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predictions</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions_pp&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">predictions</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummySummary"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummySummary">[docs]</a><span class="k">class</span> <span class="nc">DummySummary</span><span class="p">(</span><span class="n">ModelSummary</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">,</span> <span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;image_predictions_class&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;image_labels_class&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DummySummary.process"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummySummary.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;image_predictions_class&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                <span class="s1">&#39;image_labels_class&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">labels</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyMetric"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyMetric">[docs]</a><span class="k">class</span> <span class="nc">DummyMetric</span><span class="p">(</span><span class="n">ModelMetric</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;labels&#39;</span><span class="p">,</span> <span class="s1">&#39;predictions&#39;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;metric&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DummyMetric.process"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyMetric.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super predict has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">to_float</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">-</span> <span class="n">predictions</span><span class="p">)}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyTpFpTnFnKPIPlugin"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin">[docs]</a><span class="k">class</span> <span class="nc">DummyTpFpTnFnKPIPlugin</span><span class="p">(</span><span class="n">KPIPlugin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plugin to calculate true and false positives and also true and false</span>
+<span class="sd">    negatives</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;labels&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;predictions&quot;</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;true_positives&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;false_positives&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;true_negatives&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;false_negatives&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="DummyTpFpTnFnKPIPlugin.process"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyTpFpTnFnKPIPlugin.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super evaluate_sample has more generic signature</span>
+        <span class="p">(</span><span class="n">true_positives</span><span class="p">,</span> <span class="n">false_positives</span><span class="p">,</span> <span class="n">true_negatives</span><span class="p">,</span> <span class="n">false_negatives</span>
+         <span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">true_positives</span> <span class="o">+=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">predictions</span><span class="p">)</span>
+            <span class="n">false_negatives</span> <span class="o">+=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">!=</span> <span class="n">predictions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">true_negatives</span> <span class="o">+=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">predictions</span><span class="p">)</span>
+            <span class="n">false_positives</span> <span class="o">+=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">!=</span> <span class="n">predictions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;true_positives&quot;</span><span class="p">:</span> <span class="n">true_positives</span><span class="p">,</span>
+                <span class="s2">&quot;false_positives&quot;</span><span class="p">:</span> <span class="n">false_positives</span><span class="p">,</span>
+                <span class="s2">&quot;true_negatives&quot;</span><span class="p">:</span> <span class="n">true_negatives</span><span class="p">,</span>
+                <span class="s2">&quot;false_negatives&quot;</span><span class="p">:</span> <span class="n">false_negatives</span><span class="p">}</span></div></div>
+
+
+<div class="viewcode-block" id="DummyF1KPIAccumulator"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator">[docs]</a><span class="k">class</span> <span class="nc">DummyF1KPIAccumulator</span><span class="p">(</span><span class="n">KPIAccumulator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates F1 score out of true positives, false positives and</span>
+<span class="sd">    false negatives</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;true_positives&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;false_positives&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;false_negatives&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;f1_score&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;precision&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;recall&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+<div class="viewcode-block" id="DummyF1KPIAccumulator.process"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyF1KPIAccumulator.process">[docs]</a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">true_positives</span><span class="p">,</span> <span class="n">false_positives</span><span class="p">,</span> <span class="n">false_negatives</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super evaluate_sample has more generic signature</span>
+        <span class="n">true_positives_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">true_positives</span><span class="p">)</span>
+        <span class="n">false_positives_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">false_positives</span><span class="p">)</span>
+        <span class="n">false_negatives_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">false_negatives</span><span class="p">)</span>
+        <span class="n">precision</span> <span class="o">=</span> <span class="p">(</span><span class="n">true_positives_sum</span>
+                     <span class="o">/</span> <span class="p">(</span><span class="n">true_positives_sum</span> <span class="o">+</span> <span class="n">false_positives_sum</span><span class="p">))</span>
+        <span class="n">recall</span> <span class="o">=</span> <span class="p">(</span><span class="n">true_positives_sum</span>
+                  <span class="o">/</span> <span class="p">(</span><span class="n">true_positives_sum</span> <span class="o">+</span> <span class="n">false_negatives_sum</span><span class="p">))</span>
+        <span class="n">f1_score</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span>
+        <span class="n">kpi</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;precision&#39;</span><span class="p">:</span> <span class="n">precision</span><span class="p">,</span>
+               <span class="s1">&#39;recall&#39;</span><span class="p">:</span> <span class="n">recall</span><span class="p">,</span>
+               <span class="s1">&#39;f1_score&#39;</span><span class="p">:</span> <span class="n">f1_score</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">kpi</span></div></div>
+
+
+<div class="viewcode-block" id="DummyRandomAugmentationTf"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf">[docs]</a><span class="k">class</span> <span class="nc">DummyRandomAugmentationTf</span><span class="p">(</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;noise&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DummyRandomAugmentationTf.create_random_variables"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.create_random_variables">[docs]</a>    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random_uniform</span><span class="p">([],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_random_seed</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;noise&quot;</span><span class="p">:</span> <span class="n">noise</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="DummyRandomAugmentationTf.augment"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DummyRandomAugmentationTf.augment">[docs]</a>    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super method has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">data</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;noise&quot;</span><span class="p">]}</span></div></div>
+
+
+<div class="viewcode-block" id="FileListDummy"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.FileListDummy">[docs]</a><span class="k">class</span> <span class="nc">FileListDummy</span><span class="p">(</span><span class="n">FileList</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">file_names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">file_names</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FileListDummy.match"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.FileListDummy.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span></div></div>
+
+
+<div class="viewcode-block" id="DatasetDummy"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DatasetDummy">[docs]</a><span class="k">class</span> <span class="nc">DatasetDummy</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DatasetDummy.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DatasetDummy.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ModelMock"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock">[docs]</a><span class="k">class</span> <span class="nc">ModelMock</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plugins</span><span class="o">=</span><span class="p">[],</span> <span class="n">losses</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span> <span class="o">=</span> <span class="n">num_classes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keras_dense_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trainable_vars</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs_from_dataset</span><span class="p">):</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">ModelMock</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trainable_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_vars</span> <span class="ow">or</span> <span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">results</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trainable_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">()</span>
+
+<div class="viewcode-block" id="ModelMock.reset_tf_graph"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.reset_tf_graph">[docs]</a>    <span class="k">def</span> <span class="nf">reset_tf_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">keras_dense_layer</span><span class="o">.</span><span class="n">built</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="ModelMock.forward_pass"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.forward_pass">[docs]</a>    <span class="k">def</span> <span class="nf">forward_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+                     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">inputs_from_dataset</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keras_dense_layer</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;predictions_raw&#39;</span><span class="p">:</span> <span class="n">logits</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="ModelMock.postprocess_predictions"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.postprocess_predictions">[docs]</a>    <span class="k">def</span> <span class="nf">postprocess_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                                <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                                <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">predictions_raw</span><span class="p">[</span><span class="s1">&#39;predictions_raw&#39;</span><span class="p">]</span>
+        <span class="n">classes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;classes&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)}</span>
+        <span class="k">return</span> <span class="n">classes</span></div>
+
+<div class="viewcode-block" id="ModelMock.calculate_losses"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.calculate_losses">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_losses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                         <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                         <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">inputs_from_dataset</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">predictions_raw</span><span class="p">[</span><span class="s1">&#39;predictions_raw&#39;</span><span class="p">]</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">sparse_softmax_cross_entropy</span><span class="p">(</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">)</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">,</span>
+                  <span class="s1">&#39;total_loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_regularization</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">losses</span></div>
+
+<div class="viewcode-block" id="ModelMock.get_summaries"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.get_summaries">[docs]</a>    <span class="k">def</span> <span class="nf">get_summaries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                      <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                      <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                      <span class="n">predictions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">inputs_from_dataset</span><span class="p">[</span><span class="s1">&#39;dataset&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span>
+        <span class="n">pred_class</span> <span class="o">=</span> <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;classes&#39;</span><span class="p">]</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;scalar_labels&#39;</span><span class="p">:</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                   <span class="s1">&#39;scalar_classes&#39;</span><span class="p">:</span> <span class="n">pred_class</span><span class="p">[</span><span class="mi">0</span><span class="p">]}</span>
+        <span class="k">return</span> <span class="n">summary</span></div>
+
+<div class="viewcode-block" id="ModelMock.get_metrics"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.get_metrics">[docs]</a>    <span class="k">def</span> <span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                    <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                    <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                    <span class="n">predictions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;metric&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">0</span><span class="p">])}</span>
+        <span class="k">return</span> <span class="n">metrics</span></div>
+
+<div class="viewcode-block" id="ModelMock.get_test_inputs"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.ModelMock.get_test_inputs">[docs]</a>    <span class="k">def</span> <span class="nf">get_test_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">data_dim</span><span class="p">):</span>
+        <span class="n">inputs_np</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">data_dim</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+            <span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span>
+                <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_classes</span><span class="p">,</span> <span class="p">[</span><span class="n">batch_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+            <span class="s1">&#39;temp&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)}</span>
+        <span class="n">inputs_tf</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">inputs_np</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">inputs_np</span><span class="p">,</span> <span class="n">inputs_tf</span></div></div>
+
+
+<div class="viewcode-block" id="DataReaderDummyNP"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DataReaderDummyNP">[docs]</a><span class="k">class</span> <span class="nc">DataReaderDummyNP</span><span class="p">(</span><span class="n">DataReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    transforms file_list with keys {data1, data2} by casting its values to float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DataReaderDummyNP.read"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DataReaderDummyNP.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div></div>
+
+
+<div class="viewcode-block" id="DataReaderDummyTF"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DataReaderDummyTF">[docs]</a><span class="k">class</span> <span class="nc">DataReaderDummyTF</span><span class="p">(</span><span class="n">DataReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    transforms file_list with keys {data1, data2} by casting its values to float</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">is_tensorflow</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="DataReaderDummyTF.read"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.DataReaderDummyTF.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">string_to_number</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div></div>
+
+
+<div class="viewcode-block" id="TfRecordsDataReaderDummy"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy">[docs]</a><span class="k">class</span> <span class="nc">TfRecordsDataReaderDummy</span><span class="p">(</span><span class="n">TfRecordsDataReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    decodes data from tfrecords with following shapes:</span>
+<span class="sd">        {&quot;data1&quot;: [1],</span>
+<span class="sd">         &quot;data2&quot;: [None, 20],</span>
+<span class="sd">         &quot;data3&quot;: [None, 1],</span>
+<span class="sd">         &quot;data_default&quot;: [1]}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">,</span> <span class="s2">&quot;data3&quot;</span><span class="p">,</span> <span class="s2">&quot;data_default&quot;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="TfRecordsDataReaderDummy.get_tfrecords_features"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.get_tfrecords_features">[docs]</a>    <span class="k">def</span> <span class="nf">get_tfrecords_features</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">,</span> <span class="s2">&quot;data3&quot;</span><span class="p">,</span> <span class="s2">&quot;data_default&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">((),</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+                                      <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">tostring</span><span class="p">())</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="TfRecordsDataReaderDummy.get_tfrecords_output_types"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.get_tfrecords_output_types">[docs]</a>    <span class="k">def</span> <span class="nf">get_tfrecords_output_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data1&quot;</span><span class="p">,</span> <span class="s2">&quot;data2&quot;</span><span class="p">,</span> <span class="s2">&quot;data3&quot;</span><span class="p">,</span> <span class="s2">&quot;data_default&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="TfRecordsDataReaderDummy.postprocess_tfrecords"><a class="viewcode-back" href="../../../api/nucleus7.test_utils.html#nucleus7.test_utils.model_dummies.TfRecordsDataReaderDummy.postprocess_tfrecords">[docs]</a>    <span class="k">def</span> <span class="nf">postprocess_tfrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">data3</span><span class="p">,</span> <span class="n">data_default</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># super method has more generic signature</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;data1&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+            <span class="s2">&quot;data2&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">]),</span>
+            <span class="s2">&quot;data3&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data3</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+            <span class="s2">&quot;data_default&quot;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data_default</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="p">}</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

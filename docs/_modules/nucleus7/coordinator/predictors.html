@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator.predictors &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator.predictors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.coordinator.predictors</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Predictors for inference</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="c1"># pylint: disable=no-name-in-module</span>
+<span class="c1"># is not part of the tensorflow API, but is needed here</span>
+<span class="kn">from</span> <span class="nn">tensorflow.contrib.predictor.predictor</span> <span class="kn">import</span> <span class="n">Predictor</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.configs</span> <span class="kn">import</span> <span class="n">InferenceLoadConfig</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator.configs</span> <span class="kn">import</span> <span class="n">TensorrtConfig</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">CollectionNames</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">ScopeNames</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tensorrt_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_collections_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_utils</span>
+
+
+<span class="c1"># pylint: enable=no-name-in-module</span>
+
+
+<div class="viewcode-block" id="PredictorNucleotide"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.predictors.PredictorNucleotide">[docs]</a><span class="k">class</span> <span class="nc">PredictorNucleotide</span><span class="p">(</span><span class="n">Nucleotide</span><span class="p">):</span>  <span class="c1"># pylint: disable=abstract-method</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to use as predictor nucleotide.</span>
+
+<span class="sd">    Is needed only to differentiate the nucleotides which are used as predictors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">inbound_nodes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;predictor&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">PredictorNucleotide</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">inbound_nodes</span><span class="o">=</span><span class="n">inbound_nodes</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">_GraphAndCheckpointPredictor</span><span class="p">(</span><span class="n">Predictor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predictor from meta graph and checkpoint</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    meta_graph_path</span>
+<span class="sd">        path to meta graph</span>
+<span class="sd">    checkpoint_path</span>
+<span class="sd">        path to checkpoint for meta graph</span>
+<span class="sd">    graph</span>
+<span class="sd">        graph to use</span>
+<span class="sd">    config</span>
+<span class="sd">        session run config</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">meta_graph_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">checkpoint_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">graph</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">config</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">graph</span> <span class="ow">or</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">import_meta_graph</span><span class="p">(</span><span class="n">meta_graph_path</span><span class="p">,</span> <span class="n">clear_devices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">tf_utils</span><span class="o">.</span><span class="n">add_variables_from_graph_without_collection</span><span class="p">()</span>
+                <span class="n">saver</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Saver</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+            <span class="n">saver</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_session</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">)</span>
+            <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+                <span class="n">CollectionNames</span><span class="o">.</span><span class="n">INPUTS</span><span class="p">)</span>
+            <span class="n">predictions</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span>
+                <span class="n">CollectionNames</span><span class="o">.</span><span class="n">PREDICTIONS</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_feed_tensors</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_tensors</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_TensorrtPredictor</span><span class="p">(</span><span class="n">Predictor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predictor, that takes saved model and converts it to tensorrt and uses</span>
+<span class="sd">    tensorrt graph for it.</span>
+
+<span class="sd">    If it cannot use tensorrt, it will raise an error</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    saved_model_dir</span>
+<span class="sd">        saved model directory</span>
+<span class="sd">    config</span>
+<span class="sd">        session run config</span>
+<span class="sd">    tensorrt_config</span>
+<span class="sd">        tensorrt config</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if tensorrt cannot be imported</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">saved_model_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">tensorrt_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TensorrtConfig</span><span class="p">],</span>
+                 <span class="n">config</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">saved_model_dir</span> <span class="o">=</span> <span class="n">saved_model_dir</span>
+        <span class="n">input_tensors</span><span class="p">,</span> <span class="n">output_tensors</span><span class="p">,</span> <span class="n">trt_graph_def</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">tensorrt_utils</span><span class="o">.</span><span class="n">convert_saved_model_to_tensorrt</span><span class="p">(</span>
+                <span class="n">saved_model_dir</span><span class="p">,</span> <span class="n">tensorrt_config</span><span class="p">,</span> <span class="n">session_config</span><span class="o">=</span><span class="n">config</span><span class="p">))</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+        <span class="n">feed_tensors</span><span class="p">,</span> <span class="n">fetch_tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_import_graph_def</span><span class="p">(</span>
+            <span class="n">input_tensors</span><span class="p">,</span> <span class="n">output_tensors</span><span class="p">,</span> <span class="n">trt_graph_def</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_session</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">graph</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_feed_tensors</span> <span class="o">=</span> <span class="n">feed_tensors</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fetch_tensors</span> <span class="o">=</span> <span class="n">fetch_tensors</span>
+
+    <span class="k">def</span> <span class="nf">_import_graph_def</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_tensors</span><span class="p">,</span> <span class="n">output_tensors</span><span class="p">,</span> <span class="n">trt_graph_def</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=not-context-manager</span>
+        <span class="c1"># bug of pylint and/or tensorflow, since it is a context manager</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">feed_tensors</span><span class="p">,</span> <span class="n">input_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_feed_tensors_and_input_map</span><span class="p">(</span>
+                <span class="n">input_tensors</span><span class="p">)</span>
+            <span class="n">output_keys</span><span class="p">,</span> <span class="n">output_tensors_list</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">output_tensors</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+            <span class="n">output_tensor_names</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">each_tensor</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">each_tensor</span> <span class="ow">in</span> <span class="n">output_tensors_list</span><span class="p">]</span>
+            <span class="n">fetch_tensors_list</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">import_graph_def</span><span class="p">(</span>
+                <span class="n">graph_def</span><span class="o">=</span><span class="n">trt_graph_def</span><span class="p">,</span>
+                <span class="n">input_map</span><span class="o">=</span><span class="n">input_map</span><span class="p">,</span>
+                <span class="n">return_elements</span><span class="o">=</span><span class="n">output_tensor_names</span>
+            <span class="p">)</span>
+            <span class="n">fetch_tensors</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">output_keys</span><span class="p">,</span> <span class="n">fetch_tensors_list</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">feed_tensors</span><span class="p">,</span> <span class="n">fetch_tensors</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_create_feed_tensors_and_input_map</span><span class="p">(</span><span class="n">input_tensors</span><span class="p">):</span>
+        <span class="n">input_placeholders</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_key</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">each_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">each_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_tensor</span> <span class="ow">in</span> <span class="n">input_tensors</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">input_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">input_tensors</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">input_placeholders</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span>
+                     <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">input_tensors</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">input_placeholders</span><span class="p">,</span> <span class="n">input_map</span>
+
+
+<div class="viewcode-block" id="predictor_from_load_config"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.predictors.predictor_from_load_config">[docs]</a><span class="k">def</span> <span class="nf">predictor_from_load_config</span><span class="p">(</span>
+        <span class="n">load_config</span><span class="p">:</span> <span class="n">InferenceLoadConfig</span><span class="p">,</span>
+        <span class="n">tensorrt_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TensorrtConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">session_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">ConfigProto</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">postprocessors_to_use</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">model_parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Predictor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create instance of :obj:`tf.contrib.predictor.Predictor` from load_config.</span>
+
+<span class="sd">    If saved_model was provided and tensorrt_config.use_tensorrt, it will try</span>
+<span class="sd">    to create Predictor using tensorrt. If constructor of tensorrt fails,</span>
+<span class="sd">    saved model predictor will be used.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load_config</span>
+<span class="sd">        load config</span>
+<span class="sd">    tensorrt_config</span>
+<span class="sd">        tensorrt config</span>
+<span class="sd">    session_config</span>
+<span class="sd">        session configuration</span>
+<span class="sd">    postprocessors_to_use</span>
+<span class="sd">        which postprocessors to use</span>
+<span class="sd">    model_parameters</span>
+<span class="sd">        model parameters to feed in nested view; only names will be used to get</span>
+<span class="sd">        the placeholders and add to predictor feed_tensors</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    predictor</span>
+<span class="sd">        predictor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">load_config</span><span class="o">.</span><span class="n">saved_model</span><span class="p">:</span>
+        <span class="n">saved_model_path</span> <span class="o">=</span> <span class="n">load_config</span><span class="o">.</span><span class="n">saved_model</span>
+        <span class="k">if</span> <span class="n">tensorrt_config</span> <span class="ow">and</span> <span class="n">tensorrt_config</span><span class="o">.</span><span class="n">use_tensorrt</span><span class="p">:</span>
+            <span class="n">_predictor</span> <span class="o">=</span> <span class="n">_TensorrtPredictor</span><span class="p">(</span>
+                <span class="n">saved_model_dir</span><span class="o">=</span><span class="n">saved_model_path</span><span class="p">,</span>
+                <span class="n">tensorrt_config</span><span class="o">=</span><span class="n">tensorrt_config</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">session_config</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using tensorrt predictor&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_predictor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">from_saved_model</span><span class="p">(</span>
+                <span class="n">saved_model_path</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">session_config</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tensorrt_config</span> <span class="ow">and</span> <span class="n">tensorrt_config</span><span class="o">.</span><span class="n">use_tensorrt</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;currently tensorrt can be used only with saved_model&quot;</span><span class="p">)</span>
+        <span class="c1"># create predictor from meta graph</span>
+        <span class="n">meta_graph_path</span> <span class="o">=</span> <span class="n">load_config</span><span class="o">.</span><span class="n">meta_graph</span>
+        <span class="n">checkpoint_path</span> <span class="o">=</span> <span class="n">load_config</span><span class="o">.</span><span class="n">checkpoint</span>
+        <span class="n">_predictor</span> <span class="o">=</span> <span class="n">_GraphAndCheckpointPredictor</span><span class="p">(</span>
+            <span class="n">meta_graph_path</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">session_config</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">postprocessors_to_use</span><span class="p">:</span>
+        <span class="c1"># pylint: disable=protected-access</span>
+        <span class="c1"># there is no property setter and so only way to assign it</span>
+        <span class="n">fetch_tensors_unflatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+            <span class="n">_predictor</span><span class="o">.</span><span class="n">_fetch_tensors</span><span class="p">)</span>
+        <span class="n">fetch_tensors_unflatten_filtered</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">fetch_tensors_unflatten</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">postprocessors_to_use</span>
+        <span class="p">}</span>
+        <span class="n">fetch_tensors_flatten_filtered</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+            <span class="n">fetch_tensors_unflatten_filtered</span><span class="p">)</span>
+        <span class="n">_predictor</span><span class="o">.</span><span class="n">_fetch_tensors</span> <span class="o">=</span> <span class="n">fetch_tensors_flatten_filtered</span>
+
+    <span class="k">if</span> <span class="n">model_parameters</span><span class="p">:</span>
+        <span class="n">_predictor</span> <span class="o">=</span> <span class="n">_add_model_parameters_to_predictor</span><span class="p">(</span>
+            <span class="n">_predictor</span><span class="p">,</span> <span class="n">model_parameters</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_predictor</span></div>
+
+
+<div class="viewcode-block" id="represent_predictor_through_nucleotides"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.predictors.represent_predictor_through_nucleotides">[docs]</a><span class="k">def</span> <span class="nf">represent_predictor_through_nucleotides</span><span class="p">(</span>
+        <span class="n">predictor</span><span class="p">:</span> <span class="n">Predictor</span><span class="p">,</span>
+        <span class="n">incoming_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Nucleotide</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represent predictor feed tensors structure as list of nucleotides</span>
+
+<span class="sd">    When predictor has following fetch&#39;_tensors structure but in flatten</span>
+<span class="sd">    `{&#39;postprocessor_nucleotide1&#39;: {&#39;out1&#39;: ..., &#39;out2&#39;: ...},</span>
+<span class="sd">    &#39;postprocessor_nucleotide2&#39;: {&#39;out3&#39;: ..., &#39;out4&#39;: ...}}`,</span>
+<span class="sd">    then it will return list of nodes</span>
+<span class="sd">    `[postprocessor_nucleotide1, postprocessor_nucleotide2]` with generated keys</span>
+<span class="sd">    `[&#39;out1&#39;, &#39;out2&#39;]` and `[&#39;out3&#39;, &#39;out4&#39;]` respectively</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    predictor</span>
+<span class="sd">        predictor with fetch_tensors property defined</span>
+<span class="sd">    incoming_keys_mapping</span>
+<span class="sd">        mapping of the incoming keys to the predictor</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    predictor_nucleotides</span>
+<span class="sd">        list of nucleotides which mimic the data structure of fetched predictor</span>
+<span class="sd">        tensors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">fetch_tensors_flatten</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">fetch_tensors</span>
+    <span class="n">fetch_tensors</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">fetch_tensors_flatten</span><span class="p">)</span>
+    <span class="n">feeded_tensors_without_parameters_flatten</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_key</span><span class="p">:</span> <span class="n">each_tensor</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_tensor</span> <span class="ow">in</span> <span class="n">predictor</span><span class="o">.</span><span class="n">feed_tensors</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">each_tensor</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;PlaceholderWithDefault&#39;</span><span class="p">}</span>
+    <span class="n">feeded_tensors_without_parameters</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+        <span class="n">feeded_tensors_without_parameters_flatten</span><span class="p">)</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">feeded_tensors_without_parameters</span><span class="p">))</span>
+
+    <span class="n">predictor_nucleotides</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_nucleotide_name_key</span><span class="p">,</span> <span class="n">each_nucleotide_outputs</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">fetch_tensors</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">nucleotide</span> <span class="o">=</span> <span class="n">PredictorNucleotide</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">each_nucleotide_name_key</span><span class="p">,</span>
+                                         <span class="n">inbound_nodes</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
+        <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys</span> <span class="o">=</span> <span class="n">incoming_keys</span>
+        <span class="k">if</span> <span class="n">incoming_keys_mapping</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">nucleotide</span><span class="o">.</span><span class="n">incoming_keys_mapping</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="n">incoming_keys_mapping</span><span class="p">}</span>
+        <span class="n">nucleotide</span><span class="o">.</span><span class="n">generated_keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">each_nucleotide_outputs</span><span class="p">))</span>
+        <span class="n">predictor_nucleotides</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">predictor_nucleotides</span></div>
+
+
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">flatten_nested_inputs</span><span class="p">(</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">unflatten_nested_outputs</span>
+<span class="k">def</span> <span class="nf">predict_using_predictor</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="n">Predictor</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                            <span class="n">model_parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Make predictions using predictor</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    predictor</span>
+<span class="sd">        predictor to use</span>
+<span class="sd">    inputs</span>
+<span class="sd">        inputs for predictor</span>
+<span class="sd">    model_parameters</span>
+<span class="sd">        model parameters to feed in nested view</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    predictions</span>
+<span class="sd">        predictions</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model_parameters</span> <span class="o">=</span> <span class="n">model_parameters</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">model_parameters_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+        <span class="n">model_parameters</span><span class="p">,</span> <span class="n">flatten_lists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">inputs_filtered</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                       <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">predictor</span><span class="o">.</span><span class="n">feed_tensors</span><span class="p">}</span>
+    <span class="n">inputs_filtered</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">model_parameters_flat</span><span class="p">)</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">inputs_filtered</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">predictions</span>
+
+
+<span class="k">def</span> <span class="nf">_add_model_parameters_to_predictor</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="n">Predictor</span><span class="p">,</span>
+                                       <span class="n">model_parameters</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Predictor</span><span class="p">:</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">graph</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">graph</span>
+    <span class="n">model_parameters_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+        <span class="n">model_parameters</span><span class="p">,</span> <span class="n">flatten_lists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">model_parameters_placeholders</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_parameter_name</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">model_parameters_flat</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">tensor</span> <span class="o">=</span> <span class="n">_get_tensor_by_parameter_name</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">each_parameter_name</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Set parameter </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2"> (tensor name: </span><span class="si">%s</span><span class="s2">)&quot;</span><span class="p">,</span>
+                    <span class="n">each_parameter_name</span><span class="p">,</span> <span class="n">each_value</span><span class="p">,</span> <span class="n">tensor</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">model_parameters_placeholders</span><span class="p">[</span><span class="n">each_parameter_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">tensor</span>
+
+    <span class="c1"># pylint: disable=protected-access</span>
+    <span class="c1"># there is no property setter and so only way to assign it</span>
+    <span class="n">predictor</span><span class="o">.</span><span class="n">_feed_tensors</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">model_parameters_placeholders</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">predictor</span>
+
+
+<span class="k">def</span> <span class="nf">_get_tensor_by_parameter_name</span><span class="p">(</span><span class="n">graph</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">:</span> <span class="nb">str</span>
+                                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+    <span class="n">nucleotide_var_scopes_with_parameters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">ScopeNames</span><span class="o">.</span><span class="n">MODEL</span><span class="p">,</span>
+        <span class="n">ScopeNames</span><span class="o">.</span><span class="n">POSTPROCESSING</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">nucleotide_var_scope</span> <span class="o">=</span> <span class="n">parameter_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;//&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">tensor_name</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">parameter_name</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">])</span>
+    <span class="n">tensor</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">each_var_scope</span> <span class="ow">in</span> <span class="n">nucleotide_var_scopes_with_parameters</span><span class="p">:</span>
+        <span class="n">tensor_name_with_var_scope</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">each_var_scope</span><span class="p">,</span> <span class="n">nucleotide_var_scope</span><span class="p">,</span> <span class="n">tensor_name</span><span class="p">])</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">tensor</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">get_tensor_by_name</span><span class="p">(</span><span class="n">tensor_name_with_var_scope</span><span class="p">)</span>
+            <span class="k">break</span>
+
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">if</span> <span class="n">tensor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Model parameter with name </span><span class="si">{}</span><span class="s2"> does not exist!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">parameter_name</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;PlaceholderWithDefault&#39;</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Model parameter tensor operation should be of type &quot;</span>
+               <span class="s2">&quot;PlaceholderWithDefault! (found </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">type</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tensor</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

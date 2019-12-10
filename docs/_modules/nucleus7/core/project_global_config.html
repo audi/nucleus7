@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.project_global_config &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.project_global_config</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.project_global_config</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">methods for global project configuration</span>
+
+<span class="sd">to add a global configuration use:</span>
+<span class="sd">:func:`nc7.add_global_project_config` or</span>
+<span class="sd">:func:`add_global_project_config_from_file`</span>
+
+<span class="sd">To query it use :func:`query_nucleotide_global_config`,</span>
+<span class="sd">:func:`query_global_parameter` and to update parameters of nucleotide with</span>
+<span class="sd">defaults use :func:`add_defaults_to_nucleotide`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">dpath</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+
+<span class="k">class</span> <span class="nc">_ProjectGlobalConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to hold global project configuration</span>
+
+<span class="sd">    It allows to specify some global configuration with keys as arguments and</span>
+<span class="sd">    pass it to all of nucleotides if this parameter exist in its constructor</span>
+<span class="sd">    and it was not explicitly specified in nucleotide config.</span>
+
+<span class="sd">    It is also possible to specify the parameters type-wise and class-wise and</span>
+<span class="sd">    also as complete global, e.g.</span>
+<span class="sd">    ```</span>
+<span class="sd">    {</span>
+<span class="sd">        &quot;param1&quot;: &quot;value1&quot;,</span>
+<span class="sd">            &quot;ModelPlugin&quot;: {</span>
+<span class="sd">                &quot;activation&quot;: &quot;elu&quot;,</span>
+<span class="sd">                &quot;param2&quot;: &quot;value2&quot;</span>
+<span class="sd">            },</span>
+<span class="sd">            &quot;Plugin1&quot;: {</span>
+<span class="sd">                &quot;param1&quot;: &quot;value12&quot;,</span>
+<span class="sd">                &quot;activation&quot;: &quot;relu&quot;</span>
+<span class="sd">            }</span>
+<span class="sd">    }</span>
+<span class="sd">    ```</span>
+<span class="sd">    In that case, ModelPlugin will be initialized with activation = elu and</span>
+<span class="sd">    param1 = value1 and Plugin1 will be initialized with activation = relu and</span>
+<span class="sd">    param1 = value12 and param2 = value2. E.g. it will create inheritance map</span>
+<span class="sd">    for each nucleotide and will resolve it in hierarchy order, e.g. lower</span>
+<span class="sd">    hierarchy (Nucleotide) will be overridden by higher</span>
+<span class="sd">    (Nucleotide -&gt; ModelPlugin -&gt; Plugin1 -&gt; Plugin1Child -&gt; ...)</span>
+<span class="sd">    Parameters can be set to all of nucleus7 interfaces.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config</span>
+<span class="sd">        global configuration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get item from config</span>
+
+<span class="sd">        Can be also a multi level item with separator &#39;/&#39;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        item</span>
+<span class="sd">            item to get</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        values</span>
+<span class="sd">            values of item from config or a list of them if list of items was</span>
+<span class="sd">            specified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">item</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">def</span> <span class="nf">_get_single</span><span class="p">(</span><span class="n">item_</span><span class="p">):</span>
+            <span class="n">values_</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span>
+                <span class="n">dpath</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">item_</span><span class="p">,</span>
+                             <span class="n">yielded</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">values_</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values_</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">values_</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values_</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">values_</span> <span class="o">=</span> <span class="n">values_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">values_</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">values_all</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">item_</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">_get_single</span><span class="p">(</span><span class="n">item_</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">values</span><span class="p">:</span>
+                    <span class="n">values_all</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">values_all</span> <span class="k">if</span> <span class="n">values_all</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">_get_single</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">query_nucleotide_global_config</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Query parameters of nucleotide constructor from global config and</span>
+<span class="sd">        resolve them in hierarchy order</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nucleotide_cls</span>
+<span class="sd">            class of nucleotide</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nucleotide_params_in_project</span>
+<span class="sd">            dict with keys mapping constructor parameters to parameters found</span>
+<span class="sd">            in global config; if no parameters were found, then returns None;</span>
+<span class="sd">            returns only found parameters and if they were specified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">init_method</span> <span class="o">=</span> <span class="n">nucleotide_cls</span><span class="o">.</span><span class="fm">__init__</span>
+        <span class="n">nucleotide_args</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">p</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">object_utils</span><span class="o">.</span><span class="n">get_method_signatures</span><span class="p">(</span>
+                <span class="n">nucleotide_cls</span><span class="p">,</span> <span class="n">init_method</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">s</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="s1">&#39;self&#39;</span> <span class="ow">in</span> <span class="n">nucleotide_args</span><span class="p">:</span>
+            <span class="n">nucleotide_args</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;name&#39;</span> <span class="ow">in</span> <span class="n">nucleotide_args</span><span class="p">:</span>
+            <span class="n">nucleotide_args</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+        <span class="n">nucleotide_params_in_project</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">parent_methods_all</span> <span class="o">=</span> <span class="n">object_utils</span><span class="o">.</span><span class="n">get_parent_method</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span>
+        <span class="n">parent_classes</span> <span class="o">=</span> <span class="p">([</span><span class="n">nucleotide_cls</span><span class="p">]</span>
+                          <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">parent_methods_all</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">parent_class_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">cl</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">cl</span> <span class="ow">in</span> <span class="n">parent_classes</span><span class="p">]</span>
+        <span class="n">parent_class_names_rev</span> <span class="o">=</span> <span class="n">parent_class_names</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">param_name</span> <span class="ow">in</span> <span class="n">nucleotide_args</span><span class="p">:</span>
+            <span class="n">search_scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">parent_class_names_rev</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">scope</span> <span class="ow">in</span> <span class="n">search_scopes</span><span class="p">:</span>
+                <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">scope</span><span class="p">,</span> <span class="n">param_name</span><span class="p">])</span>
+                <span class="n">value_</span> <span class="o">=</span> <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">value_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="n">value_</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">nucleotide_params_in_project</span><span class="p">[</span><span class="n">param_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">nucleotide_params_in_project</span> <span class="ow">or</span> <span class="kc">None</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">add_defaults_to_nucleotide</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">,</span> <span class="n">nucleotide_params</span><span class="p">:</span> <span class="nb">dict</span>
+                                   <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add the default nucleotide parameters from global config</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nucleotide_cls</span>
+<span class="sd">            class of nucleotide</span>
+<span class="sd">        nucleotide_params</span>
+<span class="sd">            parameters of that nucleotide</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nucleotide_params_with_defaults</span>
+<span class="sd">            parameters of nucleotide with defaults from global config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">nucleotide_params</span> <span class="o">=</span> <span class="n">nucleotide_params</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="n">nucleotide_name</span> <span class="o">=</span> <span class="n">nucleotide_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">nucleotide_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">nucleotide_params_project</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">query_nucleotide_global_config</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">nucleotide_params_project</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nucleotide_params</span>
+
+        <span class="n">nucleotide_params</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">nucleotide_params</span><span class="p">)</span>
+        <span class="n">nucleotide_params_with_defaults</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span>
+            <span class="n">nucleotide_params_project</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">nucleotide_params_with_defaults</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">nucleotide_params</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Default value of parameter </span><span class="si">%s</span><span class="s1"> in nucleotide </span><span class="si">%s</span><span class="s1"> &#39;</span>
+                            <span class="s1">&#39;is overridden&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">nucleotide_name</span><span class="p">)</span>
+                <span class="n">nucleotide_params_with_defaults</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">nucleotide_params</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Default value of parameter </span><span class="si">%s</span><span class="s1"> in nucleotide </span><span class="si">%s</span><span class="s1"> &#39;</span>
+                            <span class="s1">&#39;will be used (value: </span><span class="si">%s</span><span class="s1">)&#39;</span><span class="p">,</span>
+                            <span class="n">k</span><span class="p">,</span> <span class="n">nucleotide_name</span><span class="p">,</span>
+                            <span class="n">nucleotide_params_with_defaults</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">each_param</span> <span class="ow">in</span> <span class="n">nucleotide_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nucleotide_params_with_defaults</span><span class="p">:</span>
+                <span class="n">nucleotide_params_with_defaults</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_param</span>
+
+        <span class="k">return</span> <span class="n">nucleotide_params_with_defaults</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clear project global config</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<div class="viewcode-block" id="add_global_project_config_from_project_dir"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.add_global_project_config_from_project_dir">[docs]</a><span class="k">def</span> <span class="nf">add_global_project_config_from_project_dir</span><span class="p">(</span><span class="n">config_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add project configuration from file &#39;project_global_config.json&#39; file if</span>
+<span class="sd">    it exists inside of configs directory directory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_dir</span>
+<span class="sd">        directory to search for the config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">project_config_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">config_dir</span><span class="p">,</span> <span class="s1">&#39;project_global_config.json&#39;</span><span class="p">)</span>
+    <span class="n">add_global_project_config_from_file</span><span class="p">(</span><span class="n">project_config_fname</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_global_project_config_from_file"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.add_global_project_config_from_file">[docs]</a><span class="k">def</span> <span class="nf">add_global_project_config_from_file</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add project configuration from json file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname</span>
+<span class="sd">        file name of project configuration .json file</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`add_global_project_config`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;No project configuration file was found&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_load_json</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Add project global config from </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+    <span class="n">add_global_project_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_global_project_config"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.add_global_project_config">[docs]</a><span class="k">def</span> <span class="nf">add_global_project_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add global project configuration</span>
+
+<span class="sd">    It allows to specify some global configuration with keys as arguments and</span>
+<span class="sd">    pass it to all of nucleotides if this parameter exist in its constructor</span>
+<span class="sd">    and it was not explicitly specified in nucleotide config.</span>
+
+<span class="sd">    It is also possible to specify the parameters type-wise and class-wise and</span>
+<span class="sd">    also as complete global, e.g.</span>
+
+<span class="sd">    `{</span>
+<span class="sd">    &#39;param1&#39;: &#39;value1&#39;,</span>
+<span class="sd">    &#39;ModelPlugin&#39;: {&#39;activation&#39;: &#39;elu&#39;, &#39;param2&#39;: &#39;value2&#39;}</span>
+<span class="sd">    &#39;Plugin1&#39;: {&#39;param1&#39;: &#39;value12&#39;, &#39;activation&#39;: &#39;relu&#39;}</span>
+<span class="sd">    }`</span>
+
+<span class="sd">    In that case, ModelPlugin will be initialized with activation = elu and</span>
+<span class="sd">    param1 = value1 and Plugin1 will be initialized with activation = relu and</span>
+<span class="sd">    param1 = value12 and param2 = value2. E.g. it will create inheritance map</span>
+<span class="sd">    for each nucleotide and will resolve it in hierarchy order, e.g. lower</span>
+<span class="sd">    hierarchy (Nucleotide) will be overriden by higher</span>
+<span class="sd">    (Nucleotide -&gt; ModelPlugin -&gt; Plugin1 -&gt; Plugin1Child -&gt; ...)</span>
+
+<span class="sd">    Parameters can be set to all of nucleus7 interfaces.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config</span>
+<span class="sd">        global configuration</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        when config is not a dict or it has a name or a class_name as keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">or</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+        <span class="s2">&quot;Project global config can be only a dictionary! &quot;</span>
+        <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="s1">&#39;name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span> <span class="ow">and</span> <span class="s1">&#39;class_name&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;name or class name are not allowed as keys inside of &quot;</span>
+            <span class="s2">&quot;project global config!!! (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">config</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="query_nucleotide_global_config"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.query_nucleotide_global_config">[docs]</a><span class="k">def</span> <span class="nf">query_nucleotide_global_config</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Query parameters of nucleotide constructor from global project config and</span>
+<span class="sd">    resolve them in hierarchy order</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nucleotide_cls</span>
+<span class="sd">        class of nucleotide</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nucleotide_params_in_project</span>
+<span class="sd">        dict with keys mapping constructor parameters to parameters found</span>
+<span class="sd">        in global config; if no parameters were found, then returns None;</span>
+<span class="sd">        returns only found parameters and if they were specified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">query_nucleotide_global_config</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_defaults_to_nucleotide"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.add_defaults_to_nucleotide">[docs]</a><span class="k">def</span> <span class="nf">add_defaults_to_nucleotide</span><span class="p">(</span><span class="n">nucleotide_cls</span><span class="p">,</span> <span class="n">nucleotide_params</span><span class="p">:</span> <span class="nb">dict</span>
+                               <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add the default nucleotide parameters from global project config and</span>
+<span class="sd">    returns its updated configuration</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nucleotide_cls</span>
+<span class="sd">        class of nucleotide</span>
+<span class="sd">    nucleotide_params</span>
+<span class="sd">        parameters of that nucleotide</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    nucleotide_params_with_defaults</span>
+<span class="sd">        parameters of nucleotide with defaults from global config</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">add_defaults_to_nucleotide</span><span class="p">(</span>
+        <span class="n">nucleotide_cls</span><span class="p">,</span> <span class="n">nucleotide_params</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="query_global_parameter"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.query_global_parameter">[docs]</a><span class="k">def</span> <span class="nf">query_global_parameter</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get item from  global project config</span>
+
+<span class="sd">    Can be also a multi level item with separator &#39;/&#39;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    item</span>
+<span class="sd">        item to get</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    values</span>
+<span class="sd">        values of item from config or a list of them if list of items was</span>
+<span class="sd">        specified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="clear_project_global_config"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_global_config.clear_project_global_config">[docs]</a><span class="k">def</span> <span class="nf">clear_project_global_config</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Clear global project configuration&quot;&quot;&quot;</span>
+    <span class="n">_ProjectGlobalConfig</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

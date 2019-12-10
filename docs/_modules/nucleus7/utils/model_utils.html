@@ -1,0 +1,840 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.model_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.model_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.model_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils for model</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">tensorflow.contrib.estimator.python.estimator</span> <span class="kn">import</span> <span class="n">early_stopping</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">tensorflow.python.estimator</span> <span class="kn">import</span> <span class="n">early_stopping</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_ops</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_varscopes_utils</span>
+
+<span class="n">DefaultPlaceholderInfo</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;DefaultPlaceholderInfo&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;full_name&quot;</span><span class="p">,</span> <span class="s2">&quot;placeholder&quot;</span><span class="p">,</span> <span class="s2">&quot;default_value&quot;</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="KerasLayersMixin"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.KerasLayersMixin">[docs]</a><span class="k">class</span> <span class="nc">KerasLayersMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mixin to use to add the keras layers to the nucleotide.</span>
+
+<span class="sd">    This is needed because of different variable sharing between tensorflow</span>
+<span class="sd">    layers and its variables and keras layers, since tensorflow uses</span>
+<span class="sd">    :func:`tf.get_variable` and keras uses :obj:`tf.Variable` and also</span>
+<span class="sd">    :func:`tf.get_variable_scope().reuse` doesn&#39;t work with keras layers.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">keras_layers_with_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all keras layers as mapping of layer name to the layer</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        keras_layer_name_to_layer_map</span>
+<span class="sd">            dict with mapping {keras_layer_name: layer}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_keras_layers&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">keras_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all keras layers; if no keras layers were added, return empty list</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        keras_layers</span>
+<span class="sd">            list of keras layers</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keras_layers_map</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keras_layers_with_names</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">keras_layers_map</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+<div class="viewcode-block" id="KerasLayersMixin.add_keras_layer"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.KerasLayersMixin.add_keras_layer">[docs]</a>    <span class="k">def</span> <span class="nf">add_keras_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="n">Callable</span><span class="p">],</span>
+                        <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add layer or model to self.keras_layers.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        layer</span>
+<span class="sd">            keras layer to add or a function without parameters which will</span>
+<span class="sd">            return a keras layer / model</span>
+<span class="sd">        name</span>
+<span class="sd">            name to store it; if this name already exist, will return layer</span>
+<span class="sd">            from internal map and not store new one; must be set if the</span>
+<span class="sd">            callable was provided as layer parameter</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        layer</span>
+<span class="sd">            same layer as input layer</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if provided layer is not an instance of keras layer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_keras_layers&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keras_layers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">,</span> <span class="n">Callable</span><span class="p">)):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is not a keras layer and not a callable&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">layer</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Provide name parameter if you provide callable instead &quot;</span>
+                    <span class="s2">&quot;of layer&quot;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">layer</span><span class="o">.</span><span class="n">name</span>
+
+        <span class="n">layer_retrieved</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_keras_layers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">layer_retrieved</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">layer</span> <span class="o">=</span> <span class="n">layer</span><span class="p">()</span>
+                <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Provided expression for keras layer is &quot;&quot;not valid!&quot;</span>
+                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">exception</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_keras_layers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">layer</span>
+            <span class="n">layer_retrieved</span> <span class="o">=</span> <span class="n">layer</span>
+        <span class="n">trainable</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;trainable&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">trainable</span><span class="p">:</span>
+            <span class="n">layer_retrieved</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="n">trainable</span>
+        <span class="k">return</span> <span class="n">layer_retrieved</span></div>
+
+<div class="viewcode-block" id="KerasLayersMixin.reset_keras_layers"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.KerasLayersMixin.reset_keras_layers">[docs]</a>    <span class="k">def</span> <span class="nf">reset_keras_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset keras layers or layers of keras.models by setting its</span>
+<span class="sd">        self.built = False</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keras_layers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keras_layers</span>
+        <span class="k">for</span> <span class="n">each_keras_layer</span> <span class="ow">in</span> <span class="n">keras_layers</span><span class="p">:</span>
+            <span class="n">_reset_layer_or_model_recursively</span><span class="p">(</span><span class="n">each_keras_layer</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KerasLayersMixin.create_keras_layers"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.KerasLayersMixin.create_keras_layers">[docs]</a>    <span class="k">def</span> <span class="nf">create_keras_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize and assign the keras layers used in this plugin</span>
+<span class="sd">        &quot;&quot;&quot;</span></div></div>
+
+
+<div class="viewcode-block" id="DefaultPlaceholderMixin"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.DefaultPlaceholderMixin">[docs]</a><span class="k">class</span> <span class="nc">DefaultPlaceholderMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mixin to add the possibility to wrap model parameters as default</span>
+<span class="sd">    placeholders. This allows to modify the parameter value after training,</span>
+<span class="sd">    e.g. during inference</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">default_placeholders</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DefaultPlaceholderInfo</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All default placeholders as mapping of name to placeholder</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        name_to_placeholder_map</span>
+<span class="sd">            name to placeholder map</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_default_placeholders&#39;</span><span class="p">,</span> <span class="p">{})</span>
+
+<div class="viewcode-block" id="DefaultPlaceholderMixin.add_default_placeholder"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.DefaultPlaceholderMixin.add_default_placeholder">[docs]</a>    <span class="k">def</span> <span class="nf">add_default_placeholder</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">DType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">broadcast_shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert value to default placeholder and add it to internal state.</span>
+
+<span class="sd">        If placeholder with this name already exists, will return it</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        value</span>
+<span class="sd">            value of placeholder</span>
+<span class="sd">        name</span>
+<span class="sd">            name of the placeholder; will be accessible for inference through</span>
+<span class="sd">            the &#39;nucleotide_name//name&#39; argument.</span>
+<span class="sd">        dtype</span>
+<span class="sd">            if specified, cast placeholder to this format</span>
+<span class="sd">        shape</span>
+<span class="sd">            shape of placeholder to use</span>
+<span class="sd">        broadcast_shape</span>
+<span class="sd">            shape to broadcast the placeholder to if needed</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        value_as_default_placeholder</span>
+<span class="sd">            value as default placeholder</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_default_placeholders&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_default_placeholders</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_placeholders</span><span class="p">:</span>
+            <span class="n">placeholder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_placeholders</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">placeholder</span>
+            <span class="k">if</span> <span class="n">broadcast_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">placeholder</span>
+            <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">placeholder</span><span class="p">,</span> <span class="n">broadcast_shape</span><span class="p">)</span>
+
+        <span class="n">full_name</span> <span class="o">=</span> <span class="n">_get_placeholder_full_name</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">shape</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="n">_get_placeholder_shape</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">value_original</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="n">dtype</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+        <span class="n">default_placeholder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder_with_default</span><span class="p">(</span>
+            <span class="n">value</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">full_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_default_placeholders</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">DefaultPlaceholderInfo</span><span class="p">(</span>
+            <span class="n">full_name</span><span class="p">,</span> <span class="n">default_placeholder</span><span class="p">,</span> <span class="n">value_original</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">broadcast_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default_placeholder</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">broadcast_to</span><span class="p">(</span><span class="n">default_placeholder</span><span class="p">,</span> <span class="n">broadcast_shape</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DefaultPlaceholderMixin.remove_all_placeholders"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.DefaultPlaceholderMixin.remove_all_placeholders">[docs]</a>    <span class="k">def</span> <span class="nf">remove_all_placeholders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remove all placeholders which were added through the</span>
+<span class="sd">        add_default_placeholder interface</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_default_placeholders&quot;</span><span class="p">):</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_placeholders</span></div></div>
+
+
+<div class="viewcode-block" id="CustomSessionHandlerMixin"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.CustomSessionHandlerMixin">[docs]</a><span class="k">class</span> <span class="nc">CustomSessionHandlerMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mixin for custom tensorflow session handling,</span>
+<span class="sd">    like custom initialization etc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="c1"># it is a mixin</span>
+<div class="viewcode-block" id="CustomSessionHandlerMixin.initialize_session"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.CustomSessionHandlerMixin.initialize_session">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to initialize the custom session variables.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div></div>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+
+
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">flatten_nested_inputs_inside_of_list</span><span class="p">(</span><span class="s1">&#39;predictions_devices&#39;</span><span class="p">)</span>
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">unflatten_nested_outputs</span>
+<span class="k">def</span> <span class="nf">combine_predictions_from_devices</span><span class="p">(</span>
+        <span class="n">predictions_devices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span>
+        <span class="n">predictions_have_variable_shape</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combines (concatenates) the predictions from multiple devices</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    predictions_devices</span>
+<span class="sd">        list of dicts with same structure from multiple devices</span>
+<span class="sd">    predictions_have_variable_shape</span>
+<span class="sd">        if predictions from different devices may have different shapes; if so,</span>
+<span class="sd">        it will use sparse operations to combine them</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict with same structure as first element in predictions_devices with</span>
+<span class="sd">    concatenated over first dimension (batch dimension) values. If inputs</span>
+<span class="sd">    have variable shape, then concatenation is done using</span>
+<span class="sd">    :obj:`tf.sparse_concat` instead of :obj:`tf.concat`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">predictions_devices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_dict_identity</span><span class="p">(</span><span class="n">predictions_devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">predictions_have_variable_shape</span><span class="p">:</span>
+        <span class="n">combine_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">concat_padded</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">combine_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">concat_or_stack</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s1">&#39;combine_predictions&#39;</span><span class="p">):</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">combine_nested</span><span class="p">(</span><span class="n">predictions_devices</span><span class="p">,</span>
+                                                <span class="n">combine_fun</span><span class="o">=</span><span class="n">combine_fun</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">predictions</span>
+
+
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">flatten_nested_inputs_inside_of_list</span><span class="p">(</span><span class="s1">&#39;metrics_devices&#39;</span><span class="p">)</span>
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">unflatten_nested_outputs</span>
+<span class="k">def</span> <span class="nf">combine_metrics_from_devices</span><span class="p">(</span><span class="n">metrics_devices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine (average) the metrics from multiple devices</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metrics_devices</span>
+<span class="sd">        list of dicts with same structure from multiple devices</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict with same structure as first element in metric_devices with</span>
+<span class="sd">    average value of losses for that key</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics_devices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_dict_identity</span><span class="p">(</span><span class="n">metrics_devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s1">&#39;combine_metrics&#39;</span><span class="p">):</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">combine_nested</span><span class="p">(</span>
+            <span class="n">metrics_devices</span><span class="p">,</span>
+            <span class="n">combine_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">losses</span>
+
+
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">flatten_nested_inputs_inside_of_list</span><span class="p">(</span><span class="s1">&#39;losses_devices&#39;</span><span class="p">)</span>
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">unflatten_nested_outputs</span>
+<span class="k">def</span> <span class="nf">combine_losses_from_devices</span><span class="p">(</span><span class="n">losses_devices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
+                                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine (average) the losses from multiple devices</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    losses_devices</span>
+<span class="sd">        list of dicts with same structure from multiple devices</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict with same structure as first element in losses_devices with</span>
+<span class="sd">    average value of losses for that key</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">losses_devices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_dict_identity</span><span class="p">(</span><span class="n">losses_devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s1">&#39;combine_losses&#39;</span><span class="p">):</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">combine_nested</span><span class="p">(</span>
+            <span class="n">losses_devices</span><span class="p">,</span>
+            <span class="n">combine_fun</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">losses</span>
+
+
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">flatten_nested_inputs_inside_of_list</span><span class="p">(</span><span class="s1">&#39;summary_devices&#39;</span><span class="p">)</span>
+<span class="nd">@nest_utils</span><span class="o">.</span><span class="n">unflatten_nested_outputs</span>
+<span class="k">def</span> <span class="nf">combine_summary_from_devices</span><span class="p">(</span><span class="n">summary_devices</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine (average or selects first element) the summary</span>
+<span class="sd">    from multiple devices</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    summary_devices</span>
+<span class="sd">        list of dicts with same structure from multiple devices</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict with same structure as first element in losses_devices with</span>
+<span class="sd">    combination method depending on type of summary - for scalars and</span>
+<span class="sd">    histograms values are averaged across devices and for other types</span>
+<span class="sd">    the summary from first device is taken</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">summary_devices</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">summary_devices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_dict_identity</span><span class="p">(</span><span class="n">summary_devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">combine_method</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;scalar&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                      <span class="s1">&#39;histogram&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+                      <span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                      <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                      <span class="s1">&#39;audio&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                      <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])}</span>
+    <span class="n">combine_method_summary</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span>
+        <span class="k">lambda</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+        <span class="n">combine_method</span><span class="p">)</span>
+    <span class="n">summary</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">combine_nested</span><span class="p">(</span><span class="n">summary_devices</span><span class="p">,</span>
+                                        <span class="n">combine_fun</span><span class="o">=</span><span class="n">combine_method_summary</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">summary</span>
+
+
+<div class="viewcode-block" id="split_inputs_to_devices"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.split_inputs_to_devices">[docs]</a><span class="k">def</span> <span class="nf">split_inputs_to_devices</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">num_devices</span><span class="p">:</span> <span class="nb">int</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Split inputs to devices</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputs</span>
+<span class="sd">        dict of tensors</span>
+<span class="sd">    num_devices</span>
+<span class="sd">        number of devices</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of length len(self.devices) with same structure as inputs but</span>
+<span class="sd">    with over first (batch) dimension</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">num_devices</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">inputs</span><span class="p">]</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="n">tf_utils</span><span class="o">.</span><span class="n">split_dict_to_list_of_dict</span><span class="p">(</span>
+        <span class="n">inputs</span><span class="p">,</span> <span class="n">num_devices</span><span class="p">,</span> <span class="n">pad_to_batch</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inputs</span></div>
+
+
+<div class="viewcode-block" id="select_inputs_by_sample_mask"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.select_inputs_by_sample_mask">[docs]</a><span class="nd">@tf_varscopes_utils</span><span class="o">.</span><span class="n">with_name_scope</span><span class="p">(</span><span class="s2">&quot;sample_mask&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">select_inputs_by_sample_mask</span><span class="p">(</span>
+        <span class="n">sample_mask</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+        <span class="n">keys_to_exclude_from_sample_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">inputs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select inputs by masking out samples with sample_mask == 0</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sample_mask</span>
+<span class="sd">        tensor of shape [batch_size] with 1 indicating that sample should</span>
+<span class="sd">        be leaved as is and 0 - remove sample</span>
+<span class="sd">    keys_to_exclude_from_sample_mask</span>
+<span class="sd">        list of keys that will not be masked using sample_mask</span>
+<span class="sd">    **inputs</span>
+<span class="sd">        inputs to mask</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    masked_inputs</span>
+<span class="sd">        masked inputs sample-wise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inputs_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">inputs_masked_flatten</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">keys_to_exclude</span> <span class="o">=</span> <span class="n">keys_to_exclude_from_sample_mask</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">keys_to_exclude</span><span class="p">:</span>
+            <span class="n">inputs_masked_flatten</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">inputs_masked_flatten</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">boolean_mask</span><span class="p">(</span>
+                <span class="n">each_value</span><span class="p">,</span> <span class="n">sample_mask</span><span class="p">)</span>
+    <span class="n">inputs_masked</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+        <span class="n">inputs_masked_flatten</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inputs_masked</span></div>
+
+
+<div class="viewcode-block" id="select_inputs_by_sample_mask_np"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.select_inputs_by_sample_mask_np">[docs]</a><span class="k">def</span> <span class="nf">select_inputs_by_sample_mask_np</span><span class="p">(</span>
+        <span class="n">sample_mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">keys_to_exclude_from_sample_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">inputs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select inputs by masking out samples with sample_mask == 0</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sample_mask</span>
+<span class="sd">        tensor of shape [batch_size] with 1 indicating that sample should</span>
+<span class="sd">        be leaved as is and 0 - remove sample</span>
+<span class="sd">    keys_to_exclude_from_sample_mask</span>
+<span class="sd">        list of keys that will not be masked using sample_mask</span>
+<span class="sd">    **inputs</span>
+<span class="sd">        inputs to mask</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    masked_inputs</span>
+<span class="sd">        masked inputs sample-wise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inputs_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+    <span class="n">inputs_masked_flatten</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">keys_to_exclude</span> <span class="o">=</span> <span class="n">keys_to_exclude_from_sample_mask</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">sample_mask</span> <span class="o">=</span> <span class="n">sample_mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">keys_to_exclude</span><span class="p">:</span>
+            <span class="n">inputs_masked_flatten</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">inputs_masked_flatten</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_value</span><span class="p">[</span><span class="n">sample_mask</span><span class="p">]</span>
+    <span class="n">inputs_masked</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+        <span class="n">inputs_masked_flatten</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inputs_masked</span></div>
+
+
+<div class="viewcode-block" id="add_histogram_summary"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.add_histogram_summary">[docs]</a><span class="k">def</span> <span class="nf">add_histogram_summary</span><span class="p">(</span><span class="n">summary_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add histogram summary and also replace NaN in the value if needed on runtime</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    summary_name</span>
+<span class="sd">        name of the summary</span>
+<span class="sd">    value</span>
+<span class="sd">        histogram value to add to summary with name</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">IndexedSlices</span><span class="p">):</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span>
+            <span class="n">summary_name</span><span class="p">,</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">replace_nan_with_zeros</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">summary_name</span><span class="p">,</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">replace_nan_with_zeros</span><span class="p">(</span><span class="n">value</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="add_summary_by_name"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.add_summary_by_name">[docs]</a><span class="k">def</span> <span class="nf">add_summary_by_name</span><span class="p">(</span><span class="n">summary_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">summary_value</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                        <span class="n">max_outputs_tb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add the summary defining the type of it by name and subtracting</span>
+<span class="sd">    the prefix from name</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    summary_name</span>
+<span class="sd">        name of the summary</span>
+<span class="sd">    summary_value :</span>
+<span class="sd">        value of summary</span>
+<span class="sd">    max_outputs_tb</span>
+<span class="sd">        number of maximum outputs in tensorboard e.g. for images</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name_splitted</span> <span class="o">=</span> <span class="n">summary_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name_splitted</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">family</span> <span class="o">=</span> <span class="n">name_splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">family</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="s1">&#39;scalar_&#39;</span> <span class="ow">in</span> <span class="n">summary_name</span><span class="p">:</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">summary_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;scalar_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">summary_value</span><span class="p">,</span>
+                          <span class="n">family</span><span class="o">=</span><span class="n">family</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;image_&#39;</span> <span class="ow">in</span> <span class="n">summary_name</span><span class="p">:</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">summary_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;image_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">summary_value</span><span class="p">,</span>
+                         <span class="n">max_outputs</span><span class="o">=</span><span class="n">max_outputs_tb</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">family</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;histogram_&#39;</span> <span class="ow">in</span> <span class="n">summary_name</span><span class="p">:</span>
+        <span class="n">main_name</span> <span class="o">=</span> <span class="n">summary_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;histogram_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">summary_value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">each_summary_name</span><span class="p">,</span> <span class="n">each_summary_value</span> <span class="ow">in</span> <span class="n">summary_value</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">histogram_name</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">main_name</span><span class="p">,</span> <span class="n">each_summary_name</span><span class="p">])</span>
+                <span class="n">add_histogram_summary</span><span class="p">(</span><span class="n">histogram_name</span><span class="p">,</span> <span class="n">each_summary_value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">add_histogram_summary</span><span class="p">(</span><span class="n">main_name</span><span class="p">,</span> <span class="n">summary_value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;text_&#39;</span> <span class="ow">in</span> <span class="n">summary_name</span><span class="p">:</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">summary_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;text_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">summary_value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;audio_&#39;</span> <span class="ow">in</span> <span class="n">summary_name</span><span class="p">:</span>
+        <span class="c1"># TODO(oleksandr.vorobiov@audi.de) Find a way to set the sample_rate</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">audio</span><span class="p">(</span><span class="n">summary_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;audio_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="n">summary_value</span><span class="p">,</span>
+                         <span class="n">max_outputs</span><span class="o">=</span><span class="n">max_outputs_tb</span><span class="p">,</span>
+                         <span class="n">family</span><span class="o">=</span><span class="n">family</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">16000</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Warning: summary with name </span><span class="si">{}</span><span class="s1"> will not be added &#39;</span>
+               <span class="s1">&#39;to tensorboard!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">summary_name</span><span class="p">))</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">RuntimeWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_iteration_stat_from_global_step"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.get_iteration_stat_from_global_step">[docs]</a><span class="k">def</span> <span class="nf">get_iteration_stat_from_global_step</span><span class="p">(</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">global_step</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+        <span class="n">previous_iteration_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">number_iterations_per_epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">max_number_of_iterations_per_epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate iteration statistics like epoch number, iteration number</span>
+<span class="sd">    and summary step out of global_step for particular mode</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mode</span>
+<span class="sd">        mode of the model</span>
+<span class="sd">    global_step</span>
+<span class="sd">        global step</span>
+<span class="sd">    previous_iteration_number</span>
+<span class="sd">        previous iteration number for eval mode, since it cannot be inferred</span>
+<span class="sd">        from global step</span>
+<span class="sd">    number_iterations_per_epoch</span>
+<span class="sd">        number of iterations per epoch, which is needed to calculate the summary</span>
+<span class="sd">        step offset</span>
+<span class="sd">    max_number_of_iterations_per_epoch</span>
+<span class="sd">        max number of iterations per epoch</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    epoch_number</span>
+<span class="sd">        epoch number</span>
+<span class="sd">    iteration_number</span>
+<span class="sd">        iteration number</span>
+<span class="sd">    summary_step</span>
+<span class="sd">        summary step</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span>
+        <span class="n">iteration_number</span> <span class="o">=</span> <span class="n">global_step</span> <span class="o">%</span> <span class="n">number_iterations_per_epoch</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">global_step</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">previous_iteration_number</span> <span class="o">%</span> <span class="n">number_iterations_per_epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">iteration_number</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">iteration_number</span> <span class="o">=</span> <span class="n">previous_iteration_number</span>
+        <span class="n">iteration_number</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">epoch_number</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">global_step</span> <span class="o">/</span> <span class="n">max_number_of_iterations_per_epoch</span><span class="p">)</span>
+    <span class="n">iteration_offset</span> <span class="o">=</span> <span class="p">(</span><span class="n">epoch_number</span> <span class="o">*</span> <span class="n">max_number_of_iterations_per_epoch</span>
+                        <span class="o">-</span> <span class="n">number_iterations_per_epoch</span><span class="p">)</span>
+    <span class="n">summary_step</span> <span class="o">=</span> <span class="n">iteration_number</span> <span class="o">+</span> <span class="n">iteration_offset</span>
+    <span class="k">return</span> <span class="n">epoch_number</span><span class="p">,</span> <span class="n">iteration_number</span><span class="p">,</span> <span class="n">summary_step</span></div>
+
+
+<span class="c1"># pylint: disable=no-member,protected-access</span>
+<div class="viewcode-block" id="get_or_create_early_stop_var"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.model_utils.get_or_create_early_stop_var">[docs]</a><span class="k">def</span> <span class="nf">get_or_create_early_stop_var</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a new variable for early stopping or returns existing one</span>
+
+<span class="sd">    Wrapper across early_stopping._get_or_create_stop_var</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    early_stop_var</span>
+<span class="sd">        variable for early stopping</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">early_stopping</span><span class="o">.</span><span class="n">_get_or_create_stop_var</span><span class="p">()</span></div>
+
+
+<span class="c1"># pylint: enable=no-member,protected-access</span>
+
+
+<span class="k">def</span> <span class="nf">_dict_identity</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+
+<span class="k">def</span> <span class="nf">_get_placeholder_full_name</span><span class="p">(</span><span class="n">object_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">placeholder_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">placeholder_full_name</span> <span class="o">=</span> <span class="s2">&quot;//&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">object_name</span><span class="p">,</span> <span class="n">placeholder_name</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">placeholder_full_name</span>
+
+
+<span class="k">def</span> <span class="nf">_get_placeholder_shape</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+
+
+<span class="k">def</span> <span class="nf">_reset_layer_or_model_recursively</span><span class="p">(</span><span class="n">layer_or_model</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Layer</span><span class="p">):</span>
+    <span class="n">layer_or_model</span><span class="o">.</span><span class="n">built</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">layer_or_model</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_layer</span> <span class="ow">in</span> <span class="n">layer_or_model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
+            <span class="n">_reset_layer_or_model_recursively</span><span class="p">(</span><span class="n">each_layer</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

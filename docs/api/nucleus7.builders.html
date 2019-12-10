@@ -1,0 +1,1040 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.builders package &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nucleus7.coordinator package" href="nucleus7.coordinator.html" />
+    <link rel="prev" title="Contribution" href="../Contribution.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nucleus7.builders package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.builder_lib">nucleus7.builders.builder_lib module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.callback_builder">nucleus7.builders.callback_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.data_builder_lib">nucleus7.builders.data_builder_lib module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.data_feeder_builder">nucleus7.builders.data_feeder_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.data_filter_builder">nucleus7.builders.data_filter_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.data_pipe_builder">nucleus7.builders.data_pipe_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.dataset_builder">nucleus7.builders.dataset_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.file_list_builder">nucleus7.builders.file_list_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.inferer_builder">nucleus7.builders.inferer_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.kpi_builder">nucleus7.builders.kpi_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.model_builder">nucleus7.builders.model_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.optimization_builders">nucleus7.builders.optimization_builders module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.runs_builder">nucleus7.builders.runs_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders.trainer_builder">nucleus7.builders.trainer_builder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.builders">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>nucleus7.builders package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/nucleus7.builders.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleus7-builders-package">
+<h1>nucleus7.builders package<a class="headerlink" href="#nucleus7-builders-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nucleus7.builders.builder_lib">
+<span id="nucleus7-builders-builder-lib-module"></span><h2>nucleus7.builders.builder_lib module<a class="headerlink" href="#module-nucleus7.builders.builder_lib" title="Permalink to this headline">¶</a></h2>
+<p>Builder library</p>
+<dl class="class">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">PluggedConfigKeyAndBuildFn</code><span class="sig-paren">(</span><em class="sig-param">config_key</em>, <em class="sig-param">build_fn</em>, <em class="sig-param">add_to_config</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">config_key</em>, <em class="sig-param">build_fn</em>, <em class="sig-param">add_to_config</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of PluggedConfigKeyAndBuildFn(config_key, build_fn, add_to_config)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.add_to_config">
+<em class="property">property </em><code class="sig-name descname">add_to_config</code><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.add_to_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.build_fn">
+<em class="property">property </em><code class="sig-name descname">build_fn</code><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.build_fn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.config_key">
+<em class="property">property </em><code class="sig-name descname">config_key</code><a class="headerlink" href="#nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn.config_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.build_chain_of_objects">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">build_chain_of_objects</code><span class="sig-paren">(</span><em class="sig-param">chain_config: list</em>, <em class="sig-param">build_fn: Callable</em><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#build_chain_of_objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.build_chain_of_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a list of objects based on its configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain_config</strong> – list of configurations of objects</p></li>
+<li><p><strong>build_fn</strong> – function which takes only one argument (object config) and builds object
+based on the config</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of build objects</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.build_config_object">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">build_config_object</code><span class="sig-paren">(</span><em class="sig-param">config_fn: Callable</em>, <em class="sig-param">main_config: dict</em>, <em class="sig-param">additional_search_key: Optional[str] = None</em>, <em class="sig-param">search_in_root: bool = True</em>, <em class="sig-param">remove_built_config_from_main: bool = True</em>, <em class="sig-param">**config_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#build_config_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.build_config_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build configuration using config_fn by providing arguments from
+main_config directly or from particular section in it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_fn</strong> – function to build the config</p></li>
+<li><p><strong>main_config</strong> – dict holding configuration to use for build; can have also other
+parameters, which are not used in the build</p></li>
+<li><p><strong>additional_search_key</strong> – name of the section (key) inside of main_config where to look for
+parameters except in root</p></li>
+<li><p><strong>search_in_root</strong> – if the parameters should be read also in the root</p></li>
+<li><p><strong>remove_built_config_from_main</strong> – if the arguments from config_fn found in section or in the root of
+main_config, should be removed from main_config</p></li>
+<li><p><strong>**config_kwargs</strong> – optional parameters to pass to config_fn</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>configuration built using config_fn and extracted parameters</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>config_built</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.build_registered_object">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">build_registered_object</code><span class="sig-paren">(</span><em class="sig-param">base_cls=None</em>, <em class="sig-param">class_name=None</em>, <em class="sig-param">default_cls=None</em>, <em class="sig-param">**object_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#build_registered_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.build_registered_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapped method with log</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_cls</strong> – base class</p></li>
+<li><p><strong>class_name</strong> – class name to build</p></li>
+<li><p><strong>default_cls</strong> – default class, if no class with class name was registered</p></li>
+<li><p><strong>object_kwargs</strong> – kwargs to pass to the object constructor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>built_object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.build_registered_object_from_config">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">build_registered_object_from_config</code><span class="sig-paren">(</span><em class="sig-param">config: dict</em>, <em class="sig-param">base_cls: Optional[type] = None</em>, <em class="sig-param">default_cls: Optional[type] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#build_registered_object_from_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.build_registered_object_from_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct class with registered name by passing config as kwargs to it.
+Also calls object.build() if build method exists in that object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – dictionary with configuration of constructed object</p></li>
+<li><p><strong>base_cls</strong> – base class; will check if the class with class_name will inherits from
+this base_cls</p></li>
+<li><p><strong>default_cls</strong> – default class to use if no ‘class_name’ provided inside of config</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.8)"><strong>KeyError</strong></a> – if no class was registered with that name</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if super_cls is provided and retrieved class does not inherit from it</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>built object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>obj</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.build_with_plugged_objects">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">build_with_plugged_objects</code><span class="sig-paren">(</span><em class="sig-param">config: dict, build_fn: Callable[..., object], plugged_config_keys_and_builds: List[nucleus7.builders.builder_lib.PluggedConfigKeyAndBuildFn], build_callbacks: Optional[List[Callable]] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#build_with_plugged_objects"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.build_with_plugged_objects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object using its config and build_fn. If config has keys from
+plugged_configs_and_builds, then that plugged configs will be replaced by
+built objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – config to build the object from</p></li>
+<li><p><strong>build_fn</strong> – function to build the object from its config; plugged objects will
+be passed as kwargs with argument name as plugged config_key</p></li>
+<li><p><strong>plugged_config_keys_and_builds</strong> – list of tuples with plugged config keys and corresponding build
+functions</p></li>
+<li><p><strong>build_callbacks</strong> – list of callbacks to perform after build_fn on the built object; inputs
+to this callbacks are built_object and plugged_objects as kwargs, e.g.
+<cite>def callback_fn(built_object, **plugged_objects): pass</cite></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built object using build_fn</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>built_object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.eval_config">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">eval_config</code><span class="sig-paren">(</span><em class="sig-param">config: dict</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#eval_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.eval_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>perform literal evaluation of all values inside of config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>evaluated config</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>config</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.builder_lib.log_build_process">
+<code class="sig-prename descclassname">nucleus7.builders.builder_lib.</code><code class="sig-name descname">log_build_process</code><span class="sig-paren">(</span><em class="sig-param">function</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/builder_lib.html#log_build_process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.builder_lib.log_build_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to add the logs before and after cls.build() method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> – method to decorate with log</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.callback_builder">
+<span id="nucleus7-builders-callback-builder-module"></span><h2>nucleus7.builders.callback_builder module<a class="headerlink" href="#module-nucleus7.builders.callback_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for callbacks</p>
+<dl class="function">
+<dt id="nucleus7.builders.callback_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.callback_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">callback_config: dict</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.callback.CoordinatorCallback<a class="reference internal" href="../_modules/nucleus7/builders/callback_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.callback_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build callback based on its config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callback_config</strong> – config of the callback or of KPIEvaluator to treat as a callback</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>callback</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>callback</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.callback_builder.build_callbacks_chain">
+<code class="sig-prename descclassname">nucleus7.builders.callback_builder.</code><code class="sig-name descname">build_callbacks_chain</code><span class="sig-paren">(</span><em class="sig-param">callbacks_chain_config: list</em><span class="sig-paren">)</span> &#x2192; list<a class="reference internal" href="../_modules/nucleus7/builders/callback_builder.html#build_callbacks_chain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.callback_builder.build_callbacks_chain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a list of callbacks based on its configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callbacks_chain_config</strong> – list of configurations of callbacks</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of callbacks</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>callbacks</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.data_builder_lib">
+<span id="nucleus7-builders-data-builder-lib-module"></span><h2>nucleus7.builders.data_builder_lib module<a class="headerlink" href="#module-nucleus7.builders.data_builder_lib" title="Permalink to this headline">¶</a></h2>
+<p>Builder methods for data module</p>
+<dl class="function">
+<dt id="nucleus7.builders.data_builder_lib.build_data_object_from_config">
+<code class="sig-prename descclassname">nucleus7.builders.data_builder_lib.</code><code class="sig-name descname">build_data_object_from_config</code><span class="sig-paren">(</span><em class="sig-param">config: dict</em>, <em class="sig-param">base_cls: type</em>, <em class="sig-param">built_fn: Optional[Callable] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/data_builder_lib.html#build_data_object_from_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.data_builder_lib.build_data_object_from_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build object based on its config from data module with optional file list
+and data filter plugged objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – config to use</p></li>
+<li><p><strong>base_cls</strong> – base class of built object</p></li>
+<li><p><strong>built_fn</strong> – build function to use to build main data object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data_object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.data_feeder_builder">
+<span id="nucleus7-builders-data-feeder-builder-module"></span><h2>nucleus7.builders.data_feeder_builder module<a class="headerlink" href="#module-nucleus7.builders.data_feeder_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for DataFeeder</p>
+<dl class="function">
+<dt id="nucleus7.builders.data_feeder_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.data_feeder_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">datafeeder_config: dict</em><span class="sig-paren">)</span> &#x2192; nucleus7.data.data_feeder.DataFeeder<a class="reference internal" href="../_modules/nucleus7/builders/data_feeder_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.data_feeder_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build data feeder based on its config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>datafeeder_config</strong> – configuration of data feeder</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data_feeder</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data_feeder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.data_filter_builder">
+<span id="nucleus7-builders-data-filter-builder-module"></span><h2>nucleus7.builders.data_filter_builder module<a class="headerlink" href="#module-nucleus7.builders.data_filter_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for DataFilter</p>
+<dl class="function">
+<dt id="nucleus7.builders.data_filter_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.data_filter_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">data_filter_config: Union[dict, List[dict]]</em><span class="sig-paren">)</span> &#x2192; Union[List[nucleus7.data.data_filter.DataFilter], nucleus7.data.data_filter.DataFilter]<a class="reference internal" href="../_modules/nucleus7/builders/data_filter_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.data_filter_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the FileList based on its config or if the chain of file lists
+provided, it will sum all the file lists in the order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_filter_config</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built file list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.data_filter_builder.data_filter_build_callback">
+<code class="sig-prename descclassname">nucleus7.builders.data_filter_builder.</code><code class="sig-name descname">data_filter_build_callback</code><span class="sig-paren">(</span><em class="sig-param">built_object: nucleus7.data.data_filter.DataFilterMixin, data_filter: Union[List[nucleus7.data.data_filter.DataFilter], nucleus7.data.data_filter.DataFilter, None] = None, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/data_filter_builder.html#data_filter_build_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.data_filter_builder.data_filter_build_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build callback to use for objects with data filter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>built_object</strong> – built object to add data filter to</p></li>
+<li><p><strong>data_filter</strong> – data filter object</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built object with added data_filter to it</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>built_object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.data_pipe_builder">
+<span id="nucleus7-builders-data-pipe-builder-module"></span><h2>nucleus7.builders.data_pipe_builder module<a class="headerlink" href="#module-nucleus7.builders.data_pipe_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builder for DataPipe objects</p>
+<dl class="function">
+<dt id="nucleus7.builders.data_pipe_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.data_pipe_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">readers: Optional[List[nucleus7.data.reader.DataReader]] = None</em>, <em class="sig-param">processors: Optional[List[nucleus7.data.processor.DataProcessor]] = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.data.data_pipe.DataPipe<a class="reference internal" href="../_modules/nucleus7/builders/data_pipe_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.data_pipe_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build data pipe from readers and processors</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>readers</strong> – readers to use</p></li>
+<li><p><strong>processors</strong> – processors to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data pipe with readers and processors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data_pipe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.data_pipe_builder.build_data_pipe_from_configs">
+<code class="sig-prename descclassname">nucleus7.builders.data_pipe_builder.</code><code class="sig-name descname">build_data_pipe_from_configs</code><span class="sig-paren">(</span><em class="sig-param">data_pipe_component_configs: List[dict]</em><span class="sig-paren">)</span> &#x2192; nucleus7.data.data_pipe.DataPipe<a class="reference internal" href="../_modules/nucleus7/builders/data_pipe_builder.html#build_data_pipe_from_configs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.data_pipe_builder.build_data_pipe_from_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build data pipe object from its component config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data_pipe_component_configs</strong> – list of DataReaders and DataProcessors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>data pipe built from its components</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>data_pipe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.dataset_builder">
+<span id="nucleus7-builders-dataset-builder-module"></span><h2>nucleus7.builders.dataset_builder module<a class="headerlink" href="#module-nucleus7.builders.dataset_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for dataset</p>
+<dl class="function">
+<dt id="nucleus7.builders.dataset_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.dataset_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">dataset_config: Union[dict, List[dict]]</em><span class="sig-paren">)</span> &#x2192; nucleus7.data.dataset.Dataset<a class="reference internal" href="../_modules/nucleus7/builders/dataset_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.dataset_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build dataset based on its config and file list if provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataset_config</strong> – configuration of dataset or a list of dataset configurations;
+in last case, the DatasetMix will be generated out of all of datasets
+in the list; if you want to specify the
+sampling_weights for the mix, it should be set with
+<cite>sampling_weight</cite> inside of the each dataset config</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dataset</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.file_list_builder">
+<span id="nucleus7-builders-file-list-builder-module"></span><h2>nucleus7.builders.file_list_builder module<a class="headerlink" href="#module-nucleus7.builders.file_list_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for FileLists</p>
+<dl class="function">
+<dt id="nucleus7.builders.file_list_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.file_list_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">file_list_config: Union[dict, List[dict]]</em><span class="sig-paren">)</span> &#x2192; nucleus7.data.file_list.FileList<a class="reference internal" href="../_modules/nucleus7/builders/file_list_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.file_list_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the FileList based on its config or if the chain of file lists
+provided, it will sum all the file lists in the order</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_list_config</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built file list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.inferer_builder">
+<span id="nucleus7-builders-inferer-builder-module"></span><h2>nucleus7.builders.inferer_builder module<a class="headerlink" href="#module-nucleus7.builders.inferer_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builder for Inferer</p>
+<dl class="function">
+<dt id="nucleus7.builders.inferer_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.inferer_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">inferer_config: dict</em>, <em class="sig-param">project_dir: str</em>, <em class="sig-param">data_feeder: nucleus7.data.data_feeder.DataFeeder</em>, <em class="sig-param">callbacks_handler: Optional[nucleus7.coordinator.callbacks_handler.CallbacksHandler] = None</em>, <em class="sig-param">continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.inferer.Inferer<a class="reference internal" href="../_modules/nucleus7/builders/inferer_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.inferer_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build inferer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inferer_config</strong> – additional configuration of inferer</p></li>
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>data_feeder</strong> – configuration for data feeder</p></li>
+<li><p><strong>callbacks_handler</strong> – callbacks handler to use</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>inferer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inferer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.kpi_builder">
+<span id="nucleus7-builders-kpi-builder-module"></span><h2>nucleus7.builders.kpi_builder module<a class="headerlink" href="#module-nucleus7.builders.kpi_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for KPI evaluator</p>
+<dl class="function">
+<dt id="nucleus7.builders.kpi_builder.build_kpi_evaluator">
+<code class="sig-prename descclassname">nucleus7.builders.kpi_builder.</code><code class="sig-name descname">build_kpi_evaluator</code><span class="sig-paren">(</span><em class="sig-param">plugins_and_accumulators: Optional[List[nucleus7.kpi.kpi_plugin.KPIPlugin]]</em><span class="sig-paren">)</span> &#x2192; Optional[nucleus7.kpi.kpi_evaluator.KPIEvaluator]<a class="reference internal" href="../_modules/nucleus7/builders/kpi_builder.html#build_kpi_evaluator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.kpi_builder.build_kpi_evaluator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build kpi evaluator from plugins and accumulators</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plugins_and_accumulators</strong> – list of kpi plugins and accumulators</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built kpi evaluator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi_evaluator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.kpi_builder.build_kpi_evaluator_as_callback">
+<code class="sig-prename descclassname">nucleus7.builders.kpi_builder.</code><code class="sig-name descname">build_kpi_evaluator_as_callback</code><span class="sig-paren">(</span><em class="sig-param">plugins_and_accumulators: Optional[List[nucleus7.kpi.kpi_plugin.KPIPlugin]]</em><span class="sig-paren">)</span> &#x2192; Optional[nucleus7.kpi.kpi_callback.KPIEvaluatorCallback]<a class="reference internal" href="../_modules/nucleus7/builders/kpi_builder.html#build_kpi_evaluator_as_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.kpi_builder.build_kpi_evaluator_as_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build kpi evaluator from plugins and accumulators and convert it to
+callback</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plugins_and_accumulators</strong> – list of kpi plugins and accumulators</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built kpi evaluator as callback</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>kpi_evaluator_as_callback</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.kpi_builder.build_kpi_plugins">
+<code class="sig-prename descclassname">nucleus7.builders.kpi_builder.</code><code class="sig-name descname">build_kpi_plugins</code><span class="sig-paren">(</span><em class="sig-param">configs: Union[list, dict]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/kpi_builder.html#build_kpi_plugins"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.kpi_builder.build_kpi_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build kpi plugins from single config or list of configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>configs</strong> – configs for plugins to build from</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built kpi plugins</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list_of_kpi_plugins</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.model_builder">
+<span id="nucleus7-builders-model-builder-module"></span><h2>nucleus7.builders.model_builder module<a class="headerlink" href="#module-nucleus7.builders.model_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for model and its nucleotides</p>
+<dl class="function">
+<dt id="nucleus7.builders.model_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.model_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">model_config: Optional[dict], plugins: List[nucleus7.model.plugin.ModelPlugin], losses: List[nucleus7.model.loss.ModelLoss], postprocessors: Optional[List[nucleus7.model.postprocessor.ModelPostProcessor]] = None, metrics: Optional[List[nucleus7.model.metric.ModelMetric]] = None, summaries: Optional[List[nucleus7.model.summary.ModelSummary]] = None, mixed_precision_config: Optional[nucleus7.model.configs.MixedPrecisionConfig] = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.model.model.Model<a class="reference internal" href="../_modules/nucleus7/builders/model_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.model_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build model and if needed build its components based of config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_config</strong> – model configuration</p></li>
+<li><p><strong>plugins</strong> – list of plugin configs or plugins itself</p></li>
+<li><p><strong>losses</strong> – list of loss configs or loss itself</p></li>
+<li><p><strong>postprocessors</strong> – list of postprocessor configs or postprocessor itself</p></li>
+<li><p><strong>metrics</strong> – list of metric configs or metric itself</p></li>
+<li><p><strong>summaries</strong> – list of summary configs or summary itself</p></li>
+<li><p><strong>mixed_precision_config</strong> – configuration for mixed precision</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.model_builder.build_model_nucleotides">
+<code class="sig-prename descclassname">nucleus7.builders.model_builder.</code><code class="sig-name descname">build_model_nucleotides</code><span class="sig-paren">(</span><em class="sig-param">nucleotide_configs: List[dict], base_cls: Optional[type] = None</em><span class="sig-paren">)</span> &#x2192; Optional[list]<a class="reference internal" href="../_modules/nucleus7/builders/model_builder.html#build_model_nucleotides"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.model_builder.build_model_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build model nucleotides</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nucleotide_configs</strong> – list of single nucleotide configuration</p></li>
+<li><p><strong>base_cls</strong> – base class of nucleotide</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of nucleotides</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>nucleotides</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.model_builder.build_plugin">
+<code class="sig-prename descclassname">nucleus7.builders.model_builder.</code><code class="sig-name descname">build_plugin</code><span class="sig-paren">(</span><em class="sig-param">**config</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/builders/model_builder.html#build_plugin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.model_builder.build_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build single plugin based on its configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**config</strong> – plugin configuration</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>plugin</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>plugin</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.optimization_builders">
+<span id="nucleus7-builders-optimization-builders-module"></span><h2>nucleus7.builders.optimization_builders module<a class="headerlink" href="#module-nucleus7.builders.optimization_builders" title="Permalink to this headline">¶</a></h2>
+<p>Builders for optimization objects</p>
+<dl class="function">
+<dt id="nucleus7.builders.optimization_builders.build_learning_rate_manipulator">
+<code class="sig-prename descclassname">nucleus7.builders.optimization_builders.</code><code class="sig-name descname">build_learning_rate_manipulator</code><span class="sig-paren">(</span><em class="sig-param">class_name: str = None</em>, <em class="sig-param">**manipulator_params</em><span class="sig-paren">)</span> &#x2192; tensorflow.python.framework.ops.Tensor<a class="reference internal" href="../_modules/nucleus7/builders/optimization_builders.html#build_learning_rate_manipulator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.optimization_builders.build_learning_rate_manipulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builder for the learning rate manipulator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>class_name</strong> – class name of the learning rate manipulator. If it is ‘tf’,
+TFLearningRateDecay will be used. Default is ConstantLearningRate</p></li>
+<li><p><strong>**manipulator_params</strong> – parameters of the learning rate manipulator, which will be passed to
+manipulation function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>built learning rate manipulator</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>learning_rate_manipulator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.optimization_builders.build_optimization_config">
+<code class="sig-prename descclassname">nucleus7.builders.optimization_builders.</code><code class="sig-name descname">build_optimization_config</code><span class="sig-paren">(</span><em class="sig-param">config: dict</em>, <em class="sig-param">is_global: bool = True</em><span class="sig-paren">)</span> &#x2192; nucleus7.optimization.configs.OptimizationConfig<a class="reference internal" href="../_modules/nucleus7/builders/optimization_builders.html#build_optimization_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.optimization_builders.build_optimization_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the optimization config object based on the config.</p>
+<p>Will also build the learning rate manipulator if its configuration was
+provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> – config of the optimization config</p></li>
+<li><p><strong>is_global</strong> – defines if it must be treated as a global optimization or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>optimization config</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>optimization_config</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.runs_builder">
+<span id="nucleus7-builders-runs-builder-module"></span><h2>nucleus7.builders.runs_builder module<a class="headerlink" href="#module-nucleus7.builders.runs_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builders for executive scripts, e.g. train, infer etc.</p>
+<dl class="function">
+<dt id="nucleus7.builders.runs_builder.build_extract_data">
+<code class="sig-prename descclassname">nucleus7.builders.runs_builder.</code><code class="sig-name descname">build_extract_data</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">run_name: str</em>, <em class="sig-param">*</em>, <em class="sig-param">datafeeder_config: dict</em>, <em class="sig-param">callbacks_config: list</em>, <em class="sig-param">kpi_config: Optional[List[dict]] = None</em>, <em class="sig-param">batch_size: Optional[int] = 1</em>, <em class="sig-param">number_of_shards: int = 1</em>, <em class="sig-param">shard_index: int = 0</em>, <em class="sig-param">use_single_process: Optional[bool] = None</em>, <em class="sig-param">prefetch_buffer_size: Optional[int] = None</em>, <em class="sig-param">continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.inferer.Inferer<a class="reference internal" href="../_modules/nucleus7/builders/runs_builder.html#build_extract_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.runs_builder.build_extract_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the coordinator for data extraction run based on its single components
+and configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_name</strong> – run name for data extraction project</p></li>
+<li><p><strong>datafeeder_config</strong> – configuration of data feeder</p></li>
+<li><p><strong>callbacks_config</strong> – configurations of single callbacks for inference</p></li>
+<li><p><strong>kpi_config</strong> – configurations of single kpi plugins and accumulators inside of model</p></li>
+<li><p><strong>batch_size</strong> – batch size to use for inference</p></li>
+<li><p><strong>number_of_shards</strong> – number of shards for datafeeder file list, if file list was provided</p></li>
+<li><p><strong>shard_index</strong> – shard index for datafeeder file list, if file list was provided</p></li>
+<li><p><strong>prefetch_buffer_size</strong> – number of batches to prefetch; must be &gt;= 1</p></li>
+<li><p><strong>use_single_process</strong> – if data prefetching, prediction and callbacks must executed in one
+single process</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>inferer ready to run</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inferer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.runs_builder.build_infer">
+<code class="sig-prename descclassname">nucleus7.builders.runs_builder.</code><code class="sig-name descname">build_infer</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str, *, run_name: Optional[str] = None, datafeeder_config: dict, callbacks_config: list, kpi_config: Optional[List[dict]] = None, inferer_config: Optional[dict] = None, saved_model: Optional[str] = None, checkpoint: Optional[str] = None, batch_size: Optional[int], number_of_shards: int = 1, shard_index: int = 0, use_single_process: Optional[bool] = None, prefetch_buffer_size: Optional[int] = None, use_tensorrt: Optional[bool] = None, continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.inferer.Inferer<a class="reference internal" href="../_modules/nucleus7/builders/runs_builder.html#build_infer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.runs_builder.build_infer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the inferer for inference run based on its single components and
+configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_name</strong> – optional run name for inference project</p></li>
+<li><p><strong>datafeeder_config</strong> – configuration of data feeder</p></li>
+<li><p><strong>callbacks_config</strong> – configurations of single callbacks for inference</p></li>
+<li><p><strong>kpi_config</strong> – configurations of single kpi plugins and accumulators inside of model</p></li>
+<li><p><strong>inferer_config</strong> – configuration of inferer</p></li>
+<li><p><strong>checkpoint</strong> – path to checkpoint file to restore the variables relative to
+project_dir/checkpoint; meta graph must be in the same folder</p></li>
+<li><p><strong>saved_model</strong> – path to saved_model folder relative to project_dir/saved_models</p></li>
+<li><p><strong>batch_size</strong> – batch size to use for inference</p></li>
+<li><p><strong>number_of_shards</strong> – number of shards for datafeeder file list, if file list was provided</p></li>
+<li><p><strong>shard_index</strong> – shard index for datafeeder file list, if file list was provided</p></li>
+<li><p><strong>prefetch_buffer_size</strong> – number of batches to prefetch; must be &gt;= 1</p></li>
+<li><p><strong>use_single_process</strong> – if data prefetching, prediction and callbacks must executed in one
+single process</p></li>
+<li><p><strong>use_tensorrt</strong> – if the tensorrt should be enabled</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>inferer ready to run</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inferer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.runs_builder.build_kpi_evaluate">
+<code class="sig-prename descclassname">nucleus7.builders.runs_builder.</code><code class="sig-name descname">build_kpi_evaluate</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str, *, run_name: Optional[str] = None, datafeeder_config: dict, callbacks_config: list, kpi_config: Optional[List[dict]] = None, batch_size: Optional[int], number_of_shards: int = 1, shard_index: int = 0, use_single_process: Optional[bool] = None, prefetch_buffer_size: Optional[int] = None, continue_last: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.inferer.Inferer<a class="reference internal" href="../_modules/nucleus7/builders/runs_builder.html#build_kpi_evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.runs_builder.build_kpi_evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the coordinator for kpi evaluation run based on its single components
+and configs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_name</strong> – optional run name for kpi evaluation project</p></li>
+<li><p><strong>datafeeder_config</strong> – configuration of data feeder</p></li>
+<li><p><strong>callbacks_config</strong> – configurations of single callbacks for inference</p></li>
+<li><p><strong>kpi_config</strong> – configurations of single kpi plugins and accumulators inside of model</p></li>
+<li><p><strong>batch_size</strong> – batch size to use for inference</p></li>
+<li><p><strong>number_of_shards</strong> – number of shards for datafeeder file list, if file list was provided</p></li>
+<li><p><strong>shard_index</strong> – shard index for datafeeder file list, if file list was provided</p></li>
+<li><p><strong>prefetch_buffer_size</strong> – number of batches to prefetch; must be &gt;= 1</p></li>
+<li><p><strong>use_single_process</strong> – if data prefetching, prediction and callbacks must executed in one
+single process</p></li>
+<li><p><strong>continue_last</strong> – if last project must be continued</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>inferer ready to run</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inferer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.builders.runs_builder.build_train">
+<code class="sig-prename descclassname">nucleus7.builders.runs_builder.</code><code class="sig-name descname">build_train</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">*</em>, <em class="sig-param">trainer_config: dict</em>, <em class="sig-param">datasets_config: dict</em>, <em class="sig-param">model_config: Optional[dict] = None</em>, <em class="sig-param">plugins_config: list</em>, <em class="sig-param">losses_config: list</em>, <em class="sig-param">postprocessors_config: Optional[List[dict]] = None</em>, <em class="sig-param">metrics_config: Optional[List[dict]] = None</em>, <em class="sig-param">kpi_config: Optional[List[dict]] = None</em>, <em class="sig-param">summaries_config: Optional[List[dict]] = None</em>, <em class="sig-param">callbacks_config: Optional[List[dict]] = None</em>, <em class="sig-param">callbacks_train_config: Optional[List[dict]] = None</em>, <em class="sig-param">callbacks_eval_config: Optional[List[dict]] = None</em>, <em class="sig-param">continue_training: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.trainer.Trainer<a class="reference internal" href="../_modules/nucleus7/builders/runs_builder.html#build_train"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.runs_builder.build_train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build all components for training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>trainer_config</strong> – trainer configuration</p></li>
+<li><p><strong>datasets_config</strong> – datasets configuration for each run mode</p></li>
+<li><p><strong>model_config</strong> – model configuration</p></li>
+<li><p><strong>plugins_config</strong> – configurations of single plugins inside of model</p></li>
+<li><p><strong>losses_config</strong> – configurations of single losses inside of model</p></li>
+<li><p><strong>postprocessors_config</strong> – configurations of single postprocessors inside of model</p></li>
+<li><p><strong>metrics_config</strong> – configurations of single metrics inside of model</p></li>
+<li><p><strong>kpi_config</strong> – configurations of single kpi plugins and accumulators inside of model</p></li>
+<li><p><strong>summaries_config</strong> – configurations of single summaries inside of model</p></li>
+<li><p><strong>callbacks_config</strong> – configurations of single callbacks inside of model that will be shared
+for training and evaluation (instances of callbacks will be still
+different)</p></li>
+<li><p><strong>callbacks_train_config</strong> – configurations of single callbacks inside of model for training</p></li>
+<li><p><strong>callbacks_eval_config</strong> – configurations of single callbacks inside of model for evaluation</p></li>
+<li><p><strong>continue_training</strong> – if the training should be continued in case that the project inside
+of project_dir already exists</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trainer ready to run</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>trainer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders.trainer_builder">
+<span id="nucleus7-builders-trainer-builder-module"></span><h2>nucleus7.builders.trainer_builder module<a class="headerlink" href="#module-nucleus7.builders.trainer_builder" title="Permalink to this headline">¶</a></h2>
+<p>Builder for Trainer</p>
+<dl class="function">
+<dt id="nucleus7.builders.trainer_builder.build">
+<code class="sig-prename descclassname">nucleus7.builders.trainer_builder.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">trainer_config: dict</em>, <em class="sig-param">model: nucleus7.model.model.Model</em>, <em class="sig-param">project_dir: str</em>, <em class="sig-param">datasets: dict</em>, <em class="sig-param">callbacks_handler_train: Optional[nucleus7.coordinator.callbacks_handler.CallbacksHandler] = None</em>, <em class="sig-param">callbacks_handler_eval: Optional[nucleus7.coordinator.callbacks_handler.CallbacksHandler] = None</em>, <em class="sig-param">continue_training: bool = False</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.trainer.Trainer<a class="reference internal" href="../_modules/nucleus7/builders/trainer_builder.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.builders.trainer_builder.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build trainer based on its config and components</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – model handler to use</p></li>
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>datasets</strong> – datasets with [‘train’, ‘eval’] keys in case of local run and ‘train’
+if it is a training worker or ‘eval’ if it is a evaluator worker</p></li>
+<li><p><strong>trainer_config</strong> – trainer configuration</p></li>
+<li><p><strong>callbacks_handler_train</strong> – callbacks handler with callbacks used during the training</p></li>
+<li><p><strong>callbacks_handler_eval</strong> – callbacks handler with callbacks used during the evaluation</p></li>
+<li><p><strong>continue_training</strong> – if the training should be continued in case that the project inside
+of project_dir already exists</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trainer</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>trainer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.builders">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nucleus7.builders" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nucleus7.coordinator.html" class="btn btn-neutral float-right" title="nucleus7.coordinator package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Contribution.html" class="btn btn-neutral float-left" title="Contribution" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

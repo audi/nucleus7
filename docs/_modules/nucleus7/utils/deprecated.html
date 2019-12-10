@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.deprecated &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.deprecated</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.deprecated</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Methods to encapsulate deprecations from older versions of nucleus7, primary in</span>
+<span class="sd">configs</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+
+<div class="viewcode-block" id="warning_deprecated_config_param"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.warning_deprecated_config_param">[docs]</a><span class="k">def</span> <span class="nf">warning_deprecated_config_param</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                    <span class="n">real_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">additional_instructions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raise a DeprecationWarning with specified message structure used to point</span>
+<span class="sd">    the deprecated parameter names</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deprecated_name</span>
+<span class="sd">        deprecated parameter name</span>
+<span class="sd">    real_name</span>
+<span class="sd">        real parameter name which will be used instead of deprecated_name</span>
+<span class="sd">    additional_instructions</span>
+<span class="sd">        additional information inside of warning message</span>
+<span class="sd">    value</span>
+<span class="sd">        value of the parameter to print inside of warning message</span>
+
+<span class="sd">    Warnings</span>
+<span class="sd">    --------</span>
+<span class="sd">    DeprecationWarning</span>
+<span class="sd">        deprecation warning</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_format_names</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;::&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">num_levels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">,</span> <span class="s2">&quot; = {&quot;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;{&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; = VALUE&#39;</span>
+            <span class="n">name</span> <span class="o">+=</span> <span class="s2">&quot;}&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="n">num_levels</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">name</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` configuration parameter IS DEPRECATED. &quot;</span>
+               <span class="s2">&quot;It will be removed in future versions. &quot;</span>
+               <span class="s2">&quot;Instructions for updating: &quot;</span>
+               <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_format_names</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">real_name</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot;Use `</span><span class="si">{}</span><span class="s2">` instead in your configs.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">_format_names</span><span class="p">(</span><span class="n">real_name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">additional_instructions</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="n">additional_instructions</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot; (Provided value is: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="warning_deprecated_config_file"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.warning_deprecated_config_file">[docs]</a><span class="k">def</span> <span class="nf">warning_deprecated_config_file</span><span class="p">(</span><span class="n">deprecated_fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                   <span class="n">real_fname</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">additional_instructions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raise a DeprecationWarning with specified message structure used to point</span>
+<span class="sd">    the deprecated file names</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deprecated_fname</span>
+<span class="sd">        deprecated file name for the config</span>
+<span class="sd">    real_fname</span>
+<span class="sd">        real file name for the config</span>
+<span class="sd">    additional_instructions</span>
+<span class="sd">        additional information inside of warning message</span>
+<span class="sd">    value</span>
+<span class="sd">        value of the parameter to print inside of warning message</span>
+
+<span class="sd">    Warnings</span>
+<span class="sd">    --------</span>
+<span class="sd">    DeprecationWarning</span>
+<span class="sd">        deprecation warning</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">deprecated_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">deprecated_fname</span><span class="p">)</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` configuration file IS DEPRECATED. &quot;</span>
+               <span class="s2">&quot;It will be removed in future versions &quot;</span>
+               <span class="s2">&quot;and will NOT BE USED or WILL CAUSE ERRORS.&quot;</span>
+               <span class="s2">&quot;Instructions for updating: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">deprecated_fname</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">real_fname</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot;Rename this config file to `</span><span class="si">{}</span><span class="s2">` instead.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">real_fname</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">additional_instructions</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="n">additional_instructions</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot; (Full file name: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="warning_deprecated_method"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.warning_deprecated_method">[docs]</a><span class="k">def</span> <span class="nf">warning_deprecated_method</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                              <span class="n">real_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">additional_instructions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Raise a DeprecationWarning with specified message structure used to point</span>
+<span class="sd">    the deprecated parameter method</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deprecated_name</span>
+<span class="sd">        deprecated method name</span>
+<span class="sd">    real_name</span>
+<span class="sd">        new method name</span>
+<span class="sd">    additional_instructions</span>
+<span class="sd">        additional information inside of warning message</span>
+
+<span class="sd">    Warnings</span>
+<span class="sd">    --------</span>
+<span class="sd">    DeprecationWarning</span>
+<span class="sd">        deprecation warning</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">message</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` method IS DEPRECATED. &quot;</span>
+               <span class="s2">&quot;It will be removed in future versions. &quot;</span>
+               <span class="s2">&quot;Instructions for updating: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">real_name</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot;Use `</span><span class="si">{}</span><span class="s2">` instead in your configs.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">real_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">additional_instructions</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">+=</span> <span class="n">additional_instructions</span>
+    <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;always&#39;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="warn_deprecated_method"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.warn_deprecated_method">[docs]</a><span class="k">def</span> <span class="nf">warn_deprecated_method</span><span class="p">(</span><span class="n">real_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">additional_instructions</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Warn that the method is deprecated and then execute it</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    real_name</span>
+<span class="sd">        new name of the method</span>
+<span class="sd">    additional_instructions</span>
+<span class="sd">        additional instruction to use</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wrapped</span>
+<span class="sd">        decorated method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">deprecated_name</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">function</span><span class="o">.</span><span class="vm">__module__</span><span class="p">,</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
+            <span class="n">warning_deprecated_method</span><span class="p">(</span>
+                <span class="n">deprecated_name</span><span class="o">=</span><span class="n">deprecated_name</span><span class="p">,</span> <span class="n">real_name</span><span class="o">=</span><span class="n">real_name</span><span class="p">,</span>
+                <span class="n">additional_instructions</span><span class="o">=</span><span class="n">additional_instructions</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapped</span>
+
+    <span class="k">return</span> <span class="n">decorator</span></div>
+
+
+<div class="viewcode-block" id="replace_deprecated_parameter_in_config"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.replace_deprecated_parameter_in_config">[docs]</a><span class="k">def</span> <span class="nf">replace_deprecated_parameter_in_config</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                           <span class="n">real_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                           <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                                           <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replace deprecated parameter to real parameter name and raise a warning</span>
+<span class="sd">    if the deprecated parameter name exists in the config</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deprecated_name</span>
+<span class="sd">        deprecated parameter name</span>
+<span class="sd">    real_name</span>
+<span class="sd">        real parameter name which will be used instead of deprecated_name</span>
+<span class="sd">    config</span>
+<span class="sd">        config</span>
+<span class="sd">    required</span>
+<span class="sd">        if set, then raise a AssertionError if config doesn&#39;t have real_name</span>
+<span class="sd">        parameter or deprecated_name parameter inside</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    config_with_replaced_deprecated</span>
+<span class="sd">        configuration with replaced deprecated name parameter</span>
+
+<span class="sd">    Warnings</span>
+<span class="sd">    --------</span>
+<span class="sd">    DeprecationWarning</span>
+<span class="sd">        if parameter with deprecated_name exists</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if required and value of parameter with deprecated name and real name</span>
+<span class="sd">        is None</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if parameter with both deprecated_name and real_name exists inside of</span>
+<span class="sd">        config</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">deprecated_value</span> <span class="o">=</span> <span class="n">pop_value_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">deprecated_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">real_value</span> <span class="o">=</span> <span class="n">get_value_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">real_name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">required</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">deprecated_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">real_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Provide </span><span class="si">{}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">real_name</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">deprecated_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="n">real_value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="p">(</span><span class="s2">&quot;either </span><span class="si">{dn}</span><span class="s2"> or </span><span class="si">{rn}</span><span class="s2"> (DEPRECATED) should be &quot;</span>
+             <span class="s2">&quot;provided, not both! (</span><span class="si">{dn}</span><span class="s2">: </span><span class="si">{dv}</span><span class="s2">, </span><span class="si">{rn}</span><span class="s2">: </span><span class="si">{rv}</span><span class="s2">)&quot;</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dn</span><span class="o">=</span><span class="n">deprecated_name</span><span class="p">,</span> <span class="n">rn</span><span class="o">=</span><span class="n">real_name</span><span class="p">,</span> <span class="n">dv</span><span class="o">=</span><span class="n">deprecated_value</span><span class="p">,</span>
+                      <span class="n">rv</span><span class="o">=</span><span class="n">real_value</span><span class="p">))</span>
+        <span class="n">warning_deprecated_config_param</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">,</span> <span class="n">real_name</span><span class="p">,</span>
+                                        <span class="n">value</span><span class="o">=</span><span class="n">deprecated_value</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">deprecated_value</span>
+
+        <span class="n">add_value_to_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">real_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config</span></div>
+
+
+<div class="viewcode-block" id="replace_deprecated_parameter"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.replace_deprecated_parameter">[docs]</a><span class="k">def</span> <span class="nf">replace_deprecated_parameter</span><span class="p">(</span><span class="n">deprecated_name</span><span class="p">,</span> <span class="n">real_name</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator to use to replace the deprecated parameter inside of method</span>
+<span class="sd">    kwargs and warn about it</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    deprecated_name</span>
+<span class="sd">        deprecated parameter name</span>
+<span class="sd">    real_name</span>
+<span class="sd">        real parameter name which will be used instead of deprecated_name</span>
+<span class="sd">    required</span>
+<span class="sd">        if set, then raise a AssertionError if config doesn&#39;t have real_name</span>
+<span class="sd">        parameter or deprecated_name parameter inside</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    decorated</span>
+<span class="sd">        decorated method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">function</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="p">):</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">replace_deprecated_parameter_in_config</span><span class="p">(</span>
+                <span class="n">deprecated_name</span><span class="p">,</span> <span class="n">real_name</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">required</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">config</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">wrapped</span>
+
+    <span class="k">return</span> <span class="n">decorator</span></div>
+
+
+<div class="viewcode-block" id="pop_value_from_config"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.pop_value_from_config">[docs]</a><span class="k">def</span> <span class="nf">pop_value_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">level_separator</span><span class="o">=</span><span class="s1">&#39;::&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;a&#39;: {&#39;b&#39;: {&#39;c&#39;: 10}}, &#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; pop_value_from_config(config, &#39;a::b::c&#39;)</span>
+<span class="sd">    10</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; pop_value_from_config(config, &#39;p1&#39;)</span>
+<span class="sd">    100</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_remove_empty_leave</span><span class="p">(</span><span class="n">_config</span><span class="p">):</span>
+        <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_config</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+            <span class="n">_subconfig</span> <span class="o">=</span> <span class="n">_config</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">_subconfig</span> <span class="ow">is</span> <span class="kc">None</span>
+                    <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">_subconfig</span>
+                        <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_subconfig</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)))):</span>
+                <span class="k">del</span> <span class="n">_config</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_subconfig</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">_remove_empty_leave</span><span class="p">(</span><span class="n">_subconfig</span><span class="p">)</span>
+                <span class="n">_remove_empty_leave</span><span class="p">(</span><span class="n">_config</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">level_separator</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+    <span class="n">keys_nested</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">level_separator</span><span class="p">)</span>
+    <span class="n">num_nested_levels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">)</span>
+
+    <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
+    <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">key_at_level</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_at_level</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">default</span>
+
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="n">num_nested_levels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">key_at_level</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+            <span class="k">break</span>
+
+        <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key_at_level</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">config_at_level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="n">_remove_empty_leave</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="get_value_from_config"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.get_value_from_config">[docs]</a><span class="k">def</span> <span class="nf">get_value_from_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">level_separator</span><span class="o">=</span><span class="s1">&#39;::&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;a&#39;: {&#39;b&#39;: {&#39;c&#39;: 10}}, &#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; get_value_from_config(config, &#39;a::b::c&#39;)</span>
+<span class="sd">    10</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; get_value_from_config(config, &#39;p1&#39;)</span>
+<span class="sd">    100</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;a&#39;: 100, &#39;c&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; get_value_from_config(config, &#39;a::b&#39;, &#39;default_value&#39;)</span>
+<span class="sd">    &#39;default_value&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">level_separator</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+    <span class="n">keys_nested</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">level_separator</span><span class="p">)</span>
+    <span class="n">num_nested_levels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">)</span>
+
+    <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
+    <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">key_at_level</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_at_level</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">default</span>
+
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="n">num_nested_levels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key_at_level</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
+            <span class="k">break</span>
+
+        <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key_at_level</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">config_at_level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="add_value_to_config"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.deprecated.add_value_to_config">[docs]</a><span class="k">def</span> <span class="nf">add_value_to_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span>
+                        <span class="n">level_separator</span><span class="o">=</span><span class="s1">&#39;::&#39;</span><span class="p">,</span> <span class="n">key_if_not_dict</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; add_value_to_config(config, &#39;a::b::c&#39;, 100)</span>
+<span class="sd">    {&#39;a&#39;: {&#39;b&#39;: {&#39;c&#39;: 100}}, &#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+
+<span class="sd">    &gt;&gt;&gt; config = {&#39;p1&#39;: 100, &#39;p2&#39;: 200}</span>
+<span class="sd">    &gt;&gt;&gt; add_value_to_config(config, &#39;p1::b::c&#39;, 100)</span>
+<span class="sd">    {&#39;p1&#39;: {&#39;b&#39;: {&#39;c&#39;: 100}, &#39;name&#39;: 100}, &#39;p2&#39;: 200}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">level_separator</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+        <span class="n">config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">config</span>
+
+    <span class="n">keys_nested</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">level_separator</span><span class="p">)</span>
+    <span class="n">num_nested_levels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">)</span>
+    <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config</span>
+    <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">key_at_level</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">&lt;</span> <span class="n">num_nested_levels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">existing_value</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key_at_level</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">existing_value</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">existing_value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">key_at_level</span><span class="p">,</span> <span class="p">{})</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">existing_value</span> <span class="o">=</span> <span class="p">{</span><span class="n">key_if_not_dict</span><span class="p">:</span> <span class="n">existing_value</span><span class="p">}</span>
+                <span class="n">config_at_level</span><span class="p">[</span><span class="n">key_at_level</span><span class="p">]</span> <span class="o">=</span> <span class="n">existing_value</span>
+                <span class="n">config_at_level</span> <span class="o">=</span> <span class="n">config_at_level</span><span class="p">[</span><span class="n">key_at_level</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">config_at_level</span><span class="p">[</span><span class="n">key_at_level</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">config</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

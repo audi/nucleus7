@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">General utils</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1"># pylint: disable=unused-import</span>
+<span class="c1"># namedtuple is used inside of examples in the docstring</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="c1"># pylint: enable=unused-import</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">zlib</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+
+
+<div class="viewcode-block" id="float_or_string"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.float_or_string">[docs]</a><span class="k">def</span> <span class="nf">float_or_string</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return float if possible and string otherwise</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; float_or_string(10)</span>
+<span class="sd">    10.0</span>
+
+<span class="sd">    &gt;&gt;&gt; float_or_string(&#39;a&#39;)</span>
+<span class="sd">    &#39;a&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="int_or_string"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.int_or_string">[docs]</a><span class="k">def</span> <span class="nf">int_or_string</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return int if possible and string otherwise</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; int_or_string(10)</span>
+<span class="sd">    10</span>
+
+<span class="sd">    &gt;&gt;&gt; int_or_string(&#39;a&#39;)</span>
+<span class="sd">    &#39;a&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="replace_sets_to_lists"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.replace_sets_to_lists">[docs]</a><span class="k">def</span> <span class="nf">replace_sets_to_lists</span><span class="p">(</span><span class="n">nested_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Recursively replace the sets as values to lists inside of nested_dict</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; {&#39;a&#39;: {1, 2, 3}, &#39;b&#39;: 1, &#39;c&#39;: {1: {123, 456}}}</span>
+<span class="sd">    {&#39;a&#39;: [1, 2, 3], &#39;b&#39;: 1, &#39;c&#39;: {1: [123, 456]}}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nested_dict</span>
+<span class="sd">        dict with sets inside as values</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">nested_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_value</span><span class="p">,</span> <span class="nb">set</span><span class="p">):</span>
+            <span class="n">nested_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">each_value</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nested_dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">replace_sets_to_lists</span><span class="p">(</span><span class="n">each_value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_member_from_package_and_member_names"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.get_member_from_package_and_member_names">[docs]</a><span class="k">def</span> <span class="nf">get_member_from_package_and_member_names</span><span class="p">(</span><span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                             <span class="n">package_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">default_package_names</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">default_class</span><span class="p">:</span> <span class="nb">type</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Import the class from list of packages (package_name+default_packages)</span>
+<span class="sd">    by class name; if class_name has &#39;.&#39;, it will be splitted to package_name</span>
+<span class="sd">    and class_name</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    class_name</span>
+<span class="sd">        name of the class</span>
+<span class="sd">    package_name</span>
+<span class="sd">        name of the package</span>
+<span class="sd">    default_package_names</span>
+<span class="sd">        list of packages to look if the class was not found with package_name</span>
+<span class="sd">    default_class</span>
+<span class="sd">        if class was not found - this class will be returned</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    class</span>
+<span class="sd">        class from class_name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">names_</span> <span class="o">=</span> <span class="n">class_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">package_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">package_name</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">names_</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">package_name</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">package_name</span><span class="p">]</span> <span class="o">+</span> <span class="n">names_</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">class_name</span> <span class="o">=</span> <span class="n">names_</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">package_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">package_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">package_name</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">package_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">package_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">default_package_names</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">package_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">default_package_names</span><span class="p">)</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">each_package_name</span> <span class="ow">in</span> <span class="n">package_names</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">package</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">each_package_name</span><span class="p">)</span>
+            <span class="bp">cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">package</span><span class="p">,</span> <span class="n">class_name</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">continue</span>
+    <span class="k">if</span> <span class="bp">cls</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">default_class</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">cls</span> <span class="o">=</span> <span class="n">default_class</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot import </span><span class="si">{}</span><span class="s2"> from specified package list </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">class_name</span><span class="p">,</span> <span class="n">package_names</span><span class="p">))</span>
+    <span class="k">return</span> <span class="bp">cls</span></div>
+
+
+<div class="viewcode-block" id="maybe_update_undefined_parameter_in_config"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.maybe_update_undefined_parameter_in_config">[docs]</a><span class="k">def</span> <span class="nf">maybe_update_undefined_parameter_in_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">,</span>
+                                               <span class="n">param_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                               <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update the parameter if it is None with value</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config</span>
+<span class="sd">        config to update</span>
+<span class="sd">    param_name</span>
+<span class="sd">        name of the parameter to update</span>
+<span class="sd">    value</span>
+<span class="sd">        value to use if the config.param_name is None</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    config</span>
+<span class="sd">        config with updated parameter</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; Config = namedtuple(&quot;T&quot;, [&#39;p1&#39;, &#39;p2&#39;])</span>
+<span class="sd">    &gt;&gt;&gt; config = Config(10, 20)</span>
+<span class="sd">    &gt;&gt;&gt; maybe_update_undefined_parameter_in_config(config, &#39;p1&#39;, 100)</span>
+<span class="sd">    Config(10, 20)</span>
+<span class="sd">    &gt;&gt;&gt; config = Config(None, 10)</span>
+<span class="sd">    &gt;&gt;&gt; maybe_update_undefined_parameter_in_config(config, &#39;p1&#39;, 100)</span>
+<span class="sd">    Config(100, 20)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="n">param_name</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">config</span></div>
+
+
+<div class="viewcode-block" id="split_batch_inputs"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.split_batch_inputs">[docs]</a><span class="k">def</span> <span class="nf">split_batch_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span>
+                       <span class="n">not_batch_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">ignore_none_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                       <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Split batch inputs to sample inputs</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputs</span>
+<span class="sd">        batch inputs to split</span>
+<span class="sd">    not_batch_keys</span>
+<span class="sd">        keys to exclude from split</span>
+<span class="sd">    ignore_none_values</span>
+<span class="sd">        if the keys with None values should be treated as not batch keys</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    batch_inputs_flat_as_list</span>
+<span class="sd">        list split batch inputs</span>
+<span class="sd">    not_batch_inputs</span>
+<span class="sd">        dict with not batch inputs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">not_batch_keys</span> <span class="o">=</span> <span class="n">not_batch_keys</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">batch_inputs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_key</span><span class="p">:</span> <span class="n">each_value</span> <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">each_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">not_batch_keys</span><span class="p">}</span>
+    <span class="n">not_batch_inputs</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_key</span><span class="p">:</span> <span class="n">each_value</span> <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">not_batch_keys</span><span class="p">}</span>
+    <span class="n">batch_inputs_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">batch_inputs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ignore_none_values</span><span class="p">:</span>
+        <span class="n">none_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">batch_inputs_flat</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="n">batch_inputs_flat</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">batch_inputs_flat</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                             <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">none_keys</span><span class="p">}</span>
+        <span class="n">not_batch_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+            <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">none_keys</span><span class="p">}))</span>
+    <span class="n">batch_inputs_flat_as_list</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">nest_utils</span><span class="o">.</span><span class="n">dict_of_lists_to_list_of_dicts</span><span class="p">(</span><span class="n">batch_inputs_flat</span><span class="p">))</span>
+    <span class="n">batch_inputs_as_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">each_flat_input</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_flat_input</span> <span class="ow">in</span> <span class="n">batch_inputs_flat_as_list</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">batch_inputs_as_list</span><span class="p">,</span> <span class="n">not_batch_inputs</span></div>
+
+
+<div class="viewcode-block" id="get_is_last_sample_batchwise"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.get_is_last_sample_batchwise">[docs]</a><span class="k">def</span> <span class="nf">get_is_last_sample_batchwise</span><span class="p">(</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_last_iteration</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">sample_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the is_last_sample from is_last_iteration and sample_mask for given</span>
+<span class="sd">    batch_size</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sample_mask</span>
+<span class="sd">        mask of samples</span>
+<span class="sd">    is_last_iteration</span>
+<span class="sd">        if it is a last iteration; in that case, last valid item inside of</span>
+<span class="sd">        is_last_sample_batchwise will be set to 1</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    is_last_sample_batchwise</span>
+<span class="sd">        list with 0 indicating that it is not last sample in iteration and 1</span>
+<span class="sd">        otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_last_iteration</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">batch_size</span>
+
+    <span class="k">if</span> <span class="n">sample_mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sample_mask</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">batch_size</span>
+
+    <span class="n">is_last_sample</span> <span class="o">=</span> <span class="n">is_last_iteration</span>
+    <span class="n">is_last_sample_batch_rev</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_sample_mask</span> <span class="ow">in</span> <span class="n">sample_mask</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">is_last_sample_batch_rev</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">is_last_sample</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">each_sample_mask</span><span class="p">:</span>
+            <span class="n">is_last_sample</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="n">is_last_sample_batch_rev</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="string_to_int_code"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.utils.string_to_int_code">[docs]</a><span class="k">def</span> <span class="nf">string_to_int_code</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts the string to an integer code representation.</span>
+
+<span class="sd">    Can be used for a random seed generation from a string</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    string</span>
+<span class="sd">        string to convert</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    int_code</span>
+<span class="sd">        integer representation of the string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">int_code</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">adler32</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">))</span> <span class="o">&amp;</span> <span class="mh">0xffffffff</span>
+    <span class="k">return</span> <span class="n">int_code</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

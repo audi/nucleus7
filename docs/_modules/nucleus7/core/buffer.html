@@ -1,0 +1,594 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.buffer &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.buffer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.buffer</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Buffer specific interfaces</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">utils</span>
+
+
+<div class="viewcode-block" id="SamplesBuffer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer">[docs]</a><span class="k">class</span> <span class="nc">SamplesBuffer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Buffer with samples</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="SamplesBuffer.get"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        buffer_dict</span>
+<span class="sd">            nested dict with buffer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SamplesBuffer.get_flat"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer.get_flat">[docs]</a>    <span class="k">def</span> <span class="nf">get_flat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        buffer_flat</span>
+<span class="sd">            flat buffer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span></div>
+
+<div class="viewcode-block" id="SamplesBuffer.add"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">sample_inputs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add sample to buffer</span>
+
+<span class="sd">        If the key with sample data was not present inside of buffer, it will</span>
+<span class="sd">        be padded with None</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample_inputs</span>
+<span class="sd">            possibly nested samples of data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">current_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">sample_inputs_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">sample_inputs</span><span class="p">)</span>
+        <span class="n">all_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sample_inputs_flat</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_flat</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">all_keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">each_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sample_inputs_flat</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">each_key</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">current_length</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_inputs_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="SamplesBuffer.keys"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        keys</span>
+<span class="sd">            main keys in sorted order of the buffer items</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">keys_flat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="n">keys_nested</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_key</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;//&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">keys_flat</span><span class="p">}</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">keys_nested</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SamplesBuffer.is_empty"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer.is_empty">[docs]</a>    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_empty</span>
+<span class="sd">            True if buffer is empty and False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="SamplesBuffer.clear"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.SamplesBuffer.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clear buffer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">_get_first_key_and_subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">slice</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="n">buffer_slice_flat</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">buffer_slice_flat</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">representation</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> with keys </span><span class="si">{}</span><span class="s2"> and length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">representation</span></div>
+
+
+<div class="viewcode-block" id="AdditiveBuffer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.AdditiveBuffer">[docs]</a><span class="k">class</span> <span class="nc">AdditiveBuffer</span><span class="p">(</span><span class="n">SamplesBuffer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Buffer which adds new values to current buffer values using numpy add</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_number_of_samples</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="AdditiveBuffer.add"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.AdditiveBuffer.add">[docs]</a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">sample_inputs</span><span class="p">):</span>
+        <span class="n">_validate_buffer_keys_and_shapes</span><span class="p">(</span><span class="n">buffer</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_sample</span><span class="o">=</span><span class="n">sample_inputs</span><span class="p">)</span>
+        <span class="n">sample_inputs_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">sample_inputs</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">sample_inputs_flat</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">buffer_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">each_key</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">new_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_value</span><span class="p">(</span><span class="n">buffer_value</span><span class="p">,</span> <span class="n">each_value</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_number_of_samples</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="AdditiveBuffer.add_value"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.AdditiveBuffer.add_value">[docs]</a>    <span class="k">def</span> <span class="nf">add_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffer_value</span><span class="p">,</span> <span class="n">sample_value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Function to add value to buffer</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        buffer_value</span>
+<span class="sd">            current buffer value</span>
+<span class="sd">        sample_value</span>
+<span class="sd">            sample value to add to buffer</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        new_value</span>
+<span class="sd">            new buffer value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="n">buffer_value</span> <span class="o">+=</span> <span class="n">sample_value</span>
+        <span class="k">return</span> <span class="n">buffer_value</span></div>
+
+<div class="viewcode-block" id="AdditiveBuffer.clear"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.AdditiveBuffer.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_number_of_samples</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_number_of_samples</span></div>
+
+
+<div class="viewcode-block" id="AverageBuffer"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.AverageBuffer">[docs]</a><span class="k">class</span> <span class="nc">AverageBuffer</span><span class="p">(</span><span class="n">AdditiveBuffer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Buffer which averages all values added to it</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AverageBuffer.add_value"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.AverageBuffer.add_value">[docs]</a>    <span class="k">def</span> <span class="nf">add_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buffer_value</span><span class="p">,</span> <span class="n">sample_value</span><span class="p">):</span>
+        <span class="n">new_average</span> <span class="o">=</span> <span class="p">(</span><span class="n">buffer_value</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_number_of_samples</span>
+                       <span class="o">+</span> <span class="n">sample_value</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_number_of_samples</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_average</span></div></div>
+
+
+<div class="viewcode-block" id="BufferProcessor"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.BufferProcessor">[docs]</a><span class="k">class</span> <span class="nc">BufferProcessor</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processor which uses buffer to store the samples from batches of inputs</span>
+<span class="sd">    and then processes the buffer when it was triggered using evaluate flag</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    process_buffer_fn</span>
+<span class="sd">        callable which will be called on the buffer where it is triggered;</span>
+<span class="sd">        should take kwargs as inputs and produce result as a dict</span>
+<span class="sd">    buffer</span>
+<span class="sd">        buffer to use; defaults to SamplesBuffer</span>
+<span class="sd">    not_batch_keys</span>
+<span class="sd">        keys that should be treated as not batched, e.g. they will be copied as</span>
+<span class="sd">        is to all other sample inputs</span>
+<span class="sd">    clear_buffer_after_evaluate</span>
+<span class="sd">        flag if the buffer should be cleared after it was processed</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">process_buffer_fn</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">buffer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">not_batch_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">clear_buffer_after_evaluate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">process_buffer_fn</span> <span class="o">=</span> <span class="n">process_buffer_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_buffer_after_evaluate</span> <span class="o">=</span> <span class="n">clear_buffer_after_evaluate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">not_batch_keys</span> <span class="o">=</span> <span class="n">not_batch_keys</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="n">buffer</span> <span class="ow">or</span> <span class="n">SamplesBuffer</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">extra_incoming_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extra keys that will be needed to use it inside of Nucleotide</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        extra_keys</span>
+<span class="sd">            extra incoming keys to nucleotide to use this processor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;evaluate&quot;</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">buffer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SamplesBuffer</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        buffer</span>
+<span class="sd">            current buffer</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span>
+
+<div class="viewcode-block" id="BufferProcessor.process_single_sample"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.BufferProcessor.process_single_sample">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s2">&quot;process_buffer_fn&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">process_single_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                              <span class="n">evaluate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                              <span class="n">accumulate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                              <span class="o">**</span><span class="n">sample_inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process single sample by accumulating it and process the accumulator</span>
+<span class="sd">        if evaluate=True</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        evaluate</span>
+<span class="sd">            flag if the evaluation should be executed after accumulation</span>
+<span class="sd">        accumulate</span>
+<span class="sd">            if buffer accumulation should be executed</span>
+<span class="sd">        sample_inputs</span>
+<span class="sd">            sample inputs to kpi</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        result</span>
+<span class="sd">            None if not evaluate and result of process_buffer_fn on the buffer</span>
+<span class="sd">            otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">accumulate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="o">**</span><span class="n">sample_inputs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">evaluate</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_buffer_fn</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clear_buffer_after_evaluate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="BufferProcessor.split_batch_to_samples"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.BufferProcessor.split_batch_to_samples">[docs]</a>    <span class="k">def</span> <span class="nf">split_batch_to_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split batch inputs to sample inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            batch inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        list_of_sample_inputs</span>
+<span class="sd">            list of sample inputs</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">batch_inputs_as_list</span><span class="p">,</span> <span class="n">not_batch_inputs</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">split_batch_inputs</span><span class="p">(</span>
+            <span class="n">inputs</span><span class="p">,</span> <span class="n">not_batch_keys</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">not_batch_keys</span><span class="p">)</span>
+        <span class="n">batch_inputs_with_not_batch_as_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_sample_input</span> <span class="ow">in</span> <span class="n">batch_inputs_as_list</span><span class="p">:</span>
+            <span class="n">each_sample_input</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">not_batch_inputs</span><span class="p">)</span>
+            <span class="n">batch_inputs_with_not_batch_as_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_sample_input</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">batch_inputs_with_not_batch_as_list</span></div>
+
+<div class="viewcode-block" id="BufferProcessor.combine_samples_to_batch"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.BufferProcessor.combine_samples_to_batch">[docs]</a>    <span class="k">def</span> <span class="nf">combine_samples_to_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                                 <span class="n">list_of_sample_results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]]</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Combine sample data to batch</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        list_of_sample_results</span>
+<span class="sd">            list of sample results</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        batch_result</span>
+<span class="sd">            batch result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="n">list_of_sample_results_valid</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">each_result</span> <span class="k">for</span> <span class="n">each_result</span> <span class="ow">in</span> <span class="n">list_of_sample_results</span>
+            <span class="k">if</span> <span class="n">each_result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">list_of_sample_results_valid</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">list_of_flat_sample_results</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">each_result</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each_result</span> <span class="ow">in</span> <span class="n">list_of_sample_results_valid</span><span class="p">]</span>
+        <span class="n">result_flat</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">list_of_flat_sample_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">result_flat</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">stack_with_pad</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">each_result</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span>
+                 <span class="k">for</span> <span class="n">each_result</span> <span class="ow">in</span> <span class="n">list_of_flat_sample_results</span><span class="p">])</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">result_flat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="BufferProcessor.process_batch"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.buffer.BufferProcessor.process_batch">[docs]</a>    <span class="k">def</span> <span class="nf">process_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to process the batch of inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results</span>
+<span class="sd">            processed results</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">samples_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_batch_to_samples</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_sample_input</span> <span class="ow">in</span> <span class="n">samples_inputs</span><span class="p">:</span>
+            <span class="n">sample_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_single_sample</span><span class="p">(</span>
+                <span class="o">**</span><span class="n">each_sample_input</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_result</span><span class="p">)</span>
+        <span class="n">results_combined</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">combine_samples_to_batch</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">results_combined</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_get_first_key_and_subset</span><span class="p">(</span><span class="n">file_names</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">first_key</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">file_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">first_key</span><span class="p">,</span> <span class="n">file_names</span><span class="p">[</span><span class="n">first_key</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_validate_buffer_keys_and_shapes</span><span class="p">(</span><span class="n">buffer</span><span class="p">:</span> <span class="n">SamplesBuffer</span><span class="p">,</span> <span class="n">new_sample</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">sample_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">new_sample</span><span class="p">)</span>
+    <span class="n">sample_keys_flat</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sample_flat</span><span class="p">)</span>
+    <span class="n">buffer_keys_flat</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="n">get_flat</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">buffer_keys_flat</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">set</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">sample_keys_flat</span><span class="p">,</span> <span class="n">buffer_keys_flat</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> allows only samples with same keys! &quot;</span>
+                   <span class="s2">&quot;(flat keys inside buffer: </span><span class="si">{}</span><span class="s2">, &quot;</span>
+                   <span class="s2">&quot;flat keys of new sample: </span><span class="si">{}</span><span class="s2">)&quot;</span>
+                   <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                            <span class="n">buffer_keys_flat</span><span class="p">,</span> <span class="n">sample_keys_flat</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_sample_value</span> <span class="ow">in</span> <span class="n">sample_flat</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">buffer_value</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">get_flat</span><span class="p">()[</span><span class="n">each_key</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">buffer_value</span><span class="p">),</span>
+                               <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">each_sample_value</span><span class="p">)):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Value of key </span><span class="si">{}</span><span class="s2"> has different shape compared to value &quot;</span>
+                       <span class="s2">&quot;inside of buffer </span><span class="si">{}</span><span class="s2">! (buffer shape: </span><span class="si">{}</span><span class="s2">, &quot;</span>
+                       <span class="s2">&quot;new value shape: </span><span class="si">{}</span><span class="s2">)&quot;</span>
+                       <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_key</span><span class="p">,</span> <span class="n">buffer</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                                <span class="n">buffer_value</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">each_sample_value</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

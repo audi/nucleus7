@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator.saver_callback &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator.saver_callback</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.coordinator.saver_callback</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Callbacks to save data</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="c1"># pylint: disable=cyclic-import</span>
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator</span> <span class="kn">import</span> <span class="n">CoordinatorCallback</span>
+<span class="c1"># pylint: enable=cyclic-import</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">file_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">project_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_data_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">utils</span>
+
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># attributes cannot be combined or extracted further</span>
+<div class="viewcode-block" id="SaverCallback"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback">[docs]</a><span class="k">class</span> <span class="nc">SaverCallback</span><span class="p">(</span><span class="n">CoordinatorCallback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Callbacks to save data sample-wise</span>
+
+<span class="sd">    It will take inputs as batches, unstack them to be samples and then all</span>
+<span class="sd">    the samples will be saved.</span>
+
+<span class="sd">    As save_name, it can use a sample value from the key &quot;save_names&quot; or will</span>
+<span class="sd">    construct it from iteration_info if it was provided</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    not_batch_keys</span>
+<span class="sd">        keys to exclude from input batch split; that keys will be added to all</span>
+<span class="sd">        the sample inputs</span>
+<span class="sd">    save_prefix</span>
+<span class="sd">        prefix to use before additional save name; it will be joined with &quot;-&quot;</span>
+<span class="sd">    save_suffix</span>
+<span class="sd">        suffix to use after additional save name; it will be joined with &quot;-&quot;</span>
+<span class="sd">    target_separator</span>
+<span class="sd">        separator to use to join save_target together with the full save name</span>
+<span class="sd">    remove_save_ext</span>
+<span class="sd">        if the save extension should be removed from save name</span>
+<span class="sd">    save_name_depth</span>
+<span class="sd">        depth of save name to preserve, if save_name was provided; e.g. if</span>
+<span class="sd">        save_name was a/b/c/d and save_name_depth=0, then only d will be used</span>
+<span class="sd">        and with save_name_depth=2 b/c/d will be used</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">save_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">save_suffix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">target_separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+                 <span class="n">not_batch_keys</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">remove_save_ext</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="n">save_name_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">callback_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">callback_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">not_batch_keys</span> <span class="o">=</span> <span class="n">not_batch_keys</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_prefix</span> <span class="o">=</span> <span class="n">save_prefix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_suffix</span> <span class="o">=</span> <span class="n">save_suffix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target_separator</span> <span class="o">=</span> <span class="n">target_separator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remove_save_ext</span> <span class="o">=</span> <span class="n">remove_save_ext</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_name_depth</span> <span class="o">=</span> <span class="n">save_name_depth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_unsaved_sample</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sample_index</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">incoming_keys_optional</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="n">extra_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;save_names&quot;</span><span class="p">,</span> <span class="s2">&quot;save&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">incoming_keys_optional</span> <span class="o">+</span> <span class="n">extra_keys</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">save_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        save_name</span>
+<span class="sd">            full save target including save name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_save_name</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sample_index</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sample_index</span>
+<span class="sd">            sample index inside of the batch</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sample_index</span>
+
+<div class="viewcode-block" id="SaverCallback.set_save_name"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback.set_save_name">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s2">&quot;log_dir&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">set_save_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set full save target by joining prefix, save name, suffix together</span>
+<span class="sd">        with save_target</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        save_name</span>
+<span class="sd">            save name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">save_name</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+            <span class="n">save_name</span> <span class="o">=</span> <span class="n">save_name</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_save_ext</span> <span class="ow">and</span> <span class="n">save_name</span><span class="p">:</span>
+            <span class="n">save_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">save_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">save_name</span><span class="p">:</span>
+            <span class="n">save_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">file_utils</span><span class="o">.</span><span class="n">get_basename_with_depth</span><span class="p">(</span>
+                <span class="n">save_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_name_depth</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">save_name</span><span class="p">:</span>
+            <span class="n">save_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_save_name_from_iteration_info</span><span class="p">()</span>
+
+        <span class="n">additional_names</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">save_prefix</span><span class="p">,</span> <span class="n">save_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_suffix</span><span class="p">]</span>
+        <span class="n">additional_names_concat</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">each_name</span> <span class="k">for</span> <span class="n">each_name</span> <span class="ow">in</span> <span class="n">additional_names</span> <span class="k">if</span>
+             <span class="n">each_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">target_separator</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">additional_names_concat</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">save_name</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="ow">in</span> <span class="n">save_name</span><span class="p">:</span>
+            <span class="n">root_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_save_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">root_directory</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> was created by </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="n">root_directory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Directory </span><span class="si">%s</span><span class="s2"> needed by </span><span class="si">%s</span><span class="s2"> already exists&quot;</span><span class="p">,</span>
+                             <span class="n">root_directory</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">root_directory</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SaverCallback.get_save_name_from_iteration_info"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback.get_save_name_from_iteration_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_save_name_from_iteration_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compose save name from iteration info like epoch number, iteration</span>
+<span class="sd">        number and sample index in that batch</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        save_name_from_iteration</span>
+<span class="sd">            save name from iteration if iteration_info was provided and None</span>
+<span class="sd">            otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">iteration_info</span><span class="o">.</span><span class="n">epoch_number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">save_name</span> <span class="o">=</span> <span class="s2">&quot;epoch_</span><span class="si">{:03d}</span><span class="s2">_iter_</span><span class="si">{:05d}</span><span class="s2">_sample_</span><span class="si">{:03d}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">iteration_info</span><span class="o">.</span><span class="n">epoch_number</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">iteration_info</span><span class="o">.</span><span class="n">iteration_number</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_index</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">save_name</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="SaverCallback.save_sample"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback.save_sample">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">save_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">sample_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Main method how to save the sample</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample_data</span>
+<span class="sd">            sample data to save</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="SaverCallback.split_batch_inputs"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback.split_batch_inputs">[docs]</a>    <span class="k">def</span> <span class="nf">split_batch_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split possibly nested batch inputs to sample wise</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            batch data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sample_data_as_list</span>
+<span class="sd">            list of sample data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">batch_data_as_list</span><span class="p">,</span> <span class="n">not_batch_inputs</span>
+         <span class="p">)</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">split_batch_inputs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
+                                      <span class="n">not_batch_keys</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">not_batch_keys</span><span class="p">)</span>
+        <span class="n">batch_data_as_list_with_not_batch</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_sample_data</span> <span class="ow">in</span> <span class="n">batch_data_as_list</span><span class="p">:</span>
+            <span class="n">each_sample_data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">not_batch_inputs</span><span class="p">)</span>
+            <span class="n">batch_data_as_list_with_not_batch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_sample_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">batch_data_as_list_with_not_batch</span></div>
+
+<div class="viewcode-block" id="SaverCallback.on_iteration_end"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback.on_iteration_end">[docs]</a>    <span class="k">def</span> <span class="nf">on_iteration_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">batch_data_as_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_batch_inputs</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i_sample</span><span class="p">,</span> <span class="n">each_sample_data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batch_data_as_list</span><span class="p">):</span>
+            <span class="n">should_save</span> <span class="o">=</span> <span class="n">each_sample_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">save_name</span> <span class="o">=</span> <span class="n">each_sample_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;save_names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_sample_index</span> <span class="o">=</span> <span class="n">i_sample</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_save_name</span><span class="p">(</span><span class="n">save_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">should_save</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">save_sample</span><span class="p">(</span><span class="o">**</span><span class="n">each_sample_data</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Current inputs of sample </span><span class="si">%s</span><span class="s2"> to </span><span class="si">%s</span><span class="s2"> will be skipped &quot;</span>
+                            <span class="s2">&quot;due to save=False&quot;</span><span class="p">,</span> <span class="n">i_sample</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_last_unsaved_sample</span> <span class="o">=</span> <span class="n">each_sample_data</span></div>
+
+<div class="viewcode-block" id="SaverCallback.end"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.SaverCallback.end">[docs]</a>    <span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SaverCallback</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_unsaved_sample</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Save last unsaved inputs with </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_sample</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_unsaved_sample</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_unsaved_sample</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Saver </span><span class="si">%s</span><span class="s2"> closed&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div></div>
+
+
+<span class="c1"># pylint: enable=too-many-instance-attributes</span>
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># is needed to make the TfRecordsSaverCallback more generic</span>
+<div class="viewcode-block" id="TfRecordsSaverCallback"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback">[docs]</a><span class="k">class</span> <span class="nc">TfRecordsSaverCallback</span><span class="p">(</span><span class="n">SaverCallback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Saver callback which stores sample data to tfrecords files</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    number_of_samples_per_file</span>
+<span class="sd">        max number of samples in one file</span>
+<span class="sd">    compression_type</span>
+<span class="sd">        type of compression to be used, if not specified then its not applied</span>
+<span class="sd">        there are two types of compression possible {&#39;GZIP&#39;, &#39;ZLIB&#39;}</span>
+<span class="sd">    ignore_empty_arrays</span>
+<span class="sd">        if the array is empty, e.g. it has 0 in the shape, it will not store</span>
+<span class="sd">        it; tfrecords parser raises</span>
+<span class="sd">        &#39;Invalid argument: Key: {key}. Can&#39;t parse serialized Example&#39; on</span>
+<span class="sd">        empty arrays</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dynamic_incoming_keys</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">number_of_samples_per_file</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span>
+                 <span class="n">save_prefix</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+                 <span class="n">file_ext</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tfrecords&quot;</span><span class="p">,</span>
+                 <span class="n">compression_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">ignore_empty_arrays</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">saver_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">save_prefix</span><span class="o">=</span><span class="n">save_prefix</span><span class="p">,</span> <span class="o">**</span><span class="n">saver_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_ext</span> <span class="o">=</span> <span class="n">file_ext</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_samples_per_file</span> <span class="o">=</span> <span class="n">number_of_samples_per_file</span>
+        <span class="k">if</span> <span class="n">compression_type</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">compression_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;GZIP&#39;</span><span class="p">,</span> <span class="s1">&#39;ZLIB&#39;</span><span class="p">],</span> <span class="p">(</span>
+                <span class="s2">&quot;Compression type must be in </span><span class="si">{}</span><span class="s2">, received </span><span class="si">{}</span><span class="s2">!!!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s1">&#39;GZIP&#39;</span><span class="p">,</span> <span class="s1">&#39;ZLIB&#39;</span><span class="p">],</span> <span class="n">compression_type</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span> <span class="o">=</span> <span class="n">compression_type</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_suffix</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">save_suffix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ignore_empty_arrays</span> <span class="o">=</span> <span class="n">ignore_empty_arrays</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tfrecords_writer</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: tf.python_io.TFRecordWriter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_samples_written</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_additional_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_additional_name</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_locker</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: project_utils.ProjectLock</span>
+
+<div class="viewcode-block" id="TfRecordsSaverCallback.set_save_name"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.set_save_name">[docs]</a>    <span class="k">def</span> <span class="nf">set_save_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_save_name</span><span class="p">(</span><span class="n">save_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_name</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_save_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_ext</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_additional_name</span> <span class="o">=</span> <span class="n">save_name</span></div>
+
+<div class="viewcode-block" id="TfRecordsSaverCallback.get_save_name_from_iteration_info"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.get_save_name_from_iteration_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_save_name_from_iteration_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TfRecordsSaverCallback.create_tfrecords_features"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.create_tfrecords_features">[docs]</a>    <span class="k">def</span> <span class="nf">create_tfrecords_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create tfrecords features from the data</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            sample data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        features</span>
+<span class="sd">            tfrecords features</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="n">tf_data_utils</span><span class="o">.</span><span class="n">nested_to_tfrecords_feature</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span> <span class="n">ignore_empty_arrays</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">ignore_empty_arrays</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">feature</span></div>
+
+<div class="viewcode-block" id="TfRecordsSaverCallback.save_sample"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.save_sample">[docs]</a>    <span class="k">def</span> <span class="nf">save_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_create_new_tfrecords_writer</span><span class="p">()</span>
+        <span class="n">feature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_tfrecords_features</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: save sample with </span><span class="si">%s</span><span class="s2"> feature keys&quot;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">feature</span><span class="p">))</span>
+        <span class="n">example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Features</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tfrecords_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">example</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_samples_written</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="TfRecordsSaverCallback.create_new_tfrecords_writer"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.create_new_tfrecords_writer">[docs]</a>    <span class="k">def</span> <span class="nf">create_new_tfrecords_writer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates new file_writer and closes old one</span>
+
+<span class="sd">        Also if needed, increments the file name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_locker</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_file_locker</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_locker</span><span class="o">.</span><span class="n">lock_or_wait</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_close_tfrecords_writer</span><span class="p">()</span>
+        <span class="n">writer_file_name</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">get_incremented_path</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_name</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span><span class="p">:</span>
+            <span class="n">options</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">python_io</span><span class="o">.</span><span class="n">TFRecordOptions</span><span class="p">(</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">python_io</span><span class="o">.</span><span class="n">TFRecordCompressionType</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">options</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Create new tfrecords writer for file </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">writer_file_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tfrecords_writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">python_io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span>
+            <span class="n">writer_file_name</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_locker</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TfRecordsSaverCallback.end"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.end">[docs]</a>    <span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TfRecordsSaverCallback</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_close_tfrecords_writer</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_maybe_create_new_tfrecords_writer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">create_based_on_samples_written</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_samples_written</span> <span class="o">%</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">number_of_samples_per_file</span><span class="p">)</span>
+        <span class="n">create_based_on_additional_name</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_additional_name</span>
+                                           <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_additional_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">create_based_on_samples_written</span> <span class="ow">or</span> <span class="n">create_based_on_additional_name</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">create_new_tfrecords_writer</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_num_samples_written</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_additional_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_additional_name</span>
+
+    <span class="k">def</span> <span class="nf">_maybe_close_tfrecords_writer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfrecords_writer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Close last tfrecords writer&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tfrecords_writer</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_create_file_locker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">lock_name</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;lockname&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_locker</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">ProjectLock</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">lock_name</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

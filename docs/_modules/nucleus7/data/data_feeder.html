@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.data.data_feeder &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.data.data_feeder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.data.data_feeder</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interfaces for data feeders</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Generator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_artifacts</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_filter</span> <span class="kn">import</span> <span class="n">DataFilterMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_pipe</span> <span class="kn">import</span> <span class="n">DataPipe</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_pipe</span> <span class="kn">import</span> <span class="n">DataPipeMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.file_list</span> <span class="kn">import</span> <span class="n">FileList</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.file_list</span> <span class="kn">import</span> <span class="n">FileListMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">mlflow_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+
+<div class="viewcode-block" id="DataFeeder"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder">[docs]</a><span class="k">class</span> <span class="nc">DataFeeder</span><span class="p">(</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="n">DataFilterMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for the feeding of data to the tensorflow graph</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    allow_smaller_final_batch</span>
+<span class="sd">        if the last batch may be smaller than batch_size</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    register_name_scope</span>
+<span class="sd">        name scope for register and for the config logger</span>
+<span class="sd">    _generator</span>
+<span class="sd">        generator for data</span>
+<span class="sd">    samples_n</span>
+<span class="sd">        number of samples; should be modified inside of build_generator method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s2">&quot;data_feeder&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">allow_smaller_final_batch</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allow_smaller_final_batch</span> <span class="o">=</span> <span class="n">allow_smaller_final_batch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samples_n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_generator</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="DataFeeder.build_generator"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder.build_generator">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">build_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Generator</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build generator for data</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="DataFeeder.create_data_from_generator"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder.create_data_from_generator">[docs]</a>    <span class="k">def</span> <span class="nf">create_data_from_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create data from generator</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            output of generator</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="DataFeeder.get_combine_sample_to_batch_fn"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder.get_combine_sample_to_batch_fn">[docs]</a>    <span class="k">def</span> <span class="nf">get_combine_sample_to_batch_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">combine_key</span><span class="p">:</span> <span class="nb">str</span>
+                                       <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">list</span><span class="p">],</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        combine_key</span>
+<span class="sd">            key that used for combination of samles to batch</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        combine_fn</span>
+<span class="sd">            this function will be used to combine the samples for t</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=unused-argument,no-self-use</span>
+        <span class="c1"># this is an interface</span>
+        <span class="k">return</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">stack_with_pad</span></div>
+
+<div class="viewcode-block" id="DataFeeder.combine_samples_to_batch"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder.combine_samples_to_batch">[docs]</a>    <span class="k">def</span> <span class="nf">combine_samples_to_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">samples_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Combine list of sample data to batch</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        samples_data</span>
+<span class="sd">            list of dicts with sample data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        batch_data</span>
+<span class="sd">            batch data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_data_keys</span> <span class="o">=</span> <span class="p">{</span><span class="n">each_key</span> <span class="k">for</span> <span class="n">each_sample</span> <span class="ow">in</span> <span class="n">samples_data</span>
+                         <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">each_sample</span><span class="p">}</span>
+        <span class="n">batch</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_data_key</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_combine_sample_to_batch_fn</span><span class="p">(</span><span class="n">each_data_key</span><span class="p">)(</span>
+                <span class="p">[</span><span class="n">each_sample</span><span class="p">[</span><span class="n">each_data_key</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_sample</span> <span class="ow">in</span> <span class="n">samples_data</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">each_data_key</span> <span class="ow">in</span> <span class="n">all_data_keys</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">batch</span></div>
+
+<div class="viewcode-block" id="DataFeeder.get_batch"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder.get_batch">[docs]</a>    <span class="k">def</span> <span class="nf">get_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read the data and generates the feed_dict to inputs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        batch_size</span>
+<span class="sd">            batch size to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        batch</span>
+<span class="sd">            mapping generated_keys to feeding value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+        <span class="n">samples_data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_generator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_generator</span><span class="p">()</span>
+
+        <span class="n">number_of_samples</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">number_of_samples</span> <span class="o">&lt;</span> <span class="n">batch_size</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">next_sample_from_generator</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_generator</span><span class="p">)</span>
+                <span class="n">sample_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_data_from_generator</span><span class="p">(</span>
+                    <span class="n">next_sample_from_generator</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_filter_true</span><span class="p">(</span><span class="o">**</span><span class="n">sample_data</span><span class="p">):</span>
+                    <span class="k">continue</span>
+
+                <span class="n">samples_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_data</span><span class="p">)</span>
+                <span class="n">number_of_samples</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">allow_smaller_final_batch</span> <span class="ow">or</span> <span class="n">number_of_samples</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;generator of </span><span class="si">%s</span><span class="s1"> is exhausted&#39;</span><span class="p">,</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+                <span class="k">break</span>
+
+        <span class="n">batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">combine_samples_to_batch</span><span class="p">(</span><span class="n">samples_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">batch</span></div>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;get_batch&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the batch</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        batch_size</span>
+<span class="sd">            batch size to use</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        batch</span>
+<span class="sd">            mapping generated_keys to feeding value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent __call__ method has more generic signature</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataFeeder.from_data_pipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeeder.from_data_pipe">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_data_pipe</span><span class="p">(</span>
+            <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span> <span class="n">file_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FileList</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">datafeeder_kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;DataFeederFromPipe&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;DataFeederFileListFromPipe&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Construct DataFeeder out of the pipe</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data_pipe</span>
+<span class="sd">            data pipe to use</span>
+<span class="sd">        file_list</span>
+<span class="sd">            file list to use; if provided, it will be DataFeederFileList</span>
+<span class="sd">            otherwise it will be DataFeeder</span>
+<span class="sd">        datafeeder_kwargs</span>
+<span class="sd">            additional kwargs to pass to corresponding DataFeeder constructor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_feeder</span>
+<span class="sd">            data feeder with data pipe inside</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">DataFeederFromPipe</span><span class="p">(</span><span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span> <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DataFeederFileListFromPipe</span><span class="p">(</span>
+            <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span> <span class="n">file_list</span><span class="o">=</span><span class="n">file_list</span><span class="p">,</span> <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="DataFeederFileList"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileList">[docs]</a><span class="k">class</span> <span class="nc">DataFeederFileList</span><span class="p">(</span><span class="n">DataFeeder</span><span class="p">,</span> <span class="n">FileListMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for the feeding of data to the tensorflow graph</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_list</span>
+<span class="sd">        built FileList instance</span>
+<span class="sd">    file_list_keys_mapping</span>
+<span class="sd">        mapping for file lists keys in the form</span>
+<span class="sd">        {file_list_key: new_file_list_key}</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    exclude_args_from_log</span>
+<span class="sd">        fields that will not be included to the config logger</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;file_list&quot;</span><span class="p">]</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_list</span><span class="p">:</span> <span class="n">FileList</span><span class="p">,</span>
+                 <span class="n">file_list_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span> <span class="o">=</span> <span class="n">file_list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_mapping</span> <span class="o">=</span> <span class="n">file_list_keys_mapping</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataFeederFileList.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileList.build">[docs]</a>    <span class="nd">@project_artifacts</span><span class="o">.</span><span class="n">add_project_artifact</span><span class="p">(</span>
+        <span class="s2">&quot;file_list&quot;</span><span class="p">,</span> <span class="s2">&quot;file_list.file_names_pairs&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DataFeederFileList&quot;</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">filter_by_keys</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_required</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_optional</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_mapping</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">samples_n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DataFeederFileList.build_generator"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileList.build_generator">[docs]</a>    <span class="k">def</span> <span class="nf">build_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Generator</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create generator for file_list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DataFeederFileList.read_element_from_file_names"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileList.read_element_from_file_names">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">read_element_from_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fnames</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Take the dict of file names and return dictionary of data element</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        **fnames</span>
+<span class="sd">            dict of strings with file names</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        element_data</span>
+<span class="sd">            element data</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="DataFeederFileList.create_data_from_generator"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileList.create_data_from_generator">[docs]</a>    <span class="k">def</span> <span class="nf">create_data_from_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wrap read_element_from_file_names function to more specific name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_element_from_file_names</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="DataFeederFromPipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFromPipe">[docs]</a><span class="k">class</span> <span class="nc">DataFeederFromPipe</span><span class="p">(</span><span class="n">DataPipeMixin</span><span class="p">,</span> <span class="n">DataFeeder</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DataFeeder that uses data_pipe for data generation</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_pipe</span>
+<span class="sd">        data pipe object to use</span>
+<span class="sd">    output_keys_mapping</span>
+<span class="sd">        keys mapping to map the data_pipe nucleotide results to data feeder</span>
+<span class="sd">        generated keys</span>
+<span class="sd">    number_of_samples</span>
+<span class="sd">        number of samples to generate</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data_pipe&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span>
+                 <span class="n">output_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">number_of_samples</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_samples</span> <span class="o">=</span> <span class="n">number_of_samples</span>
+        <span class="n">DataPipeMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span>
+                               <span class="n">output_keys_mapping</span><span class="o">=</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="n">DataFeeder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DataFeederFromPipe.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFromPipe.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">_check_data_pipe_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">build_dna</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DataFeederFromPipe.build_generator"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFromPipe.build_generator">[docs]</a>    <span class="k">def</span> <span class="nf">build_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Generator</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">]:</span>
+        <span class="n">number_of_generated_samples</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_samples</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_samples</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">number_of_generated_samples</span>
+                                   <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_samples</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">condition</span><span class="p">(</span><span class="n">number_of_generated_samples</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_sample_with_pipe</span><span class="p">()</span>
+            <span class="n">number_of_generated_samples</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">yield</span> <span class="n">data</span></div></div>
+
+
+<div class="viewcode-block" id="DataFeederFileListFromPipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileListFromPipe">[docs]</a><span class="k">class</span> <span class="nc">DataFeederFileListFromPipe</span><span class="p">(</span><span class="n">DataPipeMixin</span><span class="p">,</span> <span class="n">DataFeederFileList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    DataFeeder that uses data_pipe for data generation and file list</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_pipe</span>
+<span class="sd">        data pipe object to use</span>
+<span class="sd">    output_keys_mapping</span>
+<span class="sd">        keys mapping to map the data_pipe nucleotide results to data feeder</span>
+<span class="sd">        generated keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data_pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;file_list&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span>
+                 <span class="n">output_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;file_list_keys_mapping&quot;</span> <span class="ow">in</span> <span class="n">datafeeder_kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;file_list_keys_mapping should be provided inside &quot;</span>
+                             <span class="s2">&quot;of DataReaders for DataPipe data feeders!&quot;</span><span class="p">)</span>
+        <span class="n">DataPipeMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span>
+                               <span class="n">output_keys_mapping</span><span class="o">=</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="n">DataFeederFileList</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">datafeeder_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<div class="viewcode-block" id="DataFeederFileListFromPipe.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileListFromPipe.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">_check_data_pipe_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">build_dna</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DataFeederFileListFromPipe.read_element_from_file_names"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_feeder.DataFeederFileListFromPipe.read_element_from_file_names">[docs]</a>    <span class="k">def</span> <span class="nf">read_element_from_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fnames</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_sample_with_pipe</span><span class="p">(</span><span class="o">**</span><span class="n">fnames</span><span class="p">)</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_check_data_pipe_compatibility</span><span class="p">(</span><span class="n">data_feeder</span><span class="p">:</span> <span class="n">DataFeeder</span><span class="p">,</span>
+                                   <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">is_tensorflow_pipe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Currently data pipes for use as data feeder must &quot;</span>
+                         <span class="s2">&quot;cannot use tensorflow elements!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_feeder</span><span class="p">,</span> <span class="n">DataFeederFileList</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">readers</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide DataReaders to read from file list!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_feeder</span><span class="p">,</span> <span class="n">DataFeederFileList</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">readers</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide FileList to use DataReaders&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">readers</span> <span class="ow">and</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">read_from_tfrecords</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Currently DataFeeder from tfrecords is not supported!&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

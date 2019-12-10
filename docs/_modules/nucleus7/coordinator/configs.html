@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator.configs &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator.configs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.coordinator.configs</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Configurations used in coordinator</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.project_dirs</span> <span class="kn">import</span> <span class="n">ProjectDirs</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_utils</span>
+
+<span class="n">TrainerRunConfig</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;TrainerRunConfig&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">,</span> <span class="s1">&#39;devices&#39;</span><span class="p">,</span> <span class="s1">&#39;random_seed&#39;</span><span class="p">,</span> <span class="s1">&#39;num_epochs&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;iterations_per_epoch&#39;</span><span class="p">,</span> <span class="s1">&#39;variable_strategy&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;predictions_have_variable_shape&#39;</span><span class="p">,</span> <span class="s1">&#39;continue_training&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;profile_hook_config&#39;</span><span class="p">])</span>
+
+<span class="n">TrainerSaveConfig</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;TrainerSaveConfig&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;inference_inputs_have_variable_shape&#39;</span><span class="p">,</span> <span class="s1">&#39;exports_to_keep&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;save_summary_steps&#39;</span><span class="p">,</span> <span class="s1">&#39;max_outputs_tb&#39;</span><span class="p">])</span>
+
+<span class="n">InferenceLoadConfig</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;InferenceLoadConfig&#39;</span><span class="p">,</span>
+                                 <span class="p">[</span><span class="s1">&#39;saved_model&#39;</span><span class="p">,</span> <span class="s1">&#39;meta_graph&#39;</span><span class="p">,</span> <span class="s1">&#39;checkpoint&#39;</span><span class="p">])</span>
+
+<span class="n">RunIterationInfo</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;RunIterationInfo&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;epoch_number&#39;</span><span class="p">,</span> <span class="s1">&#39;iteration_number&#39;</span><span class="p">,</span> <span class="s1">&#39;execution_time&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;is_last_iteration&#39;</span><span class="p">,</span> <span class="s1">&#39;session_run_context&#39;</span><span class="p">])</span>
+<span class="n">RunIterationInfo</span><span class="o">.</span><span class="fm">__new__</span><span class="o">.</span><span class="vm">__defaults__</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">TensorrtConfig</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;TensorrtConfig&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;use_tensorrt&quot;</span><span class="p">,</span> <span class="s2">&quot;max_batch_size&quot;</span><span class="p">,</span> <span class="s2">&quot;max_workspace_size_bytes&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;precision_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;minimum_segment_size&quot;</span><span class="p">,</span> <span class="s2">&quot;is_dynamic_op&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;maximum_cached_engines&quot;</span><span class="p">,</span> <span class="s2">&quot;cached_engine_batch_sizes&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">_InferenceRunConfig</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s1">&#39;InferenceRunConfig&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;batch_size&#39;</span><span class="p">,</span> <span class="s1">&#39;devices&#39;</span><span class="p">,</span> <span class="s1">&#39;postprocessors_to_use&#39;</span><span class="p">,</span> <span class="s1">&#39;random_seed&#39;</span><span class="p">,</span>
+     <span class="s1">&#39;prefetch_buffer_size&#39;</span><span class="p">,</span> <span class="s1">&#39;use_multiprocessing&#39;</span><span class="p">,</span> <span class="s1">&#39;continue_last&#39;</span><span class="p">])</span>
+
+<span class="n">INFERENCE_GRAPH_FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;graph_inference.meta&quot;</span>
+<span class="n">INPUT_OUTPUT_NAMES_FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;input_output_names.json&quot;</span>
+
+
+<div class="viewcode-block" id="InferenceRunConfig"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.configs.InferenceRunConfig">[docs]</a><span class="k">class</span> <span class="nc">InferenceRunConfig</span><span class="p">(</span><span class="n">_InferenceRunConfig</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Configuration for inference run</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    batch_size</span>
+<span class="sd">        batch size per device</span>
+<span class="sd">    postprocessors_to_use</span>
+<span class="sd">        which postprocessors should be used for predictions; if not provided,</span>
+<span class="sd">        whole predictions collection will be used</span>
+<span class="sd">    random_seed</span>
+<span class="sd">        graph based random seed for tensorflow graph</span>
+<span class="sd">    prefetch_buffer_size</span>
+<span class="sd">        number of batches to prefetch; must be &gt;= 1</span>
+<span class="sd">    use_multiprocessing</span>
+<span class="sd">        if the multiprocessing must be used for inference, e.g. data prefetching</span>
+<span class="sd">        in one process, network in other process and callbacks in the third one</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                <span class="n">postprocessors_to_use</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="n">random_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="n">prefetch_buffer_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="n">use_multiprocessing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">int</span><span class="p">),</span> <span class="p">(</span>
+            <span class="s2">&quot;Batch size should be of type int! (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">batch_size</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="n">prefetch_buffer_size</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Prefetch size must be &gt;= 1! (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prefetch_buffer_size</span><span class="p">))</span>
+        <span class="n">devices</span> <span class="o">=</span> <span class="n">tf_utils</span><span class="o">.</span><span class="n">get_available_gpus</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">devices</span><span class="p">:</span>
+            <span class="n">devices</span> <span class="o">=</span> <span class="n">devices</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">devices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/cpu:0&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">InferenceRunConfig</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span>
+            <span class="bp">cls</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">postprocessors_to_use</span><span class="p">,</span>
+            <span class="n">random_seed</span><span class="p">,</span> <span class="n">prefetch_buffer_size</span><span class="p">,</span> <span class="n">use_multiprocessing</span><span class="p">,</span>
+            <span class="n">continue_last</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_and_validate_trainer_run_config"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.configs.create_and_validate_trainer_run_config">[docs]</a><span class="k">def</span> <span class="nf">create_and_validate_trainer_run_config</span><span class="p">(</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">],</span>
+        <span class="n">devices</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="mi">419</span><span class="p">,</span>
+        <span class="n">num_epochs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">samples_per_epoch</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">iterations_per_epoch</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">variable_strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;GPU&#39;</span><span class="p">,</span>
+        <span class="n">predictions_have_variable_shape</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">continue_training</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">profile_hook_config</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TrainerRunConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate and update trainer run configuration</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    batch_size</span>
+<span class="sd">        batch size per device</span>
+<span class="sd">    devices</span>
+<span class="sd">        list of devices to use for the model; inputs are all always fetched</span>
+<span class="sd">        and augmented on cpu once for all gpus</span>
+<span class="sd">    variable_strategy</span>
+<span class="sd">        CPU to use CPU as the parameter server</span>
+<span class="sd">    num_epochs : int, only for training, default: 100</span>
+<span class="sd">        number of epochs to use</span>
+<span class="sd">    samples_per_epoch</span>
+<span class="sd">        defines number of samples per epoch with [&#39;train&#39;, &#39;eval&#39;] as keys</span>
+<span class="sd">    iterations_per_epoch</span>
+<span class="sd">        defines number of iterations per epoch with [&#39;train&#39;, &#39;eval&#39;] as keys;</span>
+<span class="sd">        if defined, will override samples_per_epoch</span>
+<span class="sd">    predictions_have_variable_shape : optional</span>
+<span class="sd">        if the predictions from different devices have different shapes</span>
+<span class="sd">        from batch to batch and so should be concatenated</span>
+<span class="sd">        with padding during evaluation; useful for object detections</span>
+<span class="sd">    continue_training</span>
+<span class="sd">        if the training should be continued in same project folder; if no</span>
+<span class="sd">        project directories exist, it will have no effect; otherwise it will</span>
+<span class="sd">        create subfolders continue-{i} in configs and summary folders</span>
+<span class="sd">    random_seed</span>
+<span class="sd">        graph based random seed for tensorflow graph</span>
+<span class="sd">    profile_hook_config</span>
+<span class="sd">        configuration for profiler hook if profiling should be done;</span>
+<span class="sd">        will save the profiling information in chrome trace format in the</span>
+<span class="sd">        project directory; you can provide all the kwargs except output_dir.</span>
+<span class="sd">        to project directory; this will slow down significantly so use it only</span>
+<span class="sd">        when you want to profile your models</span>
+<span class="sd">        for more info see :obj:`tf.train.ProfilerHook`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    trainer_run_config</span>
+<span class="sd">        trainer run configuration</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if same mode is provided in iterations_per_epoch and in</span>
+<span class="sd">        samples_per_epoch or if provided modes are not &#39;train&#39; and &#39;eval&#39;</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if both iterations_per_epoch and samples_per_epoch are not provided</span>
+<span class="sd">    AssertionError</span>
+<span class="sd">        if variable_strategy is not in [&#39;CPU&#39;, &#39;GPU&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-many-arguments, too-many-locals</span>
+    <span class="c1"># all the variables are needed inside of the config</span>
+
+    <span class="k">def</span> <span class="nf">_select_devices</span><span class="p">(</span><span class="n">current_devices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">current_devices</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">current_devices</span>
+        <span class="n">available_gpus</span> <span class="o">=</span> <span class="n">tf_utils</span><span class="o">.</span><span class="n">get_available_gpus</span><span class="p">()</span>
+        <span class="n">available_devices</span> <span class="o">=</span> <span class="n">available_gpus</span> <span class="ow">or</span> <span class="p">[</span><span class="s1">&#39;/cpu:0&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">available_devices</span>
+
+    <span class="k">def</span> <span class="nf">_recalculate_batch_size</span><span class="p">(</span><span class="n">batch_size_per_device</span><span class="p">,</span> <span class="n">num_devices</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">batch_size_per_device</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">batch_size_per_device</span> <span class="o">=</span> <span class="p">{</span><span class="n">mode</span><span class="p">:</span> <span class="n">batch_size_per_device</span>
+                                     <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">modes</span><span class="p">}</span>
+        <span class="n">batch_size_all_devs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="o">*</span> <span class="n">num_devices</span>
+                               <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">batch_size_per_device</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">return</span> <span class="n">batch_size_all_devs</span>
+
+    <span class="k">def</span> <span class="nf">_validate_provided_iterations_per_epoch</span><span class="p">(</span><span class="n">iterations_per_epoch_</span><span class="p">,</span>
+                                                <span class="n">samples_per_epoch_</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">iterations_per_epoch_</span> <span class="ow">or</span> <span class="n">samples_per_epoch_</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Provide samples_per_epoch or iterations_per_epoch or both!&quot;</span><span class="p">)</span>
+        <span class="n">defined_keys_iter</span> <span class="o">=</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">samples_per_epoch_</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">+</span>
+                             <span class="nb">list</span><span class="p">(</span><span class="n">iterations_per_epoch_</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+
+        <span class="n">assert_msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Provide &#39;train&#39; and &#39;eval&#39; keys inside of samples_per_epoch  &quot;</span>
+            <span class="s2">&quot;or iterations_per_epoch!&quot;</span>
+            <span class="s2">&quot;(samples_per_epoch: </span><span class="si">{}</span><span class="s2">, iterations_per_epoch: </span><span class="si">{}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">samples_per_epoch_</span><span class="p">,</span> <span class="n">iterations_per_epoch_</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">defined_keys_iter</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">defined_keys_iter</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">),</span> <span class="n">assert_msg</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">iterations_per_epoch_</span> <span class="ow">or</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">iterations_per_epoch_</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;It is better to set iterations_per_epoch for train &quot;</span>
+                           <span class="s2">&quot;mode, as then number of iterations is independent &quot;</span>
+                           <span class="s2">&quot;of number of training devices!&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_recalculate_iterations_per_epoch</span><span class="p">(</span>
+            <span class="n">iterations_per_epoch_</span><span class="p">,</span> <span class="n">samples_per_epoch_</span><span class="p">,</span> <span class="n">batch_size_all_devices</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_mode</span> <span class="ow">in</span> <span class="n">samples_per_epoch_</span><span class="p">:</span>
+            <span class="n">batch_size_</span> <span class="o">=</span> <span class="n">batch_size_all_devices</span><span class="p">[</span><span class="n">each_mode</span><span class="p">]</span>
+            <span class="n">iterations_per_epoch_</span><span class="p">[</span><span class="n">each_mode</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">samples_per_epoch_</span><span class="p">[</span><span class="n">each_mode</span><span class="p">]</span> <span class="o">//</span>
+                                                <span class="n">batch_size_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">iterations_per_epoch_</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">variable_strategy</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;GPU&#39;</span><span class="p">,</span> <span class="s1">&#39;CPU&#39;</span><span class="p">],</span> <span class="p">(</span>
+        <span class="s2">&quot;variable_strategy should be in [&#39;GPU&#39;, &#39;CPU&#39;], provided </span><span class="si">{}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">variable_strategy</span><span class="p">))</span>
+    <span class="n">iterations_per_epoch</span> <span class="o">=</span> <span class="n">iterations_per_epoch</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">samples_per_epoch</span> <span class="o">=</span> <span class="n">samples_per_epoch</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">EVAL</span><span class="p">]</span>
+    <span class="n">devices</span> <span class="o">=</span> <span class="n">_select_devices</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">_recalculate_batch_size</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">devices</span><span class="p">))</span>
+    <span class="n">_validate_provided_iterations_per_epoch</span><span class="p">(</span>
+        <span class="n">iterations_per_epoch</span><span class="p">,</span> <span class="n">samples_per_epoch</span><span class="p">)</span>
+    <span class="n">iterations_per_epoch</span> <span class="o">=</span> <span class="n">_recalculate_iterations_per_epoch</span><span class="p">(</span>
+        <span class="n">iterations_per_epoch</span><span class="p">,</span> <span class="n">samples_per_epoch</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">TrainerRunConfig</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span>
+                            <span class="n">iterations_per_epoch</span><span class="p">,</span> <span class="n">variable_strategy</span><span class="p">,</span>
+                            <span class="n">predictions_have_variable_shape</span><span class="p">,</span> <span class="n">continue_training</span><span class="p">,</span>
+                            <span class="n">profile_hook_config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_and_validate_trainer_save_config"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.configs.create_and_validate_trainer_save_config">[docs]</a><span class="k">def</span> <span class="nf">create_and_validate_trainer_save_config</span><span class="p">(</span>
+        <span class="n">inference_inputs_have_variable_shape</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">exports_to_keep</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">save_summary_steps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">max_outputs_tb</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TrainerSaveConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create and validate configuration for exports and summaries during</span>
+<span class="sd">    training</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    save_summary_steps</span>
+<span class="sd">        how often to save summaries; can be also a dict with train and eval keys</span>
+<span class="sd">    max_outputs_tb</span>
+<span class="sd">        number of maximum outputs in tensorboard e.g. for images</span>
+<span class="sd">    inference_inputs_have_variable_shape</span>
+<span class="sd">        controls if the inputs inside of inference graph should have</span>
+<span class="sd">        variable shapes; defaults to True</span>
+<span class="sd">    exports_to_keep</span>
+<span class="sd">        number of exports to keep</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    trainer save configuration</span>
+<span class="sd">        saving configuration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_validate_save_summary_steps</span><span class="p">(</span><span class="n">save_summary_steps_</span><span class="p">):</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">EVAL</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">save_summary_steps_</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">save_summary_steps_</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="p">:</span> <span class="n">save_summary_steps_</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">modes</span><span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">save_summary_steps_</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="s1">&#39;train&#39;</span> <span class="ow">in</span> <span class="n">save_summary_steps_</span>
+                    <span class="ow">and</span> <span class="s1">&#39;eval&#39;</span> <span class="ow">in</span> <span class="n">save_summary_steps_</span>
+                    <span class="p">),</span> <span class="p">(</span><span class="s2">&quot;If you provide save_summary_steps as a dict, provide &quot;</span>
+                        <span class="s2">&quot;train and eval keys! (</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">save_summary_steps_</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">save_summary_steps_</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">inference_inputs_have_variable_shape</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Model will have fixed input dimensions for inference! &quot;</span>
+                       <span class="s2">&quot;If you want to change it and if your model allows it, &quot;</span>
+                       <span class="s2">&quot;set inference_inputs_have_variable_shape = True&quot;</span><span class="p">)</span>
+
+    <span class="n">save_summary_steps</span> <span class="o">=</span> <span class="n">_validate_save_summary_steps</span><span class="p">(</span><span class="n">save_summary_steps</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">TrainerSaveConfig</span><span class="p">(</span><span class="n">inference_inputs_have_variable_shape</span><span class="p">,</span>
+                             <span class="n">exports_to_keep</span><span class="p">,</span> <span class="n">save_summary_steps</span><span class="p">,</span>
+                             <span class="n">max_outputs_tb</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_and_validate_inference_load_config"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.configs.create_and_validate_inference_load_config">[docs]</a><span class="k">def</span> <span class="nf">create_and_validate_inference_load_config</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">saved_model_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">checkpoint_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InferenceLoadConfig</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validate paths provided inside of load_config and convert them</span>
+<span class="sd">    to relative to the project.</span>
+
+<span class="sd">    If no path provided, it will search for saved_models directory inside of</span>
+<span class="sd">    project_dir and use latest export</span>
+
+<span class="sd">    saved_model_path must be relative to project_dir/saved_models folder and</span>
+<span class="sd">    checkpoint_path must be relative to project_dir/checkpoints folder</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    saved_model_path</span>
+<span class="sd">        path to saved model relative to project_dir/saved_models</span>
+<span class="sd">    checkpoint_path</span>
+<span class="sd">        path to .chpt file if saved_model_path was not provided relative to</span>
+<span class="sd">        project_dir/checkpoints; meta graph will be loadded from the</span>
+<span class="sd">        project_dir/checkpoints/graph_inference.meta</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    load_config</span>
+<span class="sd">        validated instance of load config</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if both saved model and checkpoint are provided</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        if provided paths not found or no paths provided and there is no</span>
+<span class="sd">        saved_models directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">saved_model_path</span> <span class="ow">and</span> <span class="n">checkpoint_path</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Either none or saved_model or meta_graph with checkpoint &quot;</span>
+               <span class="s2">&quot;should be defined!&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">saved_model_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span> <span class="n">checkpoint_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]):</span>
+        <span class="n">recent_saved_model</span> <span class="o">=</span> <span class="n">_get_recent_saved_model</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">InferenceLoadConfig</span><span class="p">(</span><span class="n">saved_model</span><span class="o">=</span><span class="n">recent_saved_model</span><span class="p">,</span>
+                                   <span class="n">meta_graph</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">checkpoint</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">saved_model_full_path</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">checkpoint_full_path</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">meta_graph_full_path</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">saved_model_path</span><span class="p">:</span>
+        <span class="n">saved_model_full_path</span> <span class="o">=</span> <span class="n">_validate_saved_model</span><span class="p">(</span>
+            <span class="n">project_dir</span><span class="p">,</span> <span class="n">saved_model_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">checkpoint_path</span><span class="p">:</span>
+        <span class="n">checkpoint_full_path</span><span class="p">,</span> <span class="n">meta_graph_full_path</span> <span class="o">=</span> <span class="n">_validate_checkpoint</span><span class="p">(</span>
+            <span class="n">project_dir</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">)</span>
+    <span class="n">load_config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;saved_model&#39;</span><span class="p">:</span> <span class="n">saved_model_full_path</span><span class="p">,</span>
+                   <span class="s1">&#39;meta_graph&#39;</span><span class="p">:</span> <span class="n">meta_graph_full_path</span><span class="p">,</span>
+                   <span class="s1">&#39;checkpoint&#39;</span><span class="p">:</span> <span class="n">checkpoint_full_path</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">InferenceLoadConfig</span><span class="p">(</span><span class="o">**</span><span class="n">load_config</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_and_validate_tensorrt_config"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.configs.create_and_validate_tensorrt_config">[docs]</a><span class="k">def</span> <span class="nf">create_and_validate_tensorrt_config</span><span class="p">(</span>
+        <span class="n">use_tensorrt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">max_batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">max_workspace_size_bytes</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="n">precision_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;FP32&quot;</span><span class="p">,</span> <span class="n">minimum_segment_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="n">is_dynamic_op</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">maximum_cached_engines</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">cached_engine_batch_sizes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create and validate tensorrt config</span>
+
+<span class="sd">    If tensorrt cannot be imported, will warn and set use_tensorrt = False</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    use_tensorrt</span>
+<span class="sd">        if tensorrt should be used</span>
+<span class="sd">    batch_size</span>
+<span class="sd">        batch size of inference model. If provided and max_batch_size is not</span>
+<span class="sd">        provided, will use it as max_batch_size. Otherwise,</span>
+<span class="sd">        max(max_batch_size, batch_size) will be used</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tensorrt_config</span>
+<span class="sd">        tensorrt config</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if precision_mode not in [&quot;FP16&quot;, &quot;FP32&quot;]</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parameters</span>
+<span class="sd">        https://github.com/tensorflow/tensorflow/blob/\</span>
+<span class="sd">            16d7642c6481b703ab433596af27c2ef5141eb51/tensorflow/python/\</span>
+<span class="sd">            compiler/tensorrt/trt_convert.py</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-many-arguments</span>
+    <span class="c1"># not possible to have less arguments since all of them are passed to</span>
+    <span class="c1"># tensorrt itself</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># pylint: disable=unused-import</span>
+        <span class="c1"># tensorrt import is needed to understand if tensorrt is installed</span>
+        <span class="kn">from</span> <span class="nn">tensorflow.contrib</span> <span class="kn">import</span> <span class="n">tensorrt</span> <span class="k">as</span> <span class="n">trt</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">NotFoundError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">use_tensorrt</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;tensorrt will be disabled, since not found. Error: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="n">use_tensorrt</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># pylint: enable=invalid-name</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">use_tensorrt</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">TensorrtConfig</span><span class="p">(</span>
+            <span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">TensorrtConfig</span><span class="o">.</span><span class="n">_fields</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">precision_mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;FP32&quot;</span><span class="p">,</span> <span class="s2">&quot;FP16&quot;</span><span class="p">]:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Currently only FP32 and FP16 precision modes are supported! &quot;</span>
+               <span class="s2">&quot;(provided: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision_mode</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="ow">or</span> <span class="mi">1</span>
+    <span class="n">max_batch_size</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">max_batch_size</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">tensorrt_config</span> <span class="o">=</span> <span class="n">TensorrtConfig</span><span class="p">(</span>
+        <span class="n">use_tensorrt</span><span class="o">=</span><span class="n">use_tensorrt</span><span class="p">,</span>
+        <span class="n">max_batch_size</span><span class="o">=</span><span class="n">max_batch_size</span><span class="p">,</span>
+        <span class="n">max_workspace_size_bytes</span><span class="o">=</span><span class="n">max_workspace_size_bytes</span><span class="p">,</span>
+        <span class="n">precision_mode</span><span class="o">=</span><span class="n">precision_mode</span><span class="p">,</span>
+        <span class="n">minimum_segment_size</span><span class="o">=</span><span class="n">minimum_segment_size</span><span class="p">,</span>
+        <span class="n">is_dynamic_op</span><span class="o">=</span><span class="n">is_dynamic_op</span><span class="p">,</span>
+        <span class="n">maximum_cached_engines</span><span class="o">=</span><span class="n">maximum_cached_engines</span><span class="p">,</span>
+        <span class="n">cached_engine_batch_sizes</span><span class="o">=</span><span class="n">cached_engine_batch_sizes</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">tensorrt_config</span></div>
+
+
+<span class="k">def</span> <span class="nf">_validate_saved_model</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">saved_model_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">saved_mode_full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">TRAINER</span><span class="o">.</span><span class="n">saved_models</span><span class="p">,</span> <span class="n">saved_model_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">saved_mode_full_path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="s1">&#39;Provided saved_model directory does not exist (</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">saved_model_path</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">saved_mode_full_path</span>
+
+
+<span class="k">def</span> <span class="nf">_validate_checkpoint</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">checkpoint_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">TRAINER</span><span class="o">.</span><span class="n">checkpoints</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">)</span>
+    <span class="n">meta_graph_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">TRAINER</span><span class="o">.</span><span class="n">checkpoints</span><span class="p">,</span>
+        <span class="n">INFERENCE_GRAPH_FILE_NAME</span><span class="p">)</span>
+    <span class="n">paths_to_validate</span> <span class="o">=</span> <span class="p">(</span><span class="n">checkpoint_path</span> <span class="o">+</span> <span class="s1">&#39;.index&#39;</span><span class="p">,</span> <span class="n">meta_graph_path</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_path</span> <span class="ow">in</span> <span class="n">paths_to_validate</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">each_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                <span class="s2">&quot;File </span><span class="si">{}</span><span class="s2"> does not exist!!!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_path</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">meta_graph_path</span>
+
+
+<span class="k">def</span> <span class="nf">_get_recent_saved_model</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">saved_models_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span>
+                                    <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">TRAINER</span><span class="o">.</span><span class="n">saved_models</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">saved_models_dir</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="s2">&quot;No saved_models directory inside of project found! &quot;</span>
+            <span class="s2">&quot;Provide other options to load in load_config!&quot;</span><span class="p">)</span>
+    <span class="n">saved_model_dirs</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">each_dir</span> <span class="k">for</span> <span class="n">each_dir</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">saved_models_dir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">saved_models_dir</span><span class="p">,</span> <span class="n">each_dir</span><span class="p">))]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">saved_model_dirs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="s2">&quot;No saved models in saved_models &quot;</span>
+            <span class="s2">&quot;directory </span><span class="si">{}</span><span class="s2"> found!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">saved_models_dir</span><span class="p">))</span>
+    <span class="n">recent_saved_model</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">saved_model_dirs</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">recent_saved_model</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">saved_models_dir</span><span class="p">,</span>
+                                      <span class="n">recent_saved_model</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">recent_saved_model</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

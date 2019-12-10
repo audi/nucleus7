@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.data.data_pipe &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.data.data_pipe</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.data.data_pipe</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">DataPipe class to use as a collector for DataReaders and DataProcessors</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.gene_handler</span> <span class="kn">import</span> <span class="n">GeneHandler</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.processor</span> <span class="kn">import</span> <span class="n">DataProcessor</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.reader</span> <span class="kn">import</span> <span class="n">DataReader</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.reader</span> <span class="kn">import</span> <span class="n">TfRecordsDataReader</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">mlflow_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">model_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+
+<div class="viewcode-block" id="DataPipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipe">[docs]</a><span class="k">class</span> <span class="nc">DataPipe</span><span class="p">(</span><span class="n">GeneHandler</span><span class="p">,</span>
+               <span class="n">model_utils</span><span class="o">.</span><span class="n">CustomSessionHandlerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handler of DataReaders and DataProcessors.</span>
+
+<span class="sd">    It will read the data from outer FileList if needed and then process it with</span>
+<span class="sd">    the readers and processors in the way they were connected</span>
+
+<span class="sd">    Currently all the nucleotides should have the same is_tensorflow flag set.</span>
+<span class="sd">    Otherwise a ValueError will be thrown. Also data readers should all be</span>
+<span class="sd">    tfrecords or all be not tfrecords readers. Otherwise ValueError will be</span>
+<span class="sd">    thrown.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    readers</span>
+<span class="sd">        data readers to use</span>
+<span class="sd">    processors</span>
+<span class="sd">        data processors to use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">nucleotide_type_dependency_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">DataReader</span><span class="p">:</span> <span class="p">[],</span>
+        <span class="n">DataProcessor</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">DataReader</span><span class="p">,</span>
+            <span class="n">DataProcessor</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">}</span>
+    <span class="n">gene_name_and_nucleotide_super_cls</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;readers&quot;</span><span class="p">:</span> <span class="n">DataReader</span><span class="p">,</span>
+        <span class="s2">&quot;processors&quot;</span><span class="p">:</span> <span class="n">DataProcessor</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">readers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">DataReader</span><span class="p">],</span>
+                                         <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataReader</span><span class="p">],</span>
+                                         <span class="n">DataReader</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">processors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">DataProcessor</span><span class="p">],</span>
+                                            <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataProcessor</span><span class="p">],</span>
+                                            <span class="n">DataProcessor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">processors</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, DataProcessor]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readers</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, DataReader]</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">readers</span><span class="o">=</span><span class="n">readers</span><span class="p">,</span> <span class="n">processors</span><span class="o">=</span><span class="n">processors</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">readers</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least one data reader or one data processor &quot;</span>
+                             <span class="s2">&quot;must be provided!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_target</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="DataPipe.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipe.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_nucleotide_compatibility</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_readers_compatibility</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inbound_nodes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;DataPipe cannot have inbound nodes!&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Name of the data pipe</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;data_pipeline&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">read_from_tfrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        If the data should be read from tfrecords files</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_tf_records_pipe</span>
+<span class="sd">            if the pipe uses all tfrecords readers</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tfrecords_readers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">each_reader</span><span class="p">,</span> <span class="n">TfRecordsDataReader</span><span class="p">)</span>
+                             <span class="ow">and</span> <span class="n">each_reader</span><span class="o">.</span><span class="n">is_tensorflow</span>
+                             <span class="k">for</span> <span class="n">each_reader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="n">tfrecords_readers</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_tensorflow_pipe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        is_tensorflow_only</span>
+<span class="sd">            True if all the nucleotides have is_tensorflow flag on it.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tensorflow_nucleotides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_tensorflow_nucleotides</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">tensorflow_nucleotides</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="DataPipe.process_readers"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipe.process_readers">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span>
+        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;data_readers&quot;</span><span class="p">,</span> <span class="n">log_on_train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">log_on_eval</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">process_readers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fnames</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process all readers</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fnames</span>
+<span class="sd">            file names to readers</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        read_data</span>
+<span class="sd">            read data from fnames using readers</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_reader_name</span><span class="p">,</span> <span class="n">each_reader</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">each_reader_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_reader</span><span class="p">(</span><span class="o">**</span><span class="n">fnames</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="DataPipe.process_processors"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipe.process_processors">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@mlflow_utils</span><span class="o">.</span><span class="n">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span>
+        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;data_processors&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">process_processors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">raw_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process data using DataProcessors.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        raw_data</span>
+<span class="sd">            raw data to process</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        processed_data</span>
+<span class="sd">            processed data using data processors</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">raw_data</span><span class="p">:</span>
+            <span class="n">raw_data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_gene</span><span class="p">(</span><span class="n">gene_name</span><span class="o">=</span><span class="s1">&#39;processors&#39;</span><span class="p">,</span>
+                                 <span class="n">gene_inputs</span><span class="o">=</span><span class="n">raw_data</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fnames</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent __call__ method has more generic signature</span>
+        <span class="n">fnames</span> <span class="o">=</span> <span class="n">fnames</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">raw_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_readers</span><span class="p">(</span><span class="o">**</span><span class="n">fnames</span><span class="p">)</span>
+        <span class="n">data_encoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_processors</span><span class="p">(</span><span class="o">**</span><span class="n">raw_data</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">raw_data</span><span class="p">,</span> <span class="o">**</span><span class="n">data_encoded</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+<div class="viewcode-block" id="DataPipe.filter_sample_true"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipe.filter_sample_true">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">filter_sample_true</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply all the filters on all the data and it evaluates to True if all</span>
+<span class="sd">        filters pass, otherwise to False. In case of tensorflow nodes, it will</span>
+<span class="sd">        have corresponding tensorflow bools</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            data with keys as nucleotide names to proceed</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        flag</span>
+<span class="sd">            True if all filters evaluate to True and False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_tensorflow_pipe</span><span class="p">:</span>
+            <span class="n">filter_all_true</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">filter_all_true</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_nucleotide_data</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">nucleotide</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="p">[</span><span class="n">each_name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">,</span> <span class="s2">&quot;data_filter_true&quot;</span><span class="p">):</span>
+                <span class="n">filter_nucleotide</span> <span class="o">=</span> <span class="n">nucleotide</span><span class="o">.</span><span class="n">data_filter_true</span><span class="p">(</span>
+                    <span class="o">**</span><span class="n">each_nucleotide_data</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_tensorflow_pipe</span><span class="p">:</span>
+                    <span class="n">filter_all_true</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">filter_all_true</span><span class="p">,</span>
+                                                     <span class="n">filter_nucleotide</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">filter_all_true</span> <span class="o">=</span> <span class="n">filter_all_true</span> <span class="ow">and</span> <span class="n">filter_nucleotide</span>
+        <span class="k">return</span> <span class="n">filter_all_true</span></div>
+
+<div class="viewcode-block" id="DataPipe.initialize_session"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipe.initialize_session">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to initialize the custom session variables for all the data</span>
+<span class="sd">        nucleotides</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">initialize_session</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_nucleotide_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tensorflow_nucleotides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_tensorflow_nucleotides</span><span class="p">()</span>
+        <span class="n">not_tensorflow_nucleotides</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_not_tensorflow_nucleotides</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">tensorflow_nucleotides</span> <span class="ow">and</span> <span class="n">not_tensorflow_nucleotides</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Currently it is not possible to mix tensorflow and &quot;</span>
+                   <span class="s2">&quot;not tensorflow data elements! &quot;</span>
+                   <span class="s2">&quot;(tensorlow names: </span><span class="si">{}</span><span class="s2">, not tensorflow names: </span><span class="si">{}</span><span class="s2">)&quot;</span>
+                   <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tensorflow_nucleotides</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+                            <span class="n">not_tensorflow_nucleotides</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_tensorflow_nucleotides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tensorflow_nucleotides</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_name</span><span class="p">:</span> <span class="n">each_nucleotide</span>
+            <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">is_tensorflow</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">tensorflow_nucleotides</span>
+
+    <span class="k">def</span> <span class="nf">_get_not_tensorflow_nucleotides</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">not_tensorflow_nucleotides</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_name</span><span class="p">:</span> <span class="n">each_nucleotide</span>
+            <span class="k">for</span> <span class="n">each_name</span><span class="p">,</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">is_tensorflow</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">not_tensorflow_nucleotides</span>
+
+    <span class="k">def</span> <span class="nf">_check_readers_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">readers</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">tfrecords_readers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">each_reader</span><span class="p">,</span> <span class="n">TfRecordsDataReader</span><span class="p">)</span>
+                             <span class="ow">and</span> <span class="n">each_reader</span><span class="o">.</span><span class="n">is_tensorflow</span>
+                             <span class="k">for</span> <span class="n">each_reader</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">readers</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tfrecords_readers</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Currently it is not possible to mix readers from tfrecords &quot;</span>
+                   <span class="s2">&quot;and other sources! (readers: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">readers</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DataPipeMixin"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipeMixin">[docs]</a><span class="k">class</span> <span class="nc">DataPipeMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mixin to use with DataPipe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span>
+                 <span class="n">output_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span> <span class="o">=</span> <span class="n">data_pipe</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_keys_mapping</span> <span class="o">=</span> <span class="n">output_keys_mapping</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_nested_result</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dna_helix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds dna_helix property</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dna_helix</span>
+<span class="sd">            dna helix for the data pipe</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">dna_helix</span>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_required</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds required generated_keys according to data pipe dna and the</span>
+<span class="sd">        output_keys_mapping</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        generated_keys_required</span>
+<span class="sd">            required generated keys</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;data_pipe&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">get_flat_generated_keys_required</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_optional</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds optional generated_keys according to data pipe dna and the</span>
+<span class="sd">        output_keys_mapping</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        generated_keys_optional</span>
+<span class="sd">            optional generated keys</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;data_pipe&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">get_flat_generated_keys_optional</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">dynamic_generated_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        if the mixin has dynamic generated keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dynamic_generated_keys</span>
+<span class="sd">            True if one of the data_pipe nucleotides has dynamic generated keys</span>
+<span class="sd">            and False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;data_pipe&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">dynamic_generated_keys</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<div class="viewcode-block" id="DataPipeMixin.process_sample_with_pipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipeMixin.process_sample_with_pipe">[docs]</a>    <span class="k">def</span> <span class="nf">process_sample_with_pipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">pipe_inputs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process sample inputs using pipe</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pipe_inputs</span>
+<span class="sd">            inputs to data pipe</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        results</span>
+<span class="sd">            resulted data after application of the pipe</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result_nested</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="p">(</span><span class="o">**</span><span class="n">pipe_inputs</span><span class="p">)</span>
+        <span class="n">results_flat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">flatten_results</span><span class="p">(</span>
+            <span class="n">result_nested</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_nested_result</span> <span class="o">=</span> <span class="n">result_nested</span>
+        <span class="k">return</span> <span class="n">results_flat</span></div>
+
+<div class="viewcode-block" id="DataPipeMixin.data_filter_true"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipeMixin.data_filter_true">[docs]</a>    <span class="k">def</span> <span class="nf">data_filter_true</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override the main class data_filter_true with mixin one which uses</span>
+<span class="sd">        data_pipe filters</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        **inputs</span>
+<span class="sd">            inputs to data filter</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        filter_flag</span>
+<span class="sd">            if no data_filters were added, returns all the time True, otherwise</span>
+<span class="sd">            returns True if all the filters evaluate to True and False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="c1"># inputs are not used directly, since they are mapped</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">filter_sample_true</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_nested_result</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DataPipeMixin.initialize_session"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.data_pipe.DataPipeMixin.initialize_session">[docs]</a>    <span class="k">def</span> <span class="nf">initialize_session</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method to initialize the custom session variables for data pipe</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">initialize_session</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

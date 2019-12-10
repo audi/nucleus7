@@ -1,0 +1,966 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.model.model &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.model.model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.model.model</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interface for model - handler for the collections of tensorflow model related</span>
+<span class="sd">nucleotides</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">MetaLogAndRegister</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.gene_handler</span> <span class="kn">import</span> <span class="n">GeneHandler</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">TfNucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.configs</span> <span class="kn">import</span> <span class="n">MixedPrecisionConfig</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.configs</span> <span class="kn">import</span> <span class="n">ModelResults</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">CollectionNames</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">ScopeNames</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.loss</span> <span class="kn">import</span> <span class="n">ModelLoss</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.metric</span> <span class="kn">import</span> <span class="n">ModelMetric</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.plugin</span> <span class="kn">import</span> <span class="n">ModelPlugin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.postprocessor</span> <span class="kn">import</span> <span class="n">ModelPostProcessor</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.summary</span> <span class="kn">import</span> <span class="n">ModelSummary</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">model_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_collections_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_ops</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils.model_utils</span> <span class="kn">import</span> <span class="n">DefaultPlaceholderInfo</span>
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># this is a type constant, not a class</span>
+<span class="n">_NESTED_TENSORS_DTYPE</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+                              <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]]</span>
+<span class="n">_GRAD_AND_VARS_TYPE</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]]</span>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># is needed to make the Model more generic</span>
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">GeneHandler</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MetaLogAndRegister</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Model to be plugged into ModelHandler and defines the task specific</span>
+<span class="sd">    architecture like losses, summaries etc.</span>
+<span class="sd">    this operations will be replicated across all of the devices inside of</span>
+<span class="sd">    ModelHandler instance</span>
+<span class="sd">    one per task definition</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plugins</span>
+<span class="sd">        model plugins</span>
+<span class="sd">    losses</span>
+<span class="sd">        model losses</span>
+<span class="sd">    postprocessors</span>
+<span class="sd">        model postprocessors</span>
+<span class="sd">    summaries</span>
+<span class="sd">        model summaries</span>
+<span class="sd">    metrics</span>
+<span class="sd">        model metrics</span>
+<span class="sd">    regularization_l1</span>
+<span class="sd">        coefficient of the l1 regularization term to use;</span>
+<span class="sd">        if regularization_l1 == 0, no l1 regularization will be used;</span>
+<span class="sd">        otherwise, regularization is applied to all trainable variables from</span>
+<span class="sd">        all nucleotides</span>
+<span class="sd">    regularization_l2</span>
+<span class="sd">        coefficient of the l2 regularization term to use;</span>
+<span class="sd">        if regularization_l2 == 0, no l2 regularization will be used;</span>
+<span class="sd">        otherwise, regularization is applied to all trainable variables from</span>
+<span class="sd">        all nucleotides</span>
+<span class="sd">    aggregation_method</span>
+<span class="sd">        aggregation method for gradients;</span>
+<span class="sd">        defaults to tf.AggregationMethod.EXPERIMENTAL_ACCUMULATE_N</span>
+<span class="sd">    load_config</span>
+<span class="sd">        configuration for loading. Can include following keys:</span>
+
+<span class="sd">            `checkpoint` - file name of checkpoint with extension .ckpt</span>
+
+<span class="sd">            `only_trainable_parameters` - boolean flag to load only</span>
+<span class="sd">            trainable variables</span>
+<span class="sd">    mixed_precision_config</span>
+<span class="sd">        configuration for mixed precision</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    register_name_scope</span>
+<span class="sd">        name scope for register and for the config logger</span>
+<span class="sd">    exclude_args_from_log</span>
+<span class="sd">        fields that will not be included to the config logger</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s2">&quot;model&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_from_log</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;plugins&quot;</span><span class="p">,</span> <span class="s2">&quot;losses&quot;</span><span class="p">,</span> <span class="s2">&quot;postprocessors&quot;</span><span class="p">,</span>
+                             <span class="s2">&quot;summaries&quot;</span><span class="p">,</span> <span class="s2">&quot;metrics&quot;</span><span class="p">]</span>
+
+    <span class="n">nucleotide_type_dependency_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">ModelPlugin</span><span class="p">:</span> <span class="p">[</span><span class="n">ModelPlugin</span><span class="p">],</span>
+        <span class="n">ModelLoss</span><span class="p">:</span> <span class="p">[</span><span class="n">ModelPlugin</span><span class="p">,</span> <span class="n">ModelLoss</span><span class="p">],</span>
+        <span class="n">ModelPostProcessor</span><span class="p">:</span> <span class="p">[</span><span class="n">ModelPlugin</span><span class="p">,</span> <span class="n">ModelPostProcessor</span><span class="p">],</span>
+        <span class="n">ModelSummary</span><span class="p">:</span> <span class="p">[</span><span class="n">ModelPlugin</span><span class="p">,</span> <span class="n">ModelLoss</span><span class="p">,</span> <span class="n">ModelPostProcessor</span><span class="p">,</span>
+                       <span class="n">ModelSummary</span><span class="p">],</span>
+        <span class="n">ModelMetric</span><span class="p">:</span> <span class="p">[</span><span class="n">ModelPlugin</span><span class="p">,</span> <span class="n">ModelLoss</span><span class="p">,</span> <span class="n">ModelPostProcessor</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">gene_name_and_nucleotide_super_cls</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;plugins&#39;</span><span class="p">:</span> <span class="n">ModelPlugin</span><span class="p">,</span>
+        <span class="s1">&#39;losses&#39;</span><span class="p">:</span> <span class="n">ModelLoss</span><span class="p">,</span>
+        <span class="s1">&#39;postprocessors&#39;</span><span class="p">:</span> <span class="n">ModelPostProcessor</span><span class="p">,</span>
+        <span class="s1">&#39;summaries&#39;</span><span class="p">:</span> <span class="n">ModelSummary</span><span class="p">,</span>
+        <span class="s1">&#39;metrics&#39;</span><span class="p">:</span> <span class="n">ModelMetric</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">plugins</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ModelPlugin</span><span class="p">],</span>
+            <span class="n">losses</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ModelLoss</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span>
+            <span class="n">postprocessors</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ModelPostProcessor</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">summaries</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ModelSummary</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">metrics</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ModelMetric</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">regularization_l1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">regularization_l2</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="n">aggregation_method</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">AggregationMethod</span><span class="o">.</span><span class="n">EXPERIMENTAL_ACCUMULATE_N</span><span class="p">,</span>
+            <span class="n">load_config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">mixed_precision_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">MixedPrecisionConfig</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, ModelPlugin]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, ModelLoss]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">postprocessors</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, ModelPostProcessor]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">summaries</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, ModelSummary]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: Dict[str, ModelMetric]</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">plugins</span><span class="o">=</span><span class="n">plugins</span><span class="p">,</span>
+                         <span class="n">losses</span><span class="o">=</span><span class="n">losses</span><span class="p">,</span>
+                         <span class="n">postprocessors</span><span class="o">=</span><span class="n">postprocessors</span><span class="p">,</span>
+                         <span class="n">summaries</span><span class="o">=</span><span class="n">summaries</span><span class="p">,</span>
+                         <span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l1</span> <span class="o">=</span> <span class="n">regularization_l1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l2</span> <span class="o">=</span> <span class="n">regularization_l2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">aggregation_method</span> <span class="o">=</span> <span class="n">aggregation_method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_config</span> <span class="o">=</span> <span class="n">load_config</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span> <span class="o">=</span> <span class="n">mixed_precision_config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mixed_precision_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">MixedPrecisionConfig</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Configuration of use of mixed precision</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        mixed_precision_config</span>
+<span class="sd">            config for mixed precision</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span>
+
+    <span class="nd">@mixed_precision_config</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mixed_precision_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                               <span class="n">mixed_precision_config</span><span class="p">:</span> <span class="n">MixedPrecisionConfig</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span> <span class="o">=</span> <span class="n">mixed_precision_config</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">default_placeholders</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">DefaultPlaceholderInfo</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all default placeholders of the model</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        all_placeholders</span>
+<span class="sd">            list of default placeholder info from all nucleotides</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">all_placeholders</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_nucleotide</span><span class="p">,</span> <span class="n">model_utils</span><span class="o">.</span><span class="n">DefaultPlaceholderMixin</span><span class="p">):</span>
+                <span class="n">nucleotide_placeholders</span> <span class="o">=</span> <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">default_placeholders</span>
+                <span class="n">all_placeholders</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nucleotide_placeholders</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="n">all_placeholders</span>
+
+<div class="viewcode-block" id="Model.reset_tf_graph"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.reset_tf_graph">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">reset_tf_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset model tensorflow graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_nucleotide</span><span class="p">,</span> <span class="n">TfNucleotide</span><span class="p">):</span>
+                <span class="n">each_nucleotide</span><span class="o">.</span><span class="n">reset_tf_graph</span><span class="p">()</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">trainable_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All trainable variables in all nucleotides inside of the model</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        trainable_variables</span>
+<span class="sd">            trainable variables inside of the model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">trainable_variables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_nucleotide</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">all_nucleotides</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">trainable_variables</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">each_nucleotide</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">trainable_variables</span>
+
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">ModelResults</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build the forward pass graph</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_from_dataset</span>
+<span class="sd">            dict of inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        model_results</span>
+<span class="sd">            model results holding following fields:</span>
+<span class="sd">                * inputs_preprocessed - inputs after preprocessing</span>
+<span class="sd">                * predictions_raw - predictions of ModelPlugins</span>
+<span class="sd">                * predictions - predictions after applying PostProcessors;</span>
+<span class="sd">                  is None for TRAIN</span>
+<span class="sd">                * losses=losses - losses, None for PREDICT</span>
+<span class="sd">                * summary=summary - summaries, only for EVAL</span>
+<span class="sd">                * metrics=metrics - metrics, only for EVAL</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># parent __call__ method has more generic signature</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">grads_and_vars</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">regularization_grads_and_vars</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">PREPROCESSING</span><span class="p">):</span>
+            <span class="n">inputs_from_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess_dataset_inputs</span><span class="p">(</span>
+                <span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">MODEL</span><span class="p">):</span>
+            <span class="n">predictions_raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_pass</span><span class="p">(</span>
+                <span class="n">inputs_from_dataset</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">POSTPROCESSING</span><span class="p">):</span>
+                <span class="n">predictions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">postprocess_predictions</span><span class="p">(</span>
+                    <span class="n">inputs_from_dataset</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">,</span>
+                    <span class="n">predictions_raw</span><span class="o">=</span><span class="n">predictions_raw</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">LOSSES</span><span class="p">):</span>
+                <span class="n">losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_losses</span><span class="p">(</span>
+                    <span class="n">inputs_from_dataset</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">,</span>
+                    <span class="n">predictions_raw</span><span class="o">=</span><span class="n">predictions_raw</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">EVAL</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">SUMMARY</span><span class="p">):</span>
+                <span class="n">summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_summaries</span><span class="p">(</span>
+                    <span class="n">inputs_from_dataset</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">,</span>
+                    <span class="n">predictions_raw</span><span class="o">=</span><span class="n">predictions_raw</span><span class="p">,</span>
+                    <span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">METRIC</span><span class="p">):</span>
+                <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">(</span>
+                    <span class="n">inputs_from_dataset</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">,</span>
+                    <span class="n">predictions_raw</span><span class="o">=</span><span class="n">predictions_raw</span><span class="p">,</span>
+                    <span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="n">ScopeNames</span><span class="o">.</span><span class="n">GRADIENTS</span><span class="p">):</span>
+                <span class="p">(</span><span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">regularization_grads_and_vars</span>
+                 <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calculate_gradients</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_training</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">maybe_initialize_from_checkpoints</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
+            <span class="n">predictions_raw</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">model_results</span> <span class="o">=</span> <span class="n">ModelResults</span><span class="p">(</span>
+            <span class="n">inputs_preprocessed</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">,</span>
+            <span class="n">predictions_raw</span><span class="o">=</span><span class="n">predictions_raw</span><span class="p">,</span> <span class="n">predictions</span><span class="o">=</span><span class="n">predictions</span><span class="p">,</span>
+            <span class="n">losses</span><span class="o">=</span><span class="n">losses</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="n">summary</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span>
+            <span class="n">grads_and_vars</span><span class="o">=</span><span class="n">grads_and_vars</span><span class="p">,</span>
+            <span class="n">regularization_grads_and_vars</span><span class="o">=</span><span class="n">regularization_grads_and_vars</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">model_results</span>
+
+<div class="viewcode-block" id="Model.build_inference_graph"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.build_inference_graph">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">build_inference_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">features</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build graph for inference</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        features</span>
+<span class="sd">            dict with mappings feature name to feature tensor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions_flatten</span>
+<span class="sd">            flatten dict holding predictions</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if no predictions were built</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Build inference graph&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_genes_for_inference</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_tf_graph</span><span class="p">()</span>
+
+        <span class="n">model_results</span> <span class="o">=</span> <span class="bp">self</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">model_results</span><span class="o">.</span><span class="n">predictions</span>
+        <span class="n">inputs_connected</span> <span class="o">=</span> <span class="n">tf_utils</span><span class="o">.</span><span class="n">get_connected_inputs_to_predictions</span><span class="p">(</span>
+            <span class="n">features</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">())</span>
+        <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">nested2collection</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">INPUTS</span><span class="p">,</span> <span class="n">inputs_connected</span><span class="p">)</span>
+        <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">nested2collection</span><span class="p">(</span>
+            <span class="n">CollectionNames</span><span class="o">.</span><span class="n">PREDICTIONS</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+        <span class="n">predictions_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">predictions_flatten</span></div>
+
+<div class="viewcode-block" id="Model.maybe_initialize_from_checkpoints"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.maybe_initialize_from_checkpoints">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">maybe_initialize_from_checkpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize variables from checkpoints</span>
+
+<span class="sd">        If one variable exists inside of load_config[&#39;checkpoint&#39;] and also</span>
+<span class="sd">        inside of plugin checkpoint, then plugin checkpoint will be used</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">load_fname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;checkpoint&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">load_fname</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">maybe_initialize_plugins_from_checkpoints</span><span class="p">()</span>
+            <span class="k">return</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Initialize model from checkpoint </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">load_fname</span><span class="p">)</span>
+        <span class="n">restore_only_trainable</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="s1">&#39;only_trainable_parameters&#39;</span><span class="p">)</span>
+        <span class="n">vars2restore</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span> <span class="k">if</span>
+            <span class="n">restore_only_trainable</span> <span class="k">else</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">get_collection</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">GraphKeys</span><span class="o">.</span><span class="n">GLOBAL_VARIABLES</span><span class="p">))</span>
+        <span class="c1"># remove variables from plugins if they have flag</span>
+        <span class="c1"># exclude_from_restore or they have their own checkpoint</span>
+        <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">plugin</span><span class="o">.</span><span class="n">exclude_from_restore</span> <span class="ow">or</span> <span class="n">plugin</span><span class="o">.</span><span class="n">load_fname</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Exclude plugin </span><span class="si">%s</span><span class="s2"> from handler checkpoint </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="n">plugin</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">load_fname</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">each_variable</span> <span class="ow">in</span> <span class="n">plugin</span><span class="o">.</span><span class="n">variables</span><span class="p">:</span>
+                    <span class="n">vars2restore</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">each_variable</span><span class="p">)</span>
+        <span class="n">assignment_map</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf_utils</span><span class="o">.</span><span class="n">remove_tag_from_variable_name</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">):</span> <span class="n">v</span>
+                          <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vars2restore</span><span class="p">}</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">init_from_checkpoint</span><span class="p">(</span><span class="n">load_fname</span><span class="p">,</span> <span class="n">assignment_map</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.preprocess_dataset_inputs"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.preprocess_dataset_inputs">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">preprocess_dataset_inputs</span><span class="p">(</span><span class="n">inputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+                                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add preprocessing step as identity nodes on dataset inputs</span>
+<span class="sd">        and add all the inputs to dataset key</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs</span>
+<span class="sd">            inputs from datasets</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        inputs_with_identity</span>
+<span class="sd">            same as inputs, but with added identity ops and add to dataset key</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inputs_flat</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+        <span class="n">inputs_flat_identity</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">inputs_flat</span><span class="o">.</span><span class="n">items</span><span class="p">())}</span>
+        <span class="n">inputs_identity</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+            <span class="n">inputs_flat_identity</span><span class="p">)</span>
+        <span class="n">inputs_identity</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;dataset&quot;</span><span class="p">:</span> <span class="n">inputs_identity</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">inputs_identity</span></div>
+
+<div class="viewcode-block" id="Model.forward_pass"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.forward_pass">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">forward_pass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                     <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Make the forward pass for model</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_from_dataset</span>
+<span class="sd">            dictionary holding the dataset inputs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        predictions</span>
+<span class="sd">            dict with outputs for each model plugin with keys as plugin names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_gene</span><span class="p">(</span><span class="n">gene_name</span><span class="o">=</span><span class="s1">&#39;plugins&#39;</span><span class="p">,</span>
+                                  <span class="n">gene_inputs</span><span class="o">=</span><span class="n">inputs_from_dataset</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.postprocess_predictions"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.postprocess_predictions">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">postprocess_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                                <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">,</span>
+                                <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply the postprocessing on predictions</span>
+<span class="sd">        e.g. classes or probabilities from logits</span>
+<span class="sd">        this predictions will be added to collection and further used for the</span>
+<span class="sd">        summaries / inference</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_from_dataset</span>
+<span class="sd">            dictionary holding the dataset inputs</span>
+<span class="sd">        predictions_raw</span>
+<span class="sd">            dict with predictions from model_plugin</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        postprocessed_predictions</span>
+<span class="sd">            dict with outputs of the model for inference</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gene_inputs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions_raw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_gene</span><span class="p">(</span><span class="n">gene_name</span><span class="o">=</span><span class="s1">&#39;postprocessors&#39;</span><span class="p">,</span>
+                                  <span class="n">gene_inputs</span><span class="o">=</span><span class="n">gene_inputs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.calculate_losses"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.calculate_losses">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">calculate_losses</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                         <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">,</span>
+                         <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create loss for model using labels from &#39;inputs&#39;</span>
+<span class="sd">        and predictions</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_from_dataset</span>
+<span class="sd">            dictionary holding the dataset inputs</span>
+<span class="sd">        predictions_raw</span>
+<span class="sd">            dict with prediction tensors as values</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        losses</span>
+<span class="sd">            dict with values as losses; inside of keys should be &#39;total_loss&#39;</span>
+<span class="sd">            with value to optimize; default ragularizations on the all</span>
+<span class="sd">            training variables will be applied afterwards if specified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gene_inputs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions_raw</span><span class="p">)</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_gene</span><span class="p">(</span><span class="n">gene_name</span><span class="o">=</span><span class="s1">&#39;losses&#39;</span><span class="p">,</span> <span class="n">gene_inputs</span><span class="o">=</span><span class="n">gene_inputs</span><span class="p">)</span>
+        <span class="n">unflatten_losses</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+        <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">loss</span> <span class="ow">in</span> <span class="n">unflatten_losses</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="s1">&#39;total_loss&#39;</span> <span class="ow">in</span> <span class="n">loss</span><span class="p">:</span>
+                <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="p">[</span><span class="s1">&#39;total_loss&#39;</span><span class="p">]</span>
+        <span class="n">losses</span><span class="p">[</span><span class="s1">&#39;total_loss&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_loss</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_regularization</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">losses</span></div>
+
+<div class="viewcode-block" id="Model.get_summaries"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.get_summaries">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_summaries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                      <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">,</span>
+                      <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">,</span>
+                      <span class="n">predictions</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                      <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the summaries for model as dict</span>
+<span class="sd">        to separate different types of summaries, the prefix is used:</span>
+
+<span class="sd">            - `scalar_{}`</span>
+<span class="sd">            - `image_{}`</span>
+<span class="sd">            - `histogram_{}`</span>
+<span class="sd">            - `text_{}`</span>
+<span class="sd">            - `audio_{}`</span>
+
+<span class="sd">        Names without this prefixes will not be stored to tensorboard.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_from_dataset</span>
+<span class="sd">            dictionary holding the dataset inputs</span>
+<span class="sd">        predictions_raw</span>
+<span class="sd">            dict with raw predictions</span>
+<span class="sd">        predictions</span>
+<span class="sd">            dict with output tensors as values</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        summaries</span>
+<span class="sd">            combined summaries from all `ModelSummary` instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gene_inputs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions_raw</span><span class="p">)</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+        <span class="n">summaries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_gene</span><span class="p">(</span><span class="n">gene_name</span><span class="o">=</span><span class="s1">&#39;summaries&#39;</span><span class="p">,</span>
+                                       <span class="n">gene_inputs</span><span class="o">=</span><span class="n">gene_inputs</span><span class="p">)</span>
+        <span class="n">summaries_not_to_store</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">summaries</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                  <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">store_inside_tensorboard</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">summaries_not_to_store</span><span class="p">:</span>
+            <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Summaries with names </span><span class="si">%s</span><span class="s1"> will not be stored to &#39;</span>
+                        <span class="s1">&#39;tensorboard&#39;</span><span class="p">,</span> <span class="n">summaries_not_to_store</span><span class="p">)</span>
+            <span class="n">summaries_unfatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span><span class="n">summaries</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each_summary_name</span> <span class="ow">in</span> <span class="n">summaries_not_to_store</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">summaries_unfatten</span><span class="p">[</span><span class="n">each_summary_name</span><span class="p">]</span>
+            <span class="n">summaries</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">summaries_unfatten</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">summaries</span></div>
+
+<div class="viewcode-block" id="Model.get_metrics"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.get_metrics">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                    <span class="n">inputs_from_dataset</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">,</span>
+                    <span class="n">predictions_raw</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">,</span>
+                    <span class="n">predictions</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create metric</span>
+<span class="sd">        Names without this prefixes will not be plotted in tensorboard.</span>
+<span class="sd">        Only difference to summary is that metrics are added to its own</span>
+<span class="sd">        collection (CollectionNames.METRIC) and not to summary collection.</span>
+<span class="sd">        In that way it is possible to use metrics inside of training e.g. as</span>
+<span class="sd">        for stopping training</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputs_from_dataset</span>
+<span class="sd">            dictionary holding the dataset inputs</span>
+<span class="sd">        predictions_raw</span>
+<span class="sd">            dict with raw predictions</span>
+<span class="sd">        predictions</span>
+<span class="sd">            dict with output tensors as values</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        metric</span>
+<span class="sd">            combined summaries from all `ModelMetric` instances</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gene_inputs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inputs_from_dataset</span><span class="p">)</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions_raw</span><span class="p">)</span>
+        <span class="n">gene_inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">predictions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_gene</span><span class="p">(</span><span class="n">gene_name</span><span class="o">=</span><span class="s1">&#39;metrics&#39;</span><span class="p">,</span>
+                                  <span class="n">gene_inputs</span><span class="o">=</span><span class="n">gene_inputs</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Model.calculate_gradients"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.calculate_gradients">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">calculate_gradients</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">losses</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">,</span>
+                                       <span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculate gradients given losses</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        losses</span>
+<span class="sd">            losses</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        grads_and_vars</span>
+<span class="sd">            list of tuples holding pair (gradient, variable)</span>
+<span class="sd">        regularization_grads_and_vars</span>
+<span class="sd">            list of tuples holding pair (regularization gradient, variable)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">grads_and_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_gradients_from_loss</span><span class="p">(</span>
+            <span class="n">losses</span><span class="p">[</span><span class="s1">&#39;total_loss&#39;</span><span class="p">])</span>
+        <span class="n">regularization_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_regularization_loss</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">regularization_loss</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">regularization_grads_and_vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_gradients_from_loss</span><span class="p">(</span>
+                <span class="n">regularization_loss</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">regularization_grads_and_vars</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">grads_and_vars</span><span class="p">,</span> <span class="n">regularization_grads_and_vars</span></div>
+
+<div class="viewcode-block" id="Model.maybe_initialize_plugins_from_checkpoints"><a class="viewcode-back" href="../../../api/nucleus7.model.html#nucleus7.model.model.Model.maybe_initialize_plugins_from_checkpoints">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">maybe_initialize_plugins_from_checkpoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize plugins from checkpoints if plugin have them</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">plugin</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">plugins</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">plugin</span><span class="o">.</span><span class="n">maybe_initialize_from_checkpoint</span><span class="p">()</span></div>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_process_gene</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">gene_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+            <span class="n">gene_inputs</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wrapper across the process_gene method that uses self.is_training and</span>
+<span class="sd">        also constructs the function to cast inputs in case of the mixed</span>
+<span class="sd">        precision and calls the super().process_gene</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        gene_name</span>
+<span class="sd">            gene name, e.g. losses, plugins</span>
+<span class="sd">        gene_inputs</span>
+<span class="sd">            inputs to the gene in the flatten format</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gene_outputs</span>
+<span class="sd">            dict with outputs for each gene nucleotide with keys as nucleotide</span>
+<span class="sd">            names; keys are in flatten form, e.g.</span>
+<span class="sd">            &#39;nucleotide1//out1//out11&#39; = &#39;value&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inputs_cast_fn</span> <span class="o">=</span> <span class="n">_get_inputs_cast_mixed_precision_fn</span><span class="p">(</span>
+            <span class="n">gene_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mixed_precision_config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">process_gene</span><span class="p">(</span>
+            <span class="n">gene_name</span><span class="p">,</span> <span class="n">gene_inputs</span><span class="o">=</span><span class="n">gene_inputs</span><span class="p">,</span>
+            <span class="n">nucleotide_inputs_preprocessing_fn</span><span class="o">=</span><span class="n">inputs_cast_fn</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_add_regularization</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">losses</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_NESTED_TENSORS_DTYPE</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add the regularization to loss if specified</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        losses</span>
+<span class="sd">            dict with loss names and losses itself</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        losses</span>
+<span class="sd">            dict with losses added the regularization losses and total_loss</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">losses</span>
+
+        <span class="n">train_variables</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">each_var</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span>
+             <span class="k">for</span> <span class="n">each_var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">loss_l1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">train_variables</span><span class="p">))</span>
+            <span class="n">losses</span><span class="p">[</span><span class="s1">&#39;regularization_loss_l1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l1</span> <span class="o">*</span> <span class="n">loss_l1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">loss_l2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">train_variables</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span>
+            <span class="n">losses</span><span class="p">[</span><span class="s1">&#39;regularization_loss_l2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regularization_l2</span> <span class="o">*</span> <span class="n">loss_l2</span>
+        <span class="k">return</span> <span class="n">losses</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_gradients_from_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span>
+                                       <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">_GRAD_AND_VARS_TYPE</span><span class="p">]:</span>
+        <span class="n">variables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trainable_variables</span>
+        <span class="n">use_mixed_precision</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                               <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span><span class="o">.</span><span class="n">use</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">use_mixed_precision</span><span class="p">:</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="n">loss</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span><span class="o">.</span><span class="n">loss_scale_factor</span><span class="p">)</span>
+        <span class="n">grads</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">gradients</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span>
+                             <span class="n">aggregation_method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">aggregation_method</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">use_mixed_precision</span><span class="p">:</span>
+            <span class="n">grads</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mixed_precision_config</span><span class="o">.</span><span class="n">loss_scale_factor</span>
+                     <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grads</span><span class="p">]</span>
+        <span class="n">grads_and_vars</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">grads</span><span class="p">,</span> <span class="n">variables</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">grads_and_vars</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_regularization_loss</span><span class="p">(</span><span class="n">losses</span><span class="p">:</span> <span class="n">_NESTED_TENSORS_DTYPE</span>
+                                 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="n">regularization_loss</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">reg_loss_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;regularization_loss_l1&quot;</span><span class="p">,</span> <span class="s2">&quot;regularization_loss_l2&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">each_reg_loss_name</span> <span class="ow">in</span> <span class="n">reg_loss_names</span><span class="p">:</span>
+            <span class="n">each_reg_loss</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">each_reg_loss_name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">each_reg_loss</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">regularization_loss</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">regularization_loss</span> <span class="o">=</span> <span class="n">each_reg_loss</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">regularization_loss</span> <span class="o">+=</span> <span class="n">each_reg_loss</span>
+        <span class="k">return</span> <span class="n">regularization_loss</span>
+
+    <span class="k">def</span> <span class="nf">_validate_genes_for_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">postprocessors</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Provide postprocessors for inference mode &quot;</span>
+                       <span class="s2">&quot;since they serve as outputs for inference graph!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span></div>
+
+
+<span class="c1"># pylint: enable=too-many-instance-attributes</span>
+
+
+<span class="k">def</span> <span class="nf">_cast_plugin_inputs_for_mixed_precision</span><span class="p">(</span><span class="n">plugin</span><span class="p">:</span> <span class="n">ModelPlugin</span><span class="p">,</span>
+                                            <span class="n">nucleotide_inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">plugin</span><span class="o">.</span><span class="n">allow_mixed_precision</span><span class="p">:</span>
+        <span class="n">cast_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cast_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">float16</span><span class="p">}</span>
+    <span class="n">nucleotide_inputs_casted</span> <span class="o">=</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">maybe_cast_dtype</span><span class="p">(</span>
+        <span class="n">nucleotide_inputs</span><span class="p">,</span> <span class="n">cast_dtypes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">nucleotide_inputs_casted</span>
+
+
+<span class="c1"># pylint: disable=unused-argument</span>
+<span class="c1"># nucleotide is needed here for further use as an factory with this signature</span>
+<span class="k">def</span> <span class="nf">_cast_inputs_back_from_mixed_precision</span><span class="p">(</span><span class="n">nucleotide</span><span class="p">:</span> <span class="n">Nucleotide</span><span class="p">,</span>
+                                           <span class="n">nucleotide_inputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">nucleotide_inputs_casted</span> <span class="o">=</span> <span class="n">tf_ops</span><span class="o">.</span><span class="n">maybe_cast_dtype</span><span class="p">(</span>
+        <span class="n">nucleotide_inputs</span><span class="p">,</span> <span class="p">{</span><span class="n">tf</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">nucleotide_inputs_casted</span>
+
+
+<span class="c1"># pylint: enable=unused-argument</span>
+
+
+<span class="k">def</span> <span class="nf">_get_inputs_cast_mixed_precision_fn</span><span class="p">(</span>
+        <span class="n">gene_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">mixed_precision_config</span><span class="p">:</span> <span class="n">MixedPrecisionConfig</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Nucleotide</span><span class="p">,</span> <span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">],</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">mixed_precision_config</span> <span class="ow">is</span> <span class="kc">None</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="n">mixed_precision_config</span><span class="o">.</span><span class="n">use</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">gene_name</span> <span class="o">==</span> <span class="s1">&#39;plugins&#39;</span><span class="p">:</span>
+        <span class="n">cast_dtype_fn</span> <span class="o">=</span> <span class="n">_cast_plugin_inputs_for_mixed_precision</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cast_dtype_fn</span> <span class="o">=</span> <span class="n">_cast_inputs_back_from_mixed_precision</span>
+    <span class="k">return</span> <span class="n">cast_dtype_fn</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,1588 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Project &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Nucleotide and co." href="Core.html" />
+    <link rel="prev" title="Installation" href="Installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configs">Configs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-case-a-name-general-case-a">General case <span class="raw-html-m2r"><a name="general-case"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-multiple-configs-of-same-gene-a-name-combining-multiple-configs-of-same-gene-a">Combining multiple configs of same gene <span class="raw-html-m2r"><a name="combining-multiple-configs-of-same-gene"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datasets-config-a-name-datasets-config-a">Datasets config <span class="raw-html-m2r"><a name="datasets-config"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#datapipe-datasets-a-name-data-pipe-datasets-a">DataPipe datasets <span class="raw-html-m2r"><a name="data-pipe-datasets"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datasetmix-config-a-name-dataset-mix-config-a">DatasetMix config <span class="raw-html-m2r"><a name="dataset-mix-config"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#datapipe-data-feeders-a-name-data-pipe-data-feeders-a">DataPipe data feeders <span class="raw-html-m2r"><a name="data-pipe-data-feeders"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filelist-config-a-name-file-list-config-a">FileList config <span class="raw-html-m2r"><a name="file-list-config"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datafilter-config-a-name-data-filter-config-a">DataFilter config <span class="raw-html-m2r"><a name="data-filter-config"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#specify-model-parameters-during-inference-a-name-specify-model-parameters-during-inference-a">Specify model parameters during inference <span class="raw-html-m2r"><a name="specify-model-parameters-during-inference"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-of-config-main-json-a-name-structure-of-config-main-a">Structure of config_main.json <span class="raw-html-m2r"><a name="structure-of-config-main"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#project-global-config-a-name-project-global-config-a">Project global config <span class="raw-html-m2r"><a name="project-global-config"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configs-update-rule-a-name-configs-update-rule-a">Configs update rule <span class="raw-html-m2r"><a name="configs-update-rule"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#structure">Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#training-and-evaluation-a-name-training-and-evaluation-project-a">Training and evaluation <span class="raw-html-m2r"><a name="training-and-evaluation-project"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inference-a-name-inference-project-a">Inference <span class="raw-html-m2r"><a name="inference-project"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kpi-evaluation-a-name-kpi-evaluation-project-a">KPI evaluation <span class="raw-html-m2r"><a name="kpi-evaluation-project"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-extraction-a-name-data-extraction-project-a">Data extraction <span class="raw-html-m2r"><a name="data-extraction-project"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#execution">Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#training-a-name-training-a">Training <span class="raw-html-m2r"><a name="training"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#continue-training-a-name-continue-training-a">Continue training <span class="raw-html-m2r"><a name="continue-training"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distributed-run-a-name-distributed-run-a">Distributed run <span class="raw-html-m2r"><a name="distributed-run"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inference-a-name-inference-a">Inference <span class="raw-html-m2r"><a name="inference"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additional-configs-for-inference-a-name-additiona-configs-infer-a">Additional configs for inference <span class="raw-html-m2r"><a name="additiona-configs-infer"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-parameters-for-inference-a-name-additional-parameters-infer-a">Additional parameters for inference <span class="raw-html-m2r"><a name="additional-parameters-infer"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kpi-evaluation-a-name-kpi-evaluation-a">KPI Evaluation <span class="raw-html-m2r"><a name="kpi-evaluation"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additional-configs-for-kpi-evaluation-a-name-additiona-configs-kpi-a">Additional configs for KPI evaluation <span class="raw-html-m2r"><a name="additiona-configs-kpi"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-parameters-for-kpi-evaluation-a-name-additional-parameters-kpi-a">Additional parameters for KPI evaluation <span class="raw-html-m2r"><a name="additional-parameters-kpi"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-extraction-a-name-data-extraction-a">Data extraction <span class="raw-html-m2r"><a name="data-extraction"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#additional-configs-for-data-extraction-a-name-additiona-configs-data-a">Additional configs for data extraction <span class="raw-html-m2r"><a name="additiona-configs-data"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-parameters-for-data-extraction-a-name-additional-parameters-data-a">Additional parameters for data extraction <span class="raw-html-m2r"><a name="additional-parameters-data"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#get-nucleotide-signature-a-name-get-nucleotide-a">Get nucleotide signature <span class="raw-html-m2r"><a name="get-nucleotide"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-nucleotide-sample-config-a-name-create-nucleotide-sample-config-a">Create nucleotide sample config <span class="raw-html-m2r"><a name="create-nucleotide-sample-config"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-dataset-file-list-a-name-create-dataset-file-list-a">Create dataset file list <span class="raw-html-m2r"><a name="create-dataset-file-list"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#visualize-project-dna-a-name-visualize-project-dna-a">Visualize project DNA <span class="raw-html-m2r"><a name="visualize-project-dna"></a></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Project</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Project.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="project">
+<h1>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#configs" id="id9">Configs</a></p>
+<ul>
+<li><p><a class="reference internal" href="#general-case-a-name-general-case-a" id="id10">General case <span class="raw-html-m2r"><a name="general-case"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#combining-multiple-configs-of-same-gene-a-name-combining-multiple-configs-of-same-gene-a" id="id11">Combining multiple configs of same gene <span class="raw-html-m2r"><a name="combining-multiple-configs-of-same-gene"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#datasets-config-a-name-datasets-config-a" id="id12">Datasets config <span class="raw-html-m2r"><a name="datasets-config"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#datapipe-data-feeders-a-name-data-pipe-data-feeders-a" id="id13">DataPipe data feeders <span class="raw-html-m2r"><a name="data-pipe-data-feeders"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#filelist-config-a-name-file-list-config-a" id="id14">FileList config <span class="raw-html-m2r"><a name="file-list-config"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#datafilter-config-a-name-data-filter-config-a" id="id15">DataFilter config <span class="raw-html-m2r"><a name="data-filter-config"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#specify-model-parameters-during-inference-a-name-specify-model-parameters-during-inference-a" id="id16">Specify model parameters during inference <span class="raw-html-m2r"><a name="specify-model-parameters-during-inference"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#structure-of-config-main-json-a-name-structure-of-config-main-a" id="id17">Structure of config_main.json <span class="raw-html-m2r"><a name="structure-of-config-main"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#project-global-config-a-name-project-global-config-a" id="id18">Project global config <span class="raw-html-m2r"><a name="project-global-config"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#configs-update-rule-a-name-configs-update-rule-a" id="id19">Configs update rule <span class="raw-html-m2r"><a name="configs-update-rule"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#structure" id="id20">Structure</a></p>
+<ul>
+<li><p><a class="reference internal" href="#training-and-evaluation-a-name-training-and-evaluation-project-a" id="id21">Training and evaluation <span class="raw-html-m2r"><a name="training-and-evaluation-project"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#inference-a-name-inference-project-a" id="id22">Inference <span class="raw-html-m2r"><a name="inference-project"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#kpi-evaluation-a-name-kpi-evaluation-project-a" id="id23">KPI evaluation <span class="raw-html-m2r"><a name="kpi-evaluation-project"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#data-extraction-a-name-data-extraction-project-a" id="id24">Data extraction <span class="raw-html-m2r"><a name="data-extraction-project"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#execution" id="id25">Execution</a></p>
+<ul>
+<li><p><a class="reference internal" href="#training-a-name-training-a" id="id26">Training <span class="raw-html-m2r"><a name="training"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#inference-a-name-inference-a" id="id27">Inference <span class="raw-html-m2r"><a name="inference"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#kpi-evaluation-a-name-kpi-evaluation-a" id="id28">KPI Evaluation <span class="raw-html-m2r"><a name="kpi-evaluation"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#data-extraction-a-name-data-extraction-a" id="id29">Data extraction <span class="raw-html-m2r"><a name="data-extraction"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#get-nucleotide-signature-a-name-get-nucleotide-a" id="id30">Get nucleotide signature <span class="raw-html-m2r"><a name="get-nucleotide"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#create-dataset-file-list-a-name-create-dataset-file-list-a" id="id31">Create dataset file list <span class="raw-html-m2r"><a name="create-dataset-file-list"></a></span></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="configs">
+<h2><a class="toc-backref" href="#id9">Configs</a><a class="headerlink" href="#configs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-case-a-name-general-case-a">
+<h3><a class="toc-backref" href="#id10">General case <span class="raw-html-m2r"><a name="general-case"></a></span></a><a class="headerlink" href="#general-case-a-name-general-case-a" title="Permalink to this headline">¶</a></h3>
+<p>To control the nucleus7 objects, json config files are used.</p>
+<p>Every nucleus7 object can be controlled through the corresponding <code class="docutils literal notranslate"><span class="pre">config.json</span></code>
+file, which values will be passed to its constructor. If it must be a
+named tuple config, you need to specify it as a dict with corresponding
+key-value mapping.</p>
+<p>Every nucleotide object can (and some MUST) have following fields:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;name.of.the.class.to.import&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;arbitrary but unique name for constructed object&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;inbound_nodes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;list of names of inbount nodes&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;incoming_keys_mapping&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Inbound node 1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;output_key1&quot;</span><span class="p">:</span> <span class="s2">&quot;input_key2&quot;</span><span class="p">},</span>
+    <span class="nt">&quot;Inbound node 2&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;output_key1&quot;</span><span class="p">:</span> <span class="s2">&quot;input_key3&quot;</span><span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For classes like <code class="docutils literal notranslate"><span class="pre">Model</span></code>, <code class="docutils literal notranslate"><span class="pre">Trainer</span></code> and <code class="docutils literal notranslate"><span class="pre">Inferer</span></code> it can be omitted, you can
+specify the “class_name” if you want to use your own implementation and for
+<code class="docutils literal notranslate"><span class="pre">Inferer</span></code> you can specify the <code class="docutils literal notranslate"><span class="pre">model_incoming_keys_mapping</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">incoming_keys_mapping</span></code>, which will map the keys from data feeder to the loaded
+model.</p>
+<p>This configs must be placed in order described inside of
+<a class="reference external" href="Project.html#structure">project structure</a> for particular run and have specified names for
+single configs, e.g. there can be only 1 trainer, so its config must be saved
+inside of ‘trainer.json’, but we can have multiple plugins or callbacks, so
+they must be saved in specified folder but have arbitrary file names.</p>
+</div>
+<div class="section" id="combining-multiple-configs-of-same-gene-a-name-combining-multiple-configs-of-same-gene-a">
+<h3><a class="toc-backref" href="#id11">Combining multiple configs of same gene <span class="raw-html-m2r"><a name="combining-multiple-configs-of-same-gene"></a></span></a><a class="headerlink" href="#combining-multiple-configs-of-same-gene-a-name-combining-multiple-configs-of-same-gene-a" title="Permalink to this headline">¶</a></h3>
+<p>If you want to combine multiple configs of same object to build the gene, you
+can do it as follows:</p>
+<ol class="arabic simple">
+<li><p>Create folder of the gene name in plural, e.g. for plugin gene create the
+folder plugins and for callback gene create callbacks folder</p></li>
+<li><p>Place the configs of singe nucleotides or of combinations there (you can mix
+it in difference files):</p>
+<ul class="simple">
+<li><p>if it is a singe nucleotide, just place it to the “some_name.json” file</p></li>
+<li><p>if it is a list of nucleotides, use the list of their configs inside of
+“some_name.json” file</p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="datasets-config-a-name-datasets-config-a">
+<h3><a class="toc-backref" href="#id12">Datasets config <span class="raw-html-m2r"><a name="datasets-config"></a></span></a><a class="headerlink" href="#datasets-config-a-name-datasets-config-a" title="Permalink to this headline">¶</a></h3>
+<p>Dataset is unique part of the training and must be specified for both train and
+eval. So we use one file - <code class="docutils literal notranslate"><span class="pre">datasets.json</span></code> and place their configurations in
+following format:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;train&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;eval&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="datapipe-datasets-a-name-data-pipe-datasets-a">
+<h4>DataPipe datasets <span class="raw-html-m2r"><a name="data-pipe-datasets"></a></span><a class="headerlink" href="#datapipe-datasets-a-name-data-pipe-datasets-a" title="Permalink to this headline">¶</a></h4>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> pipeline inside of dataset, you need to specify it as
+follows:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;train&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;data_pipe&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;class_name&quot;</span><span class="p">:</span>  <span class="s2">&quot;reader1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;reader_kwarg1&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;reader_kwarg2&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;...&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;output_keys_mapping&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;...&quot;</span><span class="p">},</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;eval&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;data_pipe&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;class_name&quot;</span><span class="p">:</span>  <span class="s2">&quot;reader1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;reader_kwarg1&quot;</span><span class="p">:</span>  <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;reader_kwarg2&quot;</span><span class="p">:</span>  <span class="s2">&quot;...&quot;</span><span class="p">},</span>
+      <span class="s2">&quot;...&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;output_keys_mapping&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;...&quot;</span><span class="p">},</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">class_name</span></code> for dataset may be omitted - it will select the appropriate
+class from <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> itself.</p>
+</div>
+<div class="section" id="datasetmix-config-a-name-dataset-mix-config-a">
+<h4>DatasetMix config <span class="raw-html-m2r"><a name="dataset-mix-config"></a></span><a class="headerlink" href="#datasetmix-config-a-name-dataset-mix-config-a" title="Permalink to this headline">¶</a></h4>
+<p>To know what it is, please refer to <a class="reference external" href="DataHandling.html#feeding-the-data">data module</a></p>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">DatasetMix</span></code> in your configs, you just need to combine the dataset
+configs in a list and optionally add the “sampling_weight” key to the single
+dataset configs (if you do not set it, it will be sampling_weight = 1):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;train&quot;</span><span class="p">:</span>
+   <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;other_parameters&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sample_weight&quot;</span><span class="p">:</span> <span class="mf">0.1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;other_parameters&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;sample_weight&quot;</span><span class="p">:</span> <span class="mf">0.9</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;eval&quot;</span><span class="p">:</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;other_parameters&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;other_parameters&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Caveat: sample_weight for eval datasets will no have any effect since on the
+evaluation stage the uniform sampling is used.</p>
+</div>
+</div>
+<div class="section" id="datapipe-data-feeders-a-name-data-pipe-data-feeders-a">
+<h3><a class="toc-backref" href="#id13">DataPipe data feeders <span class="raw-html-m2r"><a name="data-pipe-data-feeders"></a></span></a><a class="headerlink" href="#datapipe-data-feeders-a-name-data-pipe-data-feeders-a" title="Permalink to this headline">¶</a></h3>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> pipeline inside of data feeder, you need to specify it as
+follows:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;data_pipe&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span>  <span class="s2">&quot;reader1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;reader_kwarg1&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;reader_kwarg2&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;...&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;output_keys_mapping&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span>  <span class="s2">&quot;...&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">class_name</span></code> for dataset may be omitted - it will select the appropriate
+class from <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> itself.</p>
+</div>
+<div class="section" id="filelist-config-a-name-file-list-config-a">
+<h3><a class="toc-backref" href="#id14">FileList config <span class="raw-html-m2r"><a name="file-list-config"></a></span></a><a class="headerlink" href="#filelist-config-a-name-file-list-config-a" title="Permalink to this headline">¶</a></h3>
+<p>To know what it is, please refer to <a class="reference external" href="DataHandling.html#feeding-the-data">data module</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">FileList</span></code> has no standalone config.json, but must be included inside of
+config.json of the object, where it should be placed:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;file_list&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;file_names&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;key1&quot;</span><span class="p">:</span>  <span class="s2">&quot;glob/pattern/*/to/search/key1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key2&quot;</span><span class="p">:</span>  <span class="s2">&quot;glob/pattern/*/to/search/key2&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All of the parameters inside of <code class="docutils literal notranslate"><span class="pre">file_list</span></code> section correspond to the
+[ProjectConfigs][ProjectConfigs] policy.</p>
+<p>Or if you have multiple <code class="docutils literal notranslate"><span class="pre">FileList</span></code> objects and want to use them you can combine
+them to a list of file_lists:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;file_list&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;file_names&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;key1&quot;</span><span class="p">:</span>  <span class="s2">&quot;glob/pattern/*/to/search/key1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;key2&quot;</span><span class="p">:</span>  <span class="s2">&quot;glob/pattern/*/to/search/key2&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;file_names&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;key1&quot;</span><span class="p">:</span>  <span class="s2">&quot;other/glob/pattern/*/to/search/key1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;key3&quot;</span><span class="p">:</span>  <span class="s2">&quot;other/glob/pattern/*/to/search/key2&quot;</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;...&quot;</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In list case, it will create all the [“key1”, “key2”, “key3”], but using empty
+values for the not presenting keys:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file_names_combined</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;key1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;value1_1&quot;</span><span class="p">,</span> <span class="s2">&quot;value1_2&quot;</span><span class="p">,</span> <span class="s2">&quot;value2_1&quot;</span><span class="p">,</span> <span class="s2">&quot;value2_2&quot;</span><span class="p">,</span> <span class="s2">&quot;value2_3&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;key2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;value1_1&quot;</span><span class="p">,</span> <span class="s2">&quot;value1_2&quot;</span><span class="p">,</span>         <span class="s2">&quot;&quot;</span><span class="p">,</span>         <span class="s2">&quot;&quot;</span><span class="p">,</span>         <span class="s2">&quot;&quot;</span><span class="p">],</span>
+  <span class="s2">&quot;key3&quot;</span><span class="p">:</span> <span class="p">[</span>        <span class="s2">&quot;&quot;</span><span class="p">,</span>         <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;value2_1&quot;</span><span class="p">,</span> <span class="s2">&quot;value2_2&quot;</span><span class="p">,</span> <span class="s2">&quot;value2_3&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datafilter-config-a-name-data-filter-config-a">
+<h3><a class="toc-backref" href="#id15">DataFilter config <span class="raw-html-m2r"><a name="data-filter-config"></a></span></a><a class="headerlink" href="#datafilter-config-a-name-data-filter-config-a" title="Permalink to this headline">¶</a></h3>
+<p>DataFilter doesn’t have the standalone config file too, but it can be
+included inside of configs of all data objects.
+To include <code class="docutils literal notranslate"><span class="pre">DataFilter</span></code> inside of config files, just add following to
+the field of object with filter:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;data_filter&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;parameter1&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="specify-model-parameters-during-inference-a-name-specify-model-parameters-during-inference-a">
+<h3><a class="toc-backref" href="#id16">Specify model parameters during inference <span class="raw-html-m2r"><a name="specify-model-parameters-during-inference"></a></span></a><a class="headerlink" href="#specify-model-parameters-during-inference-a-name-specify-model-parameters-during-inference-a" title="Permalink to this headline">¶</a></h3>
+<p>If plugins or postprocessors of your model have default placeholders inside
+(see <a class="reference external" href="Development.html">here</a>), you can specify it using the “model_parameters” key
+inside of “inferer.json”:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;model_parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;nucleotide_name_with_parameter&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;parameter_name1&quot;</span><span class="p">:</span> <span class="s2">&quot;parameter_value1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;parameter_name2&quot;</span><span class="p">:</span> <span class="s2">&quot;parameter_value2&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structure-of-config-main-json-a-name-structure-of-config-main-a">
+<h3><a class="toc-backref" href="#id17">Structure of config_main.json <span class="raw-html-m2r"><a name="structure-of-config-main"></a></span></a><a class="headerlink" href="#structure-of-config-main-json-a-name-structure-of-config-main-a" title="Permalink to this headline">¶</a></h3>
+<p>You can also specify the <code class="docutils literal notranslate"><span class="pre">config_main.json</span></code> file which can include all the
+configs for all nucleotides inside. You need to use the same style as before
+but you need to add put the individual configurations under the corresponding
+keys:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;datasets_config&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;train&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;eval&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;augmenter_config&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;plugins_config&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;...&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>So there are following rules:</p>
+<ul class="simple">
+<li><p>if you have “config.json”, e.g.”trainer.json”, you need to place its content
+to the key “trainer_config” or the <code class="docutils literal notranslate"><span class="pre">config_main.json</span></code> (same for datasets,
+data_feeder etc)</p></li>
+<li><p>for all the gene configs, e.g. from the folders like “plugins”, you need to
+add “_config” to the folder name and place all the configs from that folder as
+a list of configs</p></li>
+</ul>
+</div>
+<div class="section" id="project-global-config-a-name-project-global-config-a">
+<h3><a class="toc-backref" href="#id18">Project global config <span class="raw-html-m2r"><a name="project-global-config"></a></span></a><a class="headerlink" href="#project-global-config-a-name-project-global-config-a" title="Permalink to this headline">¶</a></h3>
+<p>If you want to set the config values globally, you can put them inside of the
+<code class="docutils literal notranslate"><span class="pre">training/configs/project_global_config.json</span></code>.
+It allows to specify some global configuration with keys as arguments and
+pass it to all of nucleotides if this parameter exist in its constructor
+and it was not explicitly specified in nucleotide config.</p>
+<p>It is also possible to specify the parameters type-wise and class-wise and
+also as complete global, e.g.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;param1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ModelPlugin&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;activation&quot;</span><span class="p">:</span> <span class="s2">&quot;elu&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;param2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;Plugin1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;param1&quot;</span><span class="p">:</span> <span class="s2">&quot;value12&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;activation&quot;</span><span class="p">:</span> <span class="s2">&quot;relu&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In that case, ModelPlugin will be initialized with activation = elu and
+param1 = value1 and Plugin1 (for this example Plugin1 is a child of ModelPlugin)
+class will be initialized with activation = relu and
+param1 = value12 and param2 = value2. E.g. it will create inheritance map
+for each nucleotide and will resolve it in hierarchy order, e.g. lower
+hierarchy (Nucleotide) will be overridden by higher
+(Nucleotide -&gt; ModelPlugin -&gt; Plugin1 -&gt; Plugin1Child -&gt; …)
+Parameters can be set to all of nucleus7 interfaces.</p>
+</div>
+<div class="section" id="configs-update-rule-a-name-configs-update-rule-a">
+<h3><a class="toc-backref" href="#id19">Configs update rule <span class="raw-html-m2r"><a name="configs-update-rule"></a></span></a><a class="headerlink" href="#configs-update-rule-a-name-configs-update-rule-a" title="Permalink to this headline">¶</a></h3>
+<p>Since there may be used a nested structure of the configs, we need to resolve
+them. Resolve means update one config with other, e.g.
+<code class="docutils literal notranslate"><span class="pre">config1</span></code> &amp;rightarrow; <code class="docutils literal notranslate"><span class="pre">config2</span></code> means update <code class="docutils literal notranslate"><span class="pre">config1</span></code> with <code class="docutils literal notranslate"><span class="pre">config2</span></code>.
+Each config has following format <code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">subconfig}</span></code> and subconfigs can be of
+2 types: dict (e.g. model, dataset) and list (e.g. model_plugin, callbacks etc.)
+Following rules apply for every subconfig:</p>
+<ul>
+<li><p>dict subconfigs:</p>
+<ul class="simple">
+<li><p>if key of <code class="docutils literal notranslate"><span class="pre">subconfig2</span></code> does not exist in <code class="docutils literal notranslate"><span class="pre">config1</span></code>, it will add it</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">config2</span></code> has <code class="docutils literal notranslate"><span class="pre">__UPDATE_CONFIG__</span></code> in it and it is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>,
+then it will perform <code class="docutils literal notranslate"><span class="pre">subconfig1.update(subconfig2)</span></code></p></li>
+<li><p>else <code class="docutils literal notranslate"><span class="pre">subconfig2</span></code> will replace <code class="docutils literal notranslate"><span class="pre">subconfig1</span></code> for the same key</p></li>
+</ul>
+</li>
+<li><p>list subconfigs:</p>
+<ul>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">subconfig2</span></code> has <code class="docutils literal notranslate"><span class="pre">__BASE__</span></code> key inside, then this key will be replaced
+with the <code class="docutils literal notranslate"><span class="pre">subconfig1</span></code>, e.g.
+.. code-block:: python</p>
+<blockquote>
+<div><p>subconfig1 = [2, 3]
+subconfig2 = [1, “__BASE__”, 4, 5]
+subconfig_updated = [1, 2, 3, 4, 5]</p>
+</div></blockquote>
+</li>
+<li><p>otherwise replace <code class="docutils literal notranslate"><span class="pre">subconfig1</span></code> withg <code class="docutils literal notranslate"><span class="pre">subconfig2</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Configs are read and resolved / updated in following order:</p>
+<ul class="simple">
+<li><p>training:
+<code class="docutils literal notranslate"><span class="pre">config_main.json</span></code> &amp;rightarrow; <code class="docutils literal notranslate"><span class="pre">component</span> <span class="pre">configs</span></code></p></li>
+<li><p>inference:
+<code class="docutils literal notranslate"><span class="pre">inference/configs</span></code> &amp;rightarrow; <code class="docutils literal notranslate"><span class="pre">additional_configs</span></code>, where each of them
+is resolved in <code class="docutils literal notranslate"><span class="pre">config_main.json</span></code> &amp;rightarrow; <code class="docutils literal notranslate"><span class="pre">component</span> <span class="pre">configs</span></code> order</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="structure">
+<h2><a class="toc-backref" href="#id20">Structure</a><a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="training-and-evaluation-a-name-training-and-evaluation-project-a">
+<h3><a class="toc-backref" href="#id21">Training and evaluation <span class="raw-html-m2r"><a name="training-and-evaluation-project"></a></span></a><a class="headerlink" href="#training-and-evaluation-a-name-training-and-evaluation-project-a" title="Permalink to this headline">¶</a></h3>
+<p>To start the training, project directory must have following structure:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+<th class="head"><p>Fixed name</p></th>
+<th class="head"><p>Mandatory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/</span></code></p></td>
+<td><p>configs for training</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/project_global_config.json</span></code></p></td>
+<td><p>global parameters for configs</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/config_main.json</span></code></p></td>
+<td><p>full configuration for the whole project including all the components</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/datasets.json</span></code></p></td>
+<td><p>configuration of the datasets with under <code class="docutils literal notranslate"><span class="pre">train</span></code> and <code class="docutils literal notranslate"><span class="pre">eval</span></code> keys</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/trainer.json</span></code></p></td>
+<td><p>configuration of the trainer</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/model.json</span></code></p></td>
+<td><p>configuration of the model</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/callbacks/*.json</span></code></p></td>
+<td><p>configs for callbacks that will be used for both <code class="docutils literal notranslate"><span class="pre">train</span></code> and <code class="docutils literal notranslate"><span class="pre">eval</span></code>, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/callbacks_train/*.json</span></code></p></td>
+<td><p>configs for callbacks that will be used for <code class="docutils literal notranslate"><span class="pre">train</span></code> only, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/callbacks_eval/*.json</span></code></p></td>
+<td><p>configs for callbacks that will be used for <code class="docutils literal notranslate"><span class="pre">eval</span></code> only, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/kpi/*.json</span></code></p></td>
+<td><p>configs for kpi plugins and accumulators, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/losses/*.json</span></code></p></td>
+<td><p>configs for losses, *</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/metrics/*.json</span></code></p></td>
+<td><p>configs for metrics, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/plugins/*.json</span></code></p></td>
+<td><p>configs for plugins, *</p></td>
+<td><p>no</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/postprocessors/*.json</span></code></p></td>
+<td><p>configs for postprocessors, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/configs/summaries/*.json</span></code></p></td>
+<td><p>configs for summaries, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p>where * means that it can be one config with a list of configs or a single one or
+multiple configs with single configs and arbitrary names</p>
+<p>Training run will generate following folders and files:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nucleus7_project.json</span></code></p></td>
+<td><p>meta information about the project</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">saved_models/{tag}</span></code></p></td>
+<td><p>saved models in SavedModels format after each epoch</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">saved_models/{tag}/model.info</span></code></p></td>
+<td><p>information about the model, e.g. global_step</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">saved_models/{tag}/eval_result.json</span></code></p></td>
+<td><p>loss value for this model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">saved_models/{tag}/kpi_{}.json</span></code></p></td>
+<td><p>optional KPI values for this model if KPIEvaluators were provided</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoints/</span></code></p></td>
+<td><p>checkpoints after every epoch</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoints/input_output_names.json</span></code></p></td>
+<td><p>input and output tensors of the model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoints/graph_inference.meta</span></code></p></td>
+<td><p>meta graph for the inference</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/artifacts/</span></code></p></td>
+<td><p>training artifacts, e.g. file lists used</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/artifacts/_config_train_run.json</span></code></p></td>
+<td><p>configuration used to start the run including the default values used for every nucleus7 object</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/callbacks/train</span></code></p></td>
+<td><p>train callbacks folder, e.g. if some of the train callbacks write</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/callbacks/eval</span></code></p></td>
+<td><p>evaluation callbacks folder, e.g. if some of the eval callbacks write</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">training/summaries/train</span></code></p></td>
+<td><p>train summaries</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">training/summaries/eval</span></code></p></td>
+<td><p>evaluation summaries</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inference-a-name-inference-project-a">
+<h3><a class="toc-backref" href="#id22">Inference <span class="raw-html-m2r"><a name="inference-project"></a></span></a><a class="headerlink" href="#inference-a-name-inference-project-a" title="Permalink to this headline">¶</a></h3>
+<p>Inference project relies on the configs and also on the load configuration, e.g.
+you need to load the model from SavedModels or from the checkpoints.
+So following directory structure should be in the beginning:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">saved_models/{tag}</span></code></p></td>
+<td><p>if you want to load from the saved model with tag</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoints/{checkpoint_name}.index</span></code></p></td>
+<td><p>if you want to load from checkpoint_name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoints/{checkpoint_name}.chpt</span></code></p></td>
+<td><p>if you want to load from checkpoint_name</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">checkpoints/graph_inference.meta</span></code></p></td>
+<td><p>if you want to load from checkpoint_name</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inference/configs</span></code></p></td>
+<td><p>configs to load for inference (default folder to search for configs, but is optional)</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can provide the configs inside of the <code class="docutils literal notranslate"><span class="pre">inference/configs</span></code> folder, which is
+default one to search for configs, or to use the additional configs to load
+from other place (if you provide both, then first default configs will be
+loaded and then they will be updated with additional one). But configs folders
+must have following structure:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+<th class="head"><p>Fixed name</p></th>
+<th class="head"><p>Mandatory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/project_global_config.json</span></code></p></td>
+<td><p>global parameters for configs</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/config_main.json</span></code></p></td>
+<td><p>full configuration for the whole project including all the components</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/data_feeder.json</span></code></p></td>
+<td><p>configuration of the data feeder</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/inferer.json</span></code></p></td>
+<td><p>configuration of the inferer</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/callbacks/*.json</span></code></p></td>
+<td><p>configs for callbacks that will be used, *</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/kpi/*.json</span></code></p></td>
+<td><p>configs for kpi plugins and accumulators, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p>Following directories will be generated after inference run:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inference/run-{N}</span></code></p></td>
+<td><p>folder for the run</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inference/run-{N}/artifacts</span></code></p></td>
+<td><p>artifacts of the run, e.g. file lists used</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inference/run-{N}/artifacts/_config_infer_run.json</span></code></p></td>
+<td><p>configuration used to start the run including the default values used for every nucleus7 object</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inference/run-{N}/results</span></code></p></td>
+<td><p>results of callbacks</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">inference/last_run</span></code></p></td>
+<td><p>symbolic link to the last run folder</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="kpi-evaluation-a-name-kpi-evaluation-project-a">
+<h3><a class="toc-backref" href="#id23">KPI evaluation <span class="raw-html-m2r"><a name="kpi-evaluation-project"></a></span></a><a class="headerlink" href="#kpi-evaluation-a-name-kpi-evaluation-project-a" title="Permalink to this headline">¶</a></h3>
+<p>KPI evaluation project relies on the configs with following structure
+So following directory structure should be in the beginning:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/configs</span></code></p></td>
+<td><p>configs to load for kpi evaluation (default folder to search for configs, but is optional)</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can provide the configs inside of the <code class="docutils literal notranslate"><span class="pre">kpi_evaluation/configs</span></code> folder, which is
+default one to search for configs, or to use the additional configs to load
+from other place (if you provide both, then first default configs will be
+loaded and then they will be updated with additional one). But configs folders
+must have following structure:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+<th class="head"><p>Fixed name</p></th>
+<th class="head"><p>Mandatory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/project_global_config.json</span></code></p></td>
+<td><p>global parameters for configs</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/config_main.json</span></code></p></td>
+<td><p>full configuration for the whole project including all the components</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/data_feeder.json</span></code></p></td>
+<td><p>configuration of the data feeder</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/callbacks/*.json</span></code></p></td>
+<td><p>configs for callbacks that will be used, *</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/kpi/*.json</span></code></p></td>
+<td><p>configs for kpi plugins and accumulators, *</p></td>
+<td><p>no</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p>Following directories will be generated after inference run:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run-{N}</span></code></p></td>
+<td><p>folder for the run</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run-{N}/artifacts</span></code></p></td>
+<td><p>artifacts of the run, e.g. file lists used</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run-{N}/artifacts/_config_infer_run.json</span></code></p></td>
+<td><p>configuration used to start the run including the default values used for every nucleus7 object</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run-{N}/results</span></code></p></td>
+<td><p>results of callbacks and KPI evaluator</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/last_run</span></code></p></td>
+<td><p>symbolic link to the last run folder</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="data-extraction-a-name-data-extraction-project-a">
+<h3><a class="toc-backref" href="#id24">Data extraction <span class="raw-html-m2r"><a name="data-extraction-project"></a></span></a><a class="headerlink" href="#data-extraction-a-name-data-extraction-project-a" title="Permalink to this headline">¶</a></h3>
+<p>Data extraction project relies on the configs with following structure
+So following directory structure should be in the beginning:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data_extraction/configs</span></code></p></td>
+<td><p>configs to load for data extraction (default folder to search for configs, but is optional)</p></td>
+</tr>
+</tbody>
+</table>
+<p>You can provide the configs inside of the <code class="docutils literal notranslate"><span class="pre">data_extraction/configs</span></code> folder, which is
+default one to search for configs, or to use the additional configs to load
+from other place (if you provide both, then first default configs will be
+loaded and then they will be updated with additional one). Also it is possible
+to use the same configs structure for different runs, e.g.
+<code class="docutils literal notranslate"><span class="pre">data_extraction/train/cofnigs</span></code> to use additional configs for train run.
+But configs folders must have following structure:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name                 `</p></th>
+<th class="head"><p>Content</p></th>
+<th class="head"><p>Fixed name</p></th>
+<th class="head"><p>` andatory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/project_global_config.json</span></code></p></td>
+<td><p>global parameters for configs</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/config_main.json</span></code></p></td>
+<td><p>full configuration for the whole project including all the components</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/data_feeder.json</span></code></p></td>
+<td><p>configuration of the data feeder</p></td>
+<td><p>yes</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{configs}/callbacks/*.json</span></code></p></td>
+<td><p>configs for callbacks that will be used, *</p></td>
+<td><p>yes</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+<p>Following directories will be generated after inference run:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Directory name</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run_name</span></code></p></td>
+<td><p>folder for the run</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run_name/artifacts</span></code></p></td>
+<td><p>artifacts of the run, e.g. file lists used</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run_name/artifacts/_config_infer_run.json</span></code></p></td>
+<td><p>configuration used to start the run including the default values used for every nucleus7 object</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kpi_evaluation/run_name/extracted</span></code></p></td>
+<td><p>results of callbacks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="execution">
+<h2><a class="toc-backref" href="#id25">Execution</a><a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h2>
+<p>You can find the scripts for nucleus7 projects inside of <a class="reference external" href="./bin">nucleus7/bin</a>
+folder. They are automatically added to your PATH after installation and so
+can be used directly by the name of the script.</p>
+<p>nucleus7 has following scripts:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Shortcut</p></th>
+<th class="head"><p>Executable script</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-train</span></code></p></td>
+<td><p><cite>``bin/nc7-train`</cite> &lt;./bin/nc7-train&gt;`_</p></td>
+<td><p>training and evaluation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-infer</span></code></p></td>
+<td><p><cite>``bin/nc7-infer`</cite> &lt;./bin/nc7-infer&gt;`_</p></td>
+<td><p>inference</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-extract_data</span></code></p></td>
+<td><p><cite>``bin/nc7-extract_data`</cite> &lt;./bin/nc7-extract_data&gt;`_</p></td>
+<td><p>extract data using <code class="docutils literal notranslate"><span class="pre">DataExtractor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-evaluate_kpi</span></code></p></td>
+<td><p><cite>``bin/nc7-evaluate_kpi`</cite> &lt;./bin/nc7-evaluate_kpi&gt;`_</p></td>
+<td><p>evaluate KPI on predictions against labels using <code class="docutils literal notranslate"><span class="pre">KPIEvaluator</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-get_nucleotide_info</span></code></p></td>
+<td><p><cite>``bin/nc7-get_nucleotide_info`</cite> &lt;./bin/nc7-get_nucleotide_info&gt;`_</p></td>
+<td><p>print the nucleotide signature</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-create_nucleotide_sample_config</span></code></p></td>
+<td><p><cite>``bin/nc7-create_nucleotide_sample_config`</cite> &lt;./bin/nc7-create_nucleotide_sample_config&gt;`_</p></td>
+<td><p>create a config sample for nucleotide</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-create_dataset_file_list</span></code></p></td>
+<td><p><cite>``bin/nc7-create_dataset_file_list`</cite> &lt;./bin/nc7-create_dataset_file_list&gt;`_</p></td>
+<td><p>match the file names and save them to the folder</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nc7-visualize_project_dna</span></code></p></td>
+<td><p><cite>``bin/nc7-visualize_project_dna`</cite> &lt;./bin/nc7-visualize_project_dna&gt;`_</p></td>
+<td><p>create project DNA and save it to the project folder</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="training-a-name-training-a">
+<h3><a class="toc-backref" href="#id26">Training <span class="raw-html-m2r"><a name="training"></a></span></a><a class="headerlink" href="#training-a-name-training-a" title="Permalink to this headline">¶</a></h3>
+<p>To start the training, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-train path/to/project_dir
+</pre></div>
+</div>
+<p>This will start the training inside of the project_dir folder. Be sure that you
+have at least 1 root folder if you do not set the <code class="docutils literal notranslate"><span class="pre">MLFLOW_TRACKING_URI</span></code>,
+since the mlruns will be created under the <code class="docutils literal notranslate"><span class="pre">path/to/</span></code> folder.</p>
+<p>The folder must contain the training configs. How to setup them, refer to
+<a class="reference external" href="Project.html#configs">project configs</a> and about the project directory structure
+refer to <a class="reference external" href="Project.html#structure">project structure</a>.</p>
+<p>If the training already exist inside of the project_dir, it will raise an Error.</p>
+<div class="section" id="continue-training-a-name-continue-training-a">
+<h4>Continue training <span class="raw-html-m2r"><a name="continue-training"></a></span><a class="headerlink" href="#continue-training-a-name-continue-training-a" title="Permalink to this headline">¶</a></h4>
+<p>If you want to continue the training, set the continue flag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-train path/to/project_dir --continue
+</pre></div>
+</div>
+<p>If no training was found there, it will run same as without the flag, but if
+you have performed the training there, it will start from the last checkpoint.</p>
+</div>
+<div class="section" id="distributed-run-a-name-distributed-run-a">
+<h4>Distributed run <span class="raw-html-m2r"><a name="distributed-run"></a></span><a class="headerlink" href="#distributed-run-a-name-distributed-run-a" title="Permalink to this headline">¶</a></h4>
+<p>Since <strong>nucleus7</strong> uses <code class="docutils literal notranslate"><span class="pre">tf.estimator</span></code> API and <code class="docutils literal notranslate"><span class="pre">tf.estimator.train_and_evaluate</span></code>
+method to run the training and evaluation, it is possible to run the distributed
+training and evaluation without any modifications of source code.</p>
+<p>Let’s show an example how start distributed training. You need to have the project_dir, that
+is mounted in the same manner in all your processes, when you want to start the
+training / evaluation. You need also to setup the <code class="docutils literal notranslate"><span class="pre">TF_CONFIG</span></code> for
+every process you start (<a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/estimator/train_and_evaluate">see more here</a>).</p>
+<p>Following example has (but is only an example and you can use whatever
+configuration you want to use, but evaluator is all the time in a separate
+node / process, also ports and host IPs are free to choose):</p>
+<ul class="simple">
+<li><p>chief worker</p></li>
+<li><p>1 additional worker</p></li>
+<li><p>2 parameter servers - one on chief node and one on worker node</p></li>
+<li><p>evaluator</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># from CHIEF node:</span>
+
+<span class="c1"># 1 start the chief worker node</span>
+<span class="nv">TF_CONFIG</span><span class="o">=</span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;cluster&quot;: {</span>
+<span class="s1">        &quot;chief&quot;: [&quot;chief_host:2222&quot;],</span>
+<span class="s1">        &quot;worker&quot;: [&quot;host_worker: 2222&quot;],</span>
+<span class="s1">        &quot;ps&quot;: [&quot;chief_host:3333&quot;, &quot;host_worker: 3333&quot;]</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;task&quot;: {&quot;type&quot;: &quot;chief&quot;, &quot;index&quot;: 0}</span>
+<span class="s1">}&#39;</span> nc7-train path/to/project/dir &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c1"># 2 start the parameter server node</span>
+<span class="nv">TF_CONFIG</span><span class="o">=</span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;cluster&quot;: {</span>
+<span class="s1">        &quot;chief&quot;: [&quot;chief_host:2222&quot;],</span>
+<span class="s1">        &quot;worker&quot;: [&quot;host_worker: 2222&quot;],</span>
+<span class="s1">        &quot;ps&quot;: [&quot;chief_host:3333&quot;, &quot;host_worker: 3333&quot;]</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;task&quot;: {&quot;type&quot;: &quot;ps&quot;, &quot;index&quot;: 0}</span>
+<span class="s1">}&#39;</span> nc7-train path/to/project/dir &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+
+<span class="c1"># from WOKRER node:</span>
+<span class="c1"># 1 start the chief worker node</span>
+<span class="nv">TF_CONFIG</span><span class="o">=</span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;cluster&quot;: {</span>
+<span class="s1">        &quot;chief&quot;: [&quot;chief_host:2222&quot;],</span>
+<span class="s1">        &quot;worker&quot;: [&quot;host_worker: 2222&quot;],</span>
+<span class="s1">        &quot;ps&quot;: [&quot;chief_host:3333&quot;, &quot;host_worker: 3333&quot;]</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;task&quot;: {&quot;type&quot;: &quot;worker&quot;, &quot;index&quot;: 0}</span>
+<span class="s1">}&#39;</span> nc7-train path/to/project/dir &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+<span class="c1"># 2 start the parameter server node</span>
+<span class="nv">TF_CONFIG</span><span class="o">=</span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;cluster&quot;: {</span>
+<span class="s1">        &quot;chief&quot;: [&quot;chief_host:2222&quot;],</span>
+<span class="s1">        &quot;worker&quot;: [&quot;host_worker: 2222&quot;],</span>
+<span class="s1">        &quot;ps&quot;: [&quot;chief_host:3333&quot;, &quot;host_worker: 3333&quot;]</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;task&quot;: {&quot;type&quot;: &quot;ps&quot;, &quot;index&quot;: 1}</span>
+<span class="s1">}&#39;</span> nc7-train path/to/project/dir &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+
+<span class="c1"># from EVALUATOR node:</span>
+<span class="nv">TF_CONFIG</span><span class="o">=</span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;cluster&quot;: {</span>
+<span class="s1">        &quot;chief&quot;: [&quot;chief_host:2222&quot;],</span>
+<span class="s1">        &quot;worker&quot;: [&quot;host_worker: 2222&quot;],</span>
+<span class="s1">        &quot;ps&quot;: [&quot;chief_host:3333&quot;, &quot;host_worker: 3333&quot;]</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;task&quot;: {&quot;task&quot;: &quot;evaluator&quot;, &quot;index&quot;: 0}</span>
+<span class="s1">}&#39;</span> nc7-train path/to/project/dir &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>All the communication and triggering is done by tensorflow / nucleus7 :)</p>
+<p>Also if you want to set up the <code class="docutils literal notranslate"><span class="pre">MLFLOW_TRACKING_URI</span></code>, you need to do it only
+on the chief and evaluator.</p>
+</div>
+</div>
+<div class="section" id="inference-a-name-inference-a">
+<h3><a class="toc-backref" href="#id27">Inference <span class="raw-html-m2r"><a name="inference"></a></span></a><a class="headerlink" href="#inference-a-name-inference-a" title="Permalink to this headline">¶</a></h3>
+<p>To start the inference, please use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-infer path/to/project_dir
+</pre></div>
+</div>
+<p>This will:</p>
+<ul class="simple">
+<li><p>take the last saved_model from <code class="docutils literal notranslate"><span class="pre">project_dir/saved_models</span></code></p></li>
+<li><p>create new run folder under the <code class="docutils literal notranslate"><span class="pre">project_dir/inference</span></code></p></li>
+<li><p>use configs from <code class="docutils literal notranslate"><span class="pre">project_dir/inference/configs</span></code></p></li>
+<li><p>start inference in the not existing folder with name
+<code class="docutils literal notranslate"><span class="pre">project_dir/inference/run-{N}</span></code>, where N is incremented if a folder with name
+{N-1} was found and it had other as configs subfolder.</p></li>
+</ul>
+<p>It is also possible to provide the run name explicit and not use a incremented
+run-{} structure. For it use (if folder has not allowed content, e.g. other
+folders as configs, then ValueError will be raised):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-infer path/to/project_dir --run_name run-name
+</pre></div>
+</div>
+<p>How to setup the configs, refer to <a class="reference external" href="Project.html#configs">project configs</a> and about
+the project directory structure refer to <a class="reference external" href="Project.html#structure">project structure</a>.</p>
+<p>Basically you do not need to do anything more to start the inference. But if
+you want more control, you can use additional configs and also control some
+parameters using CLI arguments.</p>
+<div class="section" id="additional-configs-for-inference-a-name-additiona-configs-infer-a">
+<h4>Additional configs for inference <span class="raw-html-m2r"><a name="additiona-configs-infer"></a></span><a class="headerlink" href="#additional-configs-for-inference-a-name-additiona-configs-infer-a" title="Permalink to this headline">¶</a></h4>
+<p>To update the default configs with other ones, use additional_configs_path
+argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-infer path/to/project_dir --additional_configs_path other/path/to/configs
+</pre></div>
+</div>
+<p>This will search for the configs inside of <code class="docutils literal notranslate"><span class="pre">other/path/to/configs</span></code> path
+(relative to project_dir or absolute) and update the main configs with it.</p>
+</div>
+<div class="section" id="additional-parameters-for-inference-a-name-additional-parameters-infer-a">
+<h4>Additional parameters for inference <span class="raw-html-m2r"><a name="additional-parameters-infer"></a></span><a class="headerlink" href="#additional-parameters-for-inference-a-name-additional-parameters-infer-a" title="Permalink to this headline">¶</a></h4>
+<p>You can also set some attributes on CLI to override the config parameters:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>CLI argument</p></th>
+<th class="head"><p>overridden config parameter</p></th>
+<th class="head"><p>meaning</p></th>
+<th class="head"><p>default value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--batch_size</span></code></p></td>
+<td><p>inferer.json: run_config: batch_size</p></td>
+<td><p>batch size to use</p></td>
+<td><p>no default value; if not specified inside of the config and as argument, will raise an error</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--saved_model</span></code></p></td>
+<td><p>inferer.json: load_config: saved_model_path</p></td>
+<td><p>tag of the saved model to use relative to <code class="docutils literal notranslate"><span class="pre">project_dir/saved_models</span></code></p></td>
+<td><p>last existing tag inside of <code class="docutils literal notranslate"><span class="pre">project_dir/saved_models</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--prefetch_buffer_size</span></code></p></td>
+<td><p>inferer.json: run_config: prefetch_buffer_size</p></td>
+<td><p>how many batches to prefetch</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--use_tensorrt</span></code></p></td>
+<td><p>inferer.json: tensorrt_config: use_tensorrt</p></td>
+<td><p>if tensorrt should be used for inference</p></td>
+<td><p>False or defined in the config</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--use_single_process</span></code></p></td>
+<td><p>inferer.json: run_config: use_multiprocessing</p></td>
+<td><p>if the inference must run in single process</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--checkpoint</span></code></p></td>
+<td><p>inferer.json: load_config: checkpoint_path</p></td>
+<td><p>checkpoint file name relative to <code class="docutils literal notranslate"><span class="pre">project_dir/checkpoints</span></code></p></td>
+<td><p>no default, since default is saved_models used</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--number_of_shards</span></code></p></td>
+<td><p>data_feeder.json: file_list: number_of_shards</p></td>
+<td><p>will shard the data if file list is presented inside of data_feeder; used for the parallel inference, where you want to run multiple processes of inference</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--shard_index</span></code></p></td>
+<td><p>data_feeder.json: file_list: shard_index</p></td>
+<td><p>will use this shard index to select out of number_of_shards of file list, if file list is presented in data_feeder</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="kpi-evaluation-a-name-kpi-evaluation-a">
+<h3><a class="toc-backref" href="#id28">KPI Evaluation <span class="raw-html-m2r"><a name="kpi-evaluation"></a></span></a><a class="headerlink" href="#kpi-evaluation-a-name-kpi-evaluation-a" title="Permalink to this headline">¶</a></h3>
+<p>To calculate KPI (Key Performance Index) values, you can use following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi path/to/project_dir
+</pre></div>
+</div>
+<p>This will:</p>
+<ul class="simple">
+<li><p>use configs from <code class="docutils literal notranslate"><span class="pre">project_dir/kpi_evaluation/configs</span></code></p></li>
+<li><p>start kpi evaluation in the not existing folder with name
+<code class="docutils literal notranslate"><span class="pre">project_dir/kpi_evaluation/run-{N}</span></code>, where N is incremented if a folder with
+name {N-1} was found and it had other as configs subfolder.</p></li>
+</ul>
+<p>It is also possible to provide the run name explicit and not use a incremented
+run-{} structure. For it use (if folder has not allowed content, e.g. other
+folders as configs, then ValueError will be raised):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi path/to/project_dir --run_name run-name
+</pre></div>
+</div>
+<p>How to setup the configs, refer to <a class="reference external" href="Project.html#configs">project configs</a> and about
+the project directory structure refer to <a class="reference external" href="Project.html#structure">project structure</a>.</p>
+<p>Basically you do not need to do anything more to start the inference. But if
+you want more control, you can use additional configs and also control some
+parameters using CLI arguments.</p>
+<div class="section" id="additional-configs-for-kpi-evaluation-a-name-additiona-configs-kpi-a">
+<h4>Additional configs for KPI evaluation <span class="raw-html-m2r"><a name="additiona-configs-kpi"></a></span><a class="headerlink" href="#additional-configs-for-kpi-evaluation-a-name-additiona-configs-kpi-a" title="Permalink to this headline">¶</a></h4>
+<p>To update the default configs with other ones, use additional_configs_path
+argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi path/to/project_dir --additional_configs_path other/path/to/configs
+</pre></div>
+</div>
+<p>This will search for the configs inside of <code class="docutils literal notranslate"><span class="pre">other/path/to/configs</span></code> path
+(relative to project_dir or absolute) and update the main configs with it.</p>
+</div>
+<div class="section" id="additional-parameters-for-kpi-evaluation-a-name-additional-parameters-kpi-a">
+<h4>Additional parameters for KPI evaluation <span class="raw-html-m2r"><a name="additional-parameters-kpi"></a></span><a class="headerlink" href="#additional-parameters-for-kpi-evaluation-a-name-additional-parameters-kpi-a" title="Permalink to this headline">¶</a></h4>
+<p>You can also set some attributes on CLI to override the config parameters:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>CLI argument</p></th>
+<th class="head"><p>overridden config parameter</p></th>
+<th class="head"><p>meaning</p></th>
+<th class="head"><p>default value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--batch_size</span></code></p></td>
+<td><p>inferer.json: run_config: batch_size</p></td>
+<td><p>batch size to use</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--prefetch_buffer_size</span></code></p></td>
+<td><p>inferer.json: run_config: prefetch_buffer_size</p></td>
+<td><p>how many batches to prefetch</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--use_single_process</span></code></p></td>
+<td><p>inferer.json: run_config: use_multiprocessing</p></td>
+<td><p>if the inference must run in single process</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--number_of_shards</span></code></p></td>
+<td><p>data_feeder.json: file_list: number_of_shards</p></td>
+<td><p>will shard the data if file list is presented inside of data_feeder; used for the parallel inference, where you want to run multiple processes of inference</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--shard_index</span></code></p></td>
+<td><p>data_feeder.json: file_list: shard_index</p></td>
+<td><p>will use this shard index to select out of number_of_shards of file list, if file list is presented in data_feeder</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="data-extraction-a-name-data-extraction-a">
+<h3><a class="toc-backref" href="#id29">Data extraction <span class="raw-html-m2r"><a name="data-extraction"></a></span></a><a class="headerlink" href="#data-extraction-a-name-data-extraction-a" title="Permalink to this headline">¶</a></h3>
+<p>To perform data extraction, you can use following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-extract_data path/to/project_dir --run_name run-name
+</pre></div>
+</div>
+<p>This will:</p>
+<ul class="simple">
+<li><p>use configs from <code class="docutils literal notranslate"><span class="pre">project_dir/data_extraction/configs</span></code>,
+<code class="docutils literal notranslate"><span class="pre">project_dir/data_extraction/run_name/configs</span></code></p></li>
+<li><p>start data extraction for given run name</p></li>
+</ul>
+<p>How to setup the configs, refer to <a class="reference external" href="Project.html#configs">project configs</a> and about
+the project directory structure refer to <a class="reference external" href="Project.html#structure">project structure</a>.</p>
+<p>Basically you do not need to do anything more to start the inference. But if
+you want more control, you can use additional configs and also control some
+parameters using CLI arguments.</p>
+<div class="section" id="additional-configs-for-data-extraction-a-name-additiona-configs-data-a">
+<h4>Additional configs for data extraction <span class="raw-html-m2r"><a name="additiona-configs-data"></a></span><a class="headerlink" href="#additional-configs-for-data-extraction-a-name-additiona-configs-data-a" title="Permalink to this headline">¶</a></h4>
+<p>To update the default configs with other ones, use additional_configs_path
+argument:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-evaluate_kpi path/to/project_dir --run_name run-name --additional_configs_path other/path/to/configs
+</pre></div>
+</div>
+<p>This will search for the configs inside of <code class="docutils literal notranslate"><span class="pre">other/path/to/configs</span></code> path
+(relative to project_dir or absolute) and update the main configs with it.</p>
+</div>
+<div class="section" id="additional-parameters-for-data-extraction-a-name-additional-parameters-data-a">
+<h4>Additional parameters for data extraction <span class="raw-html-m2r"><a name="additional-parameters-data"></a></span><a class="headerlink" href="#additional-parameters-for-data-extraction-a-name-additional-parameters-data-a" title="Permalink to this headline">¶</a></h4>
+<p>You can also set some attributes on CLI to override the config parameters:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>CLI argument</p></th>
+<th class="head"><p>overridden config parameter</p></th>
+<th class="head"><p>meaning</p></th>
+<th class="head"><p>default value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--batch_size</span></code></p></td>
+<td><p>inferer.json: run_config: batch_size</p></td>
+<td><p>batch size to use</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--prefetch_buffer_size</span></code></p></td>
+<td><p>inferer.json: run_config: prefetch_buffer_size</p></td>
+<td><p>how many batches to prefetch</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--use_single_process</span></code></p></td>
+<td><p>inferer.json: run_config: use_multiprocessing</p></td>
+<td><p>if the inference must run in single process</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--number_of_shards</span></code></p></td>
+<td><p>data_feeder.json: file_list: number_of_shards</p></td>
+<td><p>will shard the data if file list is presented inside of data_feeder; used for the parallel inference, where you want to run multiple processes of inference</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--shard_index</span></code></p></td>
+<td><p>data_feeder.json: file_list: shard_index</p></td>
+<td><p>will use this shard index to select out of number_of_shards of file list, if file list is presented in data_feeder</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="get-nucleotide-signature-a-name-get-nucleotide-a">
+<h3><a class="toc-backref" href="#id30">Get nucleotide signature <span class="raw-html-m2r"><a name="get-nucleotide"></a></span></a><a class="headerlink" href="#get-nucleotide-signature-a-name-get-nucleotide-a" title="Permalink to this headline">¶</a></h3>
+<p>If you want to get the nucleotide signature (incoming and generated keys,
+constructor parameters etc.) you can run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-get_nucleotide_info class.name.of.nucleotide
+</pre></div>
+</div>
+<div class="section" id="create-nucleotide-sample-config-a-name-create-nucleotide-sample-config-a">
+<h4>Create nucleotide sample config <span class="raw-html-m2r"><a name="create-nucleotide-sample-config"></a></span><a class="headerlink" href="#create-nucleotide-sample-config-a-name-create-nucleotide-sample-config-a" title="Permalink to this headline">¶</a></h4>
+<p>It is hard sometimes to create the configs for nucleotides, so you can use
+the sample config generator to create the config with default values and then
+adjust it and use it in your project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-create_nucleotide_sample_config class.name.of.nucleotide <span class="se">\</span>
+    --output_file_path /path/to/output/json <span class="c1"># otherwise will be printed to stdout</span>
+</pre></div>
+</div>
+<p>Caveat: do not forget to change every section of the generated config with
+“TODO” before using!</p>
+</div>
+</div>
+<div class="section" id="create-dataset-file-list-a-name-create-dataset-file-list-a">
+<h3><a class="toc-backref" href="#id31">Create dataset file list <span class="raw-html-m2r"><a name="create-dataset-file-list"></a></span></a><a class="headerlink" href="#create-dataset-file-list-a-name-create-dataset-file-list-a" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it is good idea to generate the file names out of the glob expressions
+after matching, sharding etc. For it you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-create_dataset_file_list --save_dir path/to/save/dir <span class="se">\</span>
+    -f path/to/main/file_list_config.json
+</pre></div>
+</div>
+<div class="section" id="visualize-project-dna-a-name-visualize-project-dna-a">
+<h4>Visualize project DNA <span class="raw-html-m2r"><a name="visualize-project-dna"></a></span><a class="headerlink" href="#visualize-project-dna-a-name-visualize-project-dna-a" title="Permalink to this headline">¶</a></h4>
+<p>If you want to generate the graphical representation of the project, e.g.
+data flow over nucleotides, e.g. <code class="docutils literal notranslate"><span class="pre">DNA</span> <span class="pre">helix</span></code>, you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nc7-visualize_project_dna.py path/to/project/dir --type train
+</pre></div>
+</div>
+<p>It will display the project dna for type you want and the plot is interactive :)
+So you can select subraphs for every nucleotide and see it’s information.
+Just check it out :)</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Core.html" class="btn btn-neutral float-right" title="Nucleotide and co." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

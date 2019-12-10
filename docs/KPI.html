@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>KPI &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="Development.html" />
+    <link rel="prev" title="Optimization" href="Optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">KPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-concepts-a-name-concepts-a">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpiplugin-a-name-kpiplugin-a">KPIPlugin <span class="raw-html-m2r"><a name="kpiplugin"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpiaccumulator-a-name-kpiaccumulator-a">KPIAccumulator <span class="raw-html-m2r"><a name="kpiaccumulator"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-saving-a-name-saving-a">KPI saving <span class="raw-html-m2r"><a name="saving"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kpi-caching-a-name-caching-a">KPI caching <span class="raw-html-m2r"><a name="caching"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-a-name-training-a">Training <span class="raw-html-m2r"><a name="training"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>KPI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/KPI.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kpi">
+<h1>KPI<a class="headerlink" href="#kpi" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#main-concepts-a-name-concepts-a" id="id1">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#kpiplugin-a-name-kpiplugin-a" id="id2">KPIPlugin <span class="raw-html-m2r"><a name="kpiplugin"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#kpiaccumulator-a-name-kpiaccumulator-a" id="id3">KPIAccumulator <span class="raw-html-m2r"><a name="kpiaccumulator"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#kpi-saving-a-name-saving-a" id="id4">KPI saving <span class="raw-html-m2r"><a name="saving"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#kpi-caching-a-name-caching-a" id="id5">KPI caching <span class="raw-html-m2r"><a name="caching"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#training-a-name-training-a" id="id6">Training <span class="raw-html-m2r"><a name="training"></a></span></a></p></li>
+</ul>
+</div>
+<div class="section" id="main-concepts-a-name-concepts-a">
+<h2><a class="toc-backref" href="#id1">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a><a class="headerlink" href="#main-concepts-a-name-concepts-a" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">KPI</span></code> (Key Performance Index) evaluation consists of following components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> - main part of the KPI evaluation; it calculates the
+(intermediate) kpi values on inputs sample-wise, e.g. on each iteration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KPIAccumulator</span></code> - accumulates the results from <code class="docutils literal notranslate"><span class="pre">KPIPlugins</span></code> and then combines
+them when the signal comes; signal is the input on key <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> to
+accumulator.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KPISaver</span></code> - used to save the KPI inside of <code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> and <code class="docutils literal notranslate"><span class="pre">KPIAccumulator</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KPICacher</span></code> - used to cache the intermediate results; it is useful in case
+if you don’t want to recalculate the KPI values again.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> is a <code class="docutils literal notranslate"><span class="pre">Nucleotide</span></code> and <code class="docutils literal notranslate"><span class="pre">KPIAccumulator</span></code> is a particular case of
+<code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> and so can be combined using
+common nucleus7 structure - using incoming and generated keys and
+incoming_keys_mapping.
+To save the results, you need to pass savers to <code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> constructor
+(the same with cachers). It can be done using configs.
+This combination is done inside of <code class="docutils literal notranslate"><span class="pre">KPIEvaluator</span></code>, which
+is an instance of <code class="docutils literal notranslate"><span class="pre">GeneHandler</span></code>. So it makes it straightforward to configure and
+to create your own evaluation!</p>
+</div>
+<div class="section" id="kpiplugin-a-name-kpiplugin-a">
+<h2><a class="toc-backref" href="#id2">KPIPlugin <span class="raw-html-m2r"><a name="kpiplugin"></a></span></a><a class="headerlink" href="#kpiplugin-a-name-kpiplugin-a" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> has a goal to calculate the (intermediate) KPI values sample-wise
+and has the same structure as other nucleotides:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewKPIPlugin</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">kpi</span><span class="o">.</span><span class="n">KPIPlugin</span><span class="p">):</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;input1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;input2&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;kpi1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kpi2&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kpi1&#39;</span><span class="p">:</span> <span class="n">kpi1</span><span class="p">,</span> <span class="s2">&quot;kpi2&quot;</span><span class="p">:</span> <span class="n">kpi2</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+<p>So the main method to override is <code class="docutils literal notranslate"><span class="pre">process</span></code>, which takes kwargs with keys as
+incoming_keys and results to dict with generated_keys as keys and corresponding
+kpi values. The only difference is that the inputs here are provided as
+sample inputs and <strong>NOT BATCHES</strong>, so first dimension is already data dimension
+and not batch.</p>
+</div>
+<div class="section" id="kpiaccumulator-a-name-kpiaccumulator-a">
+<h2><a class="toc-backref" href="#id3">KPIAccumulator <span class="raw-html-m2r"><a name="kpiaccumulator"></a></span></a><a class="headerlink" href="#kpiaccumulator-a-name-kpiaccumulator-a" title="Permalink to this headline">¶</a></h2>
+<p>After some values are calculated on all samples, we need to accumulate them and
+then combine to real KPI values, e.g. using mean values. For these purposes
+the <cite>KPIAccumulator``</cite></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewKPIAccumulator</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">kpi</span><span class="o">.</span><span class="n">KPIAccumulator</span><span class="p">):</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;input1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;input2&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;kpi1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kpi2&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">accumulate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_accumulated_states</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">each_key</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_accumulated_states</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kpi1&#39;</span><span class="p">:</span> <span class="n">kpi1</span><span class="p">,</span> <span class="s2">&quot;kpi2&quot;</span><span class="p">:</span> <span class="n">kpi2</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">output</span>
+
+    <span class="k">def</span> <span class="nf">evaluate_on_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">evaluate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">accumulate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                           <span class="n">prefix</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>So when the inputs are coming to <code class="docutils literal notranslate"><span class="pre">KPIAccumulator</span></code>, they are first accumulated
+to inner state. After, when passed <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> kwarg evaluates to True, it will
+pass the accumulated state to <code class="docutils literal notranslate"><span class="pre">self.process</span></code>. So you need to override this
+method to process the inputs. Inputs is the dict with incoming_keys keys and
+values as list with each item in format passed to accumulate method.</p>
+</div>
+<div class="section" id="kpi-saving-a-name-saving-a">
+<h2><a class="toc-backref" href="#id4">KPI saving <span class="raw-html-m2r"><a name="saving"></a></span></a><a class="headerlink" href="#kpi-saving-a-name-saving-a" title="Permalink to this headline">¶</a></h2>
+<p>To save the KPI, you need to pass the saver to <code class="docutils literal notranslate"><span class="pre">KPIPlugin</span></code> / <code class="docutils literal notranslate"><span class="pre">KPIAccumulator</span></code>
+constructor. The saver should inherit from <code class="docutils literal notranslate"><span class="pre">KPISaver</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewKPISaver</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">kpi</span><span class="o">.</span><span class="n">KPISaver</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">save_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_save_target</span>
+
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>So <code class="docutils literal notranslate"><span class="pre">save_target</span></code> can be set using constructor or it will be set by Coordinator
+as results directory. But it may be also not a directory, but a address etc.
+During training, the Saver to tensorboard (as tensorflow summaries) will be
+automatically generated by Trainer. But if you want to have the values logged
+to <code class="docutils literal notranslate"><span class="pre">mlflow</span></code>, you need to add the <code class="docutils literal notranslate"><span class="pre">MlflowKPILogger</span></code> to your configs.</p>
+</div>
+<div class="section" id="kpi-caching-a-name-caching-a">
+<h2><a class="toc-backref" href="#id5">KPI caching <span class="raw-html-m2r"><a name="caching"></a></span></a><a class="headerlink" href="#kpi-caching-a-name-caching-a" title="Permalink to this headline">¶</a></h2>
+<p>You can save some time on evaluation of the same KPI if you cache it. For it
+you can use <code class="docutils literal notranslate"><span class="pre">KPICacher</span></code> objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewKPICacher</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">kpi</span><span class="o">.</span><span class="n">KPICacher</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cache_target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_target</span>
+
+    <span class="k">def</span> <span class="nf">calculate_hash</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">cache_prefix</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">inputs_hash</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_hash</span> <span class="o">=</span> <span class="n">inputs_hash</span>
+
+    <span class="k">def</span> <span class="nf">cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">restore</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>To cache the values, you first need to override <code class="docutils literal notranslate"><span class="pre">calculate_hash</span></code> method.
+Afterwards you can cathe the calculated values using overridden <code class="docutils literal notranslate"><span class="pre">cache</span></code> method
+and restore with overridden <code class="docutils literal notranslate"><span class="pre">restore</span></code>. It has the <code class="docutils literal notranslate"><span class="pre">cache_target</span></code> attribute,
+which can be set manually or will be set by Coordinator
+(same as for <code class="docutils literal notranslate"><span class="pre">KPISaver</span></code>). <code class="docutils literal notranslate"><span class="pre">cache_prefix</span></code> is the key that specifies this set of
+inputs.</p>
+</div>
+<div class="section" id="training-a-name-training-a">
+<h2><a class="toc-backref" href="#id6">Training <span class="raw-html-m2r"><a name="training"></a></span></a><a class="headerlink" href="#training-a-name-training-a" title="Permalink to this headline">¶</a></h2>
+<p>During the training, the <code class="docutils literal notranslate"><span class="pre">KPIEvaluator</span></code> will be converted to
+<code class="docutils literal notranslate"><span class="pre">CoordinatorCallback</span></code> and then to <code class="docutils literal notranslate"><span class="pre">SessionRunHook</span></code>. This will allow to execute
+it using <code class="docutils literal notranslate"><span class="pre">Estimator</span> <span class="pre">API</span></code>. Also internal states of all <code class="docutils literal notranslate"><span class="pre">KPIAccumulators</span></code> will
+be cleared each epoch and the evaluation will be triggered on last sample in
+last iteration for <code class="docutils literal notranslate"><span class="pre">KPIAccumulators</span></code> automatically (this is also the case with
+inference / kpi evaluation).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Development.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Optimization.html" class="btn btn-neutral float-left" title="Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

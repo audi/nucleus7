@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data handling &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Model parts" href="Model.html" />
+    <link rel="prev" title="Nucleotide and co." href="Core.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#feeding-the-data">Feeding the data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#filelist-a-name-file-list-a">FileList <span class="raw-html-m2r"><a name="file-list"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-a-name-dataset-a">Dataset <span class="raw-html-m2r"><a name="dataset"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#datasetfilelist-a-name-dataset-file-list-a">DatasetFileList <span class="raw-html-m2r"><a name="dataset-file-list"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datasettfrecords-a-name-dataset-tfrecords-a">DatasetTfRecords <span class="raw-html-m2r"><a name="dataset-tfrecords"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datasetmix-a-name-dataset-mix-a">DatasetMix <span class="raw-html-m2r"><a name="dataset-mix"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#datafeeder-a-name-datafeeder-a">DataFeeder <span class="raw-html-m2r"><a name="datafeeder"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#datafeederfilelist-a-name-datafeeder-file-list-a">DataFeederFileList <span class="raw-html-m2r"><a name="datafeeder-file-list"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#alternative-data-pipeline-a-name-alternative-data-pipeline-a">Alternative data pipeline <span class="raw-html-m2r"><a name="alternative-data-pipeline"></a></span></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#datareader-a-name-data-reader-a">DataReader <span class="raw-html-m2r"><a name="data-reader"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tfrecordsdatareader-a-name-tfrecords-data-reader-a">TfRecordsDataReader <span class="raw-html-m2r"><a name="tfrecords-data-reader"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dataprocessor-a-name-data-processor-a">DataProcessor <span class="raw-html-m2r"><a name="data-processor"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#randomaugmentationtf-a-name-random-augmentatio-a">RandomAugmentationTf <span class="raw-html-m2r"><a name="random-augmentatio"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datapipe-a-name-data-pipe-a">DataPipe <span class="raw-html-m2r"><a name="data-pipe"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dataset-as-datapipe-a-name-dataset-as-data-pipe-a">Dataset as DataPipe <span class="raw-html-m2r"><a name="dataset-as-data-pipe"></a></span></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#datafeeder-as-datapipe-a-name-datafeeder-as-data-pipe-a">DataFeeder as DataPipe <span class="raw-html-m2r"><a name="datafeeder-as-data-pipe"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#datafilter-a-name-data-filter-a">DataFilter <span class="raw-html-m2r"><a name="data-filter"></a></span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Data handling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/DataHandling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-handling">
+<h1>Data handling<a class="headerlink" href="#data-handling" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#feeding-the-data" id="id1">Feeding the data</a></p>
+<ul>
+<li><p><a class="reference internal" href="#filelist-a-name-file-list-a" id="id2">FileList <span class="raw-html-m2r"><a name="file-list"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#dataset-a-name-dataset-a" id="id3">Dataset <span class="raw-html-m2r"><a name="dataset"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#datafeeder-a-name-datafeeder-a" id="id4">DataFeeder <span class="raw-html-m2r"><a name="datafeeder"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#alternative-data-pipeline-a-name-alternative-data-pipeline-a" id="id5">Alternative data pipeline <span class="raw-html-m2r"><a name="alternative-data-pipeline"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#datafilter-a-name-data-filter-a" id="id6">DataFilter <span class="raw-html-m2r"><a name="data-filter"></a></span></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="feeding-the-data">
+<h2><a class="toc-backref" href="#id1">Feeding the data</a><a class="headerlink" href="#feeding-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Inside of <em>nucleus7</em>, data is handled in different ways for training and
+inference. So <em>Trainer</em> receives inputs from <em>Dataset</em>, where samples are
+prefetched in separate thread using <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> and then feeded through
+<code class="docutils literal notranslate"><span class="pre">tf.data.Iterator</span></code> to model, where <em>Inferer</em> uses classical way - it has
+placeholder nodes and data is feeded using seed_dict itself
+(so no prefetching / buffering is performed).</p>
+<div class="section" id="filelist-a-name-file-list-a">
+<h3><a class="toc-backref" href="#id2">FileList <span class="raw-html-m2r"><a name="file-list"></a></span></a><a class="headerlink" href="#filelist-a-name-file-list-a" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">FileList</span></code> is an object to handle the file names:</p>
+<ul class="simple">
+<li><p>match them</p></li>
+<li><p>perform initial shuffle</p></li>
+<li><p>downsample them, e.g. select every 10th</p></li>
+<li><p>shuffle it</p></li>
+<li><p>sort them</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p>Provided file lists, e.g. <code class="docutils literal notranslate"><span class="pre">nc7.data.FileList</span></code> and
+<code class="docutils literal notranslate"><span class="pre">nc7.data.FileListExtendedMatch</span></code> are already enough for most of the situations,
+but if you want to have the different file names structure, then you can
+override following methods (if you do not override <code class="docutils literal notranslate"><span class="pre">sort_fn</span></code> method, it’s sort
+pattern will be the same as match pattern):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewFileList</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">FileList</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">match_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">match_pattern</span>
+
+    <span class="k">def</span> <span class="nf">sort_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">sort_pattern</span>
+</pre></div>
+</div>
+<p>As a bonus: the generated file names are saved to project artifacts
+automatically :)</p>
+</div>
+<div class="section" id="dataset-a-name-dataset-a">
+<h3><a class="toc-backref" href="#id3">Dataset <span class="raw-html-m2r"><a name="dataset"></a></span></a><a class="headerlink" href="#dataset-a-name-dataset-a" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="dataset.py">**Dataset**</a> class is used to get data and feed it to training model.
+It does use <code class="docutils literal notranslate"><span class="pre">tf.train.Dataset</span></code> under the hood.</p>
+<p>It is also a <em>Nucleotide</em>, but you need to define generated_keys only,
+as it does not have any successor nodes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDataset</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;keys to generate&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>The whole magic of the <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> is done under the hood - you only need to
+override the <code class="docutils literal notranslate"><span class="pre">create_initial_data</span></code> method (you need to return the
+<code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> object, where you have dict of data),
+where you define how to create one sample of the dataset!</p>
+<p>Magic is following:</p>
+<ul class="simple">
+<li><p>generate data using the <code class="docutils literal notranslate"><span class="pre">create_initial_data</span></code> method</p></li>
+<li><p>shuffle the dataset if needed</p></li>
+<li><p>repeat it</p></li>
+<li><p>prefetch it to memory</p></li>
+<li><p>cache to the disk if needed</p></li>
+<li><p>combine to batch</p></li>
+</ul>
+<p>This generic class is there to allow to feed different data
+(like generate data on the fly or take if from some RL environment),
+but it is not so interesting for common tasks, where you need to read the data
+from files. For it see <a class="reference external" href="#dataset-file-list">next</a>.</p>
+<div class="section" id="datasetfilelist-a-name-dataset-file-list-a">
+<h4>DatasetFileList <span class="raw-html-m2r"><a name="dataset-file-list"></a></span><a class="headerlink" href="#datasetfilelist-a-name-dataset-file-list-a" title="Permalink to this headline">¶</a></h4>
+<p>If you want to read the data from file pairs (e.g. image file and label file),
+you need 2 things:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FileList</span></code> object</p></li>
+<li><p>implement logic how to read that data</p></li>
+</ul>
+<p>And this is what the <strong>DatasetFileList</strong> handles:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDatasetFileList</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DatasetFileList</span><span class="p">):</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;list of file list keys that this dataset can handle&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;keys to generate&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">read_raw_data_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">sample_fnames</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>So you need to overwrite the <code class="docutils literal notranslate"><span class="pre">read_raw_data_from_file</span></code> method,
+which takes dict of file name pairs for one sample as kwargs with keys
+from <code class="docutils literal notranslate"><span class="pre">file_list_keys</span></code> and returns the dict of the tensorflow tensors out of it.
+You even don’t need to create a <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> object - it will be created
+for you from the data you return.</p>
+</div>
+<div class="section" id="datasettfrecords-a-name-dataset-tfrecords-a">
+<h4>DatasetTfRecords <span class="raw-html-m2r"><a name="dataset-tfrecords"></a></span><a class="headerlink" href="#datasettfrecords-a-name-dataset-tfrecords-a" title="Permalink to this headline">¶</a></h4>
+<p>This is the extension to handle the tfrecords data format. tfrecords is
+preferred over reading the single raw files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+
+<span class="k">class</span> <span class="nc">NewDatasetTfRecords</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DatasetTfRecords</span><span class="p">):</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;list of file list keys that this dataset can handle&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;keys to generate&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_tfrecords_features</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">features</span>
+
+    <span class="k">def</span> <span class="nf">get_tfrecords_output_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">postprocess_tfrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>Basically you need to override the <code class="docutils literal notranslate"><span class="pre">get_tfrecords_features</span></code> method to decode
+tfrecords features from the tfrecord files and if the output types are not
+clear afterwards, override <code class="docutils literal notranslate"><span class="pre">get_tfrecords_output_types</span></code> method.
+You can also perform some posptocessing, e.g. renaming the keys etc.
+inside of the <code class="docutils literal notranslate"><span class="pre">postprocess_tfrecords</span></code> method.</p>
+</div>
+<div class="section" id="datasetmix-a-name-dataset-mix-a">
+<h4>DatasetMix <span class="raw-html-m2r"><a name="dataset-mix"></a></span><a class="headerlink" href="#datasetmix-a-name-dataset-mix-a" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">DatasetMix</span></code> adds the functionality to combine different datasets also with
+different features. You do not need to inherit it, just use the datasets you
+want ald provide them to constructor of <code class="docutils literal notranslate"><span class="pre">DatasetMix</span></code> with also possible
+sampling weights. It will sample with that probability samples from all the
+datasets and then combine then to a batch. For inference, it will sample the
+samples equally from all datasets.</p>
+<p>if you want to use different Datasets on the same bunch of data,
+you need to provide the same <code class="docutils literal notranslate"><span class="pre">FileList</span></code>s to that datasets and so automatically
+it will try to merge the data for all the samples. See <code class="docutils literal notranslate"><span class="pre">DatasetMix</span></code> docs for
+more information.</p>
+</div>
+</div>
+<div class="section" id="datafeeder-a-name-datafeeder-a">
+<h3><a class="toc-backref" href="#id4">DataFeeder <span class="raw-html-m2r"><a name="datafeeder"></a></span></a><a class="headerlink" href="#datafeeder-a-name-datafeeder-a" title="Permalink to this headline">¶</a></h3>
+<p>As it stays in the name, it ‘feeds’ the data directly to the model placeholders.</p>
+<p>As <em>Dataset</em>, it is also a <em>Nucleotide</em> and you need to define generated_keys
+only and it has slightly different inheritance structure, too:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDataFeeder</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataFeeder</span><span class="p">):</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;keys to generate&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">build_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">generator</span>
+</pre></div>
+</div>
+<p>Same as <em>Dataset</em>, batching should be identical for all data types.
+So you need to implement only function to generate the data - <code class="docutils literal notranslate"><span class="pre">build_generator</span></code>
+, which should create a data generator, as it may be bad idea to store all of
+the inputs in the memory :)</p>
+<p>Also as <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>, this generic class is there mostly as an interface.</p>
+<div class="section" id="datafeederfilelist-a-name-datafeeder-file-list-a">
+<h4>DataFeederFileList <span class="raw-html-m2r"><a name="datafeeder-file-list"></a></span><a class="headerlink" href="#datafeederfilelist-a-name-datafeeder-file-list-a" title="Permalink to this headline">¶</a></h4>
+<p>This feeder allows to read the data from file name and feed it to the model
+placeholders:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDataFeeder</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataFeederFileList</span><span class="p">):</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;list of file list keys that this dataset can handle&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;keys to generate&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">read_element_from_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fnames</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">read_data</span>
+</pre></div>
+</div>
+<p>So you need to override just one method is how to read the file names and create
+the dict of sample</p>
+</div>
+</div>
+<div class="section" id="alternative-data-pipeline-a-name-alternative-data-pipeline-a">
+<h3><a class="toc-backref" href="#id5">Alternative data pipeline <span class="raw-html-m2r"><a name="alternative-data-pipeline"></a></span></a><a class="headerlink" href="#alternative-data-pipeline-a-name-alternative-data-pipeline-a" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="datareader-a-name-data-reader-a">
+<h4>DataReader <span class="raw-html-m2r"><a name="data-reader"></a></span><a class="headerlink" href="#datareader-a-name-data-reader-a" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">DataReader</span></code> is an interface to read a sample from file names or to generate it.
+Files to read will be provided and so it allows to have multiple readers
+attached to the same file pairs. It has following interface:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDataReader</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">):</span>
+    <span class="n">is_tensorflow</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># if it should be used for the training or False otherwise</span>
+
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">fnames</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">data_from_file_names</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">is_training</span></code> is a class attribute, which specified if this particular
+implementation is tensorflow implementation, e.g. can be used to apply on
+<code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> or can be used only for inference like projects.</p>
+<p>Also <code class="docutils literal notranslate"><span class="pre">DataReaders</span></code> are not allowed to have any inbound nodes - this should
+generate data from file names or from the seed.</p>
+</div>
+<div class="section" id="tfrecordsdatareader-a-name-tfrecords-data-reader-a">
+<h4>TfRecordsDataReader <span class="raw-html-m2r"><a name="tfrecords-data-reader"></a></span><a class="headerlink" href="#tfrecordsdatareader-a-name-tfrecords-data-reader-a" title="Permalink to this headline">¶</a></h4>
+<p>For the training, it is more straightforward to extract all the available data
+to tfrecord files and then read only what is needed. For it, there is a
+<code class="docutils literal notranslate"><span class="pre">DataReaderTfRecords</span></code> interface (is similar to the <code class="docutils literal notranslate"><span class="pre">DatasetTfRecords</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDataReaderTfRecords</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TfRecordsDataReader</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get_tfrecords_features</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="o">...</span>
+        <span class="k">return</span> <span class="n">features</span>
+
+    <span class="k">def</span> <span class="nf">get_tfrecords_output_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">postprocess_tfrecords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+<p>Before, the <code class="docutils literal notranslate"><span class="pre">tf.data.TFRecordDataset</span></code> will be generated and so <code class="docutils literal notranslate"><span class="pre">self.read</span></code>
+method will be mapped on the tfrecords dataset, which allows to have multiple
+readers from the same tfrecord file.</p>
+</div>
+<div class="section" id="dataprocessor-a-name-data-processor-a">
+<h4>DataProcessor <span class="raw-html-m2r"><a name="data-processor"></a></span><a class="headerlink" href="#dataprocessor-a-name-data-processor-a" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> is an interface to process the data. It is different to
+<code class="docutils literal notranslate"><span class="pre">DataReader</span></code> in that, that it takes results from <code class="docutils literal notranslate"><span class="pre">DataReaders</span></code> and modifies
+them. It works also sample-wise, e.g. <strong>not</strong> on the batched data!.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewDataProcessor</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataProcessor</span><span class="p">):</span>
+    <span class="n">is_tensorflow</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># if it should be used for the training or False otherwise</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="randomaugmentationtf-a-name-random-augmentatio-a">
+<h4>RandomAugmentationTf <span class="raw-html-m2r"><a name="random-augmentatio"></a></span><a class="headerlink" href="#randomaugmentationtf-a-name-random-augmentatio-a" title="Permalink to this headline">¶</a></h4>
+<p>This <code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code> is used to apply random augmentations and stack them
+together. In addition it can be used to generate random data during
+training / evaluation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewRandomAugmentation</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">RandomAugmentationTf</span><span class="p">):</span>
+    <span class="n">random_variables_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;noise&quot;</span><span class="p">,</span> <span class="s2">&quot;other_random_var&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">augmentation_probability</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;noise&quot;</span><span class="p">]</span>
+        <span class="n">other_random_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_variables</span><span class="p">[</span><span class="s2">&quot;other_random_var&quot;</span><span class="p">]</span>
+        <span class="n">augmented_result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">augmented_result</span>
+
+    <span class="k">def</span> <span class="nf">not_augment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">inputs</span>
+
+    <span class="k">def</span> <span class="nf">create_random_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;noise&quot;</span><span class="p">:</span> <span class="n">tf_random</span><span class="p">,</span>
+                <span class="s2">&quot;other_random_var&quot;</span><span class="p">:</span> <span class="n">tf_random</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The augmentation flag controls whether the augmentation is applied.
+If the augmentation flag evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> then <code class="docutils literal notranslate"><span class="pre">augment(...)</span></code> is called,
+otherwise <code class="docutils literal notranslate"><span class="pre">not_augment(...)</span></code> is called.
+The augmentation flag can be set in 2 ways:</p>
+<ol class="arabic simple">
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">augmentation_probability</span></code> to the constructor.
+The augmentation flag is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> with probability
+<code class="docutils literal notranslate"><span class="pre">augmentation_probability</span></code>. <code class="docutils literal notranslate"><span class="pre">augmentation_probability</span></code> is overridden by the
+<code class="docutils literal notranslate"><span class="pre">augment</span></code> key if provided (see 2).</p></li>
+<li><p>Provide the tf.bool <code class="docutils literal notranslate"><span class="pre">augment</span></code> key. If provided, this overrides the
+<code class="docutils literal notranslate"><span class="pre">augmentation_probability</span></code> parameter.
+This allows chained augmentations, i.e. use the same augmentation flag value
+for multiple augmentations.
+Concretely, a <code class="docutils literal notranslate"><span class="pre">RandomAugmentationTf</span></code> outputs the augmentation flag value in the
+<code class="docutils literal notranslate"><span class="pre">augment</span></code> key. This key is then passed to the next <code class="docutils literal notranslate"><span class="pre">RandomAugmentationTf</span></code>
+as the <code class="docutils literal notranslate"><span class="pre">augment</span></code> incoming key, overriding any passed <code class="docutils literal notranslate"><span class="pre">augmentation_probability</span></code>.</p></li>
+</ol>
+<p>Random variables can also be chained. To do so, define their keys inside the
+<code class="docutils literal notranslate"><span class="pre">random_variables_keys</span></code> class attribute and define how to
+generate them inside <code class="docutils literal notranslate"><span class="pre">create_random_variables()</span></code>. These variables will be used,
+if provided on instantiation, otherwise they will be generated
+(as defined in <code class="docutils literal notranslate"><span class="pre">create_random_variables()</span></code>) and passed further as
+generated keys. To access the variables inside <code class="docutils literal notranslate"><span class="pre">augment(...)</span></code>,
+use <code class="docutils literal notranslate"><span class="pre">self.random_variables[random_varialble_key]</span></code>.</p>
+</div>
+<div class="section" id="datapipe-a-name-data-pipe-a">
+<h4>DataPipe <span class="raw-html-m2r"><a name="data-pipe"></a></span><a class="headerlink" href="#datapipe-a-name-data-pipe-a" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> is a container to hold all the <code class="docutils literal notranslate"><span class="pre">DataReaders</span></code> and <code class="docutils literal notranslate"><span class="pre">DataProcessors</span></code>
+and to create the whole pipeline. It is built automatically and has no other
+constructor parameters. It also checks if provided components can be combined:</p>
+<ul class="simple">
+<li><p>All components should be either tensorflow or not tensorflow components.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">DataReaders</span></code> should be tfrecords readers or not tfrecord readers.</p></li>
+</ul>
+</div>
+<div class="section" id="dataset-as-datapipe-a-name-dataset-as-data-pipe-a">
+<h4>Dataset as DataPipe <span class="raw-html-m2r"><a name="dataset-as-data-pipe"></a></span><a class="headerlink" href="#dataset-as-datapipe-a-name-dataset-as-data-pipe-a" title="Permalink to this headline">¶</a></h4>
+<p>If the <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> is a tensorflow pipeline, it is possible to create <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>
+out of it directly. Difference is that if dataset has a <code class="docutils literal notranslate"><span class="pre">FileList</span></code> inside, first
+<code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> from file list will be generated (or tfrecords dataset) and
+then the <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> will be mapped onto it. Afterwards the dataset will be
+batched etc. as in original <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>.</p>
+<p>Mapping of <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> component results in form
+{component_name: component_results} can be remapped to <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>
+generated keys using <code class="docutils literal notranslate"><span class="pre">output_keys_mapping</span></code>.</p>
+</div>
+<div class="section" id="datafeeder-as-datapipe-a-name-datafeeder-as-data-pipe-a">
+<h4>DataFeeder as DataPipe <span class="raw-html-m2r"><a name="datafeeder-as-data-pipe"></a></span><a class="headerlink" href="#datafeeder-as-datapipe-a-name-datafeeder-as-data-pipe-a" title="Permalink to this headline">¶</a></h4>
+<p>If the <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> is a non-tensorflow pipeline, it is possible to create
+<code class="docutils literal notranslate"><span class="pre">DataFeeder</span></code> out of it directly.
+Difference is that if data feeder has a <code class="docutils literal notranslate"><span class="pre">FileList</span></code> inside, first
+generator from file list will be generated and
+then the <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> will be applied to it. Afterwards the data will be
+batched etc. as in original <code class="docutils literal notranslate"><span class="pre">DataFeeder</span></code>.</p>
+<p>Mapping of <code class="docutils literal notranslate"><span class="pre">DataPipe</span></code> component results in form
+{component_name: component_results} can be remapped to <code class="docutils literal notranslate"><span class="pre">DataFeeder</span></code>
+generated keys using <code class="docutils literal notranslate"><span class="pre">output_keys_mapping</span></code>.</p>
+</div>
+</div>
+<div class="section" id="datafilter-a-name-data-filter-a">
+<h3><a class="toc-backref" href="#id6">DataFilter <span class="raw-html-m2r"><a name="data-filter"></a></span></a><a class="headerlink" href="#datafilter-a-name-data-filter-a" title="Permalink to this headline">¶</a></h3>
+<p>If you want to filter the data inside of any data module object, like
+<code class="docutils literal notranslate"><span class="pre">FileList</span></code>, <code class="docutils literal notranslate"><span class="pre">DataFeeder</span></code>, <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>, <code class="docutils literal notranslate"><span class="pre">DataExtractor</span></code>, you can use
+<code class="docutils literal notranslate"><span class="pre">DataFilter</span></code> for it. For it you need just to override one method:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">OddIndexSelector</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataFilter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">predicate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="o">**</span><span class="n">other_inputs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span>
+
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="n">dataset</span><span class="o">.</span><span class="n">add_data_filter</span><span class="p">(</span><span class="n">OddIndexSelector</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If you include this filter to your Dataset, it will filter only samples,
+that have odd index key. Please note, that it is possible to use ths same
+<code class="docutils literal notranslate"><span class="pre">DataFilter</span></code> in different classes, but you need to make sure, that
+implementation works on tf tensors if you want to use it inside of
+<code class="docutils literal notranslate"><span class="pre">Dataset</span></code>.</p>
+<p>If you want to remap inputs from object that uses DataFilter, e.g. from Dataset
+or DataFeeder to filter predicate method, use <code class="docutils literal notranslate"><span class="pre">predicate_keys_mapping</span></code> argument.</p>
+<p>It is also possible to have multiple filters, which will act as AND
+filters.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Model.html" class="btn btn-neutral float-right" title="Model parts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Core.html" class="btn btn-neutral float-left" title="Nucleotide and co." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

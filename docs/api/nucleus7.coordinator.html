@@ -1,0 +1,2116 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator package &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nucleus7.core package" href="nucleus7.core.html" />
+    <link rel="prev" title="nucleus7.builders package" href="nucleus7.builders.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">nucleus7.coordinator package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.buffer_callback">nucleus7.coordinator.buffer_callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.callback">nucleus7.coordinator.callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.callbacks_handler">nucleus7.coordinator.callbacks_handler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.configs">nucleus7.coordinator.configs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.coordinator">nucleus7.coordinator.coordinator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.exporters">nucleus7.coordinator.exporters module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.inferer">nucleus7.coordinator.inferer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.predictors">nucleus7.coordinator.predictors module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.saver_callback">nucleus7.coordinator.saver_callback module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.session_run_hooks">nucleus7.coordinator.session_run_hooks module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator.trainer">nucleus7.coordinator.trainer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-nucleus7.coordinator">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/nucleus7.coordinator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nucleus7-coordinator-package">
+<h1>nucleus7.coordinator package<a class="headerlink" href="#nucleus7-coordinator-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-nucleus7.coordinator.buffer_callback">
+<span id="nucleus7-coordinator-buffer-callback-module"></span><h2>nucleus7.coordinator.buffer_callback module<a class="headerlink" href="#module-nucleus7.coordinator.buffer_callback" title="Permalink to this headline">¶</a></h2>
+<p>Buffer Callback</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.buffer_callback.</code><code class="sig-name descname">BufferCallback</code><span class="sig-paren">(</span><em class="sig-param">buffer_processor: Optional[nucleus7.core.buffer.BufferProcessor] = None</em>, <em class="sig-param">clear_buffer_after_evaluate: bool = True</em>, <em class="sig-param">not_batch_keys: Optional[list] = None</em>, <em class="sig-param">**kpi_plugin_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/buffer_callback.html#BufferCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.coordinator.callback.CoordinatorCallback" title="nucleus7.coordinator.callback.CoordinatorCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.callback.CoordinatorCallback</span></code></a></p>
+<p>Callback that uses buffer to store the inputs and then when it needs to
+be retrieved, it processes the buffer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer_processor</strong> – buffer processor to use</p></li>
+<li><p><strong>clear_buffer_after_evaluate</strong> – flag if the buffer should be cleared after it was processed</p></li>
+<li><p><strong>not_batch_keys</strong> – keys to exclude from input batch split; that keys will be added to all
+the sample inputs</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback.buffer">
+<em class="property">property </em><code class="sig-name descname">buffer</code><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback.buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: buffer
+:rtype: buffer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback.end">
+<code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/buffer_callback.html#BufferCallback.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called at the end of the run, e.g. when tensorflow
+session is already closed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['evaluate']</em><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">evaluate=None</em>, <em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/buffer_callback.html#BufferCallback.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.buffer_callback.BufferCallback.process_buffer">
+<em class="property">abstract </em><code class="sig-name descname">process_buffer</code><span class="sig-paren">(</span><em class="sig-param">**buffer_data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/buffer_callback.html#BufferCallback.process_buffer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.buffer_callback.BufferCallback.process_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to process the accumulated buffer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer_data</strong> – data from buffer</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>summarized data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>summarized_data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.callback">
+<span id="nucleus7-coordinator-callback-module"></span><h2>nucleus7.coordinator.callback module<a class="headerlink" href="#module-nucleus7.coordinator.callback" title="Permalink to this headline">¶</a></h2>
+<p>Interface for callbacks inside of coordinator</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.callback.</code><code class="sig-name descname">CoordinatorCallback</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">inbound_nodes</em>, <em class="sig-param">name=None</em>, <em class="sig-param">incoming_keys_mapping=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callback.html#CoordinatorCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.Nucleotide" title="nucleus7.core.nucleotide.Nucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.Nucleotide</span></code></a></p>
+<p>Interface for callback used with coordinator</p>
+<dl class="attribute">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.begin">
+<code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callback.html#CoordinatorCallback.begin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is be called before the main run, e.g. before tensorflow
+session is created</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.end">
+<code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callback.html#CoordinatorCallback.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called at the end of the run, e.g. when tensorflow
+session is already closed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.iteration_info">
+<em class="property">property </em><code class="sig-name descname">iteration_info</code><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.iteration_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iteration info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>iteration info</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>iteration_info</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.log_dir">
+<em class="property">property </em><code class="sig-name descname">log_dir</code><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.log_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log directory for callback</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to log directory</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>log_dir</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.number_iterations_per_epoch">
+<em class="property">property </em><code class="sig-name descname">number_iterations_per_epoch</code><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.number_iterations_per_epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of iterations per epoch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of iterations per epoch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number_iterations_per_epoch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.on_iteration_end">
+<em class="property">abstract </em><code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callback.html#CoordinatorCallback.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.on_iteration_start">
+<code class="sig-name descname">on_iteration_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callback.html#CoordinatorCallback.on_iteration_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.on_iteration_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called before each iteration</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'callback'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.summary_step">
+<em class="property">property </em><code class="sig-name descname">summary_step</code><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.summary_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current summary step</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>summary step</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>summary_step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callback.CoordinatorCallback.summary_writer">
+<em class="property">property </em><code class="sig-name descname">summary_writer</code><a class="headerlink" href="#nucleus7.coordinator.callback.CoordinatorCallback.summary_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary writer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>summary writer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>summary_writer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.callbacks_handler">
+<span id="nucleus7-coordinator-callbacks-handler-module"></span><h2>nucleus7.coordinator.callbacks_handler module<a class="headerlink" href="#module-nucleus7.coordinator.callbacks_handler" title="Permalink to this headline">¶</a></h2>
+<p>Interface for Callback handler</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.callbacks_handler.</code><code class="sig-name descname">CallbacksHandler</code><span class="sig-paren">(</span><em class="sig-param">callbacks: Union[List[nucleus7.coordinator.callback.CoordinatorCallback], Dict[str, nucleus7.coordinator.callback.CoordinatorCallback], nucleus7.coordinator.callback.CoordinatorCallback]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callbacks_handler.html#CallbacksHandler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.gene_handler.GeneHandler" title="nucleus7.core.gene_handler.GeneHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.gene_handler.GeneHandler</span></code></a></p>
+<p>Interface to hold the collection of callbacks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>callbacks</strong> – collection of callbacks</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.begin">
+<code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callbacks_handler.html#CallbacksHandler.begin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is be called before the tensorflow session is generated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.end">
+<code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callbacks_handler.html#CallbacksHandler.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called when tensorflow session is closed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.filter_inputs">
+<code class="sig-name descname">filter_inputs</code><span class="sig-paren">(</span><em class="sig-param">inputs: dict</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="../_modules/nucleus7/coordinator/callbacks_handler.html#CallbacksHandler.filter_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.filter_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter the inputs by inbound nodes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – all inputs</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>inputs with only keys from inbound_nodes</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>inputs_filtered_by_inbound_nodes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.gene_name_and_nucleotide_super_cls">
+<code class="sig-name descname">gene_name_and_nucleotide_super_cls</code><em class="property"> = {'callbacks': &lt;class 'nucleus7.coordinator.callback.CoordinatorCallback'&gt;}</em><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.gene_name_and_nucleotide_super_cls" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.iteration_info">
+<em class="property">property </em><code class="sig-name descname">iteration_info</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.iteration_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iteration info</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>iteration info</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>iteration_info</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.kpi_evaluators">
+<em class="property">property </em><code class="sig-name descname">kpi_evaluators</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.kpi_evaluators" title="Permalink to this definition">¶</a></dt>
+<dd><p>KPI Evaluator callbacks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of callbacks with kpi evaluator inside</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>evaluator_callbacks</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.kpi_evaluators_dna_helices">
+<em class="property">property </em><code class="sig-name descname">kpi_evaluators_dna_helices</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.kpi_evaluators_dna_helices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the dna helices for kpi evaluators if they exist</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict with mapping kpi evaluator name to its dna helix</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>kpi_evaluators_dna_helices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.log_dir">
+<em class="property">property </em><code class="sig-name descname">log_dir</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.log_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log directory for callback</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>path to log directory</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>log_dir</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the callback handler</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>name of the handler</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.nucleotide_type_dependency_map">
+<code class="sig-name descname">nucleotide_type_dependency_map</code><em class="property"> = {&lt;class 'nucleus7.coordinator.callback.CoordinatorCallback'&gt;: [&lt;class 'nucleus7.coordinator.callback.CoordinatorCallback'&gt;]}</em><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.nucleotide_type_dependency_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.number_iterations_per_epoch">
+<em class="property">property </em><code class="sig-name descname">number_iterations_per_epoch</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.number_iterations_per_epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of iterations per epoch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>number of iterations per epoch</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>number_iterations_per_epoch</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.on_iteration_start">
+<code class="sig-name descname">on_iteration_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/callbacks_handler.html#CallbacksHandler.on_iteration_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.on_iteration_start" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called before each iteration</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.summary_step">
+<em class="property">property </em><code class="sig-name descname">summary_step</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.summary_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Current summary step</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>summary step</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>summary_step</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.callbacks_handler.CallbacksHandler.summary_writer">
+<em class="property">property </em><code class="sig-name descname">summary_writer</code><a class="headerlink" href="#nucleus7.coordinator.callbacks_handler.CallbacksHandler.summary_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Summary writer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>summary writer</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>summary_writer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.configs">
+<span id="nucleus7-coordinator-configs-module"></span><h2>nucleus7.coordinator.configs module<a class="headerlink" href="#module-nucleus7.coordinator.configs" title="Permalink to this headline">¶</a></h2>
+<p>Configurations used in coordinator</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">InferenceLoadConfig</code><span class="sig-paren">(</span><em class="sig-param">saved_model</em>, <em class="sig-param">meta_graph</em>, <em class="sig-param">checkpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">saved_model</em>, <em class="sig-param">meta_graph</em>, <em class="sig-param">checkpoint</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of InferenceLoadConfig(saved_model, meta_graph, checkpoint)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig.checkpoint">
+<em class="property">property </em><code class="sig-name descname">checkpoint</code><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig.checkpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig.meta_graph">
+<em class="property">property </em><code class="sig-name descname">meta_graph</code><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig.meta_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.InferenceLoadConfig.saved_model">
+<em class="property">property </em><code class="sig-name descname">saved_model</code><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceLoadConfig.saved_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.configs.InferenceRunConfig">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">InferenceRunConfig</code><a class="reference internal" href="../_modules/nucleus7/coordinator/configs.html#InferenceRunConfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.configs.InferenceRunConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.coordinator.configs.InferenceRunConfig" title="nucleus7.coordinator.configs.InferenceRunConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.configs.InferenceRunConfig</span></code></a></p>
+<p>Configuration for inference run</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch_size</strong> – batch size per device</p></li>
+<li><p><strong>postprocessors_to_use</strong> – which postprocessors should be used for predictions; if not provided,
+whole predictions collection will be used</p></li>
+<li><p><strong>random_seed</strong> – graph based random seed for tensorflow graph</p></li>
+<li><p><strong>prefetch_buffer_size</strong> – number of batches to prefetch; must be &gt;= 1</p></li>
+<li><p><strong>use_multiprocessing</strong> – if the multiprocessing must be used for inference, e.g. data prefetching
+in one process, network in other process and callbacks in the third one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">RunIterationInfo</code><span class="sig-paren">(</span><em class="sig-param">epoch_number</em>, <em class="sig-param">iteration_number</em>, <em class="sig-param">execution_time</em>, <em class="sig-param">is_last_iteration</em>, <em class="sig-param">session_run_context</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">epoch_number=-1</em>, <em class="sig-param">iteration_number=-1</em>, <em class="sig-param">execution_time=-1</em>, <em class="sig-param">is_last_iteration=False</em>, <em class="sig-param">session_run_context=None</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of RunIterationInfo(epoch_number, iteration_number, execution_time, is_last_iteration, session_run_context)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.epoch_number">
+<em class="property">property </em><code class="sig-name descname">epoch_number</code><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.epoch_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.execution_time">
+<em class="property">property </em><code class="sig-name descname">execution_time</code><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.execution_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.is_last_iteration">
+<em class="property">property </em><code class="sig-name descname">is_last_iteration</code><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.is_last_iteration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.iteration_number">
+<em class="property">property </em><code class="sig-name descname">iteration_number</code><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.iteration_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.RunIterationInfo.session_run_context">
+<em class="property">property </em><code class="sig-name descname">session_run_context</code><a class="headerlink" href="#nucleus7.coordinator.configs.RunIterationInfo.session_run_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">TensorrtConfig</code><span class="sig-paren">(</span><em class="sig-param">use_tensorrt</em>, <em class="sig-param">max_batch_size</em>, <em class="sig-param">max_workspace_size_bytes</em>, <em class="sig-param">precision_mode</em>, <em class="sig-param">minimum_segment_size</em>, <em class="sig-param">is_dynamic_op</em>, <em class="sig-param">maximum_cached_engines</em>, <em class="sig-param">cached_engine_batch_sizes</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">use_tensorrt</em>, <em class="sig-param">max_batch_size</em>, <em class="sig-param">max_workspace_size_bytes</em>, <em class="sig-param">precision_mode</em>, <em class="sig-param">minimum_segment_size</em>, <em class="sig-param">is_dynamic_op</em>, <em class="sig-param">maximum_cached_engines</em>, <em class="sig-param">cached_engine_batch_sizes</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of TensorrtConfig(use_tensorrt, max_batch_size, max_workspace_size_bytes, precision_mode, minimum_segment_size, is_dynamic_op, maximum_cached_engines, cached_engine_batch_sizes)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.cached_engine_batch_sizes">
+<em class="property">property </em><code class="sig-name descname">cached_engine_batch_sizes</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.cached_engine_batch_sizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 7</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.is_dynamic_op">
+<em class="property">property </em><code class="sig-name descname">is_dynamic_op</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.is_dynamic_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.max_batch_size">
+<em class="property">property </em><code class="sig-name descname">max_batch_size</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.max_batch_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.max_workspace_size_bytes">
+<em class="property">property </em><code class="sig-name descname">max_workspace_size_bytes</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.max_workspace_size_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.maximum_cached_engines">
+<em class="property">property </em><code class="sig-name descname">maximum_cached_engines</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.maximum_cached_engines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.minimum_segment_size">
+<em class="property">property </em><code class="sig-name descname">minimum_segment_size</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.minimum_segment_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.precision_mode">
+<em class="property">property </em><code class="sig-name descname">precision_mode</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.precision_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TensorrtConfig.use_tensorrt">
+<em class="property">property </em><code class="sig-name descname">use_tensorrt</code><a class="headerlink" href="#nucleus7.coordinator.configs.TensorrtConfig.use_tensorrt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">TrainerRunConfig</code><span class="sig-paren">(</span><em class="sig-param">batch_size</em>, <em class="sig-param">devices</em>, <em class="sig-param">random_seed</em>, <em class="sig-param">num_epochs</em>, <em class="sig-param">iterations_per_epoch</em>, <em class="sig-param">variable_strategy</em>, <em class="sig-param">predictions_have_variable_shape</em>, <em class="sig-param">continue_training</em>, <em class="sig-param">profile_hook_config</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">batch_size</em>, <em class="sig-param">devices</em>, <em class="sig-param">random_seed</em>, <em class="sig-param">num_epochs</em>, <em class="sig-param">iterations_per_epoch</em>, <em class="sig-param">variable_strategy</em>, <em class="sig-param">predictions_have_variable_shape</em>, <em class="sig-param">continue_training</em>, <em class="sig-param">profile_hook_config</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of TrainerRunConfig(batch_size, devices, random_seed, num_epochs, iterations_per_epoch, variable_strategy, predictions_have_variable_shape, continue_training, profile_hook_config)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.batch_size">
+<em class="property">property </em><code class="sig-name descname">batch_size</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.batch_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.continue_training">
+<em class="property">property </em><code class="sig-name descname">continue_training</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.continue_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 7</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.devices">
+<em class="property">property </em><code class="sig-name descname">devices</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.iterations_per_epoch">
+<em class="property">property </em><code class="sig-name descname">iterations_per_epoch</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.iterations_per_epoch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.num_epochs">
+<em class="property">property </em><code class="sig-name descname">num_epochs</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.num_epochs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.predictions_have_variable_shape">
+<em class="property">property </em><code class="sig-name descname">predictions_have_variable_shape</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.predictions_have_variable_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.profile_hook_config">
+<em class="property">property </em><code class="sig-name descname">profile_hook_config</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.profile_hook_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 8</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.random_seed">
+<em class="property">property </em><code class="sig-name descname">random_seed</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.random_seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerRunConfig.variable_strategy">
+<em class="property">property </em><code class="sig-name descname">variable_strategy</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerRunConfig.variable_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">TrainerSaveConfig</code><span class="sig-paren">(</span><em class="sig-param">inference_inputs_have_variable_shape</em>, <em class="sig-param">exports_to_keep</em>, <em class="sig-param">save_summary_steps</em>, <em class="sig-param">max_outputs_tb</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a></p>
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.__getnewargs__">
+<code class="sig-name descname">__getnewargs__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.__getnewargs__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self as a plain tuple.  Used by copy and pickle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">inference_inputs_have_variable_shape</em>, <em class="sig-param">exports_to_keep</em>, <em class="sig-param">save_summary_steps</em>, <em class="sig-param">max_outputs_tb</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of TrainerSaveConfig(inference_inputs_have_variable_shape, exports_to_keep, save_summary_steps, max_outputs_tb)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a nicely formatted representation string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.exports_to_keep">
+<em class="property">property </em><code class="sig-name descname">exports_to_keep</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.exports_to_keep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.inference_inputs_have_variable_shape">
+<em class="property">property </em><code class="sig-name descname">inference_inputs_have_variable_shape</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.inference_inputs_have_variable_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.max_outputs_tb">
+<em class="property">property </em><code class="sig-name descname">max_outputs_tb</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.max_outputs_tb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.configs.TrainerSaveConfig.save_summary_steps">
+<em class="property">property </em><code class="sig-name descname">save_summary_steps</code><a class="headerlink" href="#nucleus7.coordinator.configs.TrainerSaveConfig.save_summary_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.configs.create_and_validate_inference_load_config">
+<code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">create_and_validate_inference_load_config</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">saved_model_path: Optional[str] = None</em>, <em class="sig-param">checkpoint_path: Optional[str] = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.configs.InferenceLoadConfig<a class="reference internal" href="../_modules/nucleus7/coordinator/configs.html#create_and_validate_inference_load_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.configs.create_and_validate_inference_load_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate paths provided inside of load_config and convert them
+to relative to the project.</p>
+<p>If no path provided, it will search for saved_models directory inside of
+project_dir and use latest export</p>
+<p>saved_model_path must be relative to project_dir/saved_models folder and
+checkpoint_path must be relative to project_dir/checkpoints folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>saved_model_path</strong> – path to saved model relative to project_dir/saved_models</p></li>
+<li><p><strong>checkpoint_path</strong> – path to .chpt file if saved_model_path was not provided relative to
+project_dir/checkpoints; meta graph will be loadded from the
+project_dir/checkpoints/graph_inference.meta</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>validated instance of load config</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>load_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if both saved model and checkpoint are provided</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.8)"><strong>FileNotFoundError</strong></a> – if provided paths not found or no paths provided and there is no
+    saved_models directory</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.configs.create_and_validate_tensorrt_config">
+<code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">create_and_validate_tensorrt_config</code><span class="sig-paren">(</span><em class="sig-param">use_tensorrt: bool = False</em>, <em class="sig-param">batch_size: Optional[int] = None</em>, <em class="sig-param">max_batch_size: int = 1</em>, <em class="sig-param">max_workspace_size_bytes: int = 1073741824</em>, <em class="sig-param">precision_mode: str = 'FP32'</em>, <em class="sig-param">minimum_segment_size: int = 3</em>, <em class="sig-param">is_dynamic_op: bool = False</em>, <em class="sig-param">maximum_cached_engines=1</em>, <em class="sig-param">cached_engine_batch_sizes: Optional[list] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/configs.html#create_and_validate_tensorrt_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.configs.create_and_validate_tensorrt_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and validate tensorrt config</p>
+<p>If tensorrt cannot be imported, will warn and set use_tensorrt = False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_tensorrt</strong> – if tensorrt should be used</p></li>
+<li><p><strong>batch_size</strong> – batch size of inference model. If provided and max_batch_size is not
+provided, will use it as max_batch_size. Otherwise,
+max(max_batch_size, batch_size) will be used</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tensorrt config</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tensorrt_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.8)"><strong>ValueError</strong></a> – if precision_mode not in [“FP16”, “FP32”]</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>parameters</dt><dd><p><a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/">https://github.com/tensorflow/tensorflow/blob/</a>            16d7642c6481b703ab433596af27c2ef5141eb51/tensorflow/python/            compiler/tensorrt/trt_convert.py</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.configs.create_and_validate_trainer_run_config">
+<code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">create_and_validate_trainer_run_config</code><span class="sig-paren">(</span><em class="sig-param">batch_size: Union[int, dict], devices: Optional[list] = None, random_seed: Optional[int] = 419, num_epochs: int = 100, samples_per_epoch: Union[int, dict] = None, iterations_per_epoch: Union[int, dict] = None, variable_strategy: str = 'GPU', predictions_have_variable_shape: bool = False, continue_training: Optional[bool] = False, profile_hook_config: dict = None</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.configs.TrainerRunConfig<a class="reference internal" href="../_modules/nucleus7/coordinator/configs.html#create_and_validate_trainer_run_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.configs.create_and_validate_trainer_run_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate and update trainer run configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>batch_size</strong> – batch size per device</p></li>
+<li><p><strong>devices</strong> – list of devices to use for the model; inputs are all always fetched
+and augmented on cpu once for all gpus</p></li>
+<li><p><strong>variable_strategy</strong> – CPU to use CPU as the parameter server</p></li>
+<li><p><strong>num_epochs</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>, </em><em>only for training</em><em>, </em><em>default: 100</em>) – number of epochs to use</p></li>
+<li><p><strong>samples_per_epoch</strong> – defines number of samples per epoch with [‘train’, ‘eval’] as keys</p></li>
+<li><p><strong>iterations_per_epoch</strong> – defines number of iterations per epoch with [‘train’, ‘eval’] as keys;
+if defined, will override samples_per_epoch</p></li>
+<li><p><strong>predictions_have_variable_shape</strong> (<em>optional</em>) – if the predictions from different devices have different shapes
+from batch to batch and so should be concatenated
+with padding during evaluation; useful for object detections</p></li>
+<li><p><strong>continue_training</strong> – if the training should be continued in same project folder; if no
+project directories exist, it will have no effect; otherwise it will
+create subfolders continue-{i} in configs and summary folders</p></li>
+<li><p><strong>random_seed</strong> – graph based random seed for tensorflow graph</p></li>
+<li><p><strong>profile_hook_config</strong> – configuration for profiler hook if profiling should be done;
+will save the profiling information in chrome trace format in the
+project directory; you can provide all the kwargs except output_dir.
+to project directory; this will slow down significantly so use it only
+when you want to profile your models
+for more info see <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.ProfilerHook</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trainer run configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>trainer_run_config</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.8)"><strong>AssertionError</strong></a> – if same mode is provided in iterations_per_epoch and in
+    samples_per_epoch or if provided modes are not ‘train’ and ‘eval’</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.8)"><strong>AssertionError</strong></a> – if both iterations_per_epoch and samples_per_epoch are not provided</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AssertionError" title="(in Python v3.8)"><strong>AssertionError</strong></a> – if variable_strategy is not in [‘CPU’, ‘GPU’]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.configs.create_and_validate_trainer_save_config">
+<code class="sig-prename descclassname">nucleus7.coordinator.configs.</code><code class="sig-name descname">create_and_validate_trainer_save_config</code><span class="sig-paren">(</span><em class="sig-param">inference_inputs_have_variable_shape: bool = False</em>, <em class="sig-param">exports_to_keep: Optional[int] = None</em>, <em class="sig-param">save_summary_steps: Union[int</em>, <em class="sig-param">dict] = 100</em>, <em class="sig-param">max_outputs_tb: int = 1</em><span class="sig-paren">)</span> &#x2192; nucleus7.coordinator.configs.TrainerSaveConfig<a class="reference internal" href="../_modules/nucleus7/coordinator/configs.html#create_and_validate_trainer_save_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.configs.create_and_validate_trainer_save_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and validate configuration for exports and summaries during
+training</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_summary_steps</strong> – how often to save summaries; can be also a dict with train and eval keys</p></li>
+<li><p><strong>max_outputs_tb</strong> – number of maximum outputs in tensorboard e.g. for images</p></li>
+<li><p><strong>inference_inputs_have_variable_shape</strong> – controls if the inputs inside of inference graph should have
+variable shapes; defaults to True</p></li>
+<li><p><strong>exports_to_keep</strong> – number of exports to keep</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>saving configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>trainer save configuration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.coordinator">
+<span id="nucleus7-coordinator-coordinator-module"></span><h2>nucleus7.coordinator.coordinator module<a class="headerlink" href="#module-nucleus7.coordinator.coordinator" title="Permalink to this headline">¶</a></h2>
+<p>Coordinator interface</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.coordinator.Coordinator">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.coordinator.</code><code class="sig-name descname">Coordinator</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str, run_config, *, callbacks_handler: Union[nucleus7.coordinator.callbacks_handler.CallbacksHandler, Dict[str, nucleus7.coordinator.callbacks_handler.CallbacksHandler], None] = None, session_config: Optional[dict] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/coordinator.html#Coordinator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.base.BaseClass" title="nucleus7.core.base.BaseClass"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.base.BaseClass</span></code></a></p>
+<p>Class for coordination of execution of models</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory to store checkpoints, callback results, summaries etc.</p></li>
+<li><p><strong>run_config</strong> – run configuration for coordinator</p></li>
+<li><p><strong>callbacks_handler</strong> – callback handler holding the callbacks to be executed after each
+iteration</p></li>
+<li><p><strong>session_config</strong> – session configuration passed to <cite>tf.Session(config=session_config)</cite></p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/coordinator.html#Coordinator.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object by updating the parameters with defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self object for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.defaults">
+<em class="property">property </em><code class="sig-name descname">defaults</code><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define default values for nucleotide parameters as a dict mapping from
+attribute name to its default value. Attribute name (key in returned
+dict) must be the same as attribute name in constructor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>default_parameters</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.dna_helices">
+<em class="property">property </em><code class="sig-name descname">dna_helices</code><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.dna_helices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the DNA helix of the project</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of dna helix for different coordinator modes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dna_helices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.run">
+<em class="property">abstract </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/coordinator.html#Coordinator.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method to run the coordinator</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.set_callback_properties">
+<code class="sig-name descname">set_callback_properties</code><span class="sig-paren">(</span><em class="sig-param">mode: str</em>, <em class="sig-param">log_dir: str</em>, <em class="sig-param">number_iterations_per_epoch: int</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/coordinator.html#Coordinator.set_callback_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.set_callback_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set properties on all callbacks</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – mode</p></li>
+<li><p><strong>log_dir</strong> – log directory for callbacks</p></li>
+<li><p><strong>number_iterations_per_epoch</strong> – number of iterations per epoch</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.coordinator.Coordinator.visualize_project_dna">
+<code class="sig-name descname">visualize_project_dna</code><span class="sig-paren">(</span><em class="sig-param">verbosity: int = 0</em>, <em class="sig-param">save_as_artifact: bool = True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/coordinator.html#Coordinator.visualize_project_dna"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.coordinator.Coordinator.visualize_project_dna" title="Permalink to this definition">¶</a></dt>
+<dd><p>Visualize the project dna helix for all modes and save it to current
+artifacts folder with name “dna_helix_{mode}.pdf”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>verbosity</strong> – how verbose should be visualization</p></li>
+<li><p><strong>save_as_artifact</strong> – if the file should be saved to artifacts folder</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>interactive subplot with dna helix on it</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>subplot</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>figure_with_dna_helix</strong> – subplot with dna helix</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">DNAHelix.visualize</span></code></p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.exporters">
+<span id="nucleus7-coordinator-exporters-module"></span><h2>nucleus7.coordinator.exporters module<a class="headerlink" href="#module-nucleus7.coordinator.exporters" title="Permalink to this headline">¶</a></h2>
+<p>Exporters for Trainer</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.exporters.ModelExporter">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.exporters.</code><code class="sig-name descname">ModelExporter</code><span class="sig-paren">(</span><em class="sig-param">name: str</em>, <em class="sig-param">serving_input_receiver_fn: Callable</em>, <em class="sig-param">exports_dir: str</em>, <em class="sig-param">kpi_evaluators: Optional[List[nucleus7.kpi.kpi_evaluator.KPIEvaluator]] = None</em>, <em class="sig-param">assets_extra=None</em>, <em class="sig-param">as_text=False</em>, <em class="sig-param">exports_to_keep: Optional[int] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/exporters.html#ModelExporter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.exporters.ModelExporter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow_estimator.python.estimator.exporter.LatestExporter</span></code></p>
+<p>Exporter for model</p>
+<p>If any kpi evaluator callbacks were provided, it will store it result inside
+of {evaluator_name}.json file to exports_dir</p>
+<p>If eval_result is not None, it will store it to {eval_result}.json inside of
+exports_dir; also it will create file with name global_step_{global_step}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exports_dir</strong> – directory to save exports</p></li>
+<li><p><strong>kpi_evaluators</strong> – kpi evaluator</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.exporters.ModelExporter.export">
+<code class="sig-name descname">export</code><span class="sig-paren">(</span><em class="sig-param">estimator</em>, <em class="sig-param">export_path</em>, <em class="sig-param">checkpoint_path</em>, <em class="sig-param">eval_result</em>, <em class="sig-param">is_the_final_export</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/exporters.html#ModelExporter.export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.exporters.ModelExporter.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds export of global step and KPI values to the saved_models directory</p>
+<p>overridden from <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.estimator.LatestExporter</span></code>.
+See its documentation for more information</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.exporters.ServingInputReceiverFnBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.exporters.</code><code class="sig-name descname">ServingInputReceiverFnBuilder</code><span class="sig-paren">(</span><em class="sig-param">model: nucleus7.model.model.Model, save_dir_inference_graph: str, save_dir_inputs_outputs_mapping: str, dataset_fn: Callable[tensorflow.python.data.ops.dataset_ops.DatasetV1], inference_inputs_have_variable_shape: bool = False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/exporters.html#ServingInputReceiverFnBuilder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.exporters.ServingInputReceiverFnBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Create serving_input_receiver_fn to be passed to Exporter.</p>
+<p>Inside of serving_input_receiver_fn on first run also
+<cite>graph_inference.meta</cite> file with meta graph for inference is generated
+together with <cite>saved_models/input_output_names.json</cite> file with names
+of inputs / outputs for it inside of saved_models/ directory.</p>
+<p>Result function has placeholders for all dataset items that connected
+to predictions. To understand, which inputs connect to predictions,
+it builds whole inference graph with all input keys and then stores
+only connected inputs to <cite>saved_models/input_output_names.json</cite> and
+resets the graph. Afterwards, if it reads input names from
+<cite>saved_models/input_output_names.json</cite> and puts only that inputs to
+serving_input_receiver_fn. By next run, it checks if that file already
+exists and if so, it just reads input names from it and does not build
+inference graph anymore.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – instance of model</p></li>
+<li><p><strong>dataset_fn</strong> – callable without arguments to create dataset</p></li>
+<li><p><strong>save_dir_inference_graph</strong> – path to save the inference graph</p></li>
+<li><p><strong>save_dir_inputs_outputs_mapping</strong> – path to save the inputs outputs mapping</p></li>
+<li><p><strong>inference_inputs_have_variable_shape</strong> – controls if the inputs inside of inference graph should have
+variable shapes; defaults to True</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.exporters.ServingInputReceiverFnBuilder.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/exporters.html#ServingInputReceiverFnBuilder.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.exporters.ServingInputReceiverFnBuilder.get" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>serving_input_receiver_fn</strong> – serving_input_receiver_fn</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>callable</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.inferer">
+<span id="nucleus7-coordinator-inferer-module"></span><h2>nucleus7.coordinator.inferer module<a class="headerlink" href="#module-nucleus7.coordinator.inferer" title="Permalink to this headline">¶</a></h2>
+<p>Interface for Inference coordinator</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.inferer.Inferer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.inferer.</code><code class="sig-name descname">Inferer</code><span class="sig-paren">(</span><em class="sig-param">project_dir: str</em>, <em class="sig-param">*</em>, <em class="sig-param">data_feeder: nucleus7.data.data_feeder.DataFeeder</em>, <em class="sig-param">run_config: nucleus7.coordinator.configs.InferenceRunConfig</em>, <em class="sig-param">load_config: Optional[nucleus7.coordinator.configs.InferenceLoadConfig] = None</em>, <em class="sig-param">tensorrt_config: Optional[nucleus7.coordinator.configs.TensorrtConfig] = None</em>, <em class="sig-param">model_incoming_keys_mapping: Optional[dict] = None</em>, <em class="sig-param">model_parameters: Optional[dict] = None</em>, <em class="sig-param">callbacks_handler: Optional[nucleus7.coordinator.callbacks_handler.CallbacksHandler] = None</em>, <em class="sig-param">session_config: Optional[dict] = None</em>, <em class="sig-param">use_model: Optional[bool] = True</em>, <em class="sig-param">project_type: Optional[str] = 'infer'</em>, <em class="sig-param">project_additional_kwargs: Optional[dict] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/inferer.html#Inferer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.coordinator.coordinator.Coordinator" title="nucleus7.coordinator.coordinator.Coordinator"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.coordinator.Coordinator</span></code></a></p>
+<p>Class for coordination of inference</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project_dir</strong> – project directory</p></li>
+<li><p><strong>run_config</strong> – run configuration for inferer</p></li>
+<li><p><strong>load_config</strong> – inferer load configuration</p></li>
+<li><p><strong>tensorrt_config</strong> – tensorrt config to use for inference</p></li>
+<li><p><strong>data_feeder</strong> – used for feeding the data to session using feed_dict</p></li>
+<li><p><strong>model_incoming_keys_mapping</strong> – mapping of keys to use between data feeder and the model; if not set,
+input keys from the model, e.g. collection names inside of
+CollectionNames.INPUTS collection should match desired data feeder
+keys</p></li>
+<li><p><strong>model_parameters</strong> – parameters of the model, that wre defined as default placeholders in
+nested view, e.g. {‘nucleotide_name’: {‘parameter1’: 100}}</p></li>
+<li><p><strong>callbacks_handler</strong> – handler with callbacks for inference</p></li>
+<li><p><strong>session_config</strong> – session configuration passed to <cite>tf.Session(config=session_config)</cite></p></li>
+<li><p><strong>use_model</strong> – if the inferer should use a tensorflow model as predictor after
+data feeder and before callbacks; otherwise only callbacks and
+data feeder will be used</p></li>
+<li><p><strong>project_type</strong> – type of the inference project; one of [infer, kpi, data_extraction]</p></li>
+<li><p><strong>project_additional_kwargs</strong> – additional kwargs to pass to project generation method</p></li>
+<li><p><strong>following project structure</strong><strong>, </strong><strong>where saved_model_tag is a last</strong> (<em>Generates</em>) – </p></li>
+<li><p><strong>of saved_model</strong><strong> or </strong><strong>checkpoint file name</strong><strong>, </strong><strong>e.g. in path</strong> (<em>directory</em>) – </p></li>
+<li><p><strong>subdir will be model-ckpt-100</strong> (<em>model.ckpt-100</em>) – <ul>
+<li><p>{project_dir}/infer_configs/{saved_model_tag}</p></li>
+<li><p>{project_dir}/infer_results/{saved_model_tag}</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer.exclude_args_from_log">
+<code class="sig-name descname">exclude_args_from_log</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.exclude_args_from_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>fields that will not be included to the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer._queues">
+<code class="sig-name descname">_queues</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer._queues" title="Permalink to this definition">¶</a></dt>
+<dd><p>queues between data_feeder and model and model and callbacks_handler</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer._processes">
+<code class="sig-name descname">_processes</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer._processes" title="Permalink to this definition">¶</a></dt>
+<dd><p>data feeder process and callbacks handler process</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer._predictor">
+<code class="sig-name descname">_predictor</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer._predictor" title="Permalink to this definition">¶</a></dt>
+<dd><p>predictor to use</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer._iteration_number">
+<code class="sig-name descname">_iteration_number</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer._iteration_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>iteration number</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer._number_of_iterations">
+<code class="sig-name descname">_number_of_iterations</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer._number_of_iterations" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of iteration</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#nucleus7.coordinator.configs.InferenceRunConfig" title="nucleus7.coordinator.configs.InferenceRunConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nucleus7.coordinator.configs.InferenceRunConfig</span></code></a>, <a class="reference internal" href="#nucleus7.coordinator.configs.InferenceLoadConfig" title="nucleus7.coordinator.configs.InferenceLoadConfig"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nucleus7.coordinator.configs.InferenceLoadConfig</span></code></a></p>
+</div>
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/inferer.html#Inferer.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the object by updating the parameters with defaults</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>self object for chaining</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.dna_helices">
+<em class="property">property </em><code class="sig-name descname">dna_helices</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.dna_helices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the DNA helix of the project</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of dna helix for different coordinator modes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dna_helices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">exclude_args_from_log</code><em class="property"> = ['data_feeder', 'callbacks_handler']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer.exclude_from_log">
+<code class="sig-name descname">exclude_from_log</code><em class="property"> = False</em><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.exclude_from_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.inferer.Inferer.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.get_predictor">
+<code class="sig-name descname">get_predictor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; tensorflow.contrib.predictor.predictor.Predictor<a class="reference internal" href="../_modules/nucleus7/coordinator/inferer.html#Inferer.get_predictor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.get_predictor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize predictor from load config</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>predictor from load_config</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>predictor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.predict_batch">
+<code class="sig-name descname">predict_batch</code><span class="sig-paren">(</span><em class="sig-param">inputs: Union[dict, list]</em><span class="sig-paren">)</span> &#x2192; Tuple[dict, float]<a class="reference internal" href="../_modules/nucleus7/coordinator/inferer.html#Inferer.predict_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.predict_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make predictions given inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inputs</strong> – inputs to the network</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>predictions</em> – predictions of the network</p></li>
+<li><p><em>predict_exec_time</em> – execution time of network prediction</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.predictor_dna_helix">
+<em class="property">property </em><code class="sig-name descname">predictor_dna_helix</code><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.predictor_dna_helix" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: dna helix with data feeder and predictor nucleotides
+:rtype: predictor_dna_helix</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.read_data_batch">
+<code class="sig-name descname">read_data_batch</code><span class="sig-paren">(</span><em class="sig-param">last_inputs: Optional[dict]</em><span class="sig-paren">)</span> &#x2192; Optional[Tuple[dict, dict, bool]]<a class="reference internal" href="../_modules/nucleus7/coordinator/inferer.html#Inferer.read_data_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.read_data_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the batch and add it to the queue</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>last_inputs</strong> – last input that was generated; it is needed to understand if this
+is the last iteration</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'inferer'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.inferer.Inferer.run_callbacks_handler_on_batch">
+<code class="sig-name descname">run_callbacks_handler_on_batch</code><span class="sig-paren">(</span><em class="sig-param">inputs: dict</em>, <em class="sig-param">predictions: dict</em>, <em class="sig-param">predict_exec_time: float</em>, <em class="sig-param">iteration_number: int</em>, <em class="sig-param">is_last_iteration: bool</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/inferer.html#Inferer.run_callbacks_handler_on_batch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.inferer.Inferer.run_callbacks_handler_on_batch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run callbacks handler on batch of predictions and inputs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs</strong> – inputs from data_feeder</p></li>
+<li><p><strong>predictions</strong> – predictions from network</p></li>
+<li><p><strong>predict_exec_time</strong> – execution time of network</p></li>
+<li><p><strong>iteration_number</strong> – iteration number</p></li>
+<li><p><strong>is_last_iteration</strong> – flag that indicates that this iteration is last one</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.predictors">
+<span id="nucleus7-coordinator-predictors-module"></span><h2>nucleus7.coordinator.predictors module<a class="headerlink" href="#module-nucleus7.coordinator.predictors" title="Permalink to this headline">¶</a></h2>
+<p>Predictors for inference</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.predictors.PredictorNucleotide">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.predictors.</code><code class="sig-name descname">PredictorNucleotide</code><span class="sig-paren">(</span><em class="sig-param">inbound_nodes: Union[list</em>, <em class="sig-param">dict</em>, <em class="sig-param">str</em>, <em class="sig-param">None] = None</em>, <em class="sig-param">name: str = 'predictor'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/predictors.html#PredictorNucleotide"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.predictors.PredictorNucleotide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="nucleus7.core.html#nucleus7.core.nucleotide.Nucleotide" title="nucleus7.core.nucleotide.Nucleotide"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.core.nucleotide.Nucleotide</span></code></a></p>
+<p>Class to use as predictor nucleotide.</p>
+<p>Is needed only to differentiate the nucleotides which are used as predictors</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.predictors.predictor_from_load_config">
+<code class="sig-prename descclassname">nucleus7.coordinator.predictors.</code><code class="sig-name descname">predictor_from_load_config</code><span class="sig-paren">(</span><em class="sig-param">load_config: nucleus7.coordinator.configs.InferenceLoadConfig</em>, <em class="sig-param">tensorrt_config: Optional[nucleus7.coordinator.configs.TensorrtConfig] = None</em>, <em class="sig-param">session_config: Optional[tensorflow.core.protobuf.config_pb2.ConfigProto] = None</em>, <em class="sig-param">postprocessors_to_use: Optional[List[str]] = None</em>, <em class="sig-param">model_parameters: Optional[dict] = None</em><span class="sig-paren">)</span> &#x2192; tensorflow.contrib.predictor.predictor.Predictor<a class="reference internal" href="../_modules/nucleus7/coordinator/predictors.html#predictor_from_load_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.predictors.predictor_from_load_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create instance of <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.contrib.predictor.Predictor</span></code> from load_config.</p>
+<p>If saved_model was provided and tensorrt_config.use_tensorrt, it will try
+to create Predictor using tensorrt. If constructor of tensorrt fails,
+saved model predictor will be used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_config</strong> – load config</p></li>
+<li><p><strong>tensorrt_config</strong> – tensorrt config</p></li>
+<li><p><strong>session_config</strong> – session configuration</p></li>
+<li><p><strong>postprocessors_to_use</strong> – which postprocessors to use</p></li>
+<li><p><strong>model_parameters</strong> – model parameters to feed in nested view; only names will be used to get
+the placeholders and add to predictor feed_tensors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>predictor</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>predictor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.predictors.represent_predictor_through_nucleotides">
+<code class="sig-prename descclassname">nucleus7.coordinator.predictors.</code><code class="sig-name descname">represent_predictor_through_nucleotides</code><span class="sig-paren">(</span><em class="sig-param">predictor: tensorflow.contrib.predictor.predictor.Predictor</em>, <em class="sig-param">incoming_keys_mapping: Optional[dict] = None</em><span class="sig-paren">)</span> &#x2192; List[nucleus7.core.nucleotide.Nucleotide]<a class="reference internal" href="../_modules/nucleus7/coordinator/predictors.html#represent_predictor_through_nucleotides"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.predictors.represent_predictor_through_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represent predictor feed tensors structure as list of nucleotides</p>
+<p>When predictor has following fetch’_tensors structure but in flatten
+<cite>{‘postprocessor_nucleotide1’: {‘out1’: …, ‘out2’: …},
+‘postprocessor_nucleotide2’: {‘out3’: …, ‘out4’: …}}</cite>,
+then it will return list of nodes
+<cite>[postprocessor_nucleotide1, postprocessor_nucleotide2]</cite> with generated keys
+<cite>[‘out1’, ‘out2’]</cite> and <cite>[‘out3’, ‘out4’]</cite> respectively</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predictor</strong> – predictor with fetch_tensors property defined</p></li>
+<li><p><strong>incoming_keys_mapping</strong> – mapping of the incoming keys to the predictor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of nucleotides which mimic the data structure of fetched predictor
+tensors</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>predictor_nucleotides</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.saver_callback">
+<span id="nucleus7-coordinator-saver-callback-module"></span><h2>nucleus7.coordinator.saver_callback module<a class="headerlink" href="#module-nucleus7.coordinator.saver_callback" title="Permalink to this headline">¶</a></h2>
+<p>Callbacks to save data</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.saver_callback.</code><code class="sig-name descname">SaverCallback</code><span class="sig-paren">(</span><em class="sig-param">save_prefix: Optional[str] = None</em>, <em class="sig-param">save_suffix: Optional[str] = None</em>, <em class="sig-param">target_separator: str = '/'</em>, <em class="sig-param">not_batch_keys: Optional[list] = None</em>, <em class="sig-param">remove_save_ext: bool = True</em>, <em class="sig-param">save_name_depth: int = 0</em>, <em class="sig-param">**callback_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.coordinator.callback.CoordinatorCallback" title="nucleus7.coordinator.callback.CoordinatorCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.callback.CoordinatorCallback</span></code></a></p>
+<p>Callbacks to save data sample-wise</p>
+<p>It will take inputs as batches, unstack them to be samples and then all
+the samples will be saved.</p>
+<p>As save_name, it can use a sample value from the key “save_names” or will
+construct it from iteration_info if it was provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>not_batch_keys</strong> – keys to exclude from input batch split; that keys will be added to all
+the sample inputs</p></li>
+<li><p><strong>save_prefix</strong> – prefix to use before additional save name; it will be joined with “-“</p></li>
+<li><p><strong>save_suffix</strong> – suffix to use after additional save name; it will be joined with “-“</p></li>
+<li><p><strong>target_separator</strong> – separator to use to join save_target together with the full save name</p></li>
+<li><p><strong>remove_save_ext</strong> – if the save extension should be removed from save name</p></li>
+<li><p><strong>save_name_depth</strong> – depth of save name to preserve, if save_name was provided; e.g. if
+save_name was a/b/c/d and save_name_depth=0, then only d will be used
+and with save_name_depth=2 b/c/d will be used</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.end">
+<code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called at the end of the run, e.g. when tensorflow
+session is already closed</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.get_save_name_from_iteration_info">
+<code class="sig-name descname">get_save_name_from_iteration_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback.get_save_name_from_iteration_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.get_save_name_from_iteration_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compose save name from iteration info like epoch number, iteration
+number and sample index in that batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>save name from iteration if iteration_info was provided and None
+otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>save_name_from_iteration</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.incoming_keys_optional">
+<code class="sig-name descname">incoming_keys_optional</code><em class="property"> = ['save_names', 'save']</em><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.incoming_keys_optional" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.on_iteration_end">
+<code class="sig-name descname">on_iteration_end</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback.on_iteration_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.on_iteration_end" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute this function after each iteration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>**data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – keyword arguments for data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.sample_index">
+<em class="property">property </em><code class="sig-name descname">sample_index</code><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.sample_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: sample index inside of the batch
+:rtype: sample_index</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.save_name">
+<em class="property">property </em><code class="sig-name descname">save_name</code><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.save_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns: full save target including save name
+:rtype: save_name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.save_sample">
+<em class="property">abstract </em><code class="sig-name descname">save_sample</code><span class="sig-paren">(</span><em class="sig-param">**sample_data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback.save_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.save_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method how to save the sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_data</strong> – sample data to save</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.set_save_name">
+<code class="sig-name descname">set_save_name</code><span class="sig-paren">(</span><em class="sig-param">save_name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback.set_save_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.set_save_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set full save target by joining prefix, save name, suffix together
+with save_target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>save_name</strong> – save name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.SaverCallback.split_batch_inputs">
+<code class="sig-name descname">split_batch_inputs</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#SaverCallback.split_batch_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.SaverCallback.split_batch_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split possibly nested batch inputs to sample wise</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – batch data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of sample data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>sample_data_as_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.saver_callback.</code><code class="sig-name descname">TfRecordsSaverCallback</code><span class="sig-paren">(</span><em class="sig-param">number_of_samples_per_file: int = 50</em>, <em class="sig-param">save_prefix: Optional[str] = 'data'</em>, <em class="sig-param">file_ext: str = 'tfrecords'</em>, <em class="sig-param">compression_type: Optional[str] = None</em>, <em class="sig-param">ignore_empty_arrays: bool = True</em>, <em class="sig-param">**saver_kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.coordinator.saver_callback.SaverCallback" title="nucleus7.coordinator.saver_callback.SaverCallback"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.saver_callback.SaverCallback</span></code></a></p>
+<p>Saver callback which stores sample data to tfrecords files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number_of_samples_per_file</strong> – max number of samples in one file</p></li>
+<li><p><strong>compression_type</strong> – type of compression to be used, if not specified then its not applied
+there are two types of compression possible {‘GZIP’, ‘ZLIB’}</p></li>
+<li><p><strong>ignore_empty_arrays</strong> – if the array is empty, e.g. it has 0 in the shape, it will not store
+it; tfrecords parser raises
+‘Invalid argument: Key: {key}. Can’t parse serialized Example’ on
+empty arrays</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.create_new_tfrecords_writer">
+<code class="sig-name descname">create_new_tfrecords_writer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback.create_new_tfrecords_writer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.create_new_tfrecords_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates new file_writer and closes old one</p>
+<p>Also if needed, increments the file name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.create_tfrecords_features">
+<code class="sig-name descname">create_tfrecords_features</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback.create_tfrecords_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.create_tfrecords_features" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create tfrecords features from the data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> – sample data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tfrecords features</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>features</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.dynamic_incoming_keys">
+<code class="sig-name descname">dynamic_incoming_keys</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.dynamic_incoming_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.end">
+<code class="sig-name descname">end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback.end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.end" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called at the end of the run, e.g. when tensorflow
+session is already closed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.get_save_name_from_iteration_info">
+<code class="sig-name descname">get_save_name_from_iteration_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback.get_save_name_from_iteration_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.get_save_name_from_iteration_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compose save name from iteration info like epoch number, iteration
+number and sample index in that batch</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>save name from iteration if iteration_info was provided and None
+otherwise</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>save_name_from_iteration</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.save_sample">
+<code class="sig-name descname">save_sample</code><span class="sig-paren">(</span><em class="sig-param">**data</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback.save_sample"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.save_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main method how to save the sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_data</strong> – sample data to save</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.set_save_name">
+<code class="sig-name descname">set_save_name</code><span class="sig-paren">(</span><em class="sig-param">save_name: Optional[str] = None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/saver_callback.html#TfRecordsSaverCallback.set_save_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.saver_callback.TfRecordsSaverCallback.set_save_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set full save target by joining prefix, save name, suffix together
+with save_target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>save_name</strong> – save name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.session_run_hooks">
+<span id="nucleus7-coordinator-session-run-hooks-module"></span><h2>nucleus7.coordinator.session_run_hooks module<a class="headerlink" href="#module-nucleus7.coordinator.session_run_hooks" title="Permalink to this headline">¶</a></h2>
+<p>Session Run Hooks used inside of tensorflow sessions</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.session_run_hooks.CustomNucleotideInitializerHook">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.session_run_hooks.</code><code class="sig-name descname">CustomNucleotideInitializerHook</code><span class="sig-paren">(</span><em class="sig-param">nucleotides: Union[List[nucleus7.core.nucleotide.Nucleotide], Dict[str, nucleus7.core.nucleotide.Nucleotide]]</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#CustomNucleotideInitializerHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.CustomNucleotideInitializerHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.training.session_run_hook.SessionRunHook</span></code></p>
+<p>This session run hook will call initialization of nucleotides which have
+<cite>CustomSessionHandlerMixin</cite> interface or have <cite>initialize_session</cite>
+implemented</p>
+<dl class="method">
+<dt id="nucleus7.coordinator.session_run_hooks.CustomNucleotideInitializerHook.after_create_session">
+<code class="sig-name descname">after_create_session</code><span class="sig-paren">(</span><em class="sig-param">session</em>, <em class="sig-param">coord</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#CustomNucleotideInitializerHook.after_create_session"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.CustomNucleotideInitializerHook.after_create_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when new TensorFlow session is created.</p>
+<p>This is called to signal the hooks that a new session has been created. This
+has two essential differences with the situation in which <cite>begin</cite> is called:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>When this is called, the graph is finalized and ops can no longer be added</dt><dd><p>to the graph.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>This method will also be called as a result of recovering a wrapped</dt><dd><p>session, not only at the beginning of the overall session.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session</strong> – A TensorFlow Session that has been created.</p></li>
+<li><p><strong>coord</strong> – A Coordinator object which keeps track of all threads.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.session_run_hooks.EarlyStoppingInitHook">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.session_run_hooks.</code><code class="sig-name descname">EarlyStoppingInitHook</code><span class="sig-paren">(</span><em class="sig-param">ctrl_deps=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#EarlyStoppingInitHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.EarlyStoppingInitHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow_estimator.python.estimator.early_stopping._CheckForStoppingHook</span></code></p>
+<p>Wrapper across private _CheckForStoppingHook</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.session_run_hooks.MetricUpdateHook">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.session_run_hooks.</code><code class="sig-name descname">MetricUpdateHook</code><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#MetricUpdateHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.MetricUpdateHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.training.session_run_hook.SessionRunHook</span></code></p>
+<p>Fetch all metrics together with their update ops, so they
+are evaluated inside of Evaluator.</p>
+<p>Normally, Evaluator does not use metrics for training, so this hook is
+needed for it</p>
+<dl class="method">
+<dt id="nucleus7.coordinator.session_run_hooks.MetricUpdateHook.before_run">
+<code class="sig-name descname">before_run</code><span class="sig-paren">(</span><em class="sig-param">run_context: tensorflow.python.training.session_run_hook.SessionRunContext</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#MetricUpdateHook.before_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.MetricUpdateHook.before_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add metrics to fetches, so they are returned at the end of training
+iteration</p>
+<p>overridden from <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.SessionRunHook</span></code>. See its documentation
+for more information</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="nucleus7.coordinator.session_run_hooks.SummarySaverHook">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.session_run_hooks.</code><code class="sig-name descname">SummarySaverHook</code><span class="sig-paren">(</span><em class="sig-param">save_steps: int = None</em>, <em class="sig-param">save_secs: int = None</em>, <em class="sig-param">output_dir: str = None</em>, <em class="sig-param">get_graph_fn: Callable = None</em>, <em class="sig-param">step_offset: int = 0</em>, <em class="sig-param">flush_after_n_summaries: int = 100</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#SummarySaverHook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.SummarySaverHook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tensorflow.python.training.basic_session_run_hooks.SummarySaverHook</span></code></p>
+<p>Save summaries in slightly different format as original one and to
+different folder. x axis of summaries represents global step
+and allows to shift evaluation so that last step of evaluation in one
+epoch is aligned with last step from training.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>save_steps</strong> – number of steps between summary saves</p></li>
+<li><p><strong>save_secs</strong> – number of seconds between summary saves</p></li>
+<li><p><strong>output_dir</strong> – summary directories</p></li>
+<li><p><strong>get_graph_fn</strong> – function to get the graph, which is stored to summaries</p></li>
+<li><p><strong>step_offset</strong> – offset of the step on x axis of summaries</p></li>
+<li><p><strong>flush_after_n_summaries</strong> – number of iteration till summary writer will be flushed to the disk;
+setting it too high may cause increase in memory load</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.session_run_hooks.SummarySaverHook.after_run">
+<code class="sig-name descname">after_run</code><span class="sig-paren">(</span><em class="sig-param">run_context</em>, <em class="sig-param">run_values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#SummarySaverHook.after_run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.SummarySaverHook.after_run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save summaries to event files</p>
+<p>overridden from <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.SummarySaverHook</span></code>. See its documentation
+for more information</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.session_run_hooks.SummarySaverHook.begin">
+<code class="sig-name descname">begin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#SummarySaverHook.begin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.SummarySaverHook.begin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add graph to summary writer and create directory for summaries it it
+does not exist</p>
+<p>overridden from <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.SummarySaverHook</span></code>. See its documentation
+for more information</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.session_run_hooks.convert_callback_to_session_hook">
+<code class="sig-prename descclassname">nucleus7.coordinator.session_run_hooks.</code><code class="sig-name descname">convert_callback_to_session_hook</code><span class="sig-paren">(</span><em class="sig-param">callback: nucleus7.coordinator.callback.CoordinatorCallback</em>, <em class="sig-param">summary_dir: str</em>, <em class="sig-param">max_number_of_iterations_per_epoch: int</em><span class="sig-paren">)</span> &#x2192; tensorflow.python.training.session_run_hook.SessionRunHook<a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#convert_callback_to_session_hook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.convert_callback_to_session_hook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert callback to <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.SessionRunHook</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>callback</strong> – callback to transform</p></li>
+<li><p><strong>summary_dir</strong> – directory of summary writer</p></li>
+<li><p><strong>max_number_of_iterations_per_epoch</strong> – max number of iterations for all modes; needed to recalculate iteration
+number from global_step.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>callback as session_run_hook</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>callback_as_hook</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="nucleus7.coordinator.session_run_hooks.convert_callbacks_handler_to_session_hook">
+<code class="sig-prename descclassname">nucleus7.coordinator.session_run_hooks.</code><code class="sig-name descname">convert_callbacks_handler_to_session_hook</code><span class="sig-paren">(</span><em class="sig-param">callbacks_handler: nucleus7.coordinator.callbacks_handler.CallbacksHandler</em>, <em class="sig-param">summary_dir: str</em>, <em class="sig-param">max_number_of_iterations_per_epoch: int</em><span class="sig-paren">)</span> &#x2192; tensorflow.python.training.session_run_hook.SessionRunHook<a class="reference internal" href="../_modules/nucleus7/coordinator/session_run_hooks.html#convert_callbacks_handler_to_session_hook"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.session_run_hooks.convert_callbacks_handler_to_session_hook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert callbacks handler to session run hook</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>callbacks_handler</strong> – callbacks handler to convert</p></li>
+<li><p><strong>summary_dir</strong> – directory to save the summaries</p></li>
+<li><p><strong>max_number_of_iterations_per_epoch</strong> – max number of iterations per epoch, use to calculate the step from
+global_step</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>session run hook</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>callback_as_hook</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator.trainer">
+<span id="nucleus7-coordinator-trainer-module"></span><h2>nucleus7.coordinator.trainer module<a class="headerlink" href="#module-nucleus7.coordinator.trainer" title="Permalink to this headline">¶</a></h2>
+<p>Interface for Trainer coordinator</p>
+<dl class="class">
+<dt id="nucleus7.coordinator.trainer.Trainer">
+<em class="property">class </em><code class="sig-prename descclassname">nucleus7.coordinator.trainer.</code><code class="sig-name descname">Trainer</code><span class="sig-paren">(</span><em class="sig-param">*, project_dir: str, model: nucleus7.model.model.Model, datasets: Dict[str, nucleus7.data.dataset.Dataset], run_config: nucleus7.coordinator.configs.TrainerRunConfig, save_config: nucleus7.coordinator.configs.TrainerSaveConfig, optimization_config: nucleus7.optimization.configs.OptimizationConfig, callbacks_handler_train: Optional[nucleus7.coordinator.callbacks_handler.CallbacksHandler] = None, callbacks_handler_eval: Optional[nucleus7.coordinator.callbacks_handler.CallbacksHandler] = None, session_config=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/trainer.html#Trainer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#nucleus7.coordinator.coordinator.Coordinator" title="nucleus7.coordinator.coordinator.Coordinator"><code class="xref py py-class docutils literal notranslate"><span class="pre">nucleus7.coordinator.coordinator.Coordinator</span></code></a></p>
+<p>Class for coordination of neural networks training with evaluation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – instance of model</p></li>
+<li><p><strong>project_dir</strong> – project directory, where results will be stored</p></li>
+<li><p><strong>run_config</strong> – run configuration for Trainer</p></li>
+<li><p><strong>save_config</strong> – save configuration for Trainer</p></li>
+<li><p><strong>datasets</strong> – dict with objects of type <code class="xref py py-obj docutils literal notranslate"><span class="pre">Dataset</span></code> and [‘train’, ‘eval’] as keys</p></li>
+<li><p><strong>optimization_config</strong> – global optimization configuration</p></li>
+<li><p><strong>callbacks_handler_train</strong> – callbacks handler with callbacks to use during training;
+these callbacks are converted to <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.SessionRunHooks</span></code> and
+executed as chief_only_hooks</p></li>
+<li><p><strong>callbacks_handler_eval</strong> – callbacks handler with callbacks to use during evaluation;
+these callbacks are converted to <code class="xref py py-obj docutils literal notranslate"><span class="pre">tf.train.SessionRunHooks</span></code> and
+executed as chief_only_hooks</p></li>
+<li><p><strong>session_config</strong> – dict with session configuration, which will be passed to the
+monitored training session as
+session_config=tf.ConfigProto(session_config)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="nucleus7.coordinator.trainer.Trainer.register_name_scope">
+<code class="sig-name descname">register_name_scope</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.register_name_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>name scope for register and for the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.trainer.Trainer.exclude_args_from_log">
+<code class="sig-name descname">exclude_args_from_log</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.exclude_args_from_log" title="Permalink to this definition">¶</a></dt>
+<dd><p>fields that will not be included to the config logger</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.trainer.Trainer._estimator">
+<code class="sig-name descname">_estimator</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer._estimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>estimator that will be used for training and evaluation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">Generates following project structure</code></dt>
+<dd><ul class="simple">
+<li><p>{project_dir}/checkpoints/ : checkpoints</p></li>
+<li><p>{project_dir}/training_callbacks/ : results of training callbacks</p></li>
+<li><p>{project_dir}/training_configs/ : configs for training with runs             subfolders</p></li>
+<li><p>{project_dir}/training_summaries/ : training summaries, eval and train</p></li>
+<li><p>{project_dir}/saved_models/ : saved models in timestamp subfolders             and inference_graph.meta together with input_output_names.json</p></li>
+</ul>
+</dd></dl>
+
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>mixed precision</dt><dd><p><a class="reference external" href="https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html">https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.build">
+<code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/trainer.html#Trainer.build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build trainer:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>create project directories</p></li>
+<li><p>create builder for model_fn to pass to the estimator</p></li>
+<li><p>create builder for server_input_receiver_fn to pass to exporters</p></li>
+<li><p>build the estimator and its specs</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.clear_caches">
+<code class="sig-name descname">clear_caches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/nucleus7/coordinator/trainer.html#Trainer.clear_caches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.clear_caches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear dataset cache files, if dataset has some</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.dna_helices">
+<em class="property">property </em><code class="sig-name descname">dna_helices</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.dna_helices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the DNA helix of the project</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict of dna helix for different coordinator modes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dna_helices</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.estimator">
+<em class="property">property </em><code class="sig-name descname">estimator</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.estimator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimator used by trainer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>estimator</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>estimator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.estimator_eval_spec">
+<em class="property">property </em><code class="sig-name descname">estimator_eval_spec</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.estimator_eval_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimator eval spec</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>eval spec</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>estimator_eval_spec</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.estimator_train_spec">
+<em class="property">property </em><code class="sig-name descname">estimator_train_spec</code><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.estimator_train_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimator train spec</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>train spec</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>estimator_train_spec</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">exclude_args_from_log</code><em class="property"> = ['model', 'datasets', 'callbacks_handler_train', 'callbacks_handler_eval']</em></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.trainer.Trainer.exclude_from_log">
+<code class="sig-name descname">exclude_from_log</code><em class="property"> = False</em><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.exclude_from_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="nucleus7.coordinator.trainer.Trainer.exclude_from_register">
+<code class="sig-name descname">exclude_from_register</code><em class="property"> = True</em><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.exclude_from_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.get_all_nucleotides">
+<code class="sig-name descname">get_all_nucleotides</code><span class="sig-paren">(</span><em class="sig-param">mode: str</em><span class="sig-paren">)</span> &#x2192; Dict[str, nucleus7.core.nucleotide.Nucleotide]<a class="reference internal" href="../_modules/nucleus7/coordinator/trainer.html#Trainer.get_all_nucleotides"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.get_all_nucleotides" title="Permalink to this definition">¶</a></dt>
+<dd><p>All nucleotides including callbacks, datasets and model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mode</strong> – mode to get nucleotides</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>all nucleotides for mode</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>all_nucleotides_for_mode</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="sig-name descname">register_name_scope</code><em class="property"> = 'trainer'</em></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="nucleus7.coordinator.trainer.Trainer.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#nucleus7.coordinator.trainer.Trainer.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-nucleus7.coordinator">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-nucleus7.coordinator" title="Permalink to this headline">¶</a></h2>
+<p>Coordinator module</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nucleus7.core.html" class="btn btn-neutral float-right" title="nucleus7.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nucleus7.builders.html" class="btn btn-neutral float-left" title="nucleus7.builders package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

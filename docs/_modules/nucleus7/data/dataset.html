@@ -1,0 +1,1468 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.data.dataset &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.data.dataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.data.dataset</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interfaces for datasets</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">abc</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_artifacts</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.dna_helix</span> <span class="kn">import</span> <span class="n">DNAHelix</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.nucleotide</span> <span class="kn">import</span> <span class="n">Nucleotide</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_filter</span> <span class="kn">import</span> <span class="n">DataFilterMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_pipe</span> <span class="kn">import</span> <span class="n">DataPipe</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_pipe</span> <span class="kn">import</span> <span class="n">DataPipeMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.file_list</span> <span class="kn">import</span> <span class="n">FileList</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.file_list</span> <span class="kn">import</span> <span class="n">FileListMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">model_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_data_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_varscopes_utils</span>
+
+<span class="n">_TFRECORDS_DATA_KEY</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
+
+
+<span class="c1"># pylint: disable=too-many-instance-attributes</span>
+<span class="c1"># is needed to make the Dataset more generic</span>
+<div class="viewcode-block" id="Dataset"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset">[docs]</a><span class="k">class</span> <span class="nc">Dataset</span><span class="p">(</span><span class="n">Nucleotide</span><span class="p">,</span>
+              <span class="n">DataFilterMixin</span><span class="p">,</span>
+              <span class="n">model_utils</span><span class="o">.</span><span class="n">CustomSessionHandlerMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    General Dataset class to be used for the training</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cache_dir</span>
+<span class="sd">        directory name to cache the data; file name with name of dataset and</span>
+<span class="sd">        some random suffix will be generated there; this cache can be removed</span>
+<span class="sd">        by calling datasets.clear_cache()</span>
+<span class="sd">    num_parallel_calls</span>
+<span class="sd">        used in dataset map function; see tf.data.Dataset.map</span>
+<span class="sd">    random_seed</span>
+<span class="sd">        sets the random seed, e.g. for shuffling</span>
+<span class="sd">    shuffle_buffer_size</span>
+<span class="sd">        number of samples to shuffle in the buffer; shuffling performed after</span>
+<span class="sd">        feature extraction, so do not set it to very high number; if you want to</span>
+<span class="sd">        disable shuffle, set shuffle_buffer_size = 0</span>
+<span class="sd">    prefetch_buffer_size</span>
+<span class="sd">        number of batches to prefetch; if you want to disable prefetching, set</span>
+<span class="sd">        prefetch_buffer_size = 0</span>
+<span class="sd">    fix_batch_dimension</span>
+<span class="sd">        if the batch dimension should be hard coded, e.g. could be possible to</span>
+<span class="sd">        use tf.unstack(batch) directly</span>
+<span class="sd">    number_of_shards</span>
+<span class="sd">        defines the number of shards of dataset; is good choice to use for</span>
+<span class="sd">        distributed learning</span>
+<span class="sd">    shard_index</span>
+<span class="sd">        defines the shard index of dataset; is good choice to use for</span>
+<span class="sd">        distributed learning</span>
+<span class="sd">    subtype</span>
+<span class="sd">        additional name and type to add to the dataset, e.g. train / eval;</span>
+<span class="sd">        will be added to cache file name</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    register_name_scope</span>
+<span class="sd">        name scope for register and for the config logger</span>
+<span class="sd">    _cache_file : str</span>
+<span class="sd">        name of cache file</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if invalid combination for shard_index and number_of_shards is provided</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if shuffle_buffer_size &lt; 0</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if prefetch_buffer_size &lt; 0</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        if directory before cache_dir does not exist</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s2">&quot;dataset&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                 <span class="n">num_parallel_calls</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+                 <span class="n">random_seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7567</span><span class="p">,</span>
+                 <span class="n">shuffle_buffer_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">prefetch_buffer_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+                 <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">fix_batch_dimension</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">subtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">number_of_shards</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">shard_index</span> <span class="o">&gt;=</span> <span class="n">number_of_shards</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Impossible combination of shard_index (</span><span class="si">{}</span><span class="s2">) &quot;</span>
+                   <span class="s2">&quot;and number_of_shards(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shard_index</span><span class="p">,</span>
+                                                     <span class="n">number_of_shards</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">shuffle_buffer_size</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;shuffle_buffer_size must be &gt;= 0&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prefetch_buffer_size</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;prefetch_buffer_size must be &gt;= 0&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cache_dir</span><span class="p">:</span>
+            <span class="n">cache_root_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">cache_root_dir</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+                    <span class="s2">&quot;root directory of cache directory </span><span class="si">{}</span><span class="s2"> does not &quot;</span>
+                    <span class="s2">&quot;exist!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">))</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="n">Dataset</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">([],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_calls</span> <span class="o">=</span> <span class="n">num_parallel_calls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span> <span class="o">=</span> <span class="n">random_seed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shuffle_buffer_size</span> <span class="o">=</span> <span class="n">shuffle_buffer_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prefetch_buffer_size</span> <span class="o">=</span> <span class="n">prefetch_buffer_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span> <span class="o">=</span> <span class="n">cache_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fix_batch_dimension</span> <span class="o">=</span> <span class="n">fix_batch_dimension</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_shards</span> <span class="o">=</span> <span class="n">number_of_shards</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shard_index</span> <span class="o">=</span> <span class="n">shard_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_subtype</span> <span class="o">=</span> <span class="n">subtype</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_file</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: str</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">subtype</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subtype of the dataset</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        subtype</span>
+<span class="sd">            subtype</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtype</span>
+
+<div class="viewcode-block" id="Dataset.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.create_initial_data">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the tf.data.Dataset</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data</span>
+<span class="sd">            element data</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="Dataset.extract_features_from_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.extract_features_from_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">extract_features_from_initial_data</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract features from data, e.g. read from file names</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data</span>
+<span class="sd">            initial data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+    <span class="nd">@tf_varscopes_utils</span><span class="o">.</span><span class="n">with_name_scope</span><span class="p">(</span><span class="s2">&quot;Dataset&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="c1"># pylint: disable=arguments-differ</span>
+        <span class="c1"># base class has more generic signature</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Dataset.create_batch"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.create_batch">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">create_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate the batch of data samples</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        batch_size</span>
+<span class="sd">            batch size</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_batch</span>
+<span class="sd">            data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data_sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_features_for_single_sample</span><span class="p">()</span>
+        <span class="n">data_batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">combine_samples_to_batch</span><span class="p">(</span><span class="n">data_sample</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefetch_buffer_size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">data_batch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">data_batch</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data_batch</span></div>
+
+<div class="viewcode-block" id="Dataset.create_features_for_single_sample"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.create_features_for_single_sample">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">create_features_for_single_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the sample tensorflow dataset and extract features from it</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_with_features</span>
+<span class="sd">            data with features</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_initial_data</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_shards</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shard</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_features_from_initial_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_training</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_filters</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_sample</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.filter_sample"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.filter_sample">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">filter_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter according to data filters</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            input dataset</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data</span>
+<span class="sd">            filtered dataset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">_predicate_fn</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_filter_true</span><span class="p">(</span><span class="o">**</span><span class="n">inputs</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">_predicate_fn</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.shard"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.shard">[docs]</a>    <span class="k">def</span> <span class="nf">shard</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shard the data</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_sharded</span>
+<span class="sd">            shard of the data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shard</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_shards</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shard_index</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.shuffle"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.shuffle">[docs]</a>    <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shuffle the dataset</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_shuffled</span>
+<span class="sd">            shuffled data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shuffle_buffer_size</span><span class="p">,</span>
+                            <span class="n">seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.cache"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.cache">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_property_is_defined</span><span class="p">(</span><span class="s1">&#39;mode&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">cache</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Cache the dataset</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            tensorflow dataset to cache</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_cached</span>
+<span class="sd">            cached data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_file</span> <span class="o">=</span> <span class="n">_get_cache_fname</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cache_dir</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subtype</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)]))</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cache</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.repeat"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.repeat">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Repeat dataset</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            tensorflow dataset to cache</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_repeated</span>
+<span class="sd">            repeated data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.prefetch"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.prefetch">[docs]</a>    <span class="k">def</span> <span class="nf">prefetch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prefetch the data to memory</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            data</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data</span>
+<span class="sd">            data after prefetching</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefetch_buffer_size</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.clear_cache"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.clear_cache">[docs]</a>    <span class="k">def</span> <span class="nf">clear_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Clear the cache of dataset if it exists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Remove cache file </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache_file</span><span class="p">)</span>
+                <span class="n">cache_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cache_file</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">each_cache_file</span> <span class="ow">in</span> <span class="n">cache_files</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">each_cache_file</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="Dataset.combine_samples_to_batch"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.combine_samples_to_batch">[docs]</a>    <span class="k">def</span> <span class="nf">combine_samples_to_batch</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Apply batching on data</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data</span>
+<span class="sd">            data</span>
+<span class="sd">        batch_size</span>
+<span class="sd">            batch size</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data_batch</span>
+<span class="sd">            batched data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">padded_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">output_shapes</span><span class="p">,</span>
+                                 <span class="n">drop_remainder</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fix_batch_dimension</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Dataset.from_data_pipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.Dataset.from_data_pipe">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_data_pipe</span><span class="p">(</span>
+            <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span> <span class="n">file_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FileList</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">dataset_kwargs</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s1">&#39;DatasetFromPipe&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;DatasetFileListFromPipe&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;DatasetTfRecordsFromPipe&#39;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Construct Dataset out of the pipe</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        data_pipe</span>
+<span class="sd">            data pipe to use</span>
+<span class="sd">        file_list</span>
+<span class="sd">            file list to use; if provided and data_pipe is a tfrecords</span>
+<span class="sd">            data pipe, it will result to DatasetTfRecords and if it is not a</span>
+<span class="sd">            tfrecords pipe, it will be DatasetFileList;</span>
+<span class="sd">            otherwise it will be Dataset</span>
+<span class="sd">        dataset_kwargs</span>
+<span class="sd">            additional kwargs to pass to corresponding Dataset constructor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dataset</span>
+<span class="sd">            dataset with data pipe inside</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">file_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">DatasetFromPipe</span><span class="p">(</span><span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span> <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">read_from_tfrecords</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">DatasetTfRecordsFromPipe</span><span class="p">(</span>
+                <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span> <span class="n">file_list</span><span class="o">=</span><span class="n">file_list</span><span class="p">,</span> <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DatasetFileListFromPipe</span><span class="p">(</span>
+            <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span> <span class="n">file_list</span><span class="o">=</span><span class="n">file_list</span><span class="p">,</span> <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clear_cache</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="DatasetFileList"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileList">[docs]</a><span class="k">class</span> <span class="nc">DatasetFileList</span><span class="p">(</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">FileListMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset to read the files from file_list</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_list</span>
+<span class="sd">        built FileList instance</span>
+<span class="sd">    initial_shuffle</span>
+<span class="sd">        if the file names should be shuffled in the beginning</span>
+<span class="sd">    file_list_keys_mapping</span>
+<span class="sd">        mapping for file lists keys in the form</span>
+<span class="sd">        {file_list_key: new_file_list_key}</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    exclude_args_from_log</span>
+<span class="sd">        fields that will not be included to the config logger</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;file_list&quot;</span><span class="p">]</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_list</span><span class="p">:</span> <span class="n">FileList</span><span class="p">,</span>
+                 <span class="n">initial_shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                 <span class="n">file_list_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span> <span class="o">=</span> <span class="n">file_list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_mapping</span> <span class="o">=</span> <span class="n">file_list_keys_mapping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_shuffle</span> <span class="o">=</span> <span class="n">initial_shuffle</span>
+
+<div class="viewcode-block" id="DatasetFileList.read_raw_data_from_file"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileList.read_raw_data_from_file">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">read_raw_data_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">sample_fnames</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Abstract method to reed the raw data using :obj:`tf.data.Dataset`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sample_fnames</span>
+<span class="sd">            sample with file names to read the data from</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        data</span>
+<span class="sd">            data read from sample_fnames</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="DatasetFileList.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileList.build">[docs]</a>    <span class="nd">@project_artifacts</span><span class="o">.</span><span class="n">add_project_artifact</span><span class="p">(</span>
+        <span class="s2">&quot;file_list&quot;</span><span class="p">,</span> <span class="s2">&quot;file_list.file_names_pairs&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DatasetFileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        shuffle the file list if needed and check if file list keys are</span>
+<span class="sd">        supported by the dataset</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            dataset for chaining</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if the dataset file list keys are not inside of file_list keys</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">filter_by_keys</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_required</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_optional</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_mapping</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_shuffle</span><span class="p">:</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span><span class="p">)</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DatasetFileList.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileList.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="DatasetFileList.extract_features_from_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileList.extract_features_from_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">extract_features_from_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_read_raw_data_from_file</span><span class="p">,</span>
+                        <span class="n">num_parallel_calls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_calls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+    <span class="k">def</span> <span class="nf">_read_raw_data_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample_fnames</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_raw_data_from_file</span><span class="p">(</span><span class="o">**</span><span class="n">sample_fnames</span><span class="p">)</span></div>
+
+
+<span class="c1"># pylint: disable=abstract-method</span>
+<span class="c1"># this uses abstract mixin, and is interface</span>
+<div class="viewcode-block" id="DatasetTfRecords"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecords">[docs]</a><span class="k">class</span> <span class="nc">DatasetTfRecords</span><span class="p">(</span><span class="n">DatasetFileList</span><span class="p">,</span> <span class="n">tf_data_utils</span><span class="o">.</span><span class="n">TfRecordsMixin</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset to read the samples from tfrecord files</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_list</span>
+<span class="sd">        FileList to use, must contain only 1 single key - &#39;data&#39;</span>
+<span class="sd">    compression_type</span>
+<span class="sd">        specify only if it is used while saving the tfrecord files</span>
+<span class="sd">        Possible options {&#39;GZIP&#39;, &#39;ZLIB&#39;, None}</span>
+<span class="sd">    num_parallel_reads</span>
+<span class="sd">        num_parallel_reads for tf.data.TFRecordDataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">_TFRECORDS_DATA_KEY</span><span class="p">]</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">file_list</span><span class="p">:</span> <span class="n">FileList</span><span class="p">,</span>
+                 <span class="n">num_parallel_reads</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">compression_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">compression_type</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="n">compression_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;GZIP&#39;</span><span class="p">,</span> <span class="s1">&#39;ZLIB&#39;</span><span class="p">],</span> <span class="p">(</span>
+                <span class="s2">&quot;Compression type must be in </span><span class="si">{}</span><span class="s2">, received </span><span class="si">{}</span><span class="s2">!!!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="p">[</span><span class="s1">&#39;GZIP&#39;</span><span class="p">,</span> <span class="s1">&#39;ZLIB&#39;</span><span class="p">],</span> <span class="n">compression_type</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span> <span class="o">=</span> <span class="n">compression_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_reads</span> <span class="o">=</span> <span class="n">num_parallel_reads</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">file_list</span><span class="o">=</span><span class="n">file_list</span><span class="p">,</span> <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s2">&quot;Length of file_list_keys inside of </span><span class="si">{}</span><span class="s2"> class must be 1!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="DatasetTfRecords.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecords.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+            <span class="n">compression_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span><span class="p">,</span>
+            <span class="n">num_parallel_reads</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_reads</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="DatasetTfRecords.extract_features_from_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecords.extract_features_from_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">extract_features_from_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse the tfrecord example and shuffle data if needed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_tfrecord_example</span><span class="p">,</span>
+                        <span class="n">num_parallel_calls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_calls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="DatasetTfRecords.read_raw_data_from_file"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecords.read_raw_data_from_file">[docs]</a>    <span class="k">def</span> <span class="nf">read_raw_data_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">sample_fnames</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="c1"># this abstract method is not used in this interface</span>
+        <span class="k">pass</span></div></div>
+
+
+<span class="c1"># pylint: enable=abstract-method</span>
+
+<div class="viewcode-block" id="DatasetMix"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetMix">[docs]</a><span class="k">class</span> <span class="nc">DatasetMix</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset that combines multiple datasets and samples one of them inside of</span>
+<span class="sd">    the batch.</span>
+
+<span class="sd">    To be able to combine datasets inside of a batch, it will create zero</span>
+<span class="sd">    features for all features inside of all datasets and add them to each subset</span>
+<span class="sd">    together with the key sample_mask_{dataset.subtype}, which indicates which</span>
+<span class="sd">    subset is sampled.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    datasets</span>
+<span class="sd">        datasets for the mix</span>
+<span class="sd">    sampling_weights</span>
+<span class="sd">        fractions of datasets for sampling during training; should have same</span>
+<span class="sd">        length as datasets; if not provided, subsets will be sampled uniformly;</span>
+<span class="sd">        in case of multiple datasets, that needs to be combined according to</span>
+<span class="sd">        file_list, sampling_weight will be the mean of all combined sampling</span>
+<span class="sd">        weights</span>
+<span class="sd">    merge_on_same_file_list</span>
+<span class="sd">        flags if the dataset should be merged with other datasets if they have</span>
+<span class="sd">        the same file lists; if not set, it will merge datasets with the same</span>
+<span class="sd">        file lists and use sampling_weight as a sum of sampling weights and</span>
+<span class="sd">        results of the samples will be combined in following manner:</span>
+<span class="sd">        [{a: 1, b: 2, c: 3}, {a: 4, b: 5, e: 6, f: 7}] will result in</span>
+<span class="sd">        {a: 1, b: 2, c: 3, e: 6, f: 7} and then this dataset will be mixed</span>
+<span class="sd">        as usual with the rest of datasets; subtype of the combined dataset</span>
+<span class="sd">        will be then subtype of first dataset</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    exclude_args_from_log</span>
+<span class="sd">        fields that will not be included to the config logger</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    :func:`tf.contrib.data.sample_from_datasets`</span>
+<span class="sd">        for the sampling strategy during training</span>
+<span class="sd">    :func:`tf.contrib.data.choose_from_datasets`</span>
+<span class="sd">        for the sampling strategy during evaluation</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;datasets&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dataset</span><span class="p">],</span>
+                 <span class="n">sampling_weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">merge_on_same_file_list</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span> <span class="o">=</span> <span class="n">datasets</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampling_weights</span> <span class="o">=</span> <span class="n">sampling_weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_on_same_file_list</span> <span class="o">=</span> <span class="p">(</span><span class="n">merge_on_same_file_list</span>
+                                        <span class="ow">or</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span>
+        <span class="n">random_seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">random_seed</span>
+        <span class="n">fix_batch_dimension</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fix_batch_dimension</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">random_seed</span><span class="o">=</span><span class="n">random_seed</span><span class="p">,</span>
+                         <span class="n">fix_batch_dimension</span><span class="o">=</span><span class="n">fix_batch_dimension</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dynamic_generated_keys</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">dynamic_generated_keys</span>
+                                          <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+
+    <span class="nd">@mode</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">:</span>
+            <span class="n">each_dataset</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_required</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;datasets&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">required_keys_from_datasets</span> <span class="o">=</span> <span class="n">_combine_keys</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">generated_keys_required</span>
+             <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">datasets</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">required_keys_from_datasets</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">generated_keys_optional</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="s2">&quot;datasets&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="n">optional_keys_from_datasets</span> <span class="o">=</span> <span class="n">_combine_keys</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">generated_keys_optional</span>
+             <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">datasets</span><span class="p">])</span>
+        <span class="n">sample_mask_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sample_mask_</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">subtype</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">datasets</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">optional_keys_from_datasets</span> <span class="o">+</span> <span class="n">sample_mask_keys</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">dna_helix</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">DNAHelix</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dna_helix as a sum from components which have it defined</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dna_helix</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">each_dataset</span><span class="p">,</span> <span class="s2">&quot;dna_helix&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">dna_helix</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">dna_helix</span> <span class="o">=</span> <span class="n">each_dataset</span><span class="o">.</span><span class="n">dna_helix</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dna_helix</span> <span class="o">=</span> <span class="n">dna_helix</span> <span class="o">+</span> <span class="n">each_dataset</span><span class="o">.</span><span class="n">dna_helix</span>
+        <span class="k">return</span> <span class="n">dna_helix</span>
+
+<div class="viewcode-block" id="DatasetMix.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetMix.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;DatasetMix&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform the checks on datasets, e.g. if the subtype is set or if the</span>
+<span class="sd">        datasets have compatible padded_shapes</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            self for chaining</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if some checks not passed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_datasets_for_compatibility</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DatasetMix.create_features_for_single_sample"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetMix.create_features_for_single_sample">[docs]</a>    <span class="k">def</span> <span class="nf">create_features_for_single_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract features for each subset separately, add the zero features</span>
+<span class="sd">        together with sample_masks and then sample the subset</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        features_combined</span>
+<span class="sd">            features combined from all datasets</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">features_datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">create_features_for_single_sample</span><span class="p">()</span>
+                             <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">merge_on_same_file_list</span><span class="p">):</span>
+            <span class="n">dataset_names</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">each_dataset</span><span class="o">.</span><span class="n">subtype</span> <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">]</span>
+            <span class="n">sampling_weights</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_weights</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">features_datasets</span><span class="p">,</span> <span class="n">dataset_names</span><span class="p">,</span> <span class="n">sampling_weights</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">_combine_features_from_datasets_with_same_filelist</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">,</span> <span class="n">features_datasets</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">merge_on_same_file_list</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_weights</span><span class="p">))</span>
+
+        <span class="n">features_combined</span> <span class="o">=</span> <span class="n">_add_sample_mask_and_zero_features</span><span class="p">(</span>
+            <span class="n">features_datasets</span><span class="p">,</span> <span class="n">dataset_names</span><span class="p">)</span>
+        <span class="n">features_sampled</span> <span class="o">=</span> <span class="n">_sample_dataset_from_list_of_datasets</span><span class="p">(</span>
+            <span class="n">features_combined</span><span class="p">,</span> <span class="n">sampling_weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_training</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">random_seed</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">features_sampled</span></div>
+
+<div class="viewcode-block" id="DatasetMix.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetMix.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+            <span class="s2">&quot;Do not use create_initial_data inside of Mix&quot;</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_datasets_for_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check the compatibility of self.datasets</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if only 1 dataset was provided</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            it not all datasets are built and fix_batch_dimension has same value</span>
+<span class="sd">            for all datasets</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if datasets have not unique subtype names</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if padded shapes for same keys are not equal</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_number_of_datasets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_if_all_datasets_are_built</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_unique_subtype_names</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_check_number_of_datasets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check number of datasets is greater than 1</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if only 1 dataset was provided</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Only 1 dataset provided. There is nothing to mix with!&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_if_all_datasets_are_built</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if all datasets are built and fix_batch_dimension has same value</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            it not all datasets are built</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fix_batch_values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">:</span>
+            <span class="n">object_utils</span><span class="o">.</span><span class="n">assert_object_is_built</span><span class="p">(</span><span class="n">each_dataset</span><span class="p">)</span>
+            <span class="n">fix_batch_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">fix_batch_dimension</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">fix_batch_values</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Use same value for fix_batch_dimension for all datasets!&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_unique_subtype_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check if all datasets have unique subtypes</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if datasets have not unique subtype names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">subtypes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">datasets</span><span class="p">:</span>
+            <span class="n">dataset_subtype</span> <span class="o">=</span> <span class="n">each_dataset</span><span class="o">.</span><span class="n">subtype</span>
+            <span class="k">if</span> <span class="n">dataset_subtype</span> <span class="ow">in</span> <span class="n">subtypes</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Subtype </span><span class="si">{}</span><span class="s2"> repeats! Please use unique subtypes (names) &quot;</span>
+                       <span class="s2">&quot;for each subset!&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_subtype</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">subtypes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dataset_subtype</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DatasetFromPipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFromPipe">[docs]</a><span class="k">class</span> <span class="nc">DatasetFromPipe</span><span class="p">(</span><span class="n">DataPipeMixin</span><span class="p">,</span> <span class="n">Dataset</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset that uses data_pipe to generate data</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_pipe</span>
+<span class="sd">        data pipe object to use</span>
+<span class="sd">    output_keys_mapping</span>
+<span class="sd">        keys mapping to map the data_pipe nucleotide results to dataset</span>
+<span class="sd">        generated keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data_pipe&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span>
+                 <span class="n">output_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">):</span>
+        <span class="n">DataPipeMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span>
+                               <span class="n">output_keys_mapping</span><span class="o">=</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="n">Dataset</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DatasetFromPipe.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFromPipe.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">_check_data_pipe_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">build_dna</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DatasetFromPipe.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFromPipe.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">process_sample_with_pipe</span><span class="p">())</span></div></div>
+
+
+<span class="c1"># pylint: disable=abstract-method</span>
+<span class="c1"># this class uses more high level API instead of low level abstract methods</span>
+<div class="viewcode-block" id="DatasetFileListFromPipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileListFromPipe">[docs]</a><span class="k">class</span> <span class="nc">DatasetFileListFromPipe</span><span class="p">(</span><span class="n">DataPipeMixin</span><span class="p">,</span> <span class="n">DatasetFileList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset that uses data_pipe to generate data and file list</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_pipe</span>
+<span class="sd">        data pipe object to use</span>
+<span class="sd">    output_keys_mapping</span>
+<span class="sd">        keys mapping to map the data_pipe nucleotide results to dataset</span>
+<span class="sd">        generated keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data_pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;file_list&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span>
+                 <span class="n">output_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;file_list_keys_mapping&quot;</span> <span class="ow">in</span> <span class="n">dataset_kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;file_list_keys_mapping should be provided inside &quot;</span>
+                             <span class="s2">&quot;of DataReaders for DataPipe datasets!&quot;</span><span class="p">)</span>
+        <span class="n">DataPipeMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span>
+                               <span class="n">output_keys_mapping</span><span class="o">=</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="n">DatasetFileList</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<div class="viewcode-block" id="DatasetFileListFromPipe.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileListFromPipe.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">_check_data_pipe_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">build_dna</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DatasetFileListFromPipe.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileListFromPipe.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="DatasetFileListFromPipe.extract_features_from_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetFileListFromPipe.extract_features_from_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">extract_features_from_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_sample_with_pipe</span><span class="p">(</span><span class="o">**</span><span class="n">x</span><span class="p">),</span>
+                        <span class="n">num_parallel_calls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_calls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div></div>
+
+
+<span class="c1"># pylint: enable=abstract-method</span>
+
+<span class="c1"># pylint: disable=abstract-method</span>
+<span class="c1"># this class uses more high level API instead of low level abstract methods</span>
+<div class="viewcode-block" id="DatasetTfRecordsFromPipe"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecordsFromPipe">[docs]</a><span class="k">class</span> <span class="nc">DatasetTfRecordsFromPipe</span><span class="p">(</span><span class="n">DataPipeMixin</span><span class="p">,</span> <span class="n">DatasetTfRecords</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dataset that uses data_pipe to generate data from tf record files</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data_pipe</span>
+<span class="sd">        data pipe object to use</span>
+<span class="sd">    output_keys_mapping</span>
+<span class="sd">        keys mapping to map the data_pipe nucleotide results to dataset</span>
+<span class="sd">        generated keys</span>
+<span class="sd">    compression_type</span>
+<span class="sd">        specify only if it is used while saving the tfrecord files</span>
+<span class="sd">        Possible options {&#39;GZIP&#39;, &#39;ZLIB&#39;, None}</span>
+<span class="sd">    num_parallel_reads</span>
+<span class="sd">        num_parallel_reads for tf.data.TFRecordDataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">exclude_args_from_log</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;data_pipe&quot;</span><span class="p">,</span> <span class="s2">&quot;file_list&quot;</span><span class="p">]</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tfrecords&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">,</span>
+                 <span class="n">output_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">compression_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">num_parallel_reads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;file_list_keys_mapping&quot;</span> <span class="ow">in</span> <span class="n">dataset_kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;file_list_keys_mapping should be provided inside &quot;</span>
+                             <span class="s2">&quot;of DataReaders for DataPipe datasets!&quot;</span><span class="p">)</span>
+        <span class="n">DataPipeMixin</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_pipe</span><span class="o">=</span><span class="n">data_pipe</span><span class="p">,</span>
+                               <span class="n">output_keys_mapping</span><span class="o">=</span><span class="n">output_keys_mapping</span><span class="p">)</span>
+        <span class="n">DatasetTfRecords</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">compression_type</span><span class="o">=</span><span class="n">compression_type</span><span class="p">,</span>
+            <span class="n">num_parallel_reads</span><span class="o">=</span><span class="n">num_parallel_reads</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">dataset_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<div class="viewcode-block" id="DatasetTfRecordsFromPipe.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecordsFromPipe.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="n">_check_data_pipe_compatibility</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_pipe</span><span class="o">.</span><span class="n">build_dna</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="DatasetTfRecordsFromPipe.create_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecordsFromPipe.create_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">create_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+            <span class="n">compression_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">compression_type</span><span class="p">,</span>
+            <span class="n">num_parallel_reads</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_reads</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="DatasetTfRecordsFromPipe.extract_features_from_initial_data"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.dataset.DatasetTfRecordsFromPipe.extract_features_from_initial_data">[docs]</a>    <span class="k">def</span> <span class="nf">extract_features_from_initial_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_sample_with_pipe</span><span class="p">(</span><span class="n">tfrecords</span><span class="o">=</span><span class="n">x</span><span class="p">),</span>
+                        <span class="n">num_parallel_calls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_parallel_calls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span></div></div>
+
+
+<span class="c1"># pylint: enable=abstract-method</span>
+
+<span class="k">def</span> <span class="nf">_check_data_pipe_compatibility</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">data_pipe</span><span class="p">:</span> <span class="n">DataPipe</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">is_tensorflow_pipe</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Currently data pipes for use as dataset must &quot;</span>
+                         <span class="s2">&quot;consist of tensorflow data elements only!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetFileList</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">readers</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide DataReaders to read from file list!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetFileList</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">readers</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide FileList to use DataReaders&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">DatasetTfRecords</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">data_pipe</span><span class="o">.</span><span class="n">read_from_tfrecords</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Provide TfRecords readers to read from tf records files!&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_add_sample_mask_and_zero_features</span><span class="p">(</span>
+        <span class="n">features_datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">],</span>
+        <span class="n">dataset_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add zero features and loss masks to each dataset</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    features_datasets</span>
+<span class="sd">        lists of tensorflow datasets with features inside</span>
+<span class="sd">    dataset_names</span>
+<span class="sd">        list of dataset names</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data_with_loss_mask_and_zero_features</span>
+<span class="sd">        same datasets as inputs but with sample_mask_{subtypes} keys and</span>
+<span class="sd">        with all keys from other datasets with zeroes of same type</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">zero_features</span> <span class="o">=</span> <span class="n">_create_zero_features_for_each_subset</span><span class="p">(</span>
+        <span class="n">features_datasets</span><span class="p">)</span>
+    <span class="n">sample_masks</span> <span class="o">=</span> <span class="n">_create_sample_masks_for_each_subset</span><span class="p">(</span><span class="n">dataset_names</span><span class="p">)</span>
+    <span class="n">data_with_sample_mask_and_zero_features</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_subset</span><span class="p">,</span> <span class="n">each_sample_mask</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">features_datasets</span><span class="p">,</span>
+                                             <span class="n">sample_masks</span><span class="p">):</span>
+        <span class="n">subset_with_sample_mask_and_zero_features</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">tf_data_utils</span><span class="o">.</span><span class="n">combine_features_from_list_of_dict_datasets</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">each_subset</span><span class="p">,</span> <span class="n">zero_features</span><span class="p">,</span> <span class="n">each_sample_mask</span><span class="p">]))</span>
+        <span class="n">data_with_sample_mask_and_zero_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">subset_with_sample_mask_and_zero_features</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_with_sample_mask_and_zero_features</span>
+
+
+<span class="k">def</span> <span class="nf">_sample_dataset_from_list_of_datasets</span><span class="p">(</span>
+        <span class="n">list_of_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">],</span>
+        <span class="n">sampling_weights</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+        <span class="n">is_training</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">random_seed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sample (select) one dataset to use as a features</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list_of_data</span>
+<span class="sd">        list of tensorflow datasets with zero and sample_mask values</span>
+<span class="sd">    sampling_weights</span>
+<span class="sd">        list of sampling weights</span>
+<span class="sd">    is_training</span>
+<span class="sd">        flag indicating if it is a training mode</span>
+<span class="sd">    random_seed</span>
+<span class="sd">        random seed to use to sample datasets</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data</span>
+<span class="sd">        sampled dataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">number_of_subsets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_training</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sample_from_datasets</span><span class="p">(</span>
+            <span class="n">list_of_data</span><span class="p">,</span> <span class="n">sampling_weights</span><span class="p">,</span> <span class="n">random_seed</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">choice_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">number_of_subsets</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">choose_from_datasets</span><span class="p">(</span>
+            <span class="n">list_of_data</span><span class="p">,</span> <span class="n">choice_dataset</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">_create_sample_masks_for_each_subset</span><span class="p">(</span><span class="n">dataset_names</span>
+                                         <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create sample_masks_{subtype} datasets for each subtype</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset_names</span>
+<span class="sd">        names (subtypes) of datasets</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    sample_mask_datasets</span>
+<span class="sd">        datasets with sample_mask_{subtype} keys</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sample_mask_subsets</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_subset_name</span> <span class="ow">in</span> <span class="n">dataset_names</span><span class="p">:</span>
+        <span class="n">sample_mask</span> <span class="o">=</span> <span class="n">_get_sample_mask</span><span class="p">(</span><span class="n">each_subset_name</span><span class="p">,</span> <span class="n">dataset_names</span><span class="p">)</span>
+        <span class="n">sample_mask_data_subset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensors</span><span class="p">(</span>
+            <span class="n">sample_mask</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span>
+        <span class="n">sample_mask_subsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_mask_data_subset</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sample_mask_subsets</span>
+
+
+<span class="k">def</span> <span class="nf">_create_zero_features_for_each_subset</span><span class="p">(</span>
+        <span class="n">features_datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create zero features for each dataset</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    features_datasets</span>
+<span class="sd">        lists of tensorflow datasets with features inside</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dataset_with_zero_features</span>
+<span class="sd">        datasets with features of tf.zeros_like(each_feature) for each</span>
+<span class="sd">        dataset</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_get_default_features</span><span class="p">(</span><span class="n">nested_features</span><span class="p">):</span>
+        <span class="n">features_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span><span class="n">nested_features</span><span class="p">)</span>
+        <span class="n">zero_values_flatten</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_key</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">each_value</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value</span> <span class="ow">in</span> <span class="n">features_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="n">zero_values</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">unflatten_dict_to_nested</span><span class="p">(</span>
+            <span class="n">zero_values_flatten</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">zero_values</span>
+
+    <span class="n">zero_features</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">each_subset</span> <span class="ow">in</span> <span class="n">features_datasets</span><span class="p">:</span>
+        <span class="n">zero_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each_subset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_get_default_features</span><span class="p">))</span>
+
+    <span class="n">zero_features_combined</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">tf_data_utils</span><span class="o">.</span><span class="n">combine_features_from_list_of_dict_datasets</span><span class="p">(</span>
+            <span class="n">zero_features</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">zero_features_combined</span>
+
+
+<span class="k">def</span> <span class="nf">_combine_features_from_datasets_with_same_filelist</span><span class="p">(</span>
+        <span class="n">datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">DatasetFileList</span><span class="p">]],</span>
+        <span class="n">features_datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">],</span>
+        <span class="n">merge_on_same_file_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span>
+        <span class="n">sampling_weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine features of datasets to single dataset if they have the same</span>
+<span class="sd">    file lists</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    datasets</span>
+<span class="sd">        list of datasets</span>
+<span class="sd">    features_datasets</span>
+<span class="sd">        list of data features</span>
+<span class="sd">    merge_on_same_file_list</span>
+<span class="sd">        list of flags if features of the dataset should be combined with other</span>
+<span class="sd">        if other have same file list</span>
+<span class="sd">    sampling_weights</span>
+<span class="sd">        sampling weights to combine</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    new_features</span>
+<span class="sd">        list of features after combination</span>
+<span class="sd">    dataset_names</span>
+<span class="sd">        list of new dataset names</span>
+<span class="sd">    sampling_weights</span>
+<span class="sd">        list of new sampling weights</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_combine_subsets_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">_combined_inds_lists</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">list</span><span class="p">],</span>
+                              <span class="n">_inds_to_leave</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                              <span class="n">combine_fn</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">combine_fn</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">combine_fn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+
+        <span class="n">data_to_leave</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="n">each_ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_ind</span> <span class="ow">in</span> <span class="n">_inds_to_leave</span><span class="p">]</span>
+        <span class="n">data_combined</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">combine_fn</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="n">each_ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">each_ind</span> <span class="ow">in</span> <span class="n">inds_to_combine</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">inds_to_combine</span> <span class="ow">in</span> <span class="n">_combined_inds_lists</span><span class="p">]</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">data_combined</span> <span class="o">+</span> <span class="n">data_to_leave</span>
+        <span class="k">return</span> <span class="n">new_data</span>
+
+    <span class="n">dataset_orig_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">subtype</span> <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">]</span>
+    <span class="p">(</span><span class="n">combined_inds_lists</span><span class="p">,</span> <span class="n">all_combined_inds</span><span class="p">,</span> <span class="n">inds_to_leave</span>
+     <span class="p">)</span> <span class="o">=</span> <span class="n">_get_dataset_indices_to_combine</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">merge_on_same_file_list</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_combined_inds</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">features_datasets</span><span class="p">,</span> <span class="n">dataset_orig_names</span><span class="p">,</span> <span class="n">sampling_weights</span>
+
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Datasets </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="p">)</span>
+
+    <span class="n">new_datasets</span> <span class="o">=</span> <span class="n">_combine_subsets_data</span><span class="p">(</span>
+        <span class="n">datasets</span><span class="p">,</span> <span class="n">combined_inds_lists</span><span class="p">,</span> <span class="n">inds_to_leave</span><span class="p">)</span>
+    <span class="n">new_features_datasets</span> <span class="o">=</span> <span class="n">_combine_subsets_data</span><span class="p">(</span>
+        <span class="n">features_datasets</span><span class="p">,</span> <span class="n">combined_inds_lists</span><span class="p">,</span> <span class="n">inds_to_leave</span><span class="p">,</span>
+        <span class="n">tf_data_utils</span><span class="o">.</span><span class="n">combine_features_from_list_of_dict_datasets</span><span class="p">)</span>
+    <span class="n">sampling_weights_new</span> <span class="o">=</span> <span class="n">_combine_subsets_data</span><span class="p">(</span>
+        <span class="n">sampling_weights</span><span class="p">,</span> <span class="n">combined_inds_lists</span><span class="p">,</span> <span class="n">inds_to_leave</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+    <span class="n">dataset_names_new</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">each_dataset</span><span class="o">.</span><span class="n">subtype</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_dataset</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+         <span class="k">else</span> <span class="n">each_dataset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">subtype</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_dataset</span> <span class="ow">in</span> <span class="n">new_datasets</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">new_features_datasets</span><span class="p">,</span> <span class="n">dataset_names_new</span><span class="p">,</span> <span class="n">sampling_weights_new</span>
+
+
+<span class="k">def</span> <span class="nf">_get_dataset_indices_to_combine</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">merge_on_same_file_list</span><span class="p">):</span>
+    <span class="n">possible_dataset_to_combine_inds</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">merge_flag</span><span class="p">,</span> <span class="n">each_dataset</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+            <span class="nb">zip</span><span class="p">(</span><span class="n">merge_on_same_file_list</span><span class="p">,</span> <span class="n">datasets</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">each_dataset</span><span class="p">,</span> <span class="n">DatasetFileList</span><span class="p">)</span> <span class="ow">and</span> <span class="n">merge_flag</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_dataset_to_combine_inds</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+
+    <span class="n">combined_inds_lists</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">all_combined_inds</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">each_ind</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">possible_dataset_to_combine_inds</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">each_ind</span> <span class="ow">in</span> <span class="n">all_combined_inds</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">datasets_with_same_filelist_at_ind</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">dataset_at_ind</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="n">each_ind</span><span class="p">]</span>
+        <span class="n">file_list_at_ind</span> <span class="o">=</span> <span class="n">dataset_at_ind</span><span class="o">.</span><span class="n">file_list</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">other_ind</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                <span class="n">possible_dataset_to_combine_inds</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">dataset_at_other_ind</span> <span class="o">=</span> <span class="n">datasets</span><span class="p">[</span><span class="n">other_ind</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">dataset_at_other_ind</span><span class="o">.</span><span class="n">file_list</span> <span class="o">==</span> <span class="n">file_list_at_ind</span><span class="p">:</span>
+                <span class="n">datasets_with_same_filelist_at_ind</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other_ind</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">datasets_with_same_filelist_at_ind</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">datasets_with_same_filelist_at_ind</span>
+             <span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_ind</span><span class="p">]</span> <span class="o">+</span> <span class="n">datasets_with_same_filelist_at_ind</span>
+            <span class="n">combined_inds_lists</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">datasets_with_same_filelist_at_ind</span><span class="p">)</span>
+            <span class="n">all_combined_inds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="nb">set</span><span class="p">(</span><span class="n">datasets_with_same_filelist_at_ind</span><span class="p">))</span>
+
+    <span class="n">inds_to_leave</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_ind</span> <span class="k">for</span> <span class="n">each_ind</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+                     <span class="k">if</span> <span class="n">each_ind</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_combined_inds</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">combined_inds_lists</span><span class="p">,</span> <span class="n">all_combined_inds</span><span class="p">,</span> <span class="n">inds_to_leave</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_same_tensor_shapes</span><span class="p">(</span><span class="n">tensor_shape1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span>
+                               <span class="n">tensor_shape2</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">,</span> <span class="nb">list</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_shape1</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">):</span>
+        <span class="n">tensor_shape1</span> <span class="o">=</span> <span class="n">tensor_shape1</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_shape2</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">):</span>
+        <span class="n">tensor_shape2</span> <span class="o">=</span> <span class="n">tensor_shape2</span><span class="o">.</span><span class="n">as_list</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">tensor_shape1</span> <span class="o">!=</span> <span class="n">tensor_shape2</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Shape </span><span class="si">{}</span><span class="s2"> is not compatible with shape </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">tensor_shape1</span><span class="p">,</span> <span class="n">tensor_shape2</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_cache_fname</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">file_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create name for cache file with temp stamp</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cache_dir</span>
+<span class="sd">        directory for cache</span>
+<span class="sd">    file_name</span>
+<span class="sd">        file name; to this file name the temp unique suffix will be added</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cache_fname</span>
+<span class="sd">        file name for cache</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">cache_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">cache_dir</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">cache_fname</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkstemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">file_name</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">cache_fname</span><span class="p">)</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use cache with file file_name </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cache_fname</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cache_fname</span>
+
+
+<span class="k">def</span> <span class="nf">_get_sample_mask</span><span class="p">(</span><span class="n">subset_name</span><span class="p">,</span> <span class="n">all_subset_names</span><span class="p">):</span>
+    <span class="n">sample_mask</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sample_mask_&#39;</span> <span class="o">+</span> <span class="n">each_name</span><span class="p">:</span> <span class="mf">0.0</span>
+                   <span class="k">for</span> <span class="n">each_name</span> <span class="ow">in</span> <span class="n">all_subset_names</span><span class="p">}</span>
+    <span class="n">sample_mask</span><span class="p">[</span><span class="s1">&#39;sample_mask_&#39;</span> <span class="o">+</span> <span class="n">subset_name</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">sample_mask</span>
+
+
+<span class="k">def</span> <span class="nf">_combine_keys</span><span class="p">(</span><span class="n">list_of_keys_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="n">keys_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">each_key</span> <span class="k">for</span> <span class="n">each_list</span> <span class="ow">in</span> <span class="n">list_of_keys_list</span>
+                <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">each_list</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">keys_all</span><span class="p">))</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

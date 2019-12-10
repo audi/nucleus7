@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.io_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.io_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.io_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">IO utils</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">numpydoc_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+
+<div class="viewcode-block" id="maybe_load_json"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.io_utils.maybe_load_json">[docs]</a><span class="k">def</span> <span class="nf">maybe_load_json</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">],</span> <span class="n">as_ordereddict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check whther the x is file and in this case loads as json</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x</span>
+<span class="sd">        path to json file or a string with serialized json or any other object</span>
+<span class="sd">    as_ordereddict</span>
+<span class="sd">        controls if the resulting dict in case if x is the path to json</span>
+<span class="sd">        will be returned as a ordered dict</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    loaded_object</span>
+<span class="sd">        laded json or literally evaluated json string or x itself</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># x is self explainable and is part of API</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">load_json</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">as_ordereddict</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">x</span></div>
+
+
+<div class="viewcode-block" id="load_json"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.io_utils.load_json">[docs]</a><span class="k">def</span> <span class="nf">load_json</span><span class="p">(</span><span class="n">fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_ordereddict</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+              <span class="n">remove_private</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load the json file</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fname</span>
+<span class="sd">        path to json file</span>
+<span class="sd">    as_ordereddict</span>
+<span class="sd">        controls if the resulting dict in case if x is the path to json</span>
+<span class="sd">        will be returned as a ordered dict</span>
+<span class="sd">    remove_private</span>
+<span class="sd">        if the private keys inside of json, e.g. starting with &#39;_&#39; should be</span>
+<span class="sd">        removed</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict_from_json</span>
+<span class="sd">        loaded json</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">object_pairs_hook</span> <span class="o">=</span> <span class="n">OrderedDict</span> <span class="k">if</span> <span class="n">as_ordereddict</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">object_pairs_hook</span><span class="o">=</span><span class="n">object_pairs_hook</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">remove_private</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">k</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;_&#39;</span><span class="p">:</span>
+                        <span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Tag </span><span class="si">%s</span><span class="s1"> in file </span><span class="si">%s</span><span class="s1"> omitted&#39;</span><span class="p">,</span>
+                                     <span class="n">k</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">data</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">decoder</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;File </span><span class="si">%s</span><span class="s2"> corrupted!!!&quot;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span></div>
+
+
+<div class="viewcode-block" id="is_jsonserializable"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.io_utils.is_jsonserializable">[docs]</a><span class="k">def</span> <span class="nf">is_jsonserializable</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if the object is json serializable</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x</span>
+<span class="sd">        object to check</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    status</span>
+<span class="sd">        True if object can be serialized as json and False otherwise</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># x is self explainable and is part of API</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="add_args_from_method_to_argparse"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.io_utils.add_args_from_method_to_argparse">[docs]</a><span class="k">def</span> <span class="nf">add_args_from_method_to_argparse</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">,</span>
+                                     <span class="bp">cls</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                                     <span class="n">method</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                                     <span class="n">method_with_doc</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                     <span class="n">include_parents</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+                                     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the args from method and add it to argparse parser</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    parser</span>
+<span class="sd">        parser to add the arguments</span>
+<span class="sd">    cls</span>
+<span class="sd">        class with method to parse</span>
+<span class="sd">    method</span>
+<span class="sd">        callable to get the arguments</span>
+<span class="sd">    method_with_doc</span>
+<span class="sd">        method to read the docs; if not specified, then original method will</span>
+<span class="sd">        be used</span>
+<span class="sd">    include_parents</span>
+<span class="sd">        if parent methods should be traced too</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    parser_new</span>
+<span class="sd">        parser with added arguments</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">signatures</span> <span class="o">=</span> <span class="n">object_utils</span><span class="o">.</span><span class="n">get_method_signatures</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">include_parents</span><span class="p">)</span>
+    <span class="n">method_with_doc</span> <span class="o">=</span> <span class="n">method_with_doc</span> <span class="ow">or</span> <span class="n">method</span>
+
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">numpydoc_utils</span><span class="o">.</span><span class="n">get_docs_of_method</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">method_with_doc</span><span class="p">,</span> <span class="n">include_parents</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i_sign</span><span class="p">,</span> <span class="n">signature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">signatures</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">arg_name</span> <span class="ow">in</span> <span class="n">signature</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arg_name</span> <span class="o">==</span> <span class="s1">&#39;self&#39;</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="s2">&quot;kwargs&quot;</span> <span class="ow">in</span> <span class="n">arg_name</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="s2">&quot;args&quot;</span> <span class="ow">in</span> <span class="n">arg_name</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">default</span> <span class="o">=</span> <span class="n">signature</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="n">arg_name</span><span class="p">]</span><span class="o">.</span><span class="n">default</span>
+                <span class="c1"># pylint: disable=protected-access</span>
+                <span class="c1"># _empty must be used since it is a part of inspect</span>
+                <span class="n">arg_type</span> <span class="o">=</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">default</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">default</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">inspect</span><span class="o">.</span><span class="n">_empty</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+                            <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">default</span> <span class="ow">is</span> <span class="n">inspect</span><span class="o">.</span><span class="n">_empty</span> <span class="ow">and</span> <span class="n">i_sign</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">required</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">required</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="c1"># pylint: enable=protected-access</span>
+                <span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;store&#39;</span>
+                <span class="k">if</span> <span class="n">arg_type</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                    <span class="n">arg_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">default</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span>
+                    <span class="n">default</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">arg_help</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">arg_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">arg_help</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">arg_help</span> <span class="o">=</span> <span class="n">arg_help</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+                    <span class="s1">&#39;--&#39;</span> <span class="o">+</span> <span class="n">arg_name</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">arg_type</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span>
+                    <span class="n">required</span><span class="o">=</span><span class="n">required</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="n">arg_help</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentError</span><span class="p">:</span>
+                <span class="k">continue</span>
+    <span class="k">return</span> <span class="n">parser</span></div>
+
+
+<div class="viewcode-block" id="maybe_mkdir"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.io_utils.maybe_mkdir">[docs]</a><span class="k">def</span> <span class="nf">maybe_mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create directory if it not exists</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path</span>
+<span class="sd">        directory path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Create directory </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Directory </span><span class="si">%s</span><span class="s1"> already exists&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="print_gflags"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.utils.io_utils.print_gflags">[docs]</a><span class="k">def</span> <span class="nf">print_gflags</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">argparse</span><span class="o">.</span><span class="n">Namespace</span><span class="p">,</span> <span class="n">space_n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get flags as a string to print</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    args</span>
+<span class="sd">        used flags</span>
+<span class="sd">    space_n</span>
+<span class="sd">        number of spaces for tabulation</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    flags_string</span>
+<span class="sd">        string to print the flags</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">flags_str</span> <span class="o">=</span> <span class="s2">&quot;Used ARGS:</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">flags_keys</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">flags_keys</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;help&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;_&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+                <span class="n">flags_str</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{}{}</span><span class="s2">: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">space_n</span><span class="p">,</span>
+                                                 <span class="n">k</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">k</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">flags_str</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

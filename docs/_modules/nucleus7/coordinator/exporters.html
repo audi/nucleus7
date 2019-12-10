@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.coordinator.exporters &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.coordinator.exporters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.coordinator.exporters</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Exporters for Trainer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.coordinator</span> <span class="kn">import</span> <span class="n">configs</span> <span class="k">as</span> <span class="n">coord_configs</span>
+<span class="kn">from</span> <span class="nn">nucleus7.kpi.kpi_evaluator</span> <span class="kn">import</span> <span class="n">KPIEvaluator</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">CollectionNames</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">kpi_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">mlflow_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">project_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils.kpi_utils</span> <span class="kn">import</span> <span class="n">filter_kpi_values</span>
+
+
+<div class="viewcode-block" id="ModelExporter"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.exporters.ModelExporter">[docs]</a><span class="k">class</span> <span class="nc">ModelExporter</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">LatestExporter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exporter for model</span>
+
+<span class="sd">    If any kpi evaluator callbacks were provided, it will store it result inside</span>
+<span class="sd">    of {evaluator_name}.json file to exports_dir</span>
+
+<span class="sd">    If eval_result is not None, it will store it to {eval_result}.json inside of</span>
+<span class="sd">    exports_dir; also it will create file with name global_step_{global_step}</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    exports_dir</span>
+<span class="sd">        directory to save exports</span>
+<span class="sd">    kpi_evaluators</span>
+<span class="sd">        kpi evaluator</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">serving_input_receiver_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+                 <span class="n">exports_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">kpi_evaluators</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">KPIEvaluator</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">assets_extra</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">as_text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exports_to_keep</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># pylint: disable=too-many-arguments</span>
+        <span class="c1"># not possible to have less arguments without more complexity</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">serving_input_receiver_fn</span><span class="p">,</span>
+                         <span class="n">assets_extra</span><span class="p">,</span> <span class="n">as_text</span><span class="p">,</span> <span class="n">exports_to_keep</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_exports_dir</span> <span class="o">=</span> <span class="n">exports_dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kpi_evaluators</span> <span class="o">=</span> <span class="n">kpi_evaluators</span> <span class="ow">or</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="ModelExporter.export"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.exporters.ModelExporter.export">[docs]</a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">export_path</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">eval_result</span><span class="p">,</span>
+               <span class="n">is_the_final_export</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds export of global step and KPI values to the saved_models directory</span>
+
+<span class="sd">        overridden from :obj:`tf.estimator.LatestExporter`.</span>
+<span class="sd">        See its documentation for more information</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=too-many-arguments</span>
+        <span class="c1"># default signature from tensorflow</span>
+        <span class="n">saved_model_path</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
+            <span class="n">estimator</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exports_dir</span><span class="p">,</span> <span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">eval_result</span><span class="p">,</span>
+            <span class="n">is_the_final_export</span><span class="p">)</span>
+        <span class="c1"># pylint: disable=no-value-for-parameter</span>
+        <span class="c1"># saved_model_load_fn passed by patch</span>
+        <span class="n">global_step</span> <span class="o">=</span> <span class="n">eval_result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;global_step&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">mlflow_utils</span><span class="o">.</span><span class="n">log_saved_model</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">,</span> <span class="n">global_step</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+            <span class="n">saved_model_path</span> <span class="o">=</span> <span class="n">saved_model_path</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_evaluator</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kpi_evaluators</span><span class="p">:</span>
+            <span class="n">save_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">,</span>
+                                      <span class="n">each_evaluator</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span><span class="p">)</span>
+            <span class="n">kpi_filtered</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kpi_utils</span><span class="o">.</span><span class="n">filter_kpi_values</span><span class="p">(</span>
+                <span class="n">each_evaluator</span><span class="o">.</span><span class="n">last_kpi</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">kpi_filtered</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">eval_result</span><span class="p">:</span>
+            <span class="n">project_utils</span><span class="o">.</span><span class="n">log_exported_model_info</span><span class="p">(</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">),</span> <span class="n">global_step</span><span class="p">)</span>
+
+            <span class="k">del</span> <span class="n">eval_result</span><span class="p">[</span><span class="s1">&#39;global_step&#39;</span><span class="p">]</span>
+            <span class="n">eval_result_filtered</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">filter_kpi_values</span><span class="p">(</span><span class="n">eval_result</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">save_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">,</span> <span class="s1">&#39;eval_result.json&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">eval_result_filtered</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                          <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">_log_eval_result_to_mlflow</span><span class="p">(</span><span class="n">eval_result_filtered</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">saved_model_path</span></div></div>
+
+
+<div class="viewcode-block" id="ServingInputReceiverFnBuilder"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.exporters.ServingInputReceiverFnBuilder">[docs]</a><span class="k">class</span> <span class="nc">ServingInputReceiverFnBuilder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create serving_input_receiver_fn to be passed to Exporter.</span>
+
+<span class="sd">    Inside of serving_input_receiver_fn on first run also</span>
+<span class="sd">    `graph_inference.meta` file with meta graph for inference is generated</span>
+<span class="sd">    together with `saved_models/input_output_names.json` file with names</span>
+<span class="sd">    of inputs / outputs for it inside of saved_models/ directory.</span>
+
+<span class="sd">    Result function has placeholders for all dataset items that connected</span>
+<span class="sd">    to predictions. To understand, which inputs connect to predictions,</span>
+<span class="sd">    it builds whole inference graph with all input keys and then stores</span>
+<span class="sd">    only connected inputs to `saved_models/input_output_names.json` and</span>
+<span class="sd">    resets the graph. Afterwards, if it reads input names from</span>
+<span class="sd">    `saved_models/input_output_names.json` and puts only that inputs to</span>
+<span class="sd">    serving_input_receiver_fn. By next run, it checks if that file already</span>
+<span class="sd">    exists and if so, it just reads input names from it and does not build</span>
+<span class="sd">    inference graph anymore.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    model</span>
+<span class="sd">        instance of model</span>
+<span class="sd">    dataset_fn</span>
+<span class="sd">        callable without arguments to create dataset</span>
+<span class="sd">    save_dir_inference_graph</span>
+<span class="sd">        path to save the inference graph</span>
+<span class="sd">    save_dir_inputs_outputs_mapping</span>
+<span class="sd">        path to save the inputs outputs mapping</span>
+<span class="sd">    inference_inputs_have_variable_shape</span>
+<span class="sd">        controls if the inputs inside of inference graph should have</span>
+<span class="sd">        variable shapes; defaults to True</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="c1"># serves more as a container and not as an interface</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
+                 <span class="n">save_dir_inference_graph</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">save_dir_inputs_outputs_mapping</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                 <span class="n">dataset_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">],</span>
+                 <span class="n">inference_inputs_have_variable_shape</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset_fn</span> <span class="o">=</span> <span class="n">dataset_fn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_dir_inputs_outputs_mapping</span> <span class="o">=</span> <span class="n">save_dir_inputs_outputs_mapping</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">save_dir_inference_graph</span> <span class="o">=</span> <span class="n">save_dir_inference_graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inference_inputs_have_variable_shape</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">inference_inputs_have_variable_shape</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ServingInputReceiverFnBuilder.get"><a class="viewcode-back" href="../../../api/nucleus7.coordinator.html#nucleus7.coordinator.exporters.ServingInputReceiverFnBuilder.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        serving_input_receiver_fn : callable</span>
+<span class="sd">            serving_input_receiver_fn</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_serving_input_receiver_fn</span></div>
+
+    <span class="k">def</span> <span class="nf">_serving_input_receiver_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">callable</span><span class="p">:</span>
+        <span class="c1"># pylint: disable=not-context-manager</span>
+        <span class="c1"># bug of pylint and/or tensorflow, since it is a context manager</span>
+        <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset_fn</span><span class="p">()</span>
+        <span class="c1"># pylint: enable=not-context-manager</span>
+        <span class="n">input_shapes</span><span class="p">,</span> <span class="n">input_types</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">output_shapes</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">output_types</span>
+
+        <span class="n">shape_fn</span> <span class="o">=</span> <span class="p">(</span><span class="n">_get_undefined_shapes_except_last</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_inputs_have_variable_shape</span>
+                    <span class="k">else</span> <span class="n">_get_defined_shapes_with_batch</span><span class="p">)</span>
+
+        <span class="n">input_output_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save_dir_inputs_outputs_mapping</span><span class="p">,</span>
+            <span class="n">coord_configs</span><span class="o">.</span><span class="n">INPUT_OUTPUT_NAMES_FILE_NAME</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_maybe_create_inference_graph_and_save_input_output</span><span class="p">(</span>
+            <span class="n">input_output_fname</span><span class="p">,</span> <span class="n">input_shapes</span><span class="p">,</span> <span class="n">input_types</span><span class="p">,</span> <span class="n">shape_fn</span><span class="p">)</span>
+
+        <span class="n">input_names</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">input_output_fname</span><span class="p">)[</span><span class="s1">&#39;inputs&#39;</span><span class="p">]</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">input_types</span><span class="p">[</span><span class="n">k</span><span class="p">],</span>
+                                    <span class="n">shape</span><span class="o">=</span><span class="n">shape_fn</span><span class="p">(</span><span class="n">input_shapes</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                                    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+                  <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">input_names</span><span class="p">}</span>
+        <span class="n">inputs_from_default_placeholders</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_item</span><span class="o">.</span><span class="n">full_name</span><span class="p">:</span> <span class="n">each_item</span><span class="o">.</span><span class="n">placeholder</span>
+            <span class="k">for</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">default_placeholders</span><span class="p">}</span>
+        <span class="n">inputs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">inputs_from_default_placeholders</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">export</span><span class="o">.</span><span class="n">ServingInputReceiver</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_maybe_create_inference_graph_and_save_input_output</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">input_output_fname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">input_shapes</span><span class="p">,</span> <span class="n">input_types</span><span class="p">,</span>
+            <span class="n">shape_fn</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create inference graph and save input output mappings</span>
+<span class="sd">        and afterwards reset the graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">input_output_fname</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="n">inference_graph</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">reset_tf_graph</span><span class="p">()</span>
+        <span class="c1"># pylint: disable=not-context-manager</span>
+        <span class="c1"># bug of pylint and/or tensorflow, since it is a context manager</span>
+        <span class="k">with</span> <span class="n">inference_graph</span><span class="o">.</span><span class="n">as_default</span><span class="p">():</span>
+            <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="n">features</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">input_types</span><span class="p">[</span><span class="n">k</span><span class="p">],</span>
+                                          <span class="n">shape</span><span class="o">=</span><span class="n">shape_fn</span><span class="p">(</span><span class="n">input_shapes</span><span class="p">[</span><span class="n">k</span><span class="p">]),</span>
+                                          <span class="n">name</span><span class="o">=</span><span class="s2">&quot;input_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+                        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">input_shapes</span><span class="p">}</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;build inference graph and select connected inputs &#39;</span>
+                        <span class="s1">&#39;to </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">input_output_fname</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">build_inference_graph</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;export input-output node mappings &#39;</span>
+                        <span class="s1">&#39;to </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">input_output_fname</span><span class="p">)</span>
+            <span class="n">tf_utils</span><span class="o">.</span><span class="n">save_input_output_node_names</span><span class="p">(</span>
+                <span class="n">input_output_fname</span><span class="p">,</span>
+                <span class="n">parameter_placeholders</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">default_placeholders</span><span class="p">,</span>
+                <span class="n">inputs_collection_name</span><span class="o">=</span><span class="n">CollectionNames</span><span class="o">.</span><span class="n">INPUTS</span><span class="p">,</span>
+                <span class="n">outputs_collection_names</span><span class="o">=</span><span class="n">CollectionNames</span><span class="o">.</span><span class="n">PREDICTIONS</span><span class="p">)</span>
+
+            <span class="n">inference_graph_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">save_dir_inference_graph</span><span class="p">,</span>
+                <span class="n">coord_configs</span><span class="o">.</span><span class="n">INFERENCE_GRAPH_FILE_NAME</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">inference_graph_fname</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;export inference graph to </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                            <span class="n">inference_graph_fname</span><span class="p">)</span>
+                <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">export_meta_graph</span><span class="p">(</span><span class="n">inference_graph_fname</span><span class="p">,</span>
+                                           <span class="n">graph</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">())</span>
+        <span class="c1"># pylint: enable=not-context-manager</span>
+        <span class="k">del</span> <span class="n">inference_graph</span></div>
+
+
+<span class="k">def</span> <span class="nf">_get_inference_batch_size</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">TensorShape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns batch size from tensor_shape.</span>
+<span class="sd">    If tensor_shape[0] == None, returns None, otherwise returns 1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tensor_shape</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">tensor_shape</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">_get_undefined_shapes_except_last</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Modify all dimensions between batch dimension and last one to</span>
+<span class="sd">    be None and change batch dimension to 1 or None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">_get_inference_batch_size</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="p">([</span><span class="n">batch_size</span><span class="p">]</span> <span class="o">+</span>
+             <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">+</span>
+             <span class="n">tensor_shape</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="mi">1</span><span class="p">:][</span><span class="o">-</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">shape</span>
+
+
+<span class="k">def</span> <span class="nf">_get_defined_shapes_with_batch</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Change batch dimension to 1 or None and leave other dimensions as is</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">_get_inference_batch_size</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">batch_size</span><span class="p">]</span> <span class="o">+</span> <span class="n">tensor_shape</span><span class="o">.</span><span class="n">as_list</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">return</span> <span class="n">shape</span>
+
+
+<span class="k">def</span> <span class="nf">_log_eval_result_to_mlflow</span><span class="p">(</span><span class="n">eval_result_filtered</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">eval_result_filtered_flatten</span> <span class="o">=</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">flatten_nested_struct</span><span class="p">(</span>
+        <span class="n">eval_result_filtered</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_eval_name</span><span class="p">,</span> <span class="n">each_eval_value</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="n">eval_result_filtered_flatten</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">mlflow_utils</span><span class="o">.</span><span class="n">log_metric_to_mlflow</span><span class="p">(</span>
+            <span class="n">each_eval_name</span><span class="p">,</span> <span class="n">each_eval_value</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

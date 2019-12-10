@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.utils.mlflow_utils &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.utils.mlflow_utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.utils.mlflow_utils</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utils to incorporate mlflow</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">mlflow</span>
+<span class="kn">import</span> <span class="nn">mlflow.tensorflow</span> <span class="k">as</span> <span class="nn">mlflow_tf</span>
+<span class="kn">from</span> <span class="nn">mlflow.tracking.client</span> <span class="kn">import</span> <span class="n">MlflowClient</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="c1"># pylint: disable=no-name-in-module</span>
+<span class="c1"># python is a part of tensorflow</span>
+<span class="kn">from</span> <span class="nn">tensorflow.python.saved_model</span> <span class="kn">import</span> <span class="n">signature_constants</span>
+<span class="kn">from</span> <span class="nn">tensorflow.python.saved_model</span> <span class="kn">import</span> <span class="n">tag_constants</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project</span>
+<span class="c1"># pylint: enable=no-name-in-module</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">project_utils</span>
+
+<span class="n">PARAMETER_SEPARATOR</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span>
+<span class="n">METRIC_SEPARATOR</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span>
+<span class="n">_MLFLOW_SUPPORTED_SYMBOLS</span> <span class="o">=</span> <span class="s2">&quot;[^A-Za-z0-9._/-]+&quot;</span>
+<span class="n">_SOURCE_VERSION_FILE_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;SOURCE_VERSION&quot;</span>
+
+
+<div class="viewcode-block" id="create_mlflow_experiment_and_start_run"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.create_mlflow_experiment_and_start_run">[docs]</a><span class="k">def</span> <span class="nf">create_mlflow_experiment_and_start_run</span><span class="p">(</span><span class="n">run_method</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wrapper about run method to start the mlflow experiment and log</span>
+<span class="sd">    parameters to it.</span>
+
+<span class="sd">    Will also log the configs as artifact</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    run_method</span>
+<span class="sd">        run method to decorate</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wrapper</span>
+<span class="sd">        wrapped method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">source_name</span> <span class="o">=</span> <span class="s2">&quot;nucleus7&quot;</span>
+        <span class="n">active_project</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_active_project</span><span class="p">()</span>
+        <span class="n">run_name</span> <span class="o">=</span> <span class="n">active_project</span><span class="o">.</span><span class="n">project_type</span>
+        <span class="n">entry_point_name</span> <span class="o">=</span> <span class="n">active_project</span><span class="o">.</span><span class="n">entry_point</span>
+        <span class="n">project_dir</span> <span class="o">=</span> <span class="n">active_project</span><span class="o">.</span><span class="n">project_dir</span>
+        <span class="n">create_new_or_continue_experiment</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+        <span class="n">source_versions</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">get_source_versions</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">):</span>
+            <span class="n">log_config_parameter_to_mlflow</span><span class="p">(</span><span class="s2">&quot;PROJECT_DIR&quot;</span><span class="p">,</span> <span class="n">project_dir</span><span class="p">)</span>
+            <span class="n">_log_source_versions_to_mlflow</span><span class="p">(</span><span class="n">source_versions</span><span class="p">)</span>
+            <span class="n">run_method</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">source_name</span><span class="p">)</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s2">&quot;entry_point&quot;</span><span class="p">,</span> <span class="n">entry_point_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span></div>
+
+
+<div class="viewcode-block" id="log_nucleotide_exec_time_to_mlflow"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.log_nucleotide_exec_time_to_mlflow">[docs]</a><span class="k">def</span> <span class="nf">log_nucleotide_exec_time_to_mlflow</span><span class="p">(</span>
+        <span class="n">method_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;exec_time&quot;</span><span class="p">,</span>
+        <span class="n">log_on_train</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">log_on_eval</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">log_on_infer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log the time of the function to mlflow</span>
+
+<span class="sd">    Parameter will be logged to metrics with the name</span>
+<span class="sd">    &quot;performance--{prefix}, [s]--{object_name}--{mode (if was set)}--</span>
+<span class="sd">    {method_name (if is not None)}&quot;</span>
+<span class="sd">    and value of time needed to call it</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    prefix</span>
+<span class="sd">        prefix to use for parameter name</span>
+<span class="sd">    method_name</span>
+<span class="sd">        name of the method</span>
+<span class="sd">    log_on_train</span>
+<span class="sd">        if the performance time should be logged during training</span>
+<span class="sd">    log_on_eval</span>
+<span class="sd">        if the performance time should be logged during evaluation</span>
+<span class="sd">    log_on_infer</span>
+<span class="sd">        if the performance time should be logged during inference</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    wrapper</span>
+<span class="sd">        wrapped method</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_decide_if_log_based_on_mode</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="p">,</span> <span class="n">log_on_train</span><span class="p">,</span> <span class="n">log_on_eval</span><span class="p">,</span> <span class="n">log_on_infer</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="n">name_with_mode</span> <span class="o">=</span> <span class="n">_get_object_name_with_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">METRIC_SEPARATOR</span><span class="p">)</span>
+            <span class="n">method_name_</span> <span class="o">=</span> <span class="n">method_name</span> <span class="ow">or</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">log_param_name</span> <span class="o">=</span> <span class="n">METRIC_SEPARATOR</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="p">[</span><span class="s2">&quot;performance&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">name_with_mode</span><span class="p">,</span> <span class="n">method_name_</span><span class="p">])</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">execution_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+            <span class="n">log_metric_to_mlflow</span><span class="p">(</span><span class="n">log_param_name</span><span class="p">,</span> <span class="n">execution_time</span><span class="p">)</span>
+
+            <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> was executed in </span><span class="si">%0.3f</span><span class="s2"> s&quot;</span><span class="p">,</span>
+                         <span class="n">name_with_mode</span><span class="p">,</span> <span class="n">execution_time</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="k">return</span> <span class="n">wrapped</span>
+
+    <span class="k">return</span> <span class="n">wrapper</span></div>
+
+
+<div class="viewcode-block" id="create_new_or_continue_experiment"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.create_new_or_continue_experiment">[docs]</a><span class="k">def</span> <span class="nf">create_new_or_continue_experiment</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a new experiment or continues already existing one.</span>
+
+<span class="sd">    Experiment name is the name of the project_dir</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">experiment_name</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">get_project_name_from_directory</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;MLFLOW_TRACKING_URI&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+        <span class="n">tracking_uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;mlruns&quot;</span><span class="p">)</span>
+        <span class="n">tracking_uri</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">tracking_uri</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="n">tracking_uri</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="n">experiment_name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log_config_parameter_to_mlflow"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.log_config_parameter_to_mlflow">[docs]</a><span class="k">def</span> <span class="nf">log_config_parameter_to_mlflow</span><span class="p">(</span><span class="n">param_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">param_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log the parameter with its value to mlflow.</span>
+
+<span class="sd">    If value is malformed, it will be ignored and logging notification will</span>
+<span class="sd">    be added</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    param_name</span>
+<span class="sd">        parameter name to log</span>
+<span class="sd">    param_value</span>
+<span class="sd">        value to log</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">param_name</span> <span class="o">=</span> <span class="n">_replace_not_allowed_symbols</span><span class="p">(</span><span class="n">param_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">param_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">param_value</span><span class="p">):</span>
+        <span class="n">param_value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">param_value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_warn_about_no_run</span><span class="p">()</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="n">param_name</span><span class="p">,</span> <span class="n">param_value</span><span class="p">)</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="c1"># pylint: disable=broad-except</span>
+    <span class="c1"># this is due to the mlflow itself, they raise this Exception</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Parameter </span><span class="si">%s</span><span class="s2"> has malformed value </span><span class="si">%s</span><span class="s2"> and so will not &quot;</span>
+                       <span class="s2">&quot;be logged to mlflow!&quot;</span><span class="p">,</span> <span class="n">param_name</span><span class="p">,</span> <span class="n">param_value</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Original exception: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log_metric_to_mlflow"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.log_metric_to_mlflow">[docs]</a><span class="k">def</span> <span class="nf">log_metric_to_mlflow</span><span class="p">(</span><span class="n">metric_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metric_value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log the metric with its value to mlflow.</span>
+
+<span class="sd">    If value is malformed, it will be ignored and logging notification will</span>
+<span class="sd">    be added</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    metric_name</span>
+<span class="sd">        metric name to log</span>
+<span class="sd">    metric_value</span>
+<span class="sd">        value to log</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">metric_name</span> <span class="o">=</span> <span class="n">_replace_not_allowed_symbols</span><span class="p">(</span><span class="n">metric_name</span><span class="p">)</span>
+    <span class="n">metric_name</span> <span class="o">=</span> <span class="n">_format_metric_name</span><span class="p">(</span><span class="n">metric_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_warn_about_no_run</span><span class="p">()</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_log_metric</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">metric_value</span><span class="p">)</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="c1"># pylint: disable=broad-except</span>
+    <span class="c1"># this is due to the mlflow itself, they raise this Exception</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Metric </span><span class="si">%s</span><span class="s2"> has malformed value </span><span class="si">%s</span><span class="s2"> and so will not &quot;</span>
+                       <span class="s2">&quot;be logged to mlflow!&quot;</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">,</span> <span class="n">metric_value</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Original exception: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log_project_artifacts_to_mlflow"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.log_project_artifacts_to_mlflow">[docs]</a><span class="k">def</span> <span class="nf">log_project_artifacts_to_mlflow</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log the artifact to mlflow</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    function</span>
+<span class="sd">        function to wrap</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_warn_about_no_run</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">artifacts_path</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_active_artifacts_directory</span><span class="p">()</span>
+        <span class="n">artifacts_path_realpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">artifacts_path</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_artifacts</span><span class="p">(</span><span class="n">artifacts_path_realpath</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span></div>
+
+
+<span class="c1"># pylint: disable=invalid-name</span>
+<span class="c1"># this is method, not a constant, and is used inside of the patch</span>
+<span class="n">_load_model_with_clear_devices</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">saved_model</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">load</span><span class="p">,</span> <span class="n">clear_devices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="c1"># pylint: enable=invalid-name</span>
+
+<span class="c1"># this is needed because of the bug in mlflow and tensorflow estimator</span>
+<span class="c1"># estimator saves models with devices and then mlflow restores them with same</span>
+<span class="c1"># devices to validate the saved model, but then estimator increases the device</span>
+<span class="c1"># and so wrong device is used and exception is raised.</span>
+<span class="c1"># must be removed as it is resolved</span>
+<span class="c1"># TODO(oleksandr.vorobiov@audi.de): remove patch when it is resolved in</span>
+<span class="c1">#  dependencies</span>
+<div class="viewcode-block" id="log_saved_model"><a class="viewcode-back" href="../../../api/nucleus7.utils.html#nucleus7.coordinator.inferer.log_saved_model">[docs]</a><span class="nd">@patch</span><span class="p">(</span><span class="s2">&quot;tensorflow.saved_model.loader.load&quot;</span><span class="p">,</span>
+       <span class="n">wraps</span><span class="o">=</span><span class="n">_load_model_with_clear_devices</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">log_saved_model</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                    <span class="n">global_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                    <span class="n">saved_model_load_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Log all the saved models to mlflow</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    saved_model_path</span>
+<span class="sd">        path to saved model</span>
+<span class="sd">    global_step</span>
+<span class="sd">        global step for saved model</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=unused-argument</span>
+    <span class="c1"># saved_model_load_fn is coming from patch</span>
+    <span class="k">if</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_warn_about_no_run</span><span class="p">()</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="n">saved_model_path</span> <span class="o">=</span> <span class="n">saved_model_path</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="n">saved_model_tag</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">saved_model_path</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">artifact_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;models&quot;</span><span class="p">,</span> <span class="n">saved_model_tag</span><span class="p">)</span>
+    <span class="n">mlflow_tf</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span>
+        <span class="n">tf_saved_model_dir</span><span class="o">=</span><span class="n">saved_model_path</span><span class="p">,</span>
+        <span class="n">tf_meta_graph_tags</span><span class="o">=</span><span class="p">[</span><span class="n">tag_constants</span><span class="o">.</span><span class="n">SERVING</span><span class="p">],</span>
+        <span class="n">tf_signature_def_key</span><span class="o">=</span>
+        <span class="n">signature_constants</span><span class="o">.</span><span class="n">DEFAULT_SERVING_SIGNATURE_DEF_KEY</span><span class="p">,</span>
+        <span class="n">artifact_path</span><span class="o">=</span><span class="n">artifact_path</span><span class="p">)</span>
+    <span class="n">mlflow_artifacts_path</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">get_artifact_uri</span><span class="p">()</span>
+    <span class="n">saved_model_artifact_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">mlflow_artifacts_path</span><span class="p">,</span> <span class="n">artifact_path</span><span class="p">)</span>
+    <span class="n">project_utils</span><span class="o">.</span><span class="n">log_exported_model_info</span><span class="p">(</span>
+        <span class="n">saved_model_artifact_path</span><span class="p">,</span> <span class="n">global_step</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_log_source_versions_to_mlflow</span><span class="p">(</span><span class="n">source_versions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">each_source_name</span><span class="p">,</span> <span class="n">each_source_version</span> <span class="ow">in</span> <span class="n">source_versions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">parameter_name</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">_SOURCE_VERSION_FILE_PREFIX</span><span class="p">,</span> <span class="n">each_source_name</span><span class="p">])</span>
+        <span class="n">log_config_parameter_to_mlflow</span><span class="p">(</span><span class="n">parameter_name</span><span class="p">,</span> <span class="n">each_source_version</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_warn_about_no_run</span><span class="p">():</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;No active mlflow run found. No parameters and no metrics will be &quot;</span>
+           <span class="s2">&quot;logged&quot;</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_object_name_with_mode</span><span class="p">(</span><span class="n">instance</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">object_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">object_name</span>
+    <span class="k">return</span> <span class="n">separator</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">object_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_replace_not_allowed_symbols</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">replace_symbol</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">without_duplicated_slashes</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;[/]{2,}&quot;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">_MLFLOW_SUPPORTED_SYMBOLS</span><span class="p">,</span> <span class="n">replace_symbol</span><span class="p">,</span>
+                  <span class="n">without_duplicated_slashes</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_format_metric_name</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">name_formatted</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">PARAMETER_SEPARATOR</span><span class="p">,</span> <span class="n">METRIC_SEPARATOR</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">name_formatted</span>
+
+
+<span class="k">def</span> <span class="nf">_decide_if_log_based_on_mode</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">log_on_train</span><span class="p">,</span> <span class="n">log_on_eval</span><span class="p">,</span>
+                                 <span class="n">log_on_infer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">mode</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">log_on_train</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">TRAIN</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">log_on_eval</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">EVAL</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">log_on_infer</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">def</span> <span class="nf">_log_metric</span><span class="p">(</span><span class="n">metric_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">metric_value</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="c1"># this is a hack to have larger time stamp as original mlflow</span>
+    <span class="n">run_id</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">active_run</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">run_uuid</span>
+    <span class="n">time_stamp</span> <span class="o">=</span> <span class="n">_get_timestamp</span><span class="p">()</span>
+    <span class="n">MlflowClient</span><span class="p">()</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="n">run_id</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">,</span> <span class="n">metric_value</span><span class="p">,</span> <span class="n">time_stamp</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_timestamp</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

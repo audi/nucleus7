@@ -1,0 +1,943 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.data.file_list &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.data.file_list</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.data.file_list</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Interfaces for FileList</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">BaseClass</span>
+<span class="kn">from</span> <span class="nn">nucleus7.core.base</span> <span class="kn">import</span> <span class="n">MetaLogAndRegister</span>
+<span class="kn">from</span> <span class="nn">nucleus7.data.data_filter</span> <span class="kn">import</span> <span class="n">DataFilterMixin</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">file_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nest_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">nucleotide_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">object_utils</span>
+
+<span class="n">_EMPTY_CHAR</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="FileList"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList">[docs]</a><span class="k">class</span> <span class="nc">FileList</span><span class="p">(</span><span class="n">BaseClass</span><span class="p">,</span> <span class="n">DataFilterMixin</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">MetaLogAndRegister</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    FileList is used to match file names for different tasks and to iterate</span>
+<span class="sd">    over it. It also supports original shuffle and slicing</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_names</span>
+<span class="sd">        mapping of key to glob expression with file names with this key</span>
+<span class="sd">    downsample_factor</span>
+<span class="sd">        specifies how to downsample the file list, e.g. if downsample_factor = 5</span>
+<span class="sd">        then each 5th file will be used</span>
+<span class="sd">    number_of_shards</span>
+<span class="sd">        number of shards</span>
+<span class="sd">    shard_index</span>
+<span class="sd">        current shard index</span>
+<span class="sd">    name</span>
+<span class="sd">        class name</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    register_name_scope</span>
+<span class="sd">        name scope for register and for the config logger</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if downsample_factor is less then 1</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        if shard_index &gt;= number_of_shards or is not set</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">register_name_scope</span> <span class="o">=</span> <span class="s2">&quot;file_list&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># pylint: disable=too-many-arguments</span>
+    <span class="c1"># file list takes so many arguments, more split will be more confusing</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">file_names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+                 <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">downsample_factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">number_of_shards</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                 <span class="n">shard_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FileList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span> <span class="o">=</span> <span class="n">file_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="k">if</span> <span class="n">downsample_factor</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Downsample factor must be int and &gt;= 1, got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">downsample_factor</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">number_of_shards</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">shard_index</span> <span class="o">&gt;=</span> <span class="n">number_of_shards</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Impossible combination of shard_index (</span><span class="si">{}</span><span class="s2">) &quot;</span>
+                   <span class="s2">&quot;and number_of_shards(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">shard_index</span><span class="p">,</span>
+                                                     <span class="n">number_of_shards</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">downsample_factor</span> <span class="o">=</span> <span class="n">downsample_factor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">number_of_shards</span> <span class="o">=</span> <span class="n">number_of_shards</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shard_index</span> <span class="o">=</span> <span class="n">shard_index</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">file_names_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the file names list of matching pairs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        file_names</span>
+<span class="sd">            dict holding file names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">built</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span>
+        <span class="k">return</span> <span class="n">nest_utils</span><span class="o">.</span><span class="n">dict_of_lists_to_list_of_dicts</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">)</span>
+
+<div class="viewcode-block" id="FileList.get"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the file names as a dict</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        file_names</span>
+<span class="sd">            dict holding file names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span></div>
+
+<div class="viewcode-block" id="FileList.keys"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns keys from file_names in sorted order</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        keys</span>
+<span class="sd">            keys from file_names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileList.build"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.build">[docs]</a>    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build the file list object and apply match from glob</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            self for chaining</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if the file list empty after the match</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;File list </span><span class="si">{}</span><span class="s2"> is empty after the match&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_shards</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">shard</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample_factor</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="FileList.match_fn"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.match_fn">[docs]</a>    <span class="k">def</span> <span class="nf">match_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method will be used inside of self.match()</span>
+
+<span class="sd">        It takes the whole path of file and extracts the pattern from it that</span>
+<span class="sd">        is gonna to be used to match the file names. File names for multiple</span>
+<span class="sd">        keys are matched when they have the same pattern, e.g. to match</span>
+<span class="sd">        {&#39;inputs&#39;: &#39;input1.ext&#39;, &#39;labels&#39;: &#39;labels1.ext&#39;} this method should</span>
+<span class="sd">        return &#39;1&#39;</span>
+
+<span class="sd">        Default pattern corresponds to the basename without extension</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path</span>
+<span class="sd">            complete path of the file</span>
+<span class="sd">        key</span>
+<span class="sd">            key from file_names using for to create this pattern</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        match_pattern</span>
+<span class="sd">            pattern to use for matching of the file name pairs, e.g.</span>
+<span class="sd">            the basename without extension</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># pylint: disable=unused-argument</span>
+        <span class="c1"># key argument is there for interface even if it is not used here</span>
+        <span class="c1"># pylint: disable=no-self-use</span>
+        <span class="c1"># is an interface</span>
+        <span class="n">match_pattern</span> <span class="o">=</span> <span class="n">_get_basename_without_extension</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">match_pattern</span></div>
+
+<div class="viewcode-block" id="FileList.sort_fn"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.sort_fn">[docs]</a>    <span class="k">def</span> <span class="nf">sort_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method will be used inside of self.sort()</span>
+
+<span class="sd">        It takes the whole path of file and extracts the string from it that</span>
+<span class="sd">        is gonna to be used to sort the file names</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path</span>
+<span class="sd">            complete path of the file</span>
+<span class="sd">        key</span>
+<span class="sd">            key from file_names using for sorting</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pattern_for_sort</span>
+<span class="sd">            pattern that is used for sorting of file names</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_fn</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="FileList.match"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Match file names between different keys, e.g. find file names that</span>
+<span class="sd">        correspond to same sample</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            self for chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">matched_file_names</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">match_file_names_with_glob</span><span class="p">(</span>
+            <span class="n">file_names_with_glob</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">,</span> <span class="n">match_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">match_fn</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span> <span class="o">=</span> <span class="n">matched_file_names</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="FileList.add_data_filter"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.add_data_filter">[docs]</a>    <span class="k">def</span> <span class="nf">add_data_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_filter</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">add_data_filter</span><span class="p">(</span><span class="n">data_filter</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">built</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filter</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="FileList.filter"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.filter">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter the FileList according to DatFilter</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_filters</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">initial_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_index</span><span class="p">,</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">filter_flag</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_filter_true</span><span class="p">(</span><span class="o">**</span><span class="n">each_item</span><span class="p">)</span>
+            <span class="n">index_to_delete</span> <span class="o">=</span> <span class="n">initial_length</span> <span class="o">-</span> <span class="n">each_index</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">filter_flag</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="p">[</span><span class="n">index_to_delete</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="FileList.sort"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.sort">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sort the file names using self.sort_fn</span>
+
+<span class="sd">        It will sort the first key in according to sort_fn and then will select</span>
+<span class="sd">        other keys according to sorted indices</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            self for chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">first_subset_key</span><span class="p">,</span> <span class="n">first_subset</span> <span class="o">=</span> <span class="n">_get_first_key_and_subset</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">)</span>
+        <span class="n">sorted_indices</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span>
+            <span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">first_subset</span><span class="p">),</span>
+                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">sort_fn</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="n">first_subset_key</span><span class="p">)))</span>
+        <span class="n">file_names_sorted</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_key</span><span class="p">:</span> <span class="p">[</span><span class="n">each_list</span><span class="p">[</span><span class="n">ind_sorted</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind_sorted</span> <span class="ow">in</span> <span class="n">sorted_indices</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_list</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span> <span class="o">=</span> <span class="n">file_names_sorted</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="FileList.downsample"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.downsample">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">downsample</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Downsample, e.g. select each kth, the file_names according to</span>
+<span class="sd">        self.downsample factor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            self for chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">file_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span>
+        <span class="n">file_names_downsampled</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">each_key</span><span class="p">:</span> <span class="n">each_file_names_list</span><span class="p">[::</span><span class="bp">self</span><span class="o">.</span><span class="n">downsample_factor</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_file_names_list</span> <span class="ow">in</span> <span class="n">file_names</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span> <span class="o">=</span> <span class="n">file_names_downsampled</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="FileList.shard"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.shard">[docs]</a>    <span class="k">def</span> <span class="nf">shard</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Shard the file list according to number_of_shards and shard_index, e.g.</span>
+<span class="sd">        file_list will include only 1/number_of_shards elements</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">            file_list for particular shard index</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shard_index</span>
+        <span class="n">shard_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_shards</span>
+        <span class="n">file_names_sharded</span> <span class="o">=</span> <span class="n">_slice_file_names</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">,</span> <span class="nb">slice</span><span class="p">(</span><span class="n">start_index</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">shard_step</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span> <span class="o">=</span> <span class="n">file_names_sharded</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="FileList.filter_by_keys"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.filter_by_keys">[docs]</a>    <span class="k">def</span> <span class="nf">filter_by_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys_required</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">keys_optional</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">file_list_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+                       <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filter the file names by required and optional keys</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        keys_required</span>
+<span class="sd">            keys that are required to be inside of file names and will be</span>
+<span class="sd">            filtered</span>
+<span class="sd">        keys_optional</span>
+<span class="sd">            optional keys that are not required to be inside of file names,</span>
+<span class="sd">            but will be filtered if they are inside</span>
+<span class="sd">        file_list_keys_mapping</span>
+<span class="sd">            mapping for file lists keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        file_list_filtered</span>
+<span class="sd">            file list with filtered keys</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            if not all keys_required are inside of file_list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">file_names_filtered</span> <span class="o">=</span> <span class="n">_filter_and_remap_file_list_keys</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="n">keys_required</span><span class="p">,</span> <span class="n">keys_optional</span><span class="p">,</span> <span class="n">file_list_keys_mapping</span><span class="p">)</span>
+        <span class="n">file_list_filtered</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_matched_file_names</span><span class="p">(</span>
+            <span class="n">file_names_filtered</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file_list_filtered</span></div>
+
+<div class="viewcode-block" id="FileList.from_matched_file_names"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.from_matched_file_names">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_matched_file_names</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
+                                <span class="n">file_names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                                <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the file list from file names, that were already matched</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_names</span>
+<span class="sd">            matched file names</span>
+<span class="sd">        name</span>
+<span class="sd">            name of file list</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        file_list</span>
+<span class="sd">            file list with file_names inside</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">new_cls_with_incremented_name</span> <span class="o">=</span> <span class="n">_create_file_list_subclass</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="n">new_cls_with_incremented_name</span><span class="p">(</span>
+            <span class="n">file_names</span><span class="o">=</span><span class="n">file_names</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1"># pylint: disable=protected-access</span>
+        <span class="c1"># this method is a factory, so it set the _built attribute</span>
+        <span class="n">file_list</span><span class="o">.</span><span class="n">_built</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="n">file_list</span></div>
+
+<div class="viewcode-block" id="FileList.is_empty"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.is_empty">[docs]</a>    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the file list is empty</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        True or False</span>
+<span class="sd">            if the file list has no entries</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="FileList.__contains__"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileList.__contains__">[docs]</a>    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks if the item is inside of the self.keys or in case if item is</span>
+<span class="sd">        a list or tuple, check if all the items from item are inside of</span>
+<span class="sd">        self.keys</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        item</span>
+<span class="sd">            single key or a list of them</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        True</span>
+<span class="sd">            if item or all the single items are inside of the self.keys</span>
+<span class="sd">        False</span>
+<span class="sd">            otherwise</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="nb">all</span><span class="p">([</span><span class="n">single_item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">for</span> <span class="n">single_item</span> <span class="ow">in</span> <span class="n">item</span><span class="p">])</span></div>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">slice</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="s2">&quot;FileList&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns dict with all keys from file_names and their values on the index</span>
+
+<span class="sd">        If the index is a slice, it will return FileList object</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        index</span>
+<span class="sd">            index to select or a slice</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        item</span>
+<span class="sd">            dict with keys from file_names and values from index position</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="n">file_names_sliced</span> <span class="o">=</span> <span class="n">_slice_file_names</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+            <span class="n">file_list_sliced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_matched_file_names</span><span class="p">(</span><span class="n">file_names_sliced</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">file_list_sliced</span>
+
+        <span class="n">item</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value_list</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">item</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_value_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">item</span>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the item with keys from file_names to the index position</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        index</span>
+<span class="sd">            index</span>
+<span class="sd">        value</span>
+<span class="sd">            mapping {key: value} to be set</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        AssertionError</span>
+<span class="sd">            if the keys from value do not belong to self._file_names keys</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">set</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;You can set the value with following keys: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">each_value_key</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">[</span><span class="n">each_value_key</span><span class="p">][</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="n">each_value_key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">[</span><span class="n">each_key</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns length of file list</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        len_of_file_list</span>
+<span class="sd">            length of file list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">_get_first_key_and_subset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">assert_is_built</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;FileList&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add two file lists</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        other</span>
+<span class="sd">            other FileList</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        file_list_sum</span>
+<span class="sd">            file list with file names as sum of self and other</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">object_utils</span><span class="o">.</span><span class="n">assert_object_is_built</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="n">self_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">other_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="n">empty_of_self_len</span> <span class="o">=</span> <span class="p">[</span><span class="n">_EMPTY_CHAR</span><span class="p">]</span> <span class="o">*</span> <span class="n">self_len</span>
+        <span class="n">empty_of_other_len</span> <span class="o">=</span> <span class="p">[</span><span class="n">_EMPTY_CHAR</span><span class="p">]</span> <span class="o">*</span> <span class="n">other_len</span>
+        <span class="n">file_names_sum</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+
+        <span class="n">all_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
+
+        <span class="k">for</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">all_keys</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">each_key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="n">file_names_sum</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">empty_of_self_len</span>
+            <span class="k">if</span> <span class="n">each_key</span> <span class="ow">in</span> <span class="n">other</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+                <span class="n">file_names_sum</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="n">each_key</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file_names_sum</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">empty_of_other_len</span><span class="p">)</span>
+        <span class="n">file_list_sum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_matched_file_names</span><span class="p">(</span><span class="n">file_names_sum</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file_list_sum</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">:</span> <span class="s2">&quot;FileList&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">()</span> <span class="o">==</span> <span class="n">o</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">representation</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> with keys </span><span class="si">{}</span><span class="s2"> and length </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">representation</span></div>
+
+
+<div class="viewcode-block" id="FileListExtendedMatch"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileListExtendedMatch">[docs]</a><span class="k">class</span> <span class="nc">FileListExtendedMatch</span><span class="p">(</span><span class="n">FileList</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    FileList is used to match file names for different tasks and to iterate</span>
+<span class="sd">    over it. It also supports original shuffle and slicing</span>
+
+<span class="sd">    Also allows to provide the match_suffixes and match_prefixes to use for</span>
+<span class="sd">    match</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_names</span>
+<span class="sd">        mapping of key to glob expression with file names with this key</span>
+<span class="sd">    match_suffixes</span>
+<span class="sd">        dict with same keys as file_names and specifies the suffix for basename</span>
+<span class="sd">        that will be removed before matching</span>
+<span class="sd">    match_prefixes</span>
+<span class="sd">        dict with same keys as file_names and specifies the prefix for basename</span>
+<span class="sd">        that will be removed before matching</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">exclude_from_register</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">file_names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+                 <span class="n">match_suffixes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="n">match_prefixes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                 <span class="o">**</span><span class="n">file_list_kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">file_names</span><span class="o">=</span><span class="n">file_names</span><span class="p">,</span> <span class="o">**</span><span class="n">file_list_kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">match_suffixes</span> <span class="o">=</span> <span class="n">match_suffixes</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">match_prefixes</span> <span class="o">=</span> <span class="n">match_prefixes</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="k">assert</span> <span class="nb">set</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match_suffixes</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">)),</span> <span class="p">(</span>
+            <span class="s2">&quot;Keys for match_prefixes must be a subset of file_names &quot;</span>
+            <span class="s2">&quot;(file_names: </span><span class="si">{}</span><span class="s2">, match suffixes: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span><span class="n">file_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">list</span><span class="p">(</span><span class="n">match_suffixes</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="nb">set</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match_prefixes</span><span class="p">),</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_file_names</span><span class="p">)),</span> <span class="p">(</span>
+            <span class="s2">&quot;Keys for match_prefixes must be a subset of file_names &quot;</span>
+            <span class="s2">&quot;(file_names: </span><span class="si">{}</span><span class="s2">, match prefixes: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="nb">list</span><span class="p">(</span><span class="n">file_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">list</span><span class="p">(</span><span class="n">match_prefixes</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="FileListExtendedMatch.match_fn"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileListExtendedMatch.match_fn">[docs]</a>    <span class="k">def</span> <span class="nf">match_fn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method will be used inside of self.match()</span>
+
+<span class="sd">        It uses basename without extension and removes suffixes from</span>
+<span class="sd">        self.matching_suffixes and prefixes from self.matching_prefixes</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path</span>
+<span class="sd">            complete path of the file</span>
+<span class="sd">        key</span>
+<span class="sd">            key from file_names using for to create this pattern</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        match_pattern</span>
+<span class="sd">            pattern to use for matching of the file name pairs, e.g.</span>
+<span class="sd">            the basename without extension</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">match_suffix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_suffixes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">match_prefix</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_prefixes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">match_pattern</span> <span class="o">=</span> <span class="n">_get_basename_without_extension</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">match_pattern</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">remove_prefix</span><span class="p">(</span><span class="n">match_pattern</span><span class="p">,</span> <span class="n">match_prefix</span><span class="p">)</span>
+        <span class="n">match_pattern</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">remove_suffix</span><span class="p">(</span><span class="n">match_pattern</span><span class="p">,</span> <span class="n">match_suffix</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">match_pattern</span></div></div>
+
+
+<div class="viewcode-block" id="FileListMixin"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileListMixin">[docs]</a><span class="k">class</span> <span class="nc">FileListMixin</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mixin to add the file list interface to other classes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_list_keys</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">file_list_keys_required</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All required file list keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        required_file_list_keys</span>
+<span class="sd">            required file list keys, e.g. keys that doesnt have &quot;_&quot; prefix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">file_list_keys</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">file_list_keys_optional</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        All optional file list keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        optional_file_list_keys</span>
+<span class="sd">            optional file list keys with stripped &quot;_&quot; prefix,</span>
+<span class="sd">            e.g. keys that have &quot;_&quot; prefix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">file_list_keys</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+
+    <span class="c1"># pylint: disable=no-self-argument</span>
+    <span class="c1"># classproperty is class property and so cls must be used</span>
+    <span class="nd">@object_utils</span><span class="o">.</span><span class="n">classproperty</span>
+    <span class="k">def</span> <span class="nf">file_list_keys_all</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add file list keys</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        all_file_list_keys</span>
+<span class="sd">            all file list keys including required and optional with stripped</span>
+<span class="sd">            &quot;_&quot; prefix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">file_list_keys_required</span> <span class="o">+</span> <span class="bp">cls</span><span class="o">.</span><span class="n">file_list_keys_optional</span>
+
+<div class="viewcode-block" id="FileListMixin.remap_file_names"><a class="viewcode-back" href="../../../api/nucleus7.data.html#nucleus7.data.file_list.FileListMixin.remap_file_names">[docs]</a>    <span class="k">def</span> <span class="nf">remap_file_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_names</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remap file list keys according to file_list_keys_mapping</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        file_names</span>
+<span class="sd">            file names to remap</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        remapped_file_names</span>
+<span class="sd">            remapped file names</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">file_list_keys_mapping</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;file_list_keys_mapping&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">remapped_file_list</span> <span class="o">=</span> <span class="n">_filter_and_remap_file_list_keys</span><span class="p">(</span>
+            <span class="n">file_names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_required</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file_list_keys_optional</span><span class="p">,</span> <span class="n">file_list_keys_mapping</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">remapped_file_list</span></div></div>
+
+
+<span class="k">def</span> <span class="nf">_filter_and_remap_file_list_keys</span><span class="p">(</span>
+        <span class="n">file_names</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">keys_required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">keys_optional</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">file_list_keys_mapping</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">file_list_keys_mapping</span> <span class="o">=</span> <span class="n">file_list_keys_mapping</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="n">keys_required</span> <span class="o">=</span> <span class="n">keys_required</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">keys_optional</span> <span class="o">=</span> <span class="n">keys_optional</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">file_names_remapped</span> <span class="o">=</span> <span class="n">nucleotide_utils</span><span class="o">.</span><span class="n">remap_single_input</span><span class="p">(</span>
+        <span class="n">file_names</span><span class="p">,</span> <span class="n">file_list_keys_mapping</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">keys_required</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">file_names_remapped</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Provided required file list keys are not inside of remapped &quot;</span>
+            <span class="s2">&quot;file_list! &quot;</span>
+            <span class="s2">&quot; (file_list keys: </span><span class="si">{}</span><span class="s2">, mapping: </span><span class="si">{}</span><span class="s2">, required_keys: </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">file_names</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">file_list_keys_mapping</span><span class="p">,</span> <span class="n">keys_required</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">file_names_filtered</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">each_file_list_key</span><span class="p">:</span> <span class="n">file_names_remapped</span><span class="p">[</span><span class="n">each_file_list_key</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">each_file_list_key</span> <span class="ow">in</span> <span class="n">keys_required</span>
+    <span class="p">}</span>
+    <span class="n">file_names_filtered</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+        <span class="n">each_file_list_key</span><span class="p">:</span> <span class="n">file_names_remapped</span><span class="p">[</span><span class="n">each_file_list_key</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">each_file_list_key</span> <span class="ow">in</span> <span class="n">keys_optional</span>
+        <span class="k">if</span> <span class="n">each_file_list_key</span> <span class="ow">in</span> <span class="n">file_names_remapped</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">file_names_filtered</span>
+
+
+<span class="k">def</span> <span class="nf">_get_first_key_and_subset</span><span class="p">(</span><span class="n">file_names</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="n">first_key</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">file_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">first_key</span><span class="p">,</span> <span class="n">file_names</span><span class="p">[</span><span class="n">first_key</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_get_basename_without_extension</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="n">basename_without_extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">basename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">basename_without_extension</span>
+
+
+<span class="k">def</span> <span class="nf">_slice_file_names</span><span class="p">(</span><span class="n">file_names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+                      <span class="n">slice_indexes</span><span class="p">:</span> <span class="nb">slice</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="n">file_names_sliced</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_value_list</span> <span class="ow">in</span> <span class="n">file_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">file_names_sliced</span><span class="p">[</span><span class="n">each_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_value_list</span><span class="p">[</span><span class="n">slice_indexes</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">file_names_sliced</span>
+
+
+<span class="k">def</span> <span class="nf">_create_file_list_subclass</span><span class="p">(</span><span class="bp">cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="n">new_class_name</span> <span class="o">=</span> <span class="n">_increment_class_name</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">new_class</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">new_class_name</span><span class="p">,</span> <span class="p">(</span><span class="bp">cls</span><span class="p">,),</span>
+                     <span class="p">{</span><span class="s2">&quot;__init__&quot;</span><span class="p">:</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__init__</span><span class="p">,</span>
+                      <span class="s2">&quot;exclude_from_register&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">new_class</span>
+
+
+<span class="k">def</span> <span class="nf">_increment_class_name</span><span class="p">(</span><span class="n">class_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">class_name_split</span> <span class="o">=</span> <span class="n">class_name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">class_name_split</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">class_name_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">class_name</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+
+    <span class="n">current_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">class_name_split</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">new_index</span> <span class="o">=</span> <span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">class_name_split</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">(</span><span class="n">new_index</span><span class="p">)])</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Model parts &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Coordination" href="Coordination.html" />
+    <link rel="prev" title="Data handling" href="DataHandling.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataHandling.html">Data handling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model parts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-concepts-a-name-concepts-a">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variable-scopes-a-name-varscopes-a">Variable scopes <span class="raw-html-m2r"><a name="varscopes"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#collections-a-name-collections-a">Collections <span class="raw-html-m2r"><a name="collections"></a></span></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#computational-graphs-a-name-graphs-a">Computational graphs <span class="raw-html-m2r"><a name="graphs"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelplugin-a-name-plugin-a">ModelPlugin <span class="raw-html-m2r"><a name="plugin"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelloss-a-name-loss-a">ModelLoss <span class="raw-html-m2r"><a name="loss"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelpostprocessor-a-name-postprocessor-a">ModelPostProcessor <span class="raw-html-m2r"><a name="postprocessor"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelsummary-a-name-postprocessor-a">ModelSummary <span class="raw-html-m2r"><a name="postprocessor"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modelmetric-a-name-metric-a">ModelMetric <span class="raw-html-m2r"><a name="metric"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-a-name-model-a">Model <span class="raw-html-m2r"><a name="model"></a></span></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mixed-precision-a-name-mixed-precision-a">Mixed precision <span class="raw-html-m2r"><a name="mixed-precision"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelhandler-a-name-model-handler-a">ModelHandler <span class="raw-html-m2r"><a name="model-handler"></a></span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restoring-of-nucleotide-variables-and-meta-graphs-a-name-restore-a">Restoring of nucleotide variables and meta graphs <span class="raw-html-m2r"><a name="restore"></a></span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Model parts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model-parts">
+<h1>Model parts<a class="headerlink" href="#model-parts" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#main-concepts-a-name-concepts-a" id="id1">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#variable-scopes-a-name-varscopes-a" id="id2">Variable scopes <span class="raw-html-m2r"><a name="varscopes"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#collections-a-name-collections-a" id="id3">Collections <span class="raw-html-m2r"><a name="collections"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#computational-graphs-a-name-graphs-a" id="id4">Computational graphs <span class="raw-html-m2r"><a name="graphs"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modelplugin-a-name-plugin-a" id="id5">ModelPlugin <span class="raw-html-m2r"><a name="plugin"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#modelloss-a-name-loss-a" id="id6">ModelLoss <span class="raw-html-m2r"><a name="loss"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#modelpostprocessor-a-name-postprocessor-a" id="id7">ModelPostProcessor <span class="raw-html-m2r"><a name="postprocessor"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#modelsummary-a-name-postprocessor-a" id="id8">ModelSummary <span class="raw-html-m2r"><a name="postprocessor"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#modelmetric-a-name-metric-a" id="id9">ModelMetric <span class="raw-html-m2r"><a name="metric"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#model-a-name-model-a" id="id10">Model <span class="raw-html-m2r"><a name="model"></a></span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#mixed-precision-a-name-mixed-precision-a" id="id11">Mixed precision <span class="raw-html-m2r"><a name="mixed-precision"></a></span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modelhandler-a-name-model-handler-a" id="id12">ModelHandler <span class="raw-html-m2r"><a name="model-handler"></a></span></a></p></li>
+<li><p><a class="reference internal" href="#restoring-of-nucleotide-variables-and-meta-graphs-a-name-restore-a" id="id13">Restoring of nucleotide variables and meta graphs <span class="raw-html-m2r"><a name="restore"></a></span></a></p></li>
+</ul>
+</div>
+<p>Model module describes all of nucleotide types and other classes used to build
+tensorflow model (computational graph)</p>
+<div class="section" id="main-concepts-a-name-concepts-a">
+<h2><a class="toc-backref" href="#id1">Main concepts <span class="raw-html-m2r"><a name="concepts"></a></span></a><a class="headerlink" href="#main-concepts-a-name-concepts-a" title="Permalink to this headline">¶</a></h2>
+<p>Tensorflow graph is constructed by connecting operations from all of
+nucleotides in topological order.
+Variables / operations for all nucleotides lie in their own variable scope.
+All nucleotide outputs will be added to corresponding graph collections.</p>
+<div class="section" id="variable-scopes-a-name-varscopes-a">
+<h3><a class="toc-backref" href="#id2">Variable scopes <span class="raw-html-m2r"><a name="varscopes"></a></span></a><a class="headerlink" href="#variable-scopes-a-name-varscopes-a" title="Permalink to this headline">¶</a></h3>
+<p>There are following <a class="reference external" href="fields.py">variable scopes</a> inside of <em>nucleus7</em> models:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Nucleotide</p></th>
+<th class="head"><p>Variable scope name</p></th>
+<th class="head"><p>Graph</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dataset</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.DATASET</span></code></p></td>
+<td><p>train + eval + inference</p></td>
+</tr>
+<tr class="row-odd"><td><p>preprocessing augmentation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.DATASET</span></code></p></td>
+<td><p>train + eval</p></td>
+</tr>
+<tr class="row-even"><td><p>random augmentation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.DATASET</span></code></p></td>
+<td><p>train</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModelPlugin</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.MODEL</span></code> + / plugin name</p></td>
+<td><p>train + eval + inference</p></td>
+</tr>
+<tr class="row-even"><td><p>ModelLoss</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.LOSSES</span></code> + / loss name</p></td>
+<td><p>train + eval</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModelMetric</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.METRIC</span></code> + / metric name</p></td>
+<td><p>train + eval</p></td>
+</tr>
+<tr class="row-even"><td><p>ModelPostProcessor</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.POSTPROCESSING</span></code> + / postprocessor name</p></td>
+<td><p>train + eval + inference</p></td>
+</tr>
+<tr class="row-odd"><td><p>ModelSummary</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.SUMMARY</span></code> + / summary name</p></td>
+<td><p>train + eval</p></td>
+</tr>
+<tr class="row-even"><td><p>Training operation</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ScopeNames.TRAIN_OP</span></code></p></td>
+<td><p>train</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="collections-a-name-collections-a">
+<h3><a class="toc-backref" href="#id3">Collections <span class="raw-html-m2r"><a name="collections"></a></span></a><a class="headerlink" href="#collections-a-name-collections-a" title="Permalink to this headline">¶</a></h3>
+<p>Following <a class="reference external" href="fields.py">collections</a> are created inside of graph:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Collection name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Graph</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CollectionNames.INPUTS</span></code></p></td>
+<td><p>Inputs to model, for inference graph - placeholders to feed the data to</p></td>
+<td><p>train + eval + inference</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CollectionNames.INPUTS_PREPROCESSED</span></code></p></td>
+<td><p>Inputs after constant augmentation</p></td>
+<td><p>train + eval + inference</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CollectionNames.PREDICTIONS</span></code></p></td>
+<td><p>Predictions after applying postprocessors, combined outputs of ModelPostProcessors</p></td>
+<td><p>train + eval + inference</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CollectionNames.LOSSES</span></code></p></td>
+<td><p>All losses, combined outputs of ModelLosses</p></td>
+<td><p>train + eval</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CollectionNames.SUMMARY</span></code></p></td>
+<td><p>All summaries, combined outputs of ModelSummaries</p></td>
+<td><p>train + eval</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CollectionNames.METRIC</span></code></p></td>
+<td><p>All metrics, combined outputs of ModelMetrics</p></td>
+<td><p>train + eval</p></td>
+</tr>
+</tbody>
+</table>
+<p>As collections cannot handle structures other than list of tensors or tensors,
+so inside you need to use <code class="docutils literal notranslate"><span class="pre">nc7.utils.tf_collections_utils.nested2collection</span></code>
+and <code class="docutils literal notranslate"><span class="pre">nc7.utils.tf_collections_utils.collection2nested</span></code> to
+convert nested dictionary structures to collections and retrieve nested
+structured tensors from that flatten collections using the collection names
+provided above.</p>
+<p>It works in that way</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">tf_collections_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.model.fields</span> <span class="kn">import</span> <span class="n">CollectionNames</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;input1&#39;</span><span class="p">:</span> <span class="n">tensor1</span><span class="p">,</span>
+        <span class="s1">&#39;input2&#39;</span><span class="p">:</span> <span class="n">tensor2</span><span class="p">,</span>
+        <span class="s1">&#39;input3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">tensor3</span><span class="p">,</span> <span class="n">tensor4</span><span class="p">],</span>
+        <span class="s1">&#39;input4&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;inp41&#39;</span><span class="p">:</span> <span class="n">tensor5</span><span class="p">,</span> <span class="s1">&#39;inp42&#39;</span><span class="p">:</span> <span class="n">tensor6</span><span class="p">}}</span>
+<span class="c1"># add data to main collection CollectionNames.INPUTS</span>
+<span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">nested2collection</span><span class="p">(</span><span class="n">CollectionNames</span><span class="o">.</span><span class="n">INPUTS</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Following collections are generated:</span>
+<span class="c1">#       inputs:input1 :       [tensor1]</span>
+<span class="c1">#       inputs:input2 :       [tensor2]</span>
+<span class="c1">#       inputs:input3/0 :     [tensor3]</span>
+<span class="c1">#       inputs:input3/1 :     [tensor4]</span>
+<span class="c1">#       inputs:input4/inp41 : [tensor5]</span>
+<span class="c1">#       inputs:input4/inp42 : [tensor6]</span>
+
+<span class="c1"># and now retrieve nested dict structure from that collections</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">tf_collections_utils</span><span class="o">.</span><span class="n">collection2nested</span><span class="p">(</span><span class="n">CollectionNames</span><span class="o">.</span><span class="n">INPUTS</span><span class="p">)</span>
+
+<span class="c1"># data = {&#39;input1&#39;: tensor1,</span>
+<span class="c1">#         &#39;input2&#39;: tensor2,</span>
+<span class="c1">#         &#39;input3&#39;: [tensor3, tensor4],</span>
+<span class="c1">#         &#39;input4&#39;: {&#39;inp41&#39;: tensor5, &#39;inp42&#39;: tensor6}}</span>
+</pre></div>
+</div>
+<p>Then they can be retrieved from collections when needed, also after restoring
+the graph from <code class="docutils literal notranslate"><span class="pre">.meta</span></code> file.</p>
+</div>
+<div class="section" id="computational-graphs-a-name-graphs-a">
+<h3><a class="toc-backref" href="#id4">Computational graphs <span class="raw-html-m2r"><a name="graphs"></a></span></a><a class="headerlink" href="#computational-graphs-a-name-graphs-a" title="Permalink to this headline">¶</a></h3>
+<p>There are 3 tensorflow computational graph types for each model: training, evaluation and inference graph:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>Train graph</p></th>
+<th class="head"><p>Evaluation graph</p></th>
+<th class="head"><p>Inference graph</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devices</p></td>
+<td><p>replicated to all defined</p></td>
+<td><p>replicated to all defined</p></td>
+<td><p>only first device</p></td>
+</tr>
+<tr class="row-odd"><td><p>collections</p></td>
+<td><p>inputs, inputs_preprocessed,</p></td>
+<td><p>inputs, inputs_preprocessed,</p></td>
+<td><p>inputs, predictions</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>predictions,</p></td>
+<td><p>predictions,</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>losses, summary, metrics,</p></td>
+<td><p>losses, summary, metrics,</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>summary_op, train_op</p></td>
+<td><p>summary_op</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>operations</p></td>
+<td><p>forward pass, loss, summary</p></td>
+<td><p>forward pass, loss, summary</p></td>
+<td><p>only forward pass</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>summary_op, train_op</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>modes</p></td>
+<td><p>‘train’</p></td>
+<td><p>‘eval’</p></td>
+<td><p>‘infer’</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="modelplugin-a-name-plugin-a">
+<h2><a class="toc-backref" href="#id5">ModelPlugin <span class="raw-html-m2r"><a name="plugin"></a></span></a><a class="headerlink" href="#modelplugin-a-name-plugin-a" title="Permalink to this headline">¶</a></h2>
+<p>For more information and more perks see <a class="reference external" href="Development.html">Development</a> section.</p>
+<p>This nucleotide describes the (sub)architecture of neural network.
+Main work is done inside of <code class="docutils literal notranslate"><span class="pre">ModelPlugin.predict</span></code> method.
+You need to override this method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewPlugin</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPlugin</span><span class="p">)</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;incoming keys&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;generated keys&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">create_keras_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">add_keras_layer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output1&#39;</span><span class="p">:</span> <span class="n">output1</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">output</span>
+</pre></div>
+</div>
+<p>All of variables, which are generated inside of nucleotide are stored to its
+<code class="docutils literal notranslate"><span class="pre">ModelPlugin.variables</span></code> field and the actual variable scope of them is stored
+to <code class="docutils literal notranslate"><span class="pre">ModelPlugin.variable_scope</span></code> field.</p>
+<p>Also you can (see API to it):</p>
+<ul class="simple">
+<li><p>define if that variables are trainable</p></li>
+<li><p>if you want to restore them from other checkpoint</p></li>
+<li><p>do not restore them even if they are inside of model checkpoint</p></li>
+<li><p>stop gradient propagation to its inputs etc.</p></li>
+</ul>
+<p>You can also set the individual optimization config for each plugin. To read
+more go to <a class="reference external" href="Optimization.html">optimization</a> module.</p>
+</div>
+<div class="section" id="modelloss-a-name-loss-a">
+<h2><a class="toc-backref" href="#id6">ModelLoss <span class="raw-html-m2r"><a name="loss"></a></span></a><a class="headerlink" href="#modelloss-a-name-loss-a" title="Permalink to this headline">¶</a></h2>
+<p>This nucleotide represents the single loss function. You can have multiple
+<code class="docutils literal notranslate"><span class="pre">ModelLoss</span></code> nucleotides inside of one model.
+Main method called <code class="docutils literal notranslate"><span class="pre">ModelLoss.process</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewLoss</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelLoss</span><span class="p">):</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;incoming keys&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;generated keys&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="n">loss</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">loss</span>
+</pre></div>
+</div>
+<p>If you have multiple loss components inside of one function, you can provide
+<code class="docutils literal notranslate"><span class="pre">loss_scale_factors</span></code> dictionary as input to constructor, and then corresponding
+losses will be multiplied with that weights. Also ‘total_loss’ key will be
+generated after the call as scaled sum of all loss components.
+This will be further accumulated to build complete loss.</p>
+<p>Losses can also be masked, if you provide <code class="docutils literal notranslate"><span class="pre">sample_mask</span></code> incoming key to
+<code class="docutils literal notranslate"><span class="pre">ModelLoss</span></code>-</p>
+<p>You can add l1 and l2 regularizations by providing <code class="docutils literal notranslate"><span class="pre">regularization_l1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">regularization_l2</span></code> parameters to the <code class="docutils literal notranslate"><span class="pre">Model</span></code> constructor.</p>
+</div>
+<div class="section" id="modelpostprocessor-a-name-postprocessor-a">
+<h2><a class="toc-backref" href="#id7">ModelPostProcessor <span class="raw-html-m2r"><a name="postprocessor"></a></span></a><a class="headerlink" href="#modelpostprocessor-a-name-postprocessor-a" title="Permalink to this headline">¶</a></h2>
+<p>This one uses to make a postprocessing on it’s inputs, e.g. obtaining class id
+from probabilities etc. These operations are do not generate any gradients.
+Main method called <code class="docutils literal notranslate"><span class="pre">ModelPostProcessor.process</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewPostprocessor</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelPostProcessor</span><span class="p">)</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;incoming keys&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;generated keys&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predictions1</span><span class="p">,</span> <span class="n">predictions2</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">postproessed</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;predictions1_pp&#39;</span><span class="p">:</span> <span class="n">predictions1_pp</span><span class="p">,</span>
+                        <span class="s1">&#39;predictions2_pp&#39;</span><span class="p">:</span> <span class="n">predictions2_pp</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">postproessed</span>
+</pre></div>
+</div>
+<p>It can be used also for postprocessing the model predictions to further use
+inside of summaries</p>
+</div>
+<div class="section" id="modelsummary-a-name-postprocessor-a">
+<h2><a class="toc-backref" href="#id8">ModelSummary <span class="raw-html-m2r"><a name="postprocessor"></a></span></a><a class="headerlink" href="#modelsummary-a-name-postprocessor-a" title="Permalink to this headline">¶</a></h2>
+<p>It is used to store interested tensors inside of <code class="docutils literal notranslate"><span class="pre">.event</span></code> files
+(using <code class="docutils literal notranslate"><span class="pre">tf.Summary.FileWriter</span></code>) for further browsing inside of tensorboard.
+It is possible to store different data formats (images, scalars, text etc).
+To identify the type you want, use following prefixes inside of return keys
+after <code class="docutils literal notranslate"><span class="pre">ModelSummary.process</span></code> method:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scalar_*</span></code> - scalar data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image_*</span></code> - images</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">histogram_*</span></code> - histogram summaries</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text_*</span></code> - text data</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">audio_*</span></code> - audio signals</p></li>
+</ul>
+<p>Keys inside of output dictionary which do not have that prefixes, will be
+ignored and not stored inside of <code class="docutils literal notranslate"><span class="pre">.event</span></code> files
+(this will cause logger warning with description).
+These prefixes are stripped from value names inside of <code class="docutils literal notranslate"><span class="pre">.event</span></code> files.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nucleus7</span> <span class="k">as</span> <span class="nn">nc7</span>
+
+<span class="k">class</span> <span class="nc">NewSummary</span><span class="p">(</span><span class="n">nc7</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">ModelSummary</span><span class="p">)</span>
+    <span class="n">incoming_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;incoming keys&quot;</span><span class="p">]</span>
+    <span class="n">generated_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;generated keys&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predictions1</span><span class="p">,</span> <span class="n">predictions2</span><span class="p">):</span>
+        <span class="o">...</span>
+        <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;scalar_value&#39;</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span>                  <span class="c1"># will store value1 as scalar</span>
+                   <span class="s1">&#39;image_awesome_image&#39;</span><span class="p">:</span> <span class="n">awesome_image</span><span class="p">,</span>    <span class="c1"># will awesome_image as image</span>
+                   <span class="s1">&#39;value2&#39;</span><span class="p">:</span> <span class="n">value2</span><span class="p">}</span>                        <span class="c1"># value2 will not be stored</span>
+        <span class="k">return</span> <span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modelmetric-a-name-metric-a">
+<h2><a class="toc-backref" href="#id9">ModelMetric <span class="raw-html-m2r"><a name="metric"></a></span></a><a class="headerlink" href="#modelmetric-a-name-metric-a" title="Permalink to this headline">¶</a></h2>
+<p>Is same as <strong>ModelSummary</strong>. There are only 2 differences:</p>
+<ol class="arabic simple">
+<li><p>Variables generated inside of <code class="docutils literal notranslate"><span class="pre">ModelMetric.process</span></code> will be added to
+collection <code class="docutils literal notranslate"><span class="pre">CollectionNames.metric_variables</span></code></p></li>
+<li><p>Combination of images across multiple gpus is done by averaging, where in
+summaries is only first one selected.</p></li>
+</ol>
+</div>
+<div class="section" id="model-a-name-model-a">
+<h2><a class="toc-backref" href="#id10">Model <span class="raw-html-m2r"><a name="model"></a></span></a><a class="headerlink" href="#model-a-name-model-a" title="Permalink to this headline">¶</a></h2>
+<p>Most magic happens inside of <code class="docutils literal notranslate"><span class="pre">Model</span></code> class, which inherits from <code class="docutils literal notranslate"><span class="pre">GeneHandler</span></code>:</p>
+<ul class="simple">
+<li><p>Build <code class="docutils literal notranslate"><span class="pre">DNA</span> <span class="pre">helix</span></code> and make checks if the provided <code class="docutils literal notranslate"><span class="pre">nucleotide</span></code> configuration
+is valid and logs helpful information, if some of checks failed:</p>
+<ul>
+<li><p>topological sort according only to inbound nodes of each nucleotide</p></li>
+<li><p>checks topological dependency, like <code class="docutils literal notranslate"><span class="pre">ModelPlugin</span></code> depends only on
+<code class="docutils literal notranslate"><span class="pre">Dataset</span></code> and other <code class="docutils literal notranslate"><span class="pre">ModelPlugin</span></code> etc. (for more precise definition of
+valid topological dependencies see <code class="docutils literal notranslate"><span class="pre">Model.nucleotide_type_dependency_map</span></code>)</p></li>
+<li><p>checks <em>nucleotides</em> incoming / generated keys according to provided
+incoming key mappings</p></li>
+</ul>
+</li>
+<li><p>Process all of <em>nucleotides</em> in topological order
+(with feeding corresponding inputs to them) and define build methods
+for plugins, losses, summaries etc.</p></li>
+</ul>
+<div class="section" id="mixed-precision-a-name-mixed-precision-a">
+<h3><a class="toc-backref" href="#id11">Mixed precision <span class="raw-html-m2r"><a name="mixed-precision"></a></span></a><a class="headerlink" href="#mixed-precision-a-name-mixed-precision-a" title="Permalink to this headline">¶</a></h3>
+<p>You can also enable the <a class="reference external" href="https://docs.nvidia.com/deeplearning/sdk/mixed-precision-training/index.html">MixedPrecision</a> by providing the
+<code class="docutils literal notranslate"><span class="pre">MixedPrecisionConfig</span></code> or by adding following to the <code class="docutils literal notranslate"><span class="pre">model.json</span></code> file:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;mixed_precision_config&quot;</span><span class="p">:</span>  <span class="p">{</span>
+    <span class="nt">&quot;use&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;loss_scale_factor&quot;</span><span class="p">:</span> <span class="mi">128</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modelhandler-a-name-model-handler-a">
+<h2><a class="toc-backref" href="#id12">ModelHandler <span class="raw-html-m2r"><a name="model-handler"></a></span></a><a class="headerlink" href="#modelhandler-a-name-model-handler-a" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ModelHandler</span></code> is here to replicate the model, create the inference graph and
+provide the model_fn to <code class="docutils literal notranslate"><span class="pre">Trainer</span></code>.</p>
+</div>
+<div class="section" id="restoring-of-nucleotide-variables-and-meta-graphs-a-name-restore-a">
+<h2><a class="toc-backref" href="#id13">Restoring of nucleotide variables and meta graphs <span class="raw-html-m2r"><a name="restore"></a></span></a><a class="headerlink" href="#restoring-of-nucleotide-variables-and-meta-graphs-a-name-restore-a" title="Permalink to this headline">¶</a></h2>
+<p>You can restore variables in 2 different ways:</p>
+<ul class="simple">
+<li><p>All of variables inside of model</p></li>
+<li><p>Variables of particular <code class="docutils literal notranslate"><span class="pre">ModelPlugin?</span></code></p></li>
+</ul>
+<p>For that you need to provide <code class="docutils literal notranslate"><span class="pre">load_config</span></code> to either <code class="docutils literal notranslate"><span class="pre">Model</span></code> or
+<code class="docutils literal notranslate"><span class="pre">load_fname</span></code> to <code class="docutils literal notranslate"><span class="pre">ModelPlugin</span></code>, or both of them. If both load configurations are
+provided, then variables from  <code class="docutils literal notranslate"><span class="pre">ModelPlugin</span></code> will be initialized from
+<code class="docutils literal notranslate"><span class="pre">ModelPlugin.load_fname</span></code> and all other variables from <code class="docutils literal notranslate"><span class="pre">ModelHandler.load_config</span></code></p>
+<p>You can define variable scope mapping inside of <code class="docutils literal notranslate"><span class="pre">ModelPlugin.load_var_scope</span></code>
+to load variables from checkpoints generated in different models.</p>
+<p>To restore only trainable parameters (e.g. without optimizers), set
+<code class="docutils literal notranslate"><span class="pre">only_trainable_parameters=True</span></code> inside of <code class="docutils literal notranslate"><span class="pre">Model.load_config</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Coordination.html" class="btn btn-neutral float-right" title="Coordination" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DataHandling.html" class="btn btn-neutral float-left" title="Data handling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

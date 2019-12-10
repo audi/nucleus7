@@ -1,0 +1,1155 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>nucleus7.core.project_dirs &mdash; nucleus7 v0.10.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/icon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> nucleus7
+          
+
+          
+            
+            <img src="../../../_static/icon.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Core.html">Nucleotide and co.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataHandling.html">Data handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Model.html">Model parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Coordination.html">Coordination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../KPI.html">KPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Contribution.html">Contribution</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.builders.html">nucleus7.builders package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.coordinator.html">nucleus7.coordinator package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.core.html">nucleus7.core package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.data.html">nucleus7.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.kpi.html">nucleus7.kpi package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.model.html">nucleus7.model package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.optimization.html">nucleus7.optimization package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.test_utils.html">nucleus7.test_utils package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.third_party.html">nucleus7.third_party package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/nucleus7.utils.html">nucleus7.utils package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">nucleus7</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>nucleus7.core.project_dirs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for nucleus7.core.project_dirs</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ==============================================================================</span>
+<span class="c1"># Copyright (c) 2019 Audi Electronics Venture GmbH. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># This Source Code Form is subject to the terms of the Mozilla</span>
+<span class="c1"># Public License, v. 2.0. If a copy of the MPL was not distributed</span>
+<span class="c1"># with this file, You can obtain one at https://mozilla.org/MPL/2.0/.</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Project directory structure</span>
+
+<span class="sd">nucleus7 project has following structure:</span>
+
+<span class="sd">project_dir:</span>
+
+<span class="sd">    - training:</span>
+
+<span class="sd">        - configs - configuration for the training (must be specified to start</span>
+<span class="sd">          the training)</span>
+<span class="sd">        - artifacts - artifacts of the training, e.g. dna, file_lists etc.</span>
+<span class="sd">        - callbacks - callbacks can write here</span>
+<span class="sd">        - summaries - tensorflow summaries</span>
+
+<span class="sd">    - inference:</span>
+
+<span class="sd">        - configs - global configuration for the inference; values from</span>
+<span class="sd">          run-{}/configs ca override it</span>
+<span class="sd">        - run-{}:</span>
+
+<span class="sd">            - configs - configs for this run - if not specified, configs from</span>
+<span class="sd">              inference/configs will be used</span>
+<span class="sd">            - artifacts - artifacts of the inference, e.g. dna, file_lists etc.</span>
+<span class="sd">            - results - results of the inference, e.g. callbacks write here</span>
+
+<span class="sd">    - saved_models - saved models in SavedModels format</span>
+<span class="sd">    - checkpoints - checkpoints like meta graph and the weights</span>
+<span class="sd">    - (optional, if no mlflow URI was specified) mlruns - mlflow tracking uri</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">nucleus7.core</span> <span class="kn">import</span> <span class="n">project_global_config</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">file_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">io_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">project_utils</span>
+<span class="kn">from</span> <span class="nn">nucleus7.utils</span> <span class="kn">import</span> <span class="n">run_utils</span>
+
+<span class="n">_TrainerDirs</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;TrainerDirs&#39;</span><span class="p">,</span>
+                          <span class="p">[</span><span class="s1">&#39;configs&#39;</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">,</span> <span class="s1">&#39;callbacks&#39;</span><span class="p">,</span> <span class="s1">&#39;summaries&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;checkpoints&#39;</span><span class="p">,</span> <span class="s1">&#39;saved_models&#39;</span><span class="p">])</span>
+
+<span class="n">_InferenceDirs</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;InferenceDirs&#39;</span><span class="p">,</span>
+                            <span class="p">[</span><span class="s1">&#39;configs&#39;</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">,</span> <span class="s1">&#39;callbacks&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;checkpoints&#39;</span><span class="p">,</span> <span class="s1">&#39;saved_models&#39;</span><span class="p">])</span>
+
+<span class="n">_KPIDirs</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;KPIDirs&#39;</span><span class="p">,</span>
+                      <span class="p">[</span><span class="s1">&#39;configs&#39;</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">,</span> <span class="s1">&#39;callbacks&#39;</span><span class="p">])</span>
+
+<span class="n">_DataExtractDirs</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;DataExtractDirs&#39;</span><span class="p">,</span>
+                              <span class="p">[</span><span class="s1">&#39;configs&#39;</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">,</span> <span class="s1">&#39;callbacks&#39;</span><span class="p">])</span>
+
+<span class="n">_NEW_RUN_FLAG</span> <span class="o">=</span> <span class="s2">&quot;NEW_RUN&quot;</span>
+<span class="n">_RUN_DIR_IDENTIFIER</span> <span class="o">=</span> <span class="s2">&quot;run&quot;</span>
+<span class="n">_TRAINING_DIR</span> <span class="o">=</span> <span class="s2">&quot;training&quot;</span>
+<span class="n">_INFERENCE_DIR</span> <span class="o">=</span> <span class="s2">&quot;inference&quot;</span>
+<span class="n">_KPI_DIR</span> <span class="o">=</span> <span class="s2">&quot;kpi_evaluation&quot;</span>
+<span class="n">_DATA_EXTRACT_DIR</span> <span class="o">=</span> <span class="s2">&quot;data_extraction&quot;</span>
+<span class="n">_LAST_RUN_NAME</span> <span class="o">=</span> <span class="s2">&quot;last_run&quot;</span>
+<span class="n">_CONFIGS_DIR</span> <span class="o">=</span> <span class="s2">&quot;configs&quot;</span>
+
+<span class="n">_TRAINING_FILE_NAMES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;datasets&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;trainer&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_TRAINING_DIRECTORIES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;callbacks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;callbacks_eval&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;callbacks_train&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;kpi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;losses&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;metrics&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;plugins&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;postprocessors&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;summaries&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_INFERENCE_FILE_NAMES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;datafeeder&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;inferer&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">_INFERENCE_DIRECTORIES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;callbacks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;kpi&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_KPI_FILE_NAMES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;datafeeder&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">_KPI_DIRECTORIES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;callbacks&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;kpi&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_DATA_EXTRACT_FILE_NAMES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;datafeeder&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">_DATA_EXTRACT_DIRECTORIES_WITH_CONFIGS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;callbacks&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">_CONFIG_MAIN_FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;config_main.json&quot;</span>
+
+
+<div class="viewcode-block" id="ProjectDirs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.ProjectDirs">[docs]</a><span class="k">class</span> <span class="nc">ProjectDirs</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class holding the sub directory structure for different project types</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    TRAINER</span>
+<span class="sd">        trainer directory structure</span>
+<span class="sd">    INFERER</span>
+<span class="sd">        inferer directory structure</span>
+<span class="sd">    KPI</span>
+<span class="sd">        kpi directory structure</span>
+<span class="sd">    DATA_EXTRACT</span>
+<span class="sd">        data extraction directory structure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># pylint: disable=too-few-public-methods</span>
+    <span class="c1"># it is only a container, so no methods required</span>
+    <span class="n">TRAINER</span> <span class="o">=</span> <span class="n">_TrainerDirs</span><span class="p">(</span>
+        <span class="n">configs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_TRAINING_DIR</span><span class="p">,</span> <span class="n">_CONFIGS_DIR</span><span class="p">),</span>
+        <span class="n">summaries</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_TRAINING_DIR</span><span class="p">,</span> <span class="s1">&#39;summaries&#39;</span><span class="p">),</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_TRAINING_DIR</span><span class="p">,</span> <span class="s1">&#39;callbacks&#39;</span><span class="p">),</span>
+        <span class="n">artifacts</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_TRAINING_DIR</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">),</span>
+        <span class="n">checkpoints</span><span class="o">=</span><span class="s1">&#39;checkpoints&#39;</span><span class="p">,</span>
+        <span class="n">saved_models</span><span class="o">=</span><span class="s1">&#39;saved_models&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">INFERER</span> <span class="o">=</span> <span class="n">_InferenceDirs</span><span class="p">(</span>
+        <span class="n">configs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_INFERENCE_DIR</span><span class="p">,</span> <span class="n">_CONFIGS_DIR</span><span class="p">),</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_INFERENCE_DIR</span><span class="p">,</span> <span class="n">_NEW_RUN_FLAG</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">),</span>
+        <span class="n">artifacts</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_INFERENCE_DIR</span><span class="p">,</span> <span class="n">_NEW_RUN_FLAG</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">),</span>
+        <span class="n">checkpoints</span><span class="o">=</span><span class="s1">&#39;checkpoints&#39;</span><span class="p">,</span>
+        <span class="n">saved_models</span><span class="o">=</span><span class="s1">&#39;saved_models&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">KPI</span> <span class="o">=</span> <span class="n">_KPIDirs</span><span class="p">(</span>
+        <span class="n">configs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_KPI_DIR</span><span class="p">,</span> <span class="n">_CONFIGS_DIR</span><span class="p">),</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_KPI_DIR</span><span class="p">,</span> <span class="n">_NEW_RUN_FLAG</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">),</span>
+        <span class="n">artifacts</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_KPI_DIR</span><span class="p">,</span> <span class="n">_NEW_RUN_FLAG</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">DATA_EXTRACT</span> <span class="o">=</span> <span class="n">_DataExtractDirs</span><span class="p">(</span>
+        <span class="n">configs</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_DATA_EXTRACT_DIR</span><span class="p">,</span> <span class="n">_CONFIGS_DIR</span><span class="p">),</span>
+        <span class="n">callbacks</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_DATA_EXTRACT_DIR</span><span class="p">,</span> <span class="n">_NEW_RUN_FLAG</span><span class="p">,</span> <span class="s1">&#39;extracted&#39;</span><span class="p">),</span>
+        <span class="n">artifacts</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_DATA_EXTRACT_DIR</span><span class="p">,</span> <span class="n">_NEW_RUN_FLAG</span><span class="p">,</span> <span class="s1">&#39;artifacts&#39;</span><span class="p">),</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="create_trainer_project_dirs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.create_trainer_project_dirs">[docs]</a><span class="k">def</span> <span class="nf">create_trainer_project_dirs</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">continue_training</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_TrainerDirs</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create project directories for training if needed and check if training</span>
+<span class="sd">    project already exists</span>
+
+<span class="sd">    Create following directories under project_dir:</span>
+
+<span class="sd">    - training:</span>
+
+<span class="sd">        - artifacts - artifacts of the training, e.g. dna, file_lists etc.</span>
+<span class="sd">        - callbacks/{train/eval} - callbacks can write here</span>
+<span class="sd">        - summaries/{train/eval} - tensorflow summaries</span>
+
+<span class="sd">    - saved_models - saved models in timestamp</span>
+<span class="sd">      subfolders and inference_graph.meta together with</span>
+<span class="sd">      input_output_names.json</span>
+<span class="sd">    - checkpoints - checkpoints like meta graph and the weights</span>
+<span class="sd">    - (optional, if no mlflow URI was specified) mlruns - mlflow tracking uri</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        path to project directory</span>
+<span class="sd">    continue_training</span>
+<span class="sd">        if the training should be continued in same project folder; if no</span>
+<span class="sd">        project directories exist, it will have no effect, otherwise if this set</span>
+<span class="sd">        to False, no training will be started</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    training_dirs</span>
+<span class="sd">        trainer directories</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileExistsError</span>
+<span class="sd">        if this run was already used and exist inside of nucleus7_project.json</span>
+<span class="sd">        file under runs key</span>
+<span class="sd">    FileExistsError</span>
+<span class="sd">        if project_dir has other content as</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">ProjectLock</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">lock_or_wait</span><span class="p">()</span>
+    <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">_TRAINING_DIR</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_validate_training_project</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">continue_training</span><span class="p">)</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="n">e</span>
+
+    <span class="n">training_dirs</span> <span class="o">=</span> <span class="n">_create_project_directories</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span>
+                                                <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">TRAINER</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_mode</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;eval&quot;</span><span class="p">]:</span>
+        <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">training_dirs</span><span class="o">.</span><span class="n">summaries</span><span class="p">,</span> <span class="n">each_mode</span><span class="p">))</span>
+        <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">training_dirs</span><span class="o">.</span><span class="n">callbacks</span><span class="p">,</span> <span class="n">each_mode</span><span class="p">))</span>
+    <span class="n">project_utils</span><span class="o">.</span><span class="n">collect_and_add_project_meta_info</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="n">project_utils</span><span class="o">.</span><span class="n">add_runtype_to_project_meta_info</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">training_dirs</span></div>
+
+
+<div class="viewcode-block" id="create_inference_project_dirs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.create_inference_project_dirs">[docs]</a><span class="k">def</span> <span class="nf">create_inference_project_dirs</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                  <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                                  <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_InferenceDirs</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create project directories for inference if needed and check if inference</span>
+<span class="sd">    project already exists</span>
+
+<span class="sd">    Generates following project structure inside of project_dir:</span>
+
+<span class="sd">    - inference:</span>
+
+<span class="sd">        - configs - global configuration for the inference; values from</span>
+<span class="sd">          run-{}/configs ca override it</span>
+<span class="sd">        - run-{}:</span>
+
+<span class="sd">            - artifacts - artifacts of the inference, e.g. dna, file_lists etc.</span>
+<span class="sd">            - results - results of the inference, e.g. callbacks write here</span>
+
+<span class="sd">    run folder will be selected as following:</span>
+<span class="sd">        - if there are no run- subfolders inside of the inference folder</span>
+<span class="sd">          (or inference folder does not exist), it will create a run-1 folder</span>
+<span class="sd">        - if there is a run-N folder:</span>
+
+<span class="sd">            - if it is empty, it will be used</span>
+<span class="sd">            - if there are any other files and folders inside without _ prefix,</span>
+<span class="sd">              a new run-{N+1} folder will be created</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        path to project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the run; if not specified, then incremented run-N folder is</span>
+<span class="sd">        used; if specified, must contain at most config folder</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    inference_dirs</span>
+<span class="sd">        inference directories</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">inference_dirs</span> <span class="o">=</span> <span class="n">_create_project_dirs_with_run_subfolders</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_INFERENCE_DIR</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">INFERER</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">,</span> <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inference_dirs</span></div>
+
+
+<div class="viewcode-block" id="create_kpi_project_dirs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.create_kpi_project_dirs">[docs]</a><span class="k">def</span> <span class="nf">create_kpi_project_dirs</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+                            <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_KPIDirs</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create project directories for kpi calculation if needed and check if</span>
+<span class="sd">    kpi project already exists</span>
+
+<span class="sd">    Generates following project structure inside of project_dir:</span>
+
+<span class="sd">    - kpi_evaluation:</span>
+
+<span class="sd">        - configs - global configuration for the kpi calculation; values from</span>
+<span class="sd">          run-{}/configs can override it</span>
+<span class="sd">        - run-{}:</span>
+
+<span class="sd">            - artifacts - artifacts of the kpi calculation, e.g. dna,</span>
+<span class="sd">              file_lists etc.</span>
+<span class="sd">            - results - results of the kpi calculation, e.g. callbacks and kpi</span>
+<span class="sd">              evaluator write here</span>
+
+<span class="sd">    run folder will be selected as following:</span>
+<span class="sd">        - if there are no run- subfolders inside of the kpi_evaluation folder</span>
+<span class="sd">          (or kpi_evaluation folder does not exist), it will create a</span>
+<span class="sd">          run-1 folder</span>
+<span class="sd">        - if there is a run-N folder:</span>
+
+<span class="sd">            - if it is empty, it will be used</span>
+<span class="sd">            - if there are any other files and folders inside without _ prefix,</span>
+<span class="sd">              a new run-{N+1} folder will be created</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        path to project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the run; if not specified, then incremented run-N folder is</span>
+<span class="sd">        used; if specified, must contain at most config folder</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    kpi_dirs</span>
+<span class="sd">        kpi calculation directories</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kpi_dirs</span> <span class="o">=</span> <span class="n">_create_project_dirs_with_run_subfolders</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_KPI_DIR</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">KPI</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">,</span> <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kpi_dirs</span></div>
+
+
+<div class="viewcode-block" id="create_data_extraction_project_dirs"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.create_data_extraction_project_dirs">[docs]</a><span class="k">def</span> <span class="nf">create_data_extraction_project_dirs</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                        <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+                                        <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_DataExtractDirs</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create project directories inside of run_name directory. If this directory</span>
+<span class="sd">    does not exist, it will be created otherwise it should be empty or contain</span>
+<span class="sd">    only configs folder.</span>
+
+<span class="sd">    Generates following project structure inside of project_dir:</span>
+
+<span class="sd">    - data_extraction:</span>
+
+<span class="sd">        - configs - global configuration for the data extraction; values from</span>
+<span class="sd">          {run_name}/configs can override it</span>
+<span class="sd">        - {run_name}}:</span>
+
+<span class="sd">            - artifacts - artifacts of the kpi calculation, e.g. dna,</span>
+<span class="sd">              file_lists etc.</span>
+<span class="sd">            - extracted - extracted data of the kpi calculation, e.g. callbacks</span>
+<span class="sd">              write here</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        path to project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the data extraction run</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data_extraction_dirs</span>
+<span class="sd">        kpi calculation directories</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_verify_data_extraction_run_name</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">run_name</span><span class="p">,</span> <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+
+    <span class="n">project_structure</span> <span class="o">=</span> <span class="n">_update_project_structure_with_run_dir</span><span class="p">(</span>
+        <span class="n">run_name</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">DATA_EXTRACT</span><span class="p">)</span>
+    <span class="n">data_extraction_dirs</span> <span class="o">=</span> <span class="n">_create_project_directories</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">project_structure</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_extraction_dirs</span></div>
+
+
+<div class="viewcode-block" id="read_train_configs_from_directories"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.read_train_configs_from_directories">[docs]</a><span class="k">def</span> <span class="nf">read_train_configs_from_directories</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the training configuration from project directory and its configuration</span>
+<span class="sd">    subdirectory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    verify_unused_configs</span>
+<span class="sd">        if there are other then single_config_fnames json files or directories</span>
+<span class="sd">        other than multiple_config_fnames inside of project_dir and its name</span>
+<span class="sd">        starts not with &#39;_&#39;, error will be raised</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    train_config</span>
+<span class="sd">        read configuration</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileExistsError</span>
+<span class="sd">        if verify_unused_config = True and</span>
+<span class="sd">        if there are other then single_config_fnames json files or directories</span>
+<span class="sd">        other than multiple_config_fnames inside of project_dir and its name</span>
+<span class="sd">        starts not with &#39;_&#39;, error will be raised</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">TRAINER</span><span class="o">.</span><span class="n">configs</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_dir</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">config_dir</span><span class="p">):</span>
+        <span class="n">config_dir_realpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">config_dir</span><span class="p">)</span>
+        <span class="n">project_dir_realpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Configs folder </span><span class="si">{}</span><span class="s2"> not found inside of </span><span class="si">{}</span><span class="s2"> project directory! &quot;</span>
+               <span class="s2">&quot;Please include it to start the training&quot;</span>
+               <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">config_dir_realpath</span><span class="p">,</span>
+                                        <span class="n">project_dir_realpath</span><span class="p">),</span>
+                        <span class="n">project_dir_realpath</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;augmenter.json&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">config_dir</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Augmenter is deprecated! Use DataPipe with &quot;</span>
+                         <span class="s2">&quot;RandomAugmentationTf instead!&quot;</span><span class="p">)</span>
+
+    <span class="n">train_config</span> <span class="o">=</span> <span class="n">_read_configs_from_directory</span><span class="p">(</span>
+        <span class="n">config_dir</span><span class="p">,</span> <span class="n">_TRAINING_FILE_NAMES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">_TRAINING_DIRECTORIES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="o">=</span><span class="n">verify_unused_configs</span><span class="p">)</span>
+    <span class="n">project_global_config</span><span class="o">.</span><span class="n">add_global_project_config_from_project_dir</span><span class="p">(</span><span class="n">config_dir</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">train_config</span></div>
+
+
+<div class="viewcode-block" id="read_inference_configs_from_directories"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.read_inference_configs_from_directories">[docs]</a><span class="k">def</span> <span class="nf">read_inference_configs_from_directories</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">additional_dir_with_configs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the inference configuration from project inference directory and the</span>
+<span class="sd">    run subdirectory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the run; if not specified, then incremented run-N folder is</span>
+<span class="sd">        used; if specified, must contain at most config folder</span>
+<span class="sd">    verify_unused_configs</span>
+<span class="sd">        if there are other then single_config_fnames json files or directories</span>
+<span class="sd">        other than multiple_config_fnames inside of project_dir and its name</span>
+<span class="sd">        starts not with &#39;_&#39;, error will be raised</span>
+<span class="sd">    additional_dir_with_configs</span>
+<span class="sd">        path to additional configs to use</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    inference_config</span>
+<span class="sd">        read configuration</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        if there are no configs folder inside of inference subfolder or inside</span>
+<span class="sd">        of inference/run-{valid new N} or folder exist but are empty</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">run_subfolder</span> <span class="o">=</span> <span class="n">_select_inference_run_subfolder</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_INFERENCE_DIR</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">INFERER</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+    <span class="n">configs_dirs_ro</span> <span class="o">=</span> <span class="n">_create_config_dirs_ro</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_INFERENCE_DIR</span><span class="p">,</span> <span class="n">run_subfolder</span><span class="p">,</span> <span class="n">additional_dir_with_configs</span><span class="p">)</span>
+    <span class="n">inference_config</span> <span class="o">=</span> <span class="n">_read_configs_from_dirs_with_ro</span><span class="p">(</span>
+        <span class="n">configs_dirs_ro</span><span class="p">,</span>
+        <span class="n">single_config_fnames</span><span class="o">=</span><span class="n">_INFERENCE_FILE_NAMES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">multiple_config_fnames</span><span class="o">=</span><span class="n">_INFERENCE_DIRECTORIES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="o">=</span><span class="n">verify_unused_configs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inference_config</span></div>
+
+
+<div class="viewcode-block" id="read_kpi_configs_from_directories"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.read_kpi_configs_from_directories">[docs]</a><span class="k">def</span> <span class="nf">read_kpi_configs_from_directories</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">additional_dir_with_configs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the kpi configuration from project kpi_evaluation directory and the</span>
+<span class="sd">    run subdirectory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the run; if not specified, then incremented run-N folder is</span>
+<span class="sd">        used; if specified, must contain at most config folder</span>
+<span class="sd">    verify_unused_configs</span>
+<span class="sd">        if there are other then single_config_fnames json files or directories</span>
+<span class="sd">        other than multiple_config_fnames inside of project_dir and its name</span>
+<span class="sd">        starts not with &#39;_&#39;, error will be raised</span>
+<span class="sd">    additional_dir_with_configs</span>
+<span class="sd">        path to additional configs to use</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    kpi_config</span>
+<span class="sd">        read configuration</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        if there are no configs folder inside of kpi_evaluation subfolder or</span>
+<span class="sd">        inside of kpi_evaluation/run-{valid new N} or folder exist but are</span>
+<span class="sd">        empty</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">run_subfolder</span> <span class="o">=</span> <span class="n">_select_inference_run_subfolder</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_KPI_DIR</span><span class="p">,</span> <span class="n">ProjectDirs</span><span class="o">.</span><span class="n">KPI</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+    <span class="n">configs_dirs_ro</span> <span class="o">=</span> <span class="n">_create_config_dirs_ro</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_KPI_DIR</span><span class="p">,</span> <span class="n">run_subfolder</span><span class="p">,</span> <span class="n">additional_dir_with_configs</span><span class="p">)</span>
+    <span class="n">kpi_config</span> <span class="o">=</span> <span class="n">_read_configs_from_dirs_with_ro</span><span class="p">(</span>
+        <span class="n">configs_dirs_ro</span><span class="p">,</span>
+        <span class="n">single_config_fnames</span><span class="o">=</span><span class="n">_KPI_FILE_NAMES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">multiple_config_fnames</span><span class="o">=</span><span class="n">_KPI_DIRECTORIES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="o">=</span><span class="n">verify_unused_configs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kpi_config</span></div>
+
+
+<div class="viewcode-block" id="read_data_extraction_configs_from_directories"><a class="viewcode-back" href="../../../api/nucleus7.core.html#nucleus7.core.project_dirs.read_data_extraction_configs_from_directories">[docs]</a><span class="k">def</span> <span class="nf">read_data_extraction_configs_from_directories</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">additional_dir_with_configs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">continue_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read the data extraction configuration from project data_extraction</span>
+<span class="sd">    directory and the run subdirectory</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    project_dir</span>
+<span class="sd">        project directory</span>
+<span class="sd">    run_name</span>
+<span class="sd">        name of the data extraction run</span>
+<span class="sd">    verify_unused_configs</span>
+<span class="sd">        if there are other then single_config_fnames json files or directories</span>
+<span class="sd">        other than multiple_config_fnames inside of project_dir and its name</span>
+<span class="sd">        starts not with &#39;_&#39;, error will be raised</span>
+<span class="sd">    additional_dir_with_configs</span>
+<span class="sd">        path to additional configs to use</span>
+<span class="sd">    continue_last</span>
+<span class="sd">        if last project must be continued</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    data_extraction_config</span>
+<span class="sd">        read configuration</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        if there are no configs folder inside of data_extraction subfolder or</span>
+<span class="sd">        inside of data_extraction/run-{valid new N} or folder exist but are</span>
+<span class="sd">        empty</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_verify_data_extraction_run_name</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">run_name</span><span class="p">,</span>
+                                     <span class="n">continue_last</span><span class="o">=</span><span class="n">continue_last</span><span class="p">)</span>
+    <span class="n">configs_dirs_ro</span> <span class="o">=</span> <span class="n">_create_config_dirs_ro</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">_DATA_EXTRACT_DIR</span><span class="p">,</span> <span class="n">run_name</span><span class="p">,</span> <span class="n">additional_dir_with_configs</span><span class="p">)</span>
+    <span class="n">data_extraction_config</span> <span class="o">=</span> <span class="n">_read_configs_from_dirs_with_ro</span><span class="p">(</span>
+        <span class="n">configs_dirs_ro</span><span class="p">,</span>
+        <span class="n">single_config_fnames</span><span class="o">=</span><span class="n">_DATA_EXTRACT_FILE_NAMES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">multiple_config_fnames</span><span class="o">=</span><span class="n">_DATA_EXTRACT_DIRECTORIES_WITH_CONFIGS</span><span class="p">,</span>
+        <span class="n">verify_unused_configs</span><span class="o">=</span><span class="n">verify_unused_configs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_extraction_config</span></div>
+
+
+<span class="k">def</span> <span class="nf">_create_config_dirs_ro</span><span class="p">(</span><span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                           <span class="n">run_subfolder</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">additional_config_dir</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">configs_dirs_ro</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">configs_dir_project</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span> <span class="n">_CONFIGS_DIR</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">configs_dir_project</span><span class="p">):</span>
+        <span class="n">configs_dirs_ro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">configs_dir_project</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">run_subfolder</span><span class="p">:</span>
+        <span class="n">configs_dir_run</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span> <span class="n">run_subfolder</span><span class="p">,</span> <span class="n">_CONFIGS_DIR</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">configs_dir_run</span><span class="p">):</span>
+            <span class="n">configs_dirs_ro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">configs_dir_run</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">additional_config_dir</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">additional_config_dir</span><span class="p">):</span>
+        <span class="n">configs_dirs_ro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">additional_config_dir</span><span class="p">)</span>
+    <span class="n">_verify_at_least_one_valid_single_config_dir</span><span class="p">(</span><span class="n">configs_dirs_ro</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">configs_dirs_ro</span>
+
+
+<span class="k">def</span> <span class="nf">_select_inference_run_subfolder</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span>
+                                    <span class="n">project_structure</span><span class="p">,</span>
+                                    <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                    <span class="n">continue_last</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">allowed_content_for_run</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;configs&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">continue_last</span><span class="p">:</span>
+        <span class="n">allowed_content_for_run</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+            <span class="n">_get_allowed_content_for_run_to_continue</span><span class="p">(</span><span class="n">project_structure</span><span class="p">))</span>
+    <span class="n">run_subfolder</span> <span class="o">=</span> <span class="n">_select_run_subfolder</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">,</span>
+        <span class="n">allowed_content_for_run</span><span class="o">=</span><span class="n">allowed_content_for_run</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use </span><span class="si">%s</span><span class="s2"> run&quot;</span><span class="p">,</span> <span class="n">run_subfolder</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">run_subfolder</span>
+
+
+<span class="k">def</span> <span class="nf">_verify_at_least_one_valid_single_config_dir</span><span class="p">(</span><span class="n">config_dirs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">each_config_dir</span> <span class="ow">in</span> <span class="n">config_dirs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">each_config_dir</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">each_config_dir</span><span class="p">):</span>
+            <span class="k">return</span>
+
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;No configs were found inside of </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config_dirs</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_read_configs_from_dirs_with_ro</span><span class="p">(</span><span class="n">config_dirs</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                                    <span class="n">single_config_fnames</span><span class="p">,</span>
+                                    <span class="n">multiple_config_fnames</span><span class="p">,</span>
+                                    <span class="n">verify_unused_configs</span><span class="p">):</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">each_config_dir</span> <span class="ow">in</span> <span class="n">config_dirs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">each_config_dir</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">each_config_dir</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">config_from_dir</span> <span class="o">=</span> <span class="n">_read_configs_from_directory</span><span class="p">(</span>
+            <span class="n">each_config_dir</span><span class="p">,</span> <span class="n">single_config_fnames</span><span class="p">,</span>
+            <span class="n">multiple_config_fnames</span><span class="p">,</span>
+            <span class="n">verify_unused_configs</span><span class="o">=</span><span class="n">verify_unused_configs</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">update_config_with_other_config</span><span class="p">(</span>
+            <span class="n">config</span><span class="p">,</span> <span class="n">config_from_dir</span><span class="p">)</span>
+        <span class="n">project_global_config</span><span class="o">.</span><span class="n">add_global_project_config_from_project_dir</span><span class="p">(</span>
+            <span class="n">each_config_dir</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config</span>
+
+
+<span class="k">def</span> <span class="nf">_create_project_dirs_with_run_subfolders</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span>
+                                             <span class="n">project_dirs_structure</span><span class="p">,</span>
+                                             <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                                             <span class="n">continue_last</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_mkdir</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="n">lock</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">ProjectLock</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">lock_or_wait</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">continue_last</span><span class="p">:</span>
+        <span class="n">allowed_content_for_run</span> <span class="o">=</span> <span class="n">_get_allowed_content_for_run_to_continue</span><span class="p">(</span>
+            <span class="n">project_dirs_structure</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">allowed_content_for_run</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;configs&quot;</span><span class="p">]</span>
+    <span class="n">run_subfolder</span> <span class="o">=</span> <span class="n">_select_run_subfolder</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">,</span> <span class="n">run_name</span><span class="o">=</span><span class="n">run_name</span><span class="p">,</span>
+        <span class="n">allowed_content_for_run</span><span class="o">=</span><span class="n">allowed_content_for_run</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Use </span><span class="si">%s</span><span class="s2"> run&quot;</span><span class="p">,</span> <span class="n">run_subfolder</span><span class="p">)</span>
+    <span class="n">project_structure</span> <span class="o">=</span> <span class="n">_update_project_structure_with_run_dir</span><span class="p">(</span>
+        <span class="n">run_subfolder</span><span class="p">,</span> <span class="n">project_dirs_structure</span><span class="p">)</span>
+    <span class="n">kpi_dirs</span> <span class="o">=</span> <span class="n">_create_project_directories</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">project_structure</span><span class="p">)</span>
+    <span class="n">dir_with_runs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">)</span>
+    <span class="n">_add_symlink_for_last_run</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_with_runs</span><span class="p">,</span> <span class="n">run_subfolder</span><span class="p">))</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">kpi_dirs</span>
+
+
+<span class="k">def</span> <span class="nf">_get_allowed_content_for_run_to_continue</span><span class="p">(</span><span class="n">project_dirs_structure</span><span class="p">):</span>
+    <span class="n">allowed_content_for_run</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">each_dir</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">_NEW_RUN_FLAG</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">each_dir</span> <span class="ow">in</span> <span class="n">project_dirs_structure</span>
+        <span class="k">if</span> <span class="n">_NEW_RUN_FLAG</span> <span class="ow">in</span> <span class="n">each_dir</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">allowed_content_for_run</span>
+
+
+<span class="k">def</span> <span class="nf">_validate_training_project</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">continue_training</span><span class="p">):</span>
+    <span class="n">project_meta_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="s1">&#39;nucleus7_project.json&#39;</span><span class="p">)</span>
+    <span class="n">runtype</span> <span class="o">=</span> <span class="n">run_utils</span><span class="o">.</span><span class="n">get_run_type</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">project_meta_fname</span><span class="p">):</span>
+        <span class="n">used_runs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">used_runs</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">project_meta_fname</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;runs&#39;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="n">msg_project_exist</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Project inside </span><span class="si">{}</span><span class="s2"> already exists! &quot;</span>
+                         <span class="s2">&quot;Clean the folder, set --continue flag or &quot;</span>
+                         <span class="s2">&quot;select new project folder!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">project_dir</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">run_utils</span><span class="o">.</span><span class="n">is_chief</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="n">runtype</span> <span class="ow">in</span> <span class="n">used_runs</span>
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">continue_training</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="n">msg_project_exist</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">run_utils</span><span class="o">.</span><span class="n">is_chief</span><span class="p">()</span>
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">continue_training</span>
+            <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">project_dir</span><span class="p">)):</span>
+        <span class="n">training_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">_TRAINING_DIR</span><span class="p">)</span>
+        <span class="n">allowed_training_content</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;configs&quot;</span><span class="p">,</span> <span class="s1">&#39;global_config.json&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">_get_not_allowed_content</span><span class="p">(</span><span class="n">training_dir</span><span class="p">,</span> <span class="n">allowed_training_content</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span><span class="n">msg_project_exist</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_verify_unused_configs</span><span class="p">(</span><span class="n">config_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">single_config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                           <span class="n">multiple_config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="n">dir_content</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">config_dir</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">each_item</span> <span class="ow">in</span> <span class="n">dir_content</span><span class="p">:</span>
+        <span class="n">path_full</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">each_item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path_full</span><span class="p">):</span>
+            <span class="n">fnames_should</span> <span class="o">=</span> <span class="p">(</span><span class="n">single_config_fnames</span> <span class="o">+</span>
+                             <span class="p">[</span><span class="s1">&#39;project_global_config&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">each_item</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fnames_should</span>
+                    <span class="ow">and</span> <span class="ow">not</span> <span class="n">each_item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="ow">not</span> <span class="n">each_item</span> <span class="o">==</span> <span class="n">_CONFIG_MAIN_FILE_NAME</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span>
+                    <span class="s2">&quot;Found unused configuration &#39;</span><span class="si">{}</span><span class="s2">&#39;! &quot;</span>
+                    <span class="s2">&quot;remove it or use &#39;_&#39; prefix to set it as a &quot;</span>
+                    <span class="s2">&quot;temp file!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_item</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path_full</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">each_item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">multiple_config_fnames</span>
+                    <span class="ow">and</span> <span class="ow">not</span> <span class="n">each_item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">FileExistsError</span><span class="p">(</span>
+                    <span class="s2">&quot;Found unused configuration directory &#39;</span><span class="si">{}</span><span class="s2">&#39;! &quot;</span>
+                    <span class="s2">&quot;remove it or use &#39;_&#39; prefix to set it as a &quot;</span>
+                    <span class="s2">&quot;temp directory!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">each_item</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_read_configs_from_directory</span><span class="p">(</span><span class="n">config_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                 <span class="n">single_config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                                 <span class="n">multiple_config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+                                 <span class="n">verify_unused_configs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">verify_unused_configs</span><span class="p">:</span>
+        <span class="n">_verify_unused_configs</span><span class="p">(</span>
+            <span class="n">config_dir</span><span class="p">,</span> <span class="n">single_config_fnames</span><span class="p">,</span> <span class="n">multiple_config_fnames</span><span class="p">)</span>
+
+    <span class="n">config_main</span> <span class="o">=</span> <span class="n">_read_config_main</span><span class="p">(</span><span class="n">config_dir</span><span class="p">)</span>
+    <span class="n">configs_from_files</span> <span class="o">=</span> <span class="n">_get_configs_from_single_files</span><span class="p">(</span>
+        <span class="n">config_dir</span><span class="p">,</span> <span class="n">single_config_fnames</span><span class="p">)</span>
+    <span class="n">configs_from_directories</span> <span class="o">=</span> <span class="n">_get_configs_from_directories</span><span class="p">(</span>
+        <span class="n">config_dir</span><span class="p">,</span> <span class="n">multiple_config_fnames</span><span class="p">)</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">update_config_with_other_config</span><span class="p">(</span>
+        <span class="n">config_main</span><span class="p">,</span> <span class="n">configs_from_files</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">project_utils</span><span class="o">.</span><span class="n">update_config_with_other_config</span><span class="p">(</span>
+        <span class="n">config</span><span class="p">,</span> <span class="n">configs_from_directories</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config</span>
+
+
+<span class="k">def</span> <span class="nf">_read_config_main</span><span class="p">(</span><span class="n">config_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">config_main</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">config_main_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">_CONFIG_MAIN_FILE_NAME</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_main_path</span><span class="p">):</span>
+        <span class="n">config_main</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">load_json</span><span class="p">(</span><span class="n">config_main_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config_main</span>
+
+
+<span class="k">def</span> <span class="nf">_get_configs_from_directories</span><span class="p">(</span><span class="n">config_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                  <span class="n">multiple_config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">configs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">dirname</span> <span class="ow">in</span> <span class="n">multiple_config_fnames</span><span class="p">:</span>
+        <span class="n">full_dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">dirname</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">full_dir_path</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">config_fnames</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_dir_path</span><span class="p">,</span> <span class="s1">&#39;*.json&#39;</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">config_fnames</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">config_name</span> <span class="o">=</span> <span class="n">dirname</span> <span class="o">+</span> <span class="s1">&#39;_config&#39;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%s</span><span class="s1"> with configs </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">config_fnames</span><span class="p">)</span>
+        <span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_read_components_configs</span><span class="p">(</span><span class="n">config_fnames</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">configs</span>
+
+
+<span class="k">def</span> <span class="nf">_get_configs_from_single_files</span><span class="p">(</span><span class="n">config_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                   <span class="n">single_config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">configs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">single_config_fnames</span><span class="p">:</span>
+        <span class="n">config_fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;.json&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">config_fname</span><span class="p">):</span>
+            <span class="n">config_name</span> <span class="o">=</span> <span class="n">fname</span> <span class="o">+</span> <span class="s1">&#39;_config&#39;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%s</span><span class="s1"> with config </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">config_name</span><span class="p">,</span> <span class="n">config_fname</span><span class="p">)</span>
+            <span class="n">configs</span><span class="p">[</span><span class="n">config_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_load_json</span><span class="p">(</span><span class="n">config_fname</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">configs</span>
+
+
+<span class="k">def</span> <span class="nf">_read_components_configs</span><span class="p">(</span><span class="n">config_fnames</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read multiple config files</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    config_fnames</span>
+<span class="sd">        list with file names with config json files</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    config_components</span>
+<span class="sd">        list of read configurations from single files</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config_components</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">config_fname</span> <span class="ow">in</span> <span class="n">config_fnames</span><span class="p">:</span>
+        <span class="n">config_component</span> <span class="o">=</span> <span class="n">io_utils</span><span class="o">.</span><span class="n">maybe_load_json</span><span class="p">(</span><span class="n">config_fname</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_component</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">config_components</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">config_component</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">config_components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">config_component</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">config_components</span>
+
+
+<span class="k">def</span> <span class="nf">_create_project_directories</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">project_structure</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NamedTuple</span><span class="p">:</span>
+    <span class="n">project_dirs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">project_structure_subdir</span> <span class="ow">in</span> <span class="n">project_structure</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">subdirecotry</span> <span class="o">=</span> <span class="n">_create_project_subdirectory</span><span class="p">(</span>
+            <span class="n">project_dir</span><span class="p">,</span> <span class="n">project_structure_subdir</span><span class="p">)</span>
+        <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">subdirecotry</span><span class="p">))</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span>
+            <span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">project_dirs</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">subdirecotry</span>
+
+    <span class="k">return</span> <span class="n">project_structure</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="o">**</span><span class="n">project_dirs</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_create_project_subdirectory</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subdirectory</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">path_to_subdirectory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">subdirectory</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">path_to_subdirectory</span>
+
+
+<span class="k">def</span> <span class="nf">_update_project_structure_with_run_dir</span><span class="p">(</span>
+        <span class="n">run_subfolder</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">project_structure</span><span class="p">:</span> <span class="n">NamedTuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NamedTuple</span><span class="p">:</span>
+    <span class="n">project_structure_as_dict</span> <span class="o">=</span> <span class="n">project_structure</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">each_key</span><span class="p">,</span> <span class="n">each_path</span> <span class="ow">in</span> <span class="n">project_structure_as_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">path_split</span> <span class="o">=</span> <span class="n">each_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_NEW_RUN_FLAG</span> <span class="ow">in</span> <span class="n">path_split</span><span class="p">:</span>
+            <span class="n">run_flag_ind</span> <span class="o">=</span> <span class="n">path_split</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">_NEW_RUN_FLAG</span><span class="p">)</span>
+            <span class="n">new_run_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                <span class="o">*</span><span class="n">path_split</span><span class="p">[:</span><span class="n">run_flag_ind</span><span class="p">],</span> <span class="n">run_subfolder</span><span class="p">,</span>
+                <span class="o">*</span><span class="n">path_split</span><span class="p">[</span><span class="n">run_flag_ind</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+            <span class="n">project_structure</span> <span class="o">=</span> <span class="n">project_structure</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span>
+                <span class="o">**</span><span class="p">{</span><span class="n">each_key</span><span class="p">:</span> <span class="n">new_run_path</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">project_structure</span>
+
+
+<span class="k">def</span> <span class="nf">_select_run_subfolder</span><span class="p">(</span>
+        <span class="n">project_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">run_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">run_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">allowed_content_for_run</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">allowed_content_for_run</span> <span class="o">=</span> <span class="n">allowed_content_for_run</span> <span class="ow">or</span> <span class="p">[]</span>
+    <span class="n">path_to_runs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">run_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">run_name</span><span class="p">:</span>
+        <span class="n">run_folder_full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_runs</span><span class="p">,</span> <span class="n">run_name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">run_folder_full_path</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">run_name</span>
+
+        <span class="n">not_allowed_subdirs</span> <span class="o">=</span> <span class="n">_get_not_allowed_content</span><span class="p">(</span><span class="n">run_folder_full_path</span><span class="p">,</span>
+                                                       <span class="n">allowed_content_for_run</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">not_allowed_subdirs</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Folder </span><span class="si">{}</span><span class="s2"> has not allowed content </span><span class="si">{}</span><span class="s2">. Please remove it &quot;</span>
+                   <span class="s2">&quot;or select other run&quot;</span>
+                   <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">run_folder_full_path</span><span class="p">,</span> <span class="n">not_allowed_subdirs</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">run_name</span>
+
+    <span class="n">all_runs</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">get_existing_fnames_with_index</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_runs</span><span class="p">,</span> <span class="n">_RUN_DIR_IDENTIFIER</span><span class="p">),</span> <span class="n">project_dir</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_runs</span><span class="p">:</span>
+        <span class="n">run_folder</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">_RUN_DIR_IDENTIFIER</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">run_folder</span>
+
+    <span class="n">run_folder_full_path</span> <span class="o">=</span> <span class="n">all_runs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">_get_not_allowed_content</span><span class="p">(</span><span class="n">run_folder_full_path</span><span class="p">,</span> <span class="n">allowed_content_for_run</span><span class="p">):</span>
+        <span class="n">run_folder_full_path</span> <span class="o">=</span> <span class="n">file_utils</span><span class="o">.</span><span class="n">get_incremented_path</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">run_folder_full_path</span><span class="p">))</span>
+    <span class="n">run_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">run_folder_full_path</span><span class="p">,</span> <span class="n">path_to_runs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">run_folder</span>
+
+
+<span class="k">def</span> <span class="nf">_get_not_allowed_content</span><span class="p">(</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">allowed_content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">exclude_prefix</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+    <span class="k">if</span> <span class="n">allowed_content</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">path_content</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">exclude_prefix</span><span class="p">:</span>
+            <span class="n">path_content</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">path_content</span>
+                            <span class="k">if</span> <span class="ow">not</span> <span class="n">item</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">exclude_prefix</span><span class="p">)]</span>
+
+        <span class="n">not_allowed_content</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">path_content</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">allowed_content</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">not_allowed_content</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">not_allowed_content</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">_add_symlink_for_last_run</span><span class="p">(</span><span class="n">run_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">path_to_runs</span><span class="p">,</span> <span class="n">last_run_subdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">run_dir</span><span class="p">)</span>
+    <span class="n">link_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_to_runs</span><span class="p">,</span> <span class="n">_LAST_RUN_NAME</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">link_path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">link_path</span><span class="p">)</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">IsADirectoryError</span><span class="p">,)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Cannot create symlink to last run. Error traceback: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="n">last_run_subdir</span><span class="p">,</span> <span class="n">link_path</span><span class="p">)</span>
+    <span class="c1"># pylint: disable=invalid-name</span>
+    <span class="c1"># is common practice to call exceptions as e</span>
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Cannot create symlink to last run. Error traceback: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_verify_data_extraction_run_name</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">run_name</span><span class="p">,</span> <span class="n">continue_last</span><span class="p">):</span>
+    <span class="n">run_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">project_dir</span><span class="p">,</span> <span class="n">_DATA_EXTRACT_DIR</span><span class="p">,</span> <span class="n">run_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">run_directory</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">continue_last</span><span class="p">:</span>
+            <span class="n">not_allowed_subdirs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">not_allowed_subdirs</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">ProjectDirs</span><span class="o">.</span><span class="n">DATA_EXTRACT</span><span class="o">.</span><span class="n">callbacks</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">ProjectDirs</span><span class="o">.</span><span class="n">DATA_EXTRACT</span><span class="o">.</span><span class="n">artifacts</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">existing_subdirs</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">run_directory</span><span class="p">)</span>
+        <span class="n">not_allowed_subdirs</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">existing_subdirs</span><span class="p">),</span>
+                                               <span class="nb">set</span><span class="p">(</span><span class="n">not_allowed_subdirs</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">not_allowed_subdirs</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;data extraction directory </span><span class="si">{}</span><span class="s2"> contains not allowed &quot;</span>
+                   <span class="s2">&quot;directories </span><span class="si">{}</span><span class="s2">!. Please remove them or use new run_name&quot;</span>
+                   <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">run_name</span><span class="p">,</span> <span class="n">not_allowed_subdirs</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Audi Electronics Venture GmbH
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
