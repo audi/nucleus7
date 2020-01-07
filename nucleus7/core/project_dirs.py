@@ -714,7 +714,7 @@ def _verify_unused_configs(config_dir: str, single_config_fnames: list,
             fnames_should = (single_config_fnames +
                              ['project_global_config'])
             if (os.path.splitext(each_item)[0] not in fnames_should
-                    and not each_item.startswith('_')
+                    and not each_item.startswith(('_', '.'))
                     and not each_item == _CONFIG_MAIN_FILE_NAME):
                 raise FileExistsError(
                     "Found unused configuration '{}'! "
@@ -722,7 +722,7 @@ def _verify_unused_configs(config_dir: str, single_config_fnames: list,
                     "temp file!".format(each_item))
         elif os.path.isdir(path_full):
             if (each_item not in multiple_config_fnames
-                    and not each_item.startswith('_')):
+                    and not each_item.startswith(('_', '.'))):
                 raise FileExistsError(
                     "Found unused configuration directory '{}'! "
                     "remove it or use '_' prefix to set it as a "
