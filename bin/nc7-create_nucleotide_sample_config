@@ -73,7 +73,7 @@ def main():
     class_name, output_file = parse_args()
     json_dict = nucleotide_utils.get_sample_config_for_nucleotide(
         class_name=class_name)
-    json_str = json.dumps(json_dict)
+    json_str = json.dumps(json_dict, indent=4, sort_keys=True)
     json_str = 'FIX TODOS IN FILE BEFORE YOU CONTINUE\n' + json_str
     if output_file is None:
         print(json_str)
