@@ -28,6 +28,7 @@ from nucleus7.utils import nest_utils
 from nucleus7.utils import tf_objects_factory
 from nucleus7.utils import tf_utils
 from nucleus7.utils import tf_varscopes_utils
+from nucleus7.utils import object_utils
 
 # pylint: disable=invalid-name
 # this is a type constant, not a class

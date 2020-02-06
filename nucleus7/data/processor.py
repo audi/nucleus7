@@ -48,6 +48,7 @@ class DataProcessor(BaseDataPipeNucleotide,
             processed data
         """
 
+    @object_utils.raise_exception_with_class_name
     def __call__(self, **inputs):
         # pylint: disable=arguments-differ
         # parent __call__ method has more generic signature

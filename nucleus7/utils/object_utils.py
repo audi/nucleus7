@@ -10,8 +10,9 @@
 Utils to work with objects
 """
 
-from functools import wraps
 import inspect
+import sys
+from functools import wraps
 from typing import Any
 from typing import Callable
 from typing import Dict
@@ -161,6 +162,34 @@ def assert_object_is_built(obj: object):
         msg = "Object {} is not built! Call self.build() first".format(
             class_name)
         raise ValueError(msg)
+
+
+def raise_exception_with_class_name(function: Callable):
+    """
+    Decorator meant for class member functions to catch and
+    raise exceptions with a class name prefix
+
+    Parameters
+    ----------
+    function
+        method to decorate
+
+    Returns
+    -------
+    decorated_method
+        decorated method
+    """
+
+    @wraps(function)
+    def wrapped(self, *args, **kwargs):
+        try:
+            return function(self, *args, **kwargs)
+        except Exception as exc:
+            trace = sys.exc_info()[2]
+            msg = "{}.{}".format(self.__class__.__name__, str(exc))
+            raise type(exc)(msg).with_traceback(trace)
+
+    return wrapped
 
 
 # pylint: disable=invalid-name

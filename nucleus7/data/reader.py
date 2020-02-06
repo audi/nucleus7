@@ -21,6 +21,7 @@ from nucleus7.data.base import BaseDataPipeNucleotide
 from nucleus7.data.data_filter import DataFilterMixin
 from nucleus7.data.file_list import FileListMixin
 from nucleus7.utils import tf_data_utils
+from nucleus7.utils import object_utils
 
 _TFRECORDS_DATA_KEY = 'tfrecords'
 
@@ -65,6 +66,7 @@ class DataReader(BaseDataPipeNucleotide,
             read data from matched file names
         """
 
+    @object_utils.raise_exception_with_class_name
     def __call__(self, **fnames):
         # pylint: disable=arguments-differ
         # parent __call__ method has more generic signature
