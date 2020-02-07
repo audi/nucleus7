@@ -18,8 +18,8 @@ from typing import Optional
 from typing import Tuple
 from typing import Union
 
-from tensorflow import keras
 import tensorflow as tf
+from tensorflow import keras
 
 from nucleus7.core.nucleotide import TfNucleotide
 from nucleus7.optimization.configs import (
@@ -28,7 +28,6 @@ from nucleus7.utils import nest_utils
 from nucleus7.utils import tf_objects_factory
 from nucleus7.utils import tf_utils
 from nucleus7.utils import tf_varscopes_utils
-from nucleus7.utils import object_utils
 
 # pylint: disable=invalid-name
 # this is a type constant, not a class
