@@ -18,6 +18,7 @@ import tensorflow as tf
 from nucleus7.core.base import BaseClass
 from nucleus7.optimization.configs import OptimizationConfig
 from nucleus7.optimization.configs import merge_optimization_configs
+from nucleus7.optimization.optimizers import Lookahead
 from nucleus7.utils import object_utils
 from nucleus7.utils import optimization_utils
 from nucleus7.utils import tf_objects_factory
@@ -389,11 +390,18 @@ class OptimizationHandler(BaseClass):
         if config.learning_rate_multiplier is not None:
             learning_rate = learning_rate * config.learning_rate_multiplier
         optimizer_parameters = config.optimizer_parameters or {}
+        optimizer_name = config.optimizer_name
+        use_lookahead = False
+        if optimizer_name.startswith('lookahead_'):
+            optimizer_name = optimizer_name.split('lookahead_')[-1]
+            use_lookahead = True
         optimizer = (
             tf_objects_factory.optimizer_factory_from_name_and_parameters(
-                config.optimizer_name,
+                optimizer_name,
                 learning_rate=learning_rate,
                 **optimizer_parameters))
+        if use_lookahead:
+            optimizer = Lookahead(optimizer)
         config = config._replace(optimizer=optimizer,
                                  learning_rate=learning_rate)
         return config

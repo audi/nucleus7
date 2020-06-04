@@ -17,6 +17,8 @@ from typing import Sequence
 from typing import Tuple
 
 import tensorflow as tf
+from tensorflow.python.ops import resource_variable_ops
+from tensorflow.python.ops import state_ops
 
 from nucleus7.utils import tf_ops
 
@@ -62,7 +64,7 @@ def average_grads_and_vars_from_multiple_devices(
     return grads_and_vars_averaged
 
 
-def train_op_with_clip_and_noise(optimizer: tf.train.Optimizer,
+def train_op_with_clip_and_noise(optimizer: tf.keras.optimizers.Optimizer,
                                  grads_and_vars: _GRAD_AND_VARS_TYPE,
                                  global_step: Optional[tf.Tensor] = None,
                                  gradient_clip: Optional[float] = None,
@@ -101,8 +103,8 @@ def train_op_with_clip_and_noise(optimizer: tf.train.Optimizer,
     if gradient_noise_std is not None:
         grads_and_vars = add_noise_to_grads_and_vars(
             grads_and_vars, gradient_noise_std)
-    train_op = optimizer.apply_gradients(
-        grads_and_vars, global_step=global_step)
+    train_op = optimizer.apply_gradients(grads_and_vars)
+    train_op = _colocate_global_step(train_op, global_step)
     return train_op
 
 
@@ -246,3 +248,21 @@ def get_gradient_l2_norm(gradients: Sequence[tf.Tensor],
             tf.reshape(each_grad, [-1]) for each_grad in gradients], 0)
         gradient_l2_norm = tf.reduce_sum(gradients_flatten ** 2) ** 0.5
     return gradient_l2_norm
+
+
+def _colocate_global_step(train_op, global_step):
+    if global_step is None:
+        return train_op
+    with tf.control_dependencies(tf.get_collection_ref(tf.GraphKeys.TRAIN_OP)):
+        with tf.colocate_with(global_step):
+            if isinstance(global_step, resource_variable_ops.ResourceVariable):
+                apply_updates = resource_variable_ops.assign_add_variable_op(
+                    global_step.handle,
+                    tf.convert_to_tensor(1, dtype=global_step.dtype),
+                    name=None)
+            else:
+                apply_updates = state_ops.assign_add(global_step, 1, name=None)
+    if isinstance(apply_updates, tf.Tensor):
+        apply_updates = apply_updates.op
+    train_op = tf.group([train_op, apply_updates])
+    return train_op

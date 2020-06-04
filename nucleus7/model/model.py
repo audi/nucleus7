@@ -220,7 +220,6 @@ class Model(GeneHandler, metaclass=MetaLogAndRegister):
             trainable_variables.extend(each_nucleotide.trainable_variables)
         return trainable_variables
 
-
     @object_utils.assert_is_built
     @object_utils.assert_property_is_defined('mode')
     def __call__(self,
