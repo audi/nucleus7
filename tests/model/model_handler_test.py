@@ -45,7 +45,7 @@ class TestModelHandler(tf.test.TestCase,
         self.model = ModelMock(num_classes=self.num_classes,
                                regularization_l1=0.5).build()
         self.global_optim_config = create_and_validate_optimization_config(
-            optimizer_name='GradientDescentOptimizer',
+            optimizer_name='sgd',
             learning_rate=self.learning_rate, is_global=True)
 
     def test_build(self):

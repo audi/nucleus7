@@ -166,6 +166,7 @@ class CoordinatorCallback(Nucleotide):
     @mlflow_utils.log_nucleotide_exec_time_to_mlflow(
         method_name="on_iteration_end")
     @log_utils.log_nucleotide_inputs_outputs()
+    @object_utils.raise_exception_with_class_name
     def __call__(self, **inputs):
         # pylint: disable=arguments-differ
         # parent __call__ method has more generic signature

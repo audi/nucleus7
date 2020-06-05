@@ -18,8 +18,8 @@ from typing import Optional
 from typing import Tuple
 from typing import Union
 
-from tensorflow import keras
 import tensorflow as tf
+from tensorflow import keras
 
 from nucleus7.core.nucleotide import TfNucleotide
 from nucleus7.optimization.configs import (

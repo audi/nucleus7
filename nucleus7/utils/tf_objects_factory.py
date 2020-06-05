@@ -21,6 +21,7 @@ from tensorflow import keras
 import tensorflow as tf
 
 from nucleus7.utils.utils import get_member_from_package_and_member_names
+from nucleus7.optimization import optimizers as xtra_optimizers
 
 
 def activation_factory(activation_or_name_with_params: Union[dict, str, type]
@@ -164,7 +165,7 @@ def initializer_factory(initializer_or_name_with_params
 def optimizer_factory_from_name_and_parameters(
         optimizer_name: str,
         learning_rate: Union[tf.Tensor, float],
-        **optimizer_parameters) -> tf.train.Optimizer:
+        **optimizer_parameters) -> tf.keras.optimizers:
     """
     Factory to construct the optimizer from its name and config
 
@@ -181,19 +182,26 @@ def optimizer_factory_from_name_and_parameters(
     -------
 
     """
-    _remap_names = {'rmsprop': "RMSPropOptimizer",
-                    'adam': "AdamOptimizer",
-                    'adagrad': "AdagradOptimizer",
-                    'sgd': "GradientDescentOptimizer",
-                    'moment': "MomentumOptimizer"}
+    _remap_names = {'rmsprop': "RMSprop",
+                    'adam': "Adam",
+                    'adagrad': "Adagrad",
+                    'sgd': "SGD",
+                    'moment': "MomentumOptimizer",
+                    'adadelta': "Adadelta",
+                    'adamax': "Adamax",
+                    'ftrl': "Ftrl",
+                    'nadam': "Nadam",
+                    'radam': "RectifiedAdam"}
     name = _remap_names.get(optimizer_name, optimizer_name)
-
-    assert hasattr(tf.train, name), (
-        "Use optimizer name from tf.train module, e.g. RMSPropOptimizer "
-        "(got {})".format(name))
-    optimizer_cls = getattr(tf.train, name)
+    check = hasattr(tf.keras.optimizers, name) or hasattr(xtra_optimizers, name)
+    assert check, ("Use optimizer name from tf.keras.optimizers or"
+                   "tfa.optimizers module, e.g. RMSprop (got {})".format(name))
+    if hasattr(tf.keras.optimizers, name):
+        optimizer_cls = getattr(tf.keras.optimizers, name)
+    else:
+        optimizer_cls = getattr(xtra_optimizers, name)
     try:
-        assert issubclass(optimizer_cls, tf.train.Optimizer), (
+        assert issubclass(optimizer_cls, tf.keras.optimizers.Optimizer), (
             "Used optimizer {} is not optimizer".format(optimizer_cls))
     except TypeError:
         raise AssertionError(

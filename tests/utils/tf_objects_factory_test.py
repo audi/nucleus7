@@ -135,10 +135,11 @@ class TestTfObjectsBuilder(parameterized.TestCase):
 
     def test_optimizer_from_name_and_parameters_factory(self):
         optimizer = tf_objects_factory.optimizer_factory_from_name_and_parameters(
-            "AdadeltaOptimizer", learning_rate=100, rho=10)
-        self.assertIsInstance(optimizer, tf.train.AdadeltaOptimizer)
-        self.assertEqual(optimizer._lr, 100)
-        self.assertEqual(optimizer._rho, 10)
+            "Adadelta", learning_rate=100, rho=10)
+        self.assertIsInstance(optimizer, tf.keras.optimizers.Adadelta)
+        config = optimizer.get_config()
+        self.assertEqual(config.get('learning_rate'), 100)
+        self.assertEqual(config.get('rho'), 10)
 
         with self.assertRaises(AssertionError):
             tf_objects_factory.optimizer_factory_from_name_and_parameters(

@@ -299,6 +299,7 @@ class KPIPlugin(Nucleotide):
         self.save(kpi, prefix=full_cache_prefix)
         return kpi
 
+    @object_utils.raise_exception_with_class_name
     def __call__(self, *, sample_mask=None, **inputs):
         # pylint: disable=arguments-differ
         # parent __call__ method has more generic signature

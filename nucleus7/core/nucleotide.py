@@ -390,6 +390,7 @@ class TfNucleotide(Nucleotide,
     @tf_varscopes_utils.add_var_scope_and_variables
     @tf_utils.replace_outputs_with_named_identity
     @log_utils.log_nucleotide_inputs_outputs()
+    @object_utils.raise_exception_with_class_name
     def __call__(self, **inputs) -> Dict[str, tf.Tensor]:
         """
         Wrapper on top of self.call with following checks:

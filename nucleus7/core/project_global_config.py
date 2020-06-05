@@ -24,7 +24,7 @@ import os
 from typing import Optional
 from typing import Union
 
-import dpath
+import dpath.util
 
 from nucleus7.utils import io_utils
 from nucleus7.utils import object_utils
@@ -91,8 +91,8 @@ class _ProjectGlobalConfig:
 
         def _get_single(item_):
             values_ = sorted(list(
-                dpath.search(_ProjectGlobalConfig.config, item_,
-                             yielded=True)))
+                dpath.util.search(_ProjectGlobalConfig.config, item_,
+                                  yielded=True)))
             if not values_:
                 return None
             if len(values_) > 1:

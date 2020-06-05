@@ -11,6 +11,7 @@ Base class and meta class for registering and logging
 """
 
 import logging
+import sys
 
 from nucleus7.core import config_logger
 from nucleus7.core import register
@@ -60,7 +61,12 @@ class MetaLogAndRegister(type):
         super().__init__(class_name, bases, attributes_dict)
 
     def __call__(cls, *args, **kwargs):
-        instance = super().__call__(*args, **kwargs)
+        try:
+            instance = super().__call__(*args, **kwargs)
+        except Exception as exc:
+            trace = sys.exc_info()[2]
+            msg = "{}.{}".format(cls.__name__, str(exc))
+            raise type(exc)(msg).with_traceback(trace)
         if not cls._exclude_from_log:
             config_logger.add_constructor_parameters_to_log(
                 instance, cls._log_name_scope, parameters_args=args,

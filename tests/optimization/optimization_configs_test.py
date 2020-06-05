@@ -14,7 +14,7 @@ from nucleus7.optimization import configs as opt_configs
 class TestOptimizationConfigs(parameterized.TestCase):
 
     def test_create_and_validate_optimization_config_global(self):
-        optimization_parameters = {'optimizer_name': 'RMSPropOptimizer',
+        optimization_parameters = {'optimizer_name': 'RMSprop',
                                    'learning_rate': 100,
                                    'optimizer_parameters': {
                                        'epsilon': 10,
@@ -25,7 +25,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
                                    'decouple_regularization': True}
         config = opt_configs.create_and_validate_optimization_config(
             **optimization_parameters, is_global=True)
-        self.assertEqual(config.optimizer_name, "RMSPropOptimizer")
+        self.assertEqual(config.optimizer_name, "RMSprop")
         self.assertEqual(config.learning_rate, 100)
         self.assertEqual(config.decouple_regularization, True)
         self.assertEqual(config.gradient_clip, 2)
@@ -40,17 +40,17 @@ class TestOptimizationConfigs(parameterized.TestCase):
                 is_global=True)
         with self.assertRaises(AssertionError):
             opt_configs.create_and_validate_optimization_config(
-                optimizer_name='RMSPropOptimizer',
+                optimizer_name='RMSprop',
                 is_global=True)
         with self.assertRaises(AssertionError):
             opt_configs.create_and_validate_optimization_config(
-                optimizer_name='RMSPropOptimizer',
+                optimizer_name='RMSprop',
                 learning_rate=10,
                 learning_rate_multiplier=10,
                 is_global=True)
 
     def test_create_optimizer_config_local(self):
-        optimization_parameters = {'optimizer_name': 'RMSPropOptimizer',
+        optimization_parameters = {'optimizer_name': 'RMSprop',
                                    'optimizer_parameters': {
                                        'epsilon': 10,
                                        'decay': 5
@@ -61,7 +61,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
                                    'learning_rate_multiplier': 2}
         config = opt_configs.create_and_validate_optimization_config(
             **optimization_parameters, is_global=False)
-        self.assertEqual(config.optimizer_name, "RMSPropOptimizer")
+        self.assertEqual(config.optimizer_name, "RMSprop")
         self.assertIsNone(config.learning_rate)
         self.assertEqual(config.decouple_regularization, True)
         self.assertEqual(config.gradient_clip, 2)
@@ -102,7 +102,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
             self, global_decouple=None, local_decouple=None,
             local_learning_rate_multiplier=2.0):
         global_optimization_parameters = {
-            'optimizer_name': 'RMSPropOptimizer',
+            'optimizer_name': 'RMSprop',
             'learning_rate': 100,
             'optimizer_parameters': {
                 'epsilon': 10,
@@ -112,7 +112,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
             'gradient_noise_std': 0.1,
             'decouple_regularization': global_decouple}
         local_optimization_parameters = {
-            'optimizer_name': 'AdadeltaOptimizer',
+            'optimizer_name': 'Adadelta',
             'optimizer_parameters': {
                 'rho': 5,
             },
@@ -128,7 +128,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
 
         decouple_must = (local_decouple if local_decouple is not None
                          else global_decouple)
-        self.assertEqual('AdadeltaOptimizer',
+        self.assertEqual('Adadelta',
                          local_config_merged.optimizer_name)
         self.assertEqual(decouple_must,
                          local_config_merged.decouple_regularization)
@@ -150,9 +150,9 @@ class TestOptimizationConfigs(parameterized.TestCase):
         {'global_decouple': False, 'local_decouple': True},
         {'local_learning_rate_multiplier': None},
         {'local_learning_rate_multiplier': 10},
-        {'local_optimizer_name': 'RMSPropOptimizer',
+        {'local_optimizer_name': 'RMSProp',
          'add_local_parameters': False},
-        {'local_optimizer_name': 'RMSPropOptimizer',
+        {'local_optimizer_name': 'RMSProp',
          'add_local_parameters': True},
         {'add_local_parameters': True},
         {'add_local_parameters': False},
@@ -163,7 +163,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
             add_local_parameters=True,
             local_optimizer_name=None):
         global_optimization_parameters = {
-            'optimizer_name': 'RMSPropOptimizer',
+            'optimizer_name': 'RMSProp',
             'learning_rate': 100,
             'epsilon': 10,
             'decay': 5,
@@ -191,7 +191,7 @@ class TestOptimizationConfigs(parameterized.TestCase):
                 {'epsilon': 10, 'decay': 5})
 
         self.assertEqual(local_config_merged.optimizer_name,
-                         'RMSPropOptimizer')
+                         'RMSProp')
         decouple_must = (local_decouple if local_decouple is not None
                          else global_decouple)
         self.assertEqual(local_config_merged.decouple_regularization,

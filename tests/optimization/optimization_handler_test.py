@@ -29,7 +29,7 @@ class TestOptimization(tf.test.TestCase,
         self.learning_rate_manipulator = ConstantLearningRate().build()
         self.global_optim_config = OptimizationConfig(
             optimizer=None,
-            optimizer_name='RMSPropOptimizer',
+            optimizer_name='rmsprop',
             learning_rate=0.01,
             learning_rate_multiplier=None,
             learning_rate_manipulator=self.learning_rate_manipulator,
@@ -40,7 +40,7 @@ class TestOptimization(tf.test.TestCase,
         )
         self.local_optim_config1 = OptimizationConfig(
             optimizer=None,
-            optimizer_name='GradientDescentOptimizer',
+            optimizer_name='sgd',
             learning_rate=None,
             learning_rate_multiplier=0.25,
             learning_rate_manipulator=None,
@@ -99,7 +99,7 @@ class TestOptimization(tf.test.TestCase,
         vars_for_config2_with_inters = vars_tf[3:]
 
         wrong_config1 = self.local_optim_config1._replace(
-            optimizer=tf.train.GradientDescentOptimizer(0.1))
+            optimizer=tf.keras.optimizers.SGD(0.1))
         wrong_config2 = self.local_optim_config1._replace(
             learning_rate=0.5)
         wrong_config3 = self.global_optim_config._replace(
@@ -178,19 +178,19 @@ class TestOptimization(tf.test.TestCase,
         local_optimizer2 = (
             self.optimization._local_configs_with_vars[1][0].optimizer)
         self.assertIsInstance(global_optimizer,
-                              tf.train.RMSPropOptimizer)
+                              tf.keras.optimizers.RMSprop)
         self.assertIsInstance(local_optimizer1,
-                              tf.train.GradientDescentOptimizer)
+                              tf.keras.optimizers.SGD)
         self.assertIsInstance(local_optimizer2,
-                              tf.train.RMSPropOptimizer)
+                              tf.keras.optimizers.RMSprop)
 
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             global_step_eval = sess.run(self.optimization.global_step)
             global_lr_eval = sess.run(self.optimization.global_learning_rate)
-            lr_global_optimizer_eval = sess.run(global_optimizer._learning_rate)
-            lr_local_optimizer1_eval = sess.run(local_optimizer1._learning_rate)
-            lr_local_optimizer2_eval = sess.run(local_optimizer2._learning_rate)
+            lr_global_optimizer_eval = sess.run(global_optimizer.learning_rate)
+            lr_local_optimizer1_eval = sess.run(local_optimizer1.learning_rate)
+            lr_local_optimizer2_eval = sess.run(local_optimizer2.learning_rate)
 
         self.assertEqual(0,
                          global_step_eval)
@@ -225,7 +225,7 @@ class TestOptimization(tf.test.TestCase,
         config = config._replace(
             decouple_regularization=decouple_regularization,
             learning_rate=0.5,
-            optimizer=tf.train.RMSPropOptimizer(learning_rate=0.5))
+            optimizer=tf.keras.optimizers.RMSprop(learning_rate=0.5))
         configs_with_filtered_grads_and_vars = (
             self.optimization.filter_grads_and_vars_with_decouple_for_config(
                 config, vars_for_config, grads_and_vars_tf,
@@ -390,7 +390,7 @@ class TestOptimization(tf.test.TestCase,
     def test_get_train_op(self, use_regularization, num_iterations,
                           use_only_global_config):
         global_optim_config = self.global_optim_config._replace(
-            optimizer_name='GradientDescentOptimizer',
+            optimizer_name='SGD',
             optimizer_parameters=None,
             gradient_clip=None,
             gradient_noise_std=None)
