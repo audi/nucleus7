@@ -21,7 +21,7 @@ setup(
     author_email='oleksandr.vorobiov@audi.de',
     keywords=['nucleus7', 'deep learning'],
     install_requires=[
-        'urllib3==1.24.2',
+        'urllib3==1.26.18',
         'numpy>=1.15.4',
         'numpydoc>=0.8.0,<0.9.0',
         'tqdm>=4.31.1',
